@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import './App.sass';
+import SignUp from './pages/signUp/signUp';
+import Auth from './pages/auth/auth';
+import Bots from './pages/bots/bots';
+import onlyAutorizenUsers from './componens/hoc/onlyAutorizedUsers';
+import onlyDontRegistrationUsers from './componens/hoc/onlyNotRegistration';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+
+  render() {
+    return(
+        <Router>
+          <div>
+            <Switch>
+              <Route exact path={"/"} render={() => (
+                  <Redirect to={'signUp'}/>
+              )}/>
+              <Route
+                  exact
+                  path={"/signUp"}
+                  component={onlyDontRegistrationUsers(SignUp)}
+              />
+              <Route
+                  exact
+                  path={"/auth"}
+                  component={onlyDontRegistrationUsers(Auth)}
+              />
+                <Route
+                    exact
+                    path={"/bots"}
+                    component={onlyAutorizenUsers(Bots)}
+                />
+            </Switch>
+          </div>
+        </Router>
+    );
+  }
 }
 
 export default App;

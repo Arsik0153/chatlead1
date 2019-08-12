@@ -6,7 +6,7 @@ export default function onlyAutorizedUsers (WrappedComponent) {
         render() {
             if( !localStorage.getItem('token') ) {
                 this.props.history.push("/auth");
-                return <div />
+                return null;
             }else {
                 return <WrappedComponent {...this.props}/>
             }

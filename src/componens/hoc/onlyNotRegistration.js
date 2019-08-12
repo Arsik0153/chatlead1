@@ -5,8 +5,8 @@ export default function onlyNotAutorize (WrappedComponent) {
 
         render() {
             if( localStorage.getItem('token') ) {
-                this.props.history.push("/");
-                return <div />
+                this.props.history.push("/bots");
+                return null;
             }else {
                 return <WrappedComponent {...this.props}/>
             }

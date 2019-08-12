@@ -2,7 +2,7 @@
 import ACTION from '../actions/actionTypes';
 
 const initialState = {
-    botsData: {},
+    userData: {},
     isFetching: false,
     error: null
 };
@@ -10,22 +10,22 @@ const initialState = {
 export default function (state = initialState, action) {
 
     switch (action.type) {
-        case ACTION.BOTS_DATA_REQUEST: {
+        case ACTION.USER_DATA_REQUEST: {
             return {
                 ...state,
                 isFetching: true,
                 error: null
             }
         }
-        case ACTION.BOTS_DATA_RESPONSE: {
+        case ACTION.USER_DATA_RESPONSE: {
             return {
                 ...state,
-                botsData: action.data,
+                userData: action.data,
                 isFetching: false,
                 error: null
             }
         }
-        case ACTION.BOTS_DATA_ERROR: {
+        case ACTION.USER_DATA_ERROR: {
             return {
                 ...state,
                 error: action.error,
