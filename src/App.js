@@ -4,6 +4,8 @@ import './App.sass';
 import SignUp from './pages/signUp/signUp';
 import Auth from './pages/auth/auth';
 import Bots from './pages/bots/bots';
+import SingleBot from './pages/singleBot/singleBot';
+import SingleScenario from './pages/singleScenario/singleScenario';
 import onlyAutorizenUsers from './componens/hoc/onlyAutorizedUsers';
 import onlyDontRegistrationUsers from './componens/hoc/onlyNotRegistration';
 
@@ -28,11 +30,21 @@ class App extends React.Component {
                   path={"/auth"}
                   component={onlyDontRegistrationUsers(Auth)}
               />
-                <Route
-                    exact
-                    path={"/bots"}
-                    component={onlyAutorizenUsers(Bots)}
-                />
+              <Route
+                  exact
+                  path={"/bots"}
+                  component={onlyAutorizenUsers(Bots)}
+              />
+              <Route
+                  exact
+                  path={"/bots/:botId/scenario"}
+                  component={onlyAutorizenUsers(SingleBot)}
+              />
+              {/*<Route*/}
+                  {/*exact*/}
+                  {/*path={"/scenarios/:scenarioId"}*/}
+                  {/*component={onlyAutorizenUsers(SingleScenario)}*/}
+              {/*/>*/}
             </Switch>
           </div>
         </Router>

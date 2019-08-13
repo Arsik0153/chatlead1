@@ -17,3 +17,16 @@ export const createBot = (createBotData) => (
 export const getAllBotsForUser = (userData) => (
     axios.post(`${restURL}/GetUserManagers/`, userData)
 );
+
+
+export const getScenariesForManager = (botData) => (
+    axios.post(`${restURL}/GetScenarios/`, botData)
+);
+
+export const addNewScenario = (botData) => (
+  axios.post(`${restURL}/CreateScenario/`, botData)
+);
+
+export const addNewTrigger = (triggerData) => (
+  axios.post(`${restURL}/CreateTrigger/`, triggerData)
+);

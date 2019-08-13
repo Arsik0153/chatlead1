@@ -21,3 +21,18 @@ export const createBot = (createBotData) => ({
 export const getAllBotsForUser = () => ({
    type: ACTION.GET_ALL_BOTS_ACTION
 });
+
+export const getAllScenariesForBot = (idBot) => ({
+   type: ACTION.GET_ALL_SCENARIES,
+    idBot
+});
+
+export const addNewScenario = (botId) => ({
+   type: ACTION.ADD_NEW_SCENARIO,
+   botId
+});
+
+export const addNewTrigger = (triggerData) => ({
+   type: ACTION.ADD_NEW_TRIGGER,
+   triggerData
+});

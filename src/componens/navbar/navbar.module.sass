@@ -1,0 +1,46 @@
+.mainContainer
+  width: 100%
+  position: absolute
+  top: 60px
+  z-index: 8
+  background-color: #fff
+  border-bottom: 1px solid #edf0f2
+  //padding: 0 15px
+
+.menuContainer
+  display: flex
+  justify-content: space-around
+  padding: 15px 30px
+
+  li
+    display: flex
+    font-size: 15px
+    text-transform: uppercase
+    color: #82848B
+    cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: center
+
+    .link
+      text-decoration: none
+      color: #82848B
+      font-weight: 500
+      font-size: 15px
+      font-family: 'Roboto'
+
+      &:hover
+        color: #4680fe
+
+    .activeLink
+      @extend .link
+      color: #4680fe
+
+    &:hover
+      color: #4680fe
+
+    .link
+      &:last-child
+        margin-left: 5px
+
+
