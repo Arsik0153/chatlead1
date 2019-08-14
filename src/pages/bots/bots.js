@@ -23,7 +23,7 @@ const Bots = (props) => {
                 {
                     botsData.managers && botsData.managers.map(elem => (
                         <BotsElement
-                            botId={elem}
+                            {...elem}
                         />
                     ))
                 }

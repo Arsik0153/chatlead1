@@ -1,30 +1,81 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {withRouter} from "react-router-dom";
 import style from './triggersContainer.module.sass';
-import {addNewTrigger} from "../../../actions/actionCreator";
+import {addNewTrigger, updateTrigger} from "../../../actions/actionCreator";
 import {connect} from 'react-redux';
+import {fileDefinition, emptyFile} from "../../../utils/fileDefinition";
 
 
 const TriggersContainer = (props) => {
-    const {changedScenario} = props;
-    const [changedTrigger, changeTrigger] = useState(changedScenario[0]);
+    const changedScenario = props.botScenarios.filter(elem => elem.id === props.changedScenarioId)[0];
+    const {triggers} = changedScenario;
+    const [changedTriggerId, changeTriggerId] = useState(triggers[0].id);
+    const changedTrigger = triggers.filter(elem => elem.id === changedTriggerId)[0];
+
+    // useEffect(() => {
+    //
+    // }, [props.botScenarios]);
 
     const newTriggerHandler = () => {
-        console.log(changedScenario, props.botsData);
+        // console.log(changedScenario, props.botsData);
         // const triggerData = {
         //   scenario_id: changedScenario.id,
         //   manager_id:
         // };
     };
 
+    const updateTriggerDeleteMessageHandler = (index) => {
+        console.log(index);
+    };
+
+    const updateTriggerUpdateMessageHandler = (e, index, typeFile) => {
+
+        const messagesCopy = changedTrigger.messages.concat();
+
+
+        const updationData = {
+            type: typeFile,
+        };
+        if(typeFile === 'text') {
+            Object.assign(updationData, { text: e.target.value })
+        }else {
+            Object.assign(updationData, { file: e.target.files[0] })
+        }
+
+        const updatedTrigger = {
+            ...changedTrigger,
+            index: index,
+            messages: messagesCopy,
+            botId: props.match.params.botId
+        };
+        props.updateTrigger(updatedTrigger, updationData);
+
+    };
+
+
+    const updateTriggerNewMessageHandler = (type) => {
+        const messagesCopy = changedTrigger.messages.concat();
+
+        messagesCopy.push({
+            [type]: ""
+        });
+
+        const updatedTrigger = {
+            ...changedTrigger,
+            messages: messagesCopy,
+            botId: props.match.params.botId
+        };
+        props.updateTrigger(updatedTrigger, false);
+    };
 
     return (
         <div className={style.mainContainer}>
             <div className={style.sideContainer}>
                 {
-                    changedScenario.map(trigger => (
+                    triggers.map(trigger => (
                         <div
                             className={style.singleTriggerContainer}
-                            onClick={() => changeTrigger(trigger)}
+                            onClick={() => changeTriggerId(trigger.id)}
                         >
                             <h2>{trigger.caption}</h2>
                         </div>
@@ -34,12 +85,34 @@ const TriggersContainer = (props) => {
             </div>
             <div className={style.contentContainer}>
                 {
-                    changedTrigger.messages.map(elem => (
+                    changedTrigger.messages.map((elem, index) => (
                         <div className={style.message}>
-                            {elem.text}
+                            {
+                                Object.values(elem)[0].length > 0 ?
+                                    fileDefinition(
+                                        Object.keys(elem)[0],
+                                        Object.values(elem)[0],
+                                        updateTriggerUpdateMessageHandler,
+                                        index,
+                                        updateTriggerDeleteMessageHandler
+                                    ) :
+                                    emptyFile(
+                                        Object.keys(elem)[0],
+                                        index,
+                                        updateTriggerUpdateMessageHandler,
+                                        updateTriggerDeleteMessageHandler
+                                    )
+                            }
                         </div>
                     ))
                 }
+                <div className={style.controls}>
+                    <h2 onClick={() => updateTriggerNewMessageHandler('text')}>+text</h2>
+                    <h2 onClick={() => updateTriggerNewMessageHandler('photo')}>+image</h2>
+                    <h2 onClick={() => updateTriggerNewMessageHandler('audio')}>+audio</h2>
+                    <h2 onClick={() => updateTriggerNewMessageHandler('video')}>+video</h2>
+                    <h2 onClick={() => updateTriggerNewMessageHandler('file')}>+file</h2>
+                </div>
             </div>
             <div className={style.phone}>
                 phone
@@ -58,8 +131,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-   addNewTrigger: (triggerData) => dispatch(addNewTrigger(triggerData))
+   addNewTrigger: (triggerData) => dispatch(addNewTrigger(triggerData)),
+    updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(TriggersContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TriggersContainer));

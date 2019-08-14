@@ -30,3 +30,11 @@ export const addNewScenario = (botData) => (
 export const addNewTrigger = (triggerData) => (
   axios.post(`${restURL}/CreateTrigger/`, triggerData)
 );
+
+export const updateTrigger = (triggerData) => (
+  axios.post(`${restURL}/EditTrigger/`, triggerData)
+);
+
+export const uploadMedia = (mediaData) => (
+  axios.post(`${restURL}/UploadFile/`, mediaData)
+);

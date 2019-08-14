@@ -10,6 +10,7 @@ const initialState = {
 export default function (state = initialState, action) {
 
     switch (action.type) {
+
         case ACTION.SINGLE_BOT_DATA_REQUEST: {
             return {
                 ...state,

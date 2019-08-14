@@ -5,14 +5,14 @@ import {Link} from 'react-router-dom';
 
 
 const BotsElement = (props) => {
-    const {botId} = props;
+    const {name, id} = props;
 
 
     return (
         <div className={style.mainContainer}>
-            <h1>ID бота: {botId}</h1>
+            <h1>Название: {name}</h1>
             <div className={style.controls}>
-                <Link to={`/bots/${botId}/scenario`} className={style.link}>Изменить</Link>
+                <Link to={`/bots/${id}/scenario`} className={style.link}>Изменить</Link>
                 <img src={trash} alt={'trash'} />
             </div>
         </div>

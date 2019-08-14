@@ -36,3 +36,14 @@ export const addNewTrigger = (triggerData) => ({
    type: ACTION.ADD_NEW_TRIGGER,
    triggerData
 });
+
+export const updateTrigger = (triggerData, updationData) => ({
+   type: ACTION.UPDATE_TRIGGER,
+   triggerData,
+    updationData
+});
+
+export const deleteMessageInTrigger = (index) => ({
+   type: ACTION.DELETE_MESSAGE_IN_TRIGGER,
+   index
+});

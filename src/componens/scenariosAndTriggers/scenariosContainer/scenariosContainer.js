@@ -10,7 +10,7 @@ import {withRouter} from "react-router-dom";
 
 const ScenariosContainer = (props) => {
 
-    const [changedScenario, changeScenario] = useState(false);
+    const [changedScenarioId, changeScenarioId] = useState(false);
 
     const newScenarioHandler = () => {
 
@@ -18,11 +18,12 @@ const ScenariosContainer = (props) => {
     };
 
 
-    if(changedScenario) {
+
+    if(changedScenarioId) {
         return (
             <div className={style.triggersContainer}>
                     <TriggersContainer
-                        changedScenario={changedScenario}
+                        changedScenarioId={changedScenarioId}
                     />
             </div>
         )
@@ -43,7 +44,7 @@ const ScenariosContainer = (props) => {
             <div className={style.scenariosContainer}>
                 {
                     props.botScenarios && props.botScenarios.map(elem => (
-                        <div className={style.scenariosElement} onClick={() => changeScenario(elem.triggers)}>
+                        <div className={style.scenariosElement} onClick={() => changeScenarioId(elem.id)}>
                             <h2>{elem.trigger_text}</h2>
                         </div>
                     ))
