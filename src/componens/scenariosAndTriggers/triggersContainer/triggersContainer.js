@@ -3,7 +3,9 @@ import {withRouter} from "react-router-dom";
 import style from './triggersContainer.module.sass';
 import {addNewTrigger, updateTrigger} from "../../../actions/actionCreator";
 import {connect} from 'react-redux';
-import {fileDefinition, emptyFile} from "../../../utils/fileDefinition";
+import {fileDefinition, emptyFile} from "../../../utils/fileDefinition/fileDefinition";
+import ButtonsForAddNewMessage from '../../inputs/buttons/buttonsForAddNewMessages/buttonsForAddNewMessage';
+import CardOrGalleryEllement from '../../messages/cardOrGalleryElement/cardOrGalleryElement';
 
 
 const TriggersContainer = (props) => {
@@ -53,20 +55,7 @@ const TriggersContainer = (props) => {
     };
 
 
-    const updateTriggerNewMessageHandler = (type) => {
-        const messagesCopy = changedTrigger.messages.concat();
 
-        messagesCopy.push({
-            [type]: ""
-        });
-
-        const updatedTrigger = {
-            ...changedTrigger,
-            messages: messagesCopy,
-            botId: props.match.params.botId
-        };
-        props.updateTrigger(updatedTrigger, false);
-    };
 
     return (
         <div className={style.mainContainer}>
@@ -88,30 +77,38 @@ const TriggersContainer = (props) => {
                     changedTrigger.messages.map((elem, index) => (
                         <div className={style.message}>
                             {
-                                Object.values(elem)[0].length > 0 ?
-                                    fileDefinition(
-                                        Object.keys(elem)[0],
-                                        Object.values(elem)[0],
-                                        updateTriggerUpdateMessageHandler,
-                                        index,
-                                        updateTriggerDeleteMessageHandler
-                                    ) :
-                                    emptyFile(
-                                        Object.keys(elem)[0],
-                                        index,
-                                        updateTriggerUpdateMessageHandler,
-                                        updateTriggerDeleteMessageHandler
-                                    )
+                                fileDefinition(
+                                    Object.keys(elem)[0],
+                                    Object.values(elem)[0],
+                                    updateTriggerUpdateMessageHandler,
+                                    index,
+                                    updateTriggerDeleteMessageHandler,
+                                    changedTrigger
+                                )
                             }
+                            {/*{*/}
+                                {/*Object.values(elem)[0].length > 0 ?*/}
+                                    {/*fileDefinition(*/}
+                                        {/*Object.keys(elem)[0],*/}
+                                        {/*Object.values(elem)[0],*/}
+                                        {/*updateTriggerUpdateMessageHandler,*/}
+                                        {/*index,*/}
+                                        {/*updateTriggerDeleteMessageHandler*/}
+                                    {/*) :*/}
+                                    {/*emptyFile(*/}
+                                        {/*Object.keys(elem)[0],*/}
+                                        {/*index,*/}
+                                        {/*updateTriggerUpdateMessageHandler,*/}
+                                        {/*updateTriggerDeleteMessageHandler*/}
+                                    {/*)*/}
+                            {/*}*/}
                         </div>
                     ))
                 }
                 <div className={style.controls}>
-                    <h2 onClick={() => updateTriggerNewMessageHandler('text')}>+text</h2>
-                    <h2 onClick={() => updateTriggerNewMessageHandler('photo')}>+image</h2>
-                    <h2 onClick={() => updateTriggerNewMessageHandler('audio')}>+audio</h2>
-                    <h2 onClick={() => updateTriggerNewMessageHandler('video')}>+video</h2>
-                    <h2 onClick={() => updateTriggerNewMessageHandler('file')}>+file</h2>
+                    <ButtonsForAddNewMessage
+                        changedTrigger={changedTrigger}
+                    />
                 </div>
             </div>
             <div className={style.phone}>

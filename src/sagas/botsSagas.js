@@ -146,35 +146,47 @@ export function* addNewTrigger({ triggerData }) {
 }
 
 export function* updateTriggerSaga({ triggerData, updationData }) {
-    const {messages, index, id, caption, botId} = triggerData;
-    const {type, file} = updationData;
+    const {messages, index, id, caption, botId, changedSlide} = triggerData;
+
+
 
     if(localStorage.getItem('token')) {
         yield put({ type: ACTION.SINGLE_BOT_DATA_REQUEST});
 
 
-            const formData = new FormData();
-            formData.append('user_token', localStorage.getItem('token'));
-            formData.append('trigger_id', id);
-            formData.append('caption', caption);
-            formData.append('manager_id', botId);
+
+        const formData = new FormData();
+        formData.append('user_token', localStorage.getItem('token'));
+        formData.append('trigger_id', id);
+        formData.append('caption', caption);
+        formData.append('manager_id', botId);
 
         if(!updationData) {
 
 
         }else {
             if(updationData.type === 'text') {
+                formData.append('type', updationData.type);
+                formData.append('file', updationData.file);
                 Object.assign(messages[index], {
-                    [type]: updationData[type]
+                    [updationData.type]: updationData[updationData.type]
                 });
             }else {
-                formData.append('type', type);
-                formData.append('file', file);
+                formData.append('type', updationData.type);
+                formData.append('file', updationData.file);
                 const {data} = yield call(uploadMedia, formData);
+                // console.log(data);
                 if(data.ok) {
-                    Object.assign(messages[index], {
-                        [type]: data.message[type].url
-                    })
+                    if(changedSlide || changedSlide === 0) {
+                        Object.assign(messages[index].card[changedSlide], {
+                            photo: data.message[updationData.type].url
+                        });
+                        console.log(messages);
+                    }else {
+                        Object.assign(messages[index], {
+                            [updationData.type]: data.message[updationData.type].url
+                        })
+                    }
                 }
             }
 
