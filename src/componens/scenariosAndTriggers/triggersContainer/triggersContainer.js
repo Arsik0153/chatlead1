@@ -5,7 +5,6 @@ import {addNewTrigger, updateTrigger} from "../../../actions/actionCreator";
 import {connect} from 'react-redux';
 import {fileDefinition, emptyFile} from "../../../utils/fileDefinition/fileDefinition";
 import ButtonsForAddNewMessage from '../../inputs/buttons/buttonsForAddNewMessages/buttonsForAddNewMessage';
-import CardOrGalleryEllement from '../../messages/cardOrGalleryElement/cardOrGalleryElement';
 
 
 const TriggersContainer = (props) => {
@@ -86,22 +85,6 @@ const TriggersContainer = (props) => {
                                     changedTrigger
                                 )
                             }
-                            {/*{*/}
-                                {/*Object.values(elem)[0].length > 0 ?*/}
-                                    {/*fileDefinition(*/}
-                                        {/*Object.keys(elem)[0],*/}
-                                        {/*Object.values(elem)[0],*/}
-                                        {/*updateTriggerUpdateMessageHandler,*/}
-                                        {/*index,*/}
-                                        {/*updateTriggerDeleteMessageHandler*/}
-                                    {/*) :*/}
-                                    {/*emptyFile(*/}
-                                        {/*Object.keys(elem)[0],*/}
-                                        {/*index,*/}
-                                        {/*updateTriggerUpdateMessageHandler,*/}
-                                        {/*updateTriggerDeleteMessageHandler*/}
-                                    {/*)*/}
-                            {/*}*/}
                         </div>
                     ))
                 }

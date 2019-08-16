@@ -47,3 +47,8 @@ export const deleteMessageInTrigger = (index) => ({
    type: ACTION.DELETE_MESSAGE_IN_TRIGGER,
    index
 });
+
+export const updateButtonsInTrigger = (triggerData) => ({
+    type: ACTION.UPDATE_BUTTONS_IN_TRIGGER,
+    triggerData
+});

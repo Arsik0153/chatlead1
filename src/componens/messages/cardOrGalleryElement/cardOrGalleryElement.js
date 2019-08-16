@@ -143,11 +143,9 @@ import {defaultValuesForNewMessages} from "../../../constants/defaultValues";
 
 
 const CardOrGalleryElement = (props) => {
-    const {type, accept, onChange, index, pictureForLabel, value, changedTrigger} = props;
+    const {type, index, pictureForLabel, value, changedTrigger} = props;
     const [changedSlide, changeSlide] = useState(0);
 
-
-    console.log(value[changedSlide].title, value[changedSlide].text);
 
 
     const updateTrigger = (e, typeInput) => {
@@ -158,7 +156,7 @@ const CardOrGalleryElement = (props) => {
             type: 'text'
         };
         if(typeInput === 'text' || typeInput === 'title') {
-            Object.assign(messagesCopy[index].card[changedSlide], {
+            Object.assign(messagesCopy[index][type][changedSlide], {
                 [typeInput]: e.target.value
             });
         }else {
@@ -170,11 +168,13 @@ const CardOrGalleryElement = (props) => {
 
         const triggerData = {
             ...changedTrigger,
-            index: index,
+            index,
+            type,
+            changedSlide,
             messages: messagesCopy,
-            changedSlide: changedSlide,
             botId: props.match.params.botId
         };
+
 
         if(typeInput === 'text' || typeInput === 'title') {
             props.updateTrigger(triggerData);
@@ -188,8 +188,8 @@ const CardOrGalleryElement = (props) => {
         const messagesCopy = changedTrigger.messages.concat();
 
 
-        if(messagesCopy[index].card.length === changedSlide + 1) {
-            messagesCopy[index].card.push({photo: '', title: '', text: ''});
+        if(messagesCopy[index][type].length === changedSlide + 1) {
+            messagesCopy[index][type].push({photo: '', title: '', text: ''});
             const triggerData = {
                 ...changedTrigger,
                 index: index,
@@ -231,18 +231,32 @@ const CardOrGalleryElement = (props) => {
                 </label>
                 <div onClick={() => changedSlide !== 0 && changeSlide(changedSlide - 1)}>-</div>
             </div>
-                <input
-                    type={'text'}
-                    defaultValue={value[changedSlide].title}
-                    placeholder={'Введите титульное слово'}
-                    onBlur={(e) => updateTrigger(e, 'title')}
-                />
-                <input
-                    type={'text'}
-                    defaultValue={value[changedSlide].text}
-                    placeholder={'Введите текст'}
-                    onBlur={(e) => updateTrigger(e, 'text')}
-                />
+                <div className={style.inputContainer}>
+                    <input
+                        type={'text'}
+                        defaultValue={value[changedSlide].title}
+                        placeholder={'Введите титульное слово'}
+                        onBlur={(e) => updateTrigger(e, 'title')}
+                    />
+                    <input
+                        type={'text'}
+                        defaultValue={value[changedSlide].text}
+                        placeholder={'Введите текст'}
+                        onBlur={(e) => updateTrigger(e, 'text')}
+                    />
+                </div>
+                <div className={style.miniImagesContainer}>
+                    {
+                        value.map((elem, index) => (
+                            <img
+                                src={staticMedia + elem.photo}
+                                alt={elem.photo}
+                                onClick={() => changeSlide(index)}
+                                style={index === changedSlide ? {border: '1px solid green'} : {}}
+                            />
+                        ))
+                    }
+                </div>
         </div>
     )
 };

@@ -7,7 +7,8 @@ import {
   getAllScenariesForBotSaga,
   addNewTrigger,
   addNewScenarioSagas,
-  updateTriggerSaga
+  updateTriggerSaga,
+    updateButtonsInTriggerSagas
 } from "./botsSagas";
 
 function* rootSaga() {
@@ -19,6 +20,7 @@ function* rootSaga() {
   yield takeLatest(ACTION.ADD_NEW_TRIGGER, addNewTrigger);
   yield takeLatest(ACTION.ADD_NEW_SCENARIO, addNewScenarioSagas);
   yield takeLatest(ACTION.UPDATE_TRIGGER, updateTriggerSaga);
+  yield takeLatest(ACTION.UPDATE_BUTTONS_IN_TRIGGER, updateButtonsInTriggerSagas);
 }
 
 export default rootSaga;

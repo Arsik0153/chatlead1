@@ -3,6 +3,7 @@ import FancyFileInput from "../../componens/inputs/fancyFileInput/fancyFileInput
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faImage, faVolumeDown, faVideo, faPaperclip} from "@fortawesome/free-solid-svg-icons";
 import CardOrGalleryEllement from '../../componens/messages/cardOrGalleryElement/cardOrGalleryElement';
+import ListElement from '../../componens/messages/listElement/listElement';
 
 
 export const fileDefinition = (key, value, handler, index, deleteHandler, changedTrigger) => {
@@ -61,6 +62,35 @@ export const fileDefinition = (key, value, handler, index, deleteHandler, change
         return (
             <CardOrGalleryEllement
                 type={'card'}
+                index={index}
+                pictureForLabel={{
+                    label: 'image',
+                    img: <FontAwesomeIcon icon={faImage}/>
+                }}
+                changedTrigger={changedTrigger}
+                value={value}
+                onChange={(e) => handler(e, index, key)}
+            />
+        )
+    }else if(key === 'gallery') {
+        return (
+            <CardOrGalleryEllement
+                type={'gallery'}
+                index={index}
+                pictureForLabel={{
+                    label: 'image',
+                    img: <FontAwesomeIcon icon={faImage}/>
+                }}
+                changedTrigger={changedTrigger}
+                value={value}
+                onChange={(e) => handler(e, index, key)}
+            />
+        )
+
+    }else if(key === 'list') {
+        return (
+            <ListElement
+                type={'list'}
                 index={index}
                 pictureForLabel={{
                     label: 'image',
