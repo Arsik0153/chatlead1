@@ -4,6 +4,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faImage, faVolumeDown, faVideo, faPaperclip} from "@fortawesome/free-solid-svg-icons";
 import CardOrGalleryEllement from '../../componens/messages/cardOrGalleryElement/cardOrGalleryElement';
 import ListElement from '../../componens/messages/listElement/listElement';
+import FormElement  from '../../componens/messages/formElement/formElement';
+import TimerElement from '../../componens/messages/timerElement/timerElement';
 
 
 export const fileDefinition = (key, value, handler, index, deleteHandler, changedTrigger) => {
@@ -96,6 +98,34 @@ export const fileDefinition = (key, value, handler, index, deleteHandler, change
                     label: 'image',
                     img: <FontAwesomeIcon icon={faImage}/>
                 }}
+                changedTrigger={changedTrigger}
+                value={value}
+                onChange={(e) => handler(e, index, key)}
+            />
+        )
+    }else if(key === 'form') {
+        return (
+            <FormElement
+                type={'form'}
+                index={index}
+                // pictureForLabel={{
+                //     label: 'image',
+                //     img: <FontAwesomeIcon icon={faImage}/>
+                // }}
+                changedTrigger={changedTrigger}
+                value={value}
+                onChange={(e) => handler(e, index, key)}
+            />
+        )
+    }else if(key === 'timer') {
+        return (
+            <TimerElement
+                type={'timer'}
+                index={index}
+                // pictureForLabel={{
+                //     label: 'image',
+                //     img: <FontAwesomeIcon icon={faImage}/>
+                // }}
                 changedTrigger={changedTrigger}
                 value={value}
                 onChange={(e) => handler(e, index, key)}

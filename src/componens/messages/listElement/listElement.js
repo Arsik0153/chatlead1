@@ -2,14 +2,12 @@ import React, {useState} from 'react';
 import style from './listElement.module.sass';
 import {staticMedia} from "../../../api/baseURL";
 import {withRouter} from "react-router-dom";
-import {addNewTrigger, updateTrigger} from "../../../actions/actionCreator";
+import {updateTrigger} from "../../../actions/actionCreator";
 import {connect} from 'react-redux';
 import ButtonsContainer from '../buttonsContainer/buttonsContainer';
 
 const ListElements = (props) => {
     const {type, index, pictureForLabel, value, changedTrigger} = props;
-
-    console.log(value);
 
 
 

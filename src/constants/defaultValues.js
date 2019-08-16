@@ -8,7 +8,7 @@ export const defaultValuesForNewMessages = {
     gallery: [{photo: '', title: '', text: ''}],
     list: [{photo: '', title: '', text: '', keyboard: {}}, {photo: '', title: '', text: '', keyboard: {}}],
     timer: '',
-    form: ""
+    form: [""]
 };
 
 export const buttonsTypes = {

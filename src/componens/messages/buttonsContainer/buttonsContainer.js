@@ -59,7 +59,7 @@ const ButtonsContainer = (props) => {
         //     isEmpty: true
         // });
 
-        console.log();
+        // console.log();
 
         // console.log(messagesCopy[index][type][changedSlideOrElement], {
         //     keyboard: push
@@ -86,29 +86,17 @@ const ButtonsContainer = (props) => {
         //     })
         // }
 
-        const triggerData = {
-            ...changedTrigger,
-            index,
-            type,
-            changedSlide: changedSlideOrElement,
-            messages: messagesCopy,
-            botId: props.match.params.botId
-        };
-
-        console.log(triggerData);
-
-
-        // if(typeInput === 'text' || typeInput === 'title') {
-        //     props.updateTrigger(triggerData);
-        // }else {
-        //     props.updateTrigger(triggerData, updationData);
-        // }
-
-        // console.log()
-        // if(changedSlideOrElement || changedSlideOrElement === 0) {
-        //     setIndexOpenButton(1);
-        // }
-        // value[changedSlideOrElement].keyboard
+        // const triggerData = {
+        //     ...changedTrigger,
+        //     index,
+        //     type,
+        //     changedSlide: changedSlideOrElement,
+        //     messages: messagesCopy,
+        //     botId: props.match.params.botId
+        // };
+        //
+        //
+        // props.updateTrigger(triggerData);
 
     };
     //
