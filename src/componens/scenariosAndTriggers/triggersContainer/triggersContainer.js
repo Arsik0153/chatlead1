@@ -5,6 +5,7 @@ import {addNewTrigger, updateTrigger} from "../../../actions/actionCreator";
 import {connect} from 'react-redux';
 import {fileDefinition, emptyFile} from "../../../utils/fileDefinition/fileDefinition";
 import ButtonsForAddNewMessage from '../../inputs/buttons/buttonsForAddNewMessages/buttonsForAddNewMessage';
+import SideBarSocial from '../../sideBarSocial/sideBarSocial';
 
 
 const TriggersContainer = (props) => {
@@ -65,7 +66,13 @@ const TriggersContainer = (props) => {
                             className={style.singleTriggerContainer}
                             onClick={() => changeTriggerId(trigger.id)}
                         >
-                            <h2>{trigger.caption}</h2>
+                            <div
+                                style={trigger.id === changedTriggerId
+                                    ? {border: '1px solid #13ce66', color: '#13ce66'} : {}}
+
+                            >
+                                {trigger.caption}
+                            </div>
                         </div>
                     ))
                 }
@@ -94,8 +101,10 @@ const TriggersContainer = (props) => {
                     />
                 </div>
             </div>
-            <div className={style.phone}>
-                phone
+            <div className={style.social}>
+                <SideBarSocial
+                    changedTrigger={changedTrigger}
+                />
             </div>
         </div>
     )
@@ -111,7 +120,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-   addNewTrigger: (triggerData) => dispatch(addNewTrigger(triggerData)),
     updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),
 });
 

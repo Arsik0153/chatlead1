@@ -2,7 +2,7 @@ import React from 'react';
 import style from './formElement.module.sass';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
-import {addNewTrigger, updateTrigger} from "../../../actions/actionCreator";
+import {updateTrigger} from "../../../actions/actionCreator";
 
 const FormElement = (props) => {
     const {type, index, value, changedTrigger} = props;
@@ -60,6 +60,8 @@ const FormElement = (props) => {
         </div>
     )
 };
+
+
 
 const mapDispatchToProps = dispatch => ({
     updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),

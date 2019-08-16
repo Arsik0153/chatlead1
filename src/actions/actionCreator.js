@@ -52,3 +52,8 @@ export const updateButtonsInTrigger = (triggerData) => ({
     type: ACTION.UPDATE_BUTTONS_IN_TRIGGER,
     triggerData
 });
+
+export const updateSocialInTrigger = (triggerData) => ({
+   type: ACTION.UPDATE_SOCIAL_IN_TRIGGER,
+    triggerData
+});
