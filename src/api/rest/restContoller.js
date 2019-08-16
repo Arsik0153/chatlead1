@@ -14,6 +14,10 @@ export const createBot = (createBotData) => (
   axios.post(`${restURL}/CreateManager/`, createBotData)
 );
 
+export const deleteBot = (deleteBotData) => (
+    axios.post(`${restURL}/DeleteManager/`, deleteBotData)
+);
+
 export const getAllBotsForUser = (userData) => (
     axios.post(`${restURL}/GetUserManagers/`, userData)
 );
@@ -25,6 +29,10 @@ export const getScenariesForManager = (botData) => (
 
 export const addNewScenario = (botData) => (
   axios.post(`${restURL}/CreateScenario/`, botData)
+);
+
+export const deleteScenario = (scenarioData) => (
+  axios.post(`${restURL}/DeleteScenario/`, scenarioData)
 );
 
 export const addNewTrigger = (triggerData) => (

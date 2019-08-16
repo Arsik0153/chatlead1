@@ -19,11 +19,12 @@ const TriggersContainer = (props) => {
     // }, [props.botScenarios]);
 
     const newTriggerHandler = () => {
-        // console.log(changedScenario, props.botsData);
-        // const triggerData = {
-        //   scenario_id: changedScenario.id,
-        //   manager_id:
-        // };
+        const triggerData = {
+          scenario_id: changedScenario.id,
+          manager_id: props.match.params.botId,
+        };
+
+        props.appendTrigger(triggerData);
     };
 
     const updateTriggerDeleteMessageHandler = (index) => {
@@ -55,8 +56,6 @@ const TriggersContainer = (props) => {
     };
 
 
-
-
     return (
         <div className={style.mainContainer}>
             <div className={style.sideContainer}>
@@ -69,16 +68,17 @@ const TriggersContainer = (props) => {
                             <div
                                 style={trigger.id === changedTriggerId
                                     ? {border: '1px solid #13ce66', color: '#13ce66'} : {}}
-
+                                className={style.triggerElement}
                             >
                                 {trigger.caption}
                             </div>
                         </div>
                     ))
                 }
-                <div onClick={newTriggerHandler}>+Новый триггер</div>
+                <div onClick={newTriggerHandler} className={style.newTriggerContainer}>+ Новый триггер</div>
             </div>
             <div className={style.contentContainer}>
+                <div className={style.contentHeader}>{changedScenario.trigger_text}</div>
                 {
                     changedTrigger.messages.map((elem, index) => (
                         <div className={style.message}>
@@ -121,6 +121,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),
+    appendTrigger: (triggerData) => dispatch(addNewTrigger(triggerData))
 });
 
 

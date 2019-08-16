@@ -6,14 +6,16 @@ import CardOrGalleryEllement from '../../componens/messages/cardOrGalleryElement
 import ListElement from '../../componens/messages/listElement/listElement';
 import FormElement  from '../../componens/messages/formElement/formElement';
 import TimerElement from '../../componens/messages/timerElement/timerElement';
+import style from './fileDefinition.module.sass';
 
 
 export const fileDefinition = (key, value, handler, index, deleteHandler, changedTrigger) => {
     if(key === 'text') {
         return (
-            <div>
+            <div className={style.textArea}>
                 <textarea defaultValue={value} onBlur={(e) => handler(e, index, key)} />
-                <h3 onClick={() => deleteHandler(index)}>delete</h3>
+                {/*<h3 onClick={() => deleteHandler(index)}>delete</h3>*/}
+                <div className={style.button}>+ Добавить клавишу</div>
             </div>
         )
     }else if(key === 'audio') {

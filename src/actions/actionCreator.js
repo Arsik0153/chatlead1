@@ -18,6 +18,11 @@ export const createBot = (createBotData) => ({
    createBotData
 });
 
+export const deleteBot = (deleteBotData) => ({
+   type: ACTION.DELETE_BOT_ACTION,
+   deleteBotData
+});
+
 export const getAllBotsForUser = () => ({
    type: ACTION.GET_ALL_BOTS_ACTION
 });
@@ -30,6 +35,11 @@ export const getAllScenariesForBot = (idBot) => ({
 export const addNewScenario = (botId) => ({
    type: ACTION.ADD_NEW_SCENARIO,
    botId
+});
+
+export const deleteScenario = (scenarioData) => ({
+   type: ACTION.DELETE_SCENARIO,
+    scenarioData
 });
 
 export const addNewTrigger = (triggerData) => ({
