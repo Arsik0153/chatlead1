@@ -181,8 +181,9 @@ export function* addNewTriggerSagas({ triggerData }) {
         formData.append('manager_id', triggerData.manager_id);
         formData.append('user_token', localStorage.getItem('token'));
         formData.append('scenario_id', triggerData.scenario_id);
-        formData.append('messages', []);
+        formData.append('messages', "[]");
         formData.append('social', 'telegram');
+        // formData.append('caption', 'Новый тригер');
 
 
         const {data} = yield call(addNewTrigger, formData);

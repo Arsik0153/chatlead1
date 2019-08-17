@@ -4,6 +4,9 @@ import {buttonsTypes} from "../../../constants/defaultValues";
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
 import {updateTrigger} from "../../../actions/actionCreator";
+import ClickOutsideHandler from "../../hoc/clickOutside";
+import ContextMenu from './contextMenu/contextMenu';
+
 
 
 const ButtonsContainer = (props) => {
@@ -20,7 +23,7 @@ const ButtonsContainer = (props) => {
 
     const countMessage = () => {
         let count = 0;
-        Object.values(value[changedSlideOrElement].keyboard).map(elem => {
+        Object.values(value[changedSlideOrElement].keyboard).forEach(elem => {
             count = count + elem.length
         });
 
@@ -34,8 +37,10 @@ const ButtonsContainer = (props) => {
         let text_button_Copy = null;
 
         if(changedSlideOrElement || changedSlideOrElement === 0) {
-            text_button_Copy
-                = messagesCopy[index][type][changedSlideOrElement].keyboard[buttonsTypes.text_buttons];
+            const buttons = messagesCopy[index][type][changedSlideOrElement].keyboard;
+
+            text_button_Copy = buttons[buttonsTypes.text_buttons];
+
             if(!text_button_Copy) {
                 text_button_Copy = [];
             }
@@ -44,10 +49,19 @@ const ButtonsContainer = (props) => {
                 isEmpty: true
             });
 
-            Object.assign(messagesCopy[index][type][changedSlideOrElement].keyboard, {
+            Object.assign(buttons, {
                 [buttonsTypes.text_buttons]: text_button_Copy
             });
 
+            const triggerData = {
+                ...changedTrigger,
+                index,
+                type,
+                messages: messagesCopy,
+                botId: props.match.params.botId
+            };
+
+            props.updateTrigger(triggerData);
 
 
         }else {
@@ -99,6 +113,32 @@ const ButtonsContainer = (props) => {
         // props.updateTrigger(triggerData);
 
     };
+
+    const allButtonsInMessage = () => {
+        const messagesCopy = changedTrigger.messages.concat();
+        const buttonsArray = [];
+
+        const buttons
+            = changedSlideOrElement || changedSlideOrElement === 0 ?
+                    messagesCopy[index][type][changedSlideOrElement].keyboard :
+                    messagesCopy[index][type].keyboard;
+
+
+        Object.keys(buttons).forEach(typeButton => {
+            buttons[typeButton].forEach(button => {
+                button.type = typeButton;
+                buttonsArray.push(button);
+            });
+        });
+
+        console.log(buttonsArray);
+
+        return buttonsArray;
+    };
+
+    const editButton = () => {
+
+    };
     //
     // const menuContainer = (changedButton) => {
     //     if((changedSlideOrElement || changedSlideOrElement === 0) && indexOpenButton) {
@@ -117,9 +157,30 @@ const ButtonsContainer = (props) => {
     // };
 
 
-
     return (
         <div className={style.mainContainer}>
+
+            {
+                allButtonsInMessage().map((elem, index) => (
+
+                    <div className={style.buttonElement} onClick={() => setIndexOpenButton(index)}>
+                        <ClickOutsideHandler onClickedOutside={() => setIndexOpenButton(false)}>
+                           <div>
+                               <div>{elem.caption}{elem.isEmpty ? `(empty)` : elem.type}</div>
+                               {
+                                   indexOpenButton === index && (
+                                       <ContextMenu
+                                           buttonEditHandler={editButton}
+                                           typeButton={elem.isEmpty ? 'empty' : elem.type}
+                                       />
+                                   )
+
+                               }
+                           </div>
+                        </ClickOutsideHandler>
+                    </div>
+                ))
+            }
             {/*<div className={style.contentContainer}>*/}
                 {/*{*/}
                     {/*Object.keys(value[changedSlideOrElement].keyboard).map(keyBoardElem => {*/}
@@ -135,6 +196,7 @@ const ButtonsContainer = (props) => {
             {/*</div>*/}
 
             <div className={style.controls}>
+
                 {
                     changedSlideOrElement || changedSlideOrElement === 0 ?
                         countMessage() === 0 && <h2 onClick={() => appendNewButton()}>+ Кнопка</h2>

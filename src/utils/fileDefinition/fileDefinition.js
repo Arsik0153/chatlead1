@@ -7,12 +7,13 @@ import ListElement from '../../componens/messages/listElement/listElement';
 import FormElement  from '../../componens/messages/formElement/formElement';
 import TimerElement from '../../componens/messages/timerElement/timerElement';
 import style from './fileDefinition.module.sass';
+import TextArea from '../../componens/messages/textArea/textArea';
 
 
 export const fileDefinition = (key, value, handler, index, deleteHandler, changedTrigger) => {
     if(key === 'text') {
         return (
-            <div className={style.textArea}>
+            <div className={style.textArea} key={value}>
                 <textarea defaultValue={value} onBlur={(e) => handler(e, index, key)} />
                 {/*<h3 onClick={() => deleteHandler(index)}>delete</h3>*/}
                 <div className={style.button}>+ Добавить клавишу</div>

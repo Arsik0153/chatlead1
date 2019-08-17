@@ -5,7 +5,7 @@ import SignUp from './pages/signUp/signUp';
 import Auth from './pages/auth/auth';
 import Bots from './pages/bots/bots';
 import SingleBot from './pages/singleBot/singleBot';
-import SingleScenario from './pages/singleScenario/singleScenario';
+// import SingleScenario from './pages/singleScenario/singleScenario';
 import onlyAutorizenUsers from './componens/hoc/onlyAutorizedUsers';
 import onlyDontRegistrationUsers from './componens/hoc/onlyNotRegistration';
 

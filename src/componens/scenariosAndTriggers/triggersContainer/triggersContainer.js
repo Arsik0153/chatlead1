@@ -55,6 +55,8 @@ const TriggersContainer = (props) => {
 
     };
 
+    console.log(changedTriggerId);
+
 
     return (
         <div className={style.mainContainer}>

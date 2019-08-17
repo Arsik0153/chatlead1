@@ -19,6 +19,8 @@ const SideBarSocial = (props) => {
 
     };
 
+    console.log(changedTrigger);
+
 
     return (
         <div className={style.mainContainer}>
@@ -30,7 +32,7 @@ const SideBarSocial = (props) => {
                     id="Facebook Messenger"
                     name="social"
                     value="facebook"
-                    defaultChecked={changedTrigger.social === 'facebook'}
+                    checked={changedTrigger.social === 'facebook'}
                     onChange={updateSocialInTriggerHandler}
                 />
             </div>
@@ -41,7 +43,7 @@ const SideBarSocial = (props) => {
                     id="Telegram"
                     name="social"
                     value='telegram'
-                    defaultChecked={changedTrigger.social === 'telegram'}
+                    checked={changedTrigger.social === 'telegram'}
                     onChange={updateSocialInTriggerHandler}
                 />
             </div>
@@ -52,7 +54,7 @@ const SideBarSocial = (props) => {
                     id="Вконтакте"
                     name={'social'}
                     value={'vk'}
-                    defaultChecked={changedTrigger.social === 'vk'}
+                    checked={changedTrigger.social === 'vk'}
                     onChange={updateSocialInTriggerHandler}
                 />
             </div>
@@ -64,7 +66,7 @@ const SideBarSocial = (props) => {
                     name={'social'}
                     value={'whatsapp'}
                     onChange={updateSocialInTriggerHandler}
-                    defaultChecked={changedTrigger.social === 'whatsapp'}
+                    checked={changedTrigger.social === 'whatsapp'}
                 />
             </div>
         </div>
