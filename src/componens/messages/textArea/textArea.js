@@ -1,17 +1,17 @@
 import React from 'react';
 import style from './textArea.module.sass';
+import ButtonsContainer from "../../messages/buttonsContainer/buttonsContainer";
 
 const TextArea = (props) => {
-    const {value, handler, index, key} = props;
-    // const [valueText, setValueText] = useState(value);
+    const {value, handler, index, type} = props;
 
-    console.log(value);
 
     return (
-        <div className={style.textArea}>
-            <textarea defaultValue={value} onBlur={(e) => handler(e, index, key)} />
-            {/*<h3 onClick={() => deleteHandler(index)}>delete</h3>*/}
-            {/*<div className={style.button}>+ Добавить клавишу</div>*/}
+        <div className={style.textArea} key={Object.values(value)[0]}>
+            <textarea defaultValue={Object.values(value)[0]} onBlur={(e) => handler(e, index, type)} />
+            <ButtonsContainer
+                {...props}
+            />
         </div>
     )
 };

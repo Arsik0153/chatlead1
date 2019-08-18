@@ -14,15 +14,9 @@ const ButtonsForAddNewMessage = (props) => {
         const messagesCopy = changedTrigger.messages.concat();
 
         if(type === "timer") {
-            messagesCopy.push({
-                timer: {
-                    [optional]: ""
-                }
-            });
+            messagesCopy.push(defaultValuesForNewMessages[optional]);
         }else {
-            messagesCopy.push({
-                [type]: defaultValuesForNewMessages[type]
-            });
+            messagesCopy.push(defaultValuesForNewMessages[type]);
         }
 
         // console.log(messagesCopy);

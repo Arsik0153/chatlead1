@@ -202,8 +202,6 @@ export function* addNewTriggerSagas({ triggerData }) {
 export function* updateTriggerSaga({ triggerData, updationData }) {
     const {messages, index, id, caption, botId, changedSlide, type} = triggerData;
 
-
-
     if(localStorage.getItem('token')) {
         yield put({ type: ACTION.SINGLE_BOT_DATA_REQUEST});
 
@@ -230,9 +228,8 @@ export function* updateTriggerSaga({ triggerData, updationData }) {
                 formData.append('file', updationData.file);
                 const {data} = yield call(uploadMedia, formData);
                 if(data.ok) {
-                    console.log(changedSlide);
+                    // console.log(changedSlide);
                     if(changedSlide || changedSlide === 0) {
-                        // console.log(messages[index][type][changedSlide]);
                         Object.assign(messages[index][type][changedSlide], {
                             photo: data.message[updationData.type].url
                         });
@@ -241,6 +238,7 @@ export function* updateTriggerSaga({ triggerData, updationData }) {
                             [updationData.type]: data.message[updationData.type].url
                         })
                     }
+
                 }
             }
 

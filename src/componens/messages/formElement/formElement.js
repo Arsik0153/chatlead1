@@ -3,6 +3,7 @@ import style from './formElement.module.sass';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
 import {updateTrigger} from "../../../actions/actionCreator";
+import ButtonsContainer from '../../messages/buttonsContainer/buttonsContainer';
 
 const FormElement = (props) => {
     const {type, index, value, changedTrigger} = props;
@@ -48,7 +49,7 @@ const FormElement = (props) => {
     return (
         <div className={style.mainContainer}>
             {
-                value.map((elem, inputIndex) => (
+                Object.values(value)[0].map((elem, inputIndex) => (
                     <input
                         defaultValue={elem}
                         onBlur={(e) => updateTrigger(e, inputIndex)}
@@ -57,6 +58,9 @@ const FormElement = (props) => {
                 ))
             }
             <h2 onClick={newInput}>+ input</h2>
+            <ButtonsContainer
+                {...props}
+            />
         </div>
     )
 };

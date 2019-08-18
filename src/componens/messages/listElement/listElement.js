@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import style from './listElement.module.sass';
 import {staticMedia} from "../../../api/baseURL";
 import {withRouter} from "react-router-dom";
@@ -8,6 +8,7 @@ import ButtonsContainer from '../buttonsContainer/buttonsContainer';
 
 const ListElements = (props) => {
     const {type, index, pictureForLabel, value, changedTrigger} = props;
+
 
 
 

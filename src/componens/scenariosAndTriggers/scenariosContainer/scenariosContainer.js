@@ -7,11 +7,16 @@ import {faInfoCircle} from '@fortawesome/free-solid-svg-icons'
 import {addNewScenario, deleteScenario} from "../../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import trashImage from '../../../images/trash.png';
+import {ScenarioIdContext} from "../../../utils/Contexts";
 
 
 const ScenariosContainer = (props) => {
 
     const [changedScenarioId, changeScenarioId] = useState(false);
+
+    // const ScenarioIdContext = React.createContext(
+    //   changedScenarioId
+    // );
 
     const newScenarioHandler = () => {
 
@@ -23,9 +28,16 @@ const ScenariosContainer = (props) => {
     if(changedScenarioId) {
         return (
             <div className={style.triggersContainer}>
-                    <TriggersContainer
-                        changedScenarioId={changedScenarioId}
-                    />
+                   <ScenarioIdContext.Provider value={changedScenarioId}>
+                       <ScenarioIdContext.Consumer>
+                           {scenarioId => (
+                               <TriggersContainer
+                                   changedScenarioId={changedScenarioId}
+                                   scenarioId={scenarioId}
+                               />
+                           )}
+                       </ScenarioIdContext.Consumer>
+                   </ScenarioIdContext.Provider>
             </div>
         )
     }

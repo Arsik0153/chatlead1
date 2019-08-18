@@ -4,11 +4,14 @@ import {updateTrigger} from "../../../actions/actionCreator";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import ClickOutsideHandler from "../../hoc/clickOutside";
+import ButtonsContainer from '../buttonsContainer/buttonsContainer';
 
 
 const TimerElement = (props) => {
     const [isOpenWindow, setStatusIsOpenWindow] = useState(false);
     const {type, index, value, changedTrigger} = props;
+
+    const valuesForTimer = Object.values(value)[0];
 
 
 
@@ -37,96 +40,114 @@ const TimerElement = (props) => {
 
 
 
-    if(Object.keys(value)[0] === 'pause_delay') {
+    if(Object.keys(valuesForTimer)[0] === 'pause_delay') {
        return (
-           <div className={style.mainContainer} onClick={() => setStatusIsOpenWindow(true)}>
-               {
-                   <ClickOutsideHandler onClickedOutside={() => setStatusIsOpenWindow(false)}>
-                       <div className={style.container}>
-                           <div
-                               className={style.timerContainer}
-                               onClick={() => setStatusIsOpenWindow(true)}
-                               // onBlur={() => setStatusIsOpenWindow(true)}
-                           >
-                               Задержка { value[Object.keys(value)[0]] || 0 } секунды
-                           </div>
-                           {
-                               isOpenWindow && (
-                                   <div className={style.messageContainer}>
-                                       <label>Delay time</label>
-                                       <input
-                                           type={'number'}
-                                            defaultValue={value[Object.keys(value)[0]]}
-                                           onInput={(e) => updateTrigger(e, 'pause_delay')}
-                                       />
-                                   </div>
-                               )
-                           }
-                       </div>
-                   </ClickOutsideHandler>
-               }
+           <div>
+               <div className={style.mainContainer} onClick={() => setStatusIsOpenWindow(true)}>
+                   {
+                       <ClickOutsideHandler onClickedOutside={() => setStatusIsOpenWindow(false)}>
+                           <div className={style.container}>
+                               <div
+                                   className={style.timerContainer}
+                                   onClick={() => setStatusIsOpenWindow(true)}
+                                   // onBlur={() => setStatusIsOpenWindow(true)}
+                               >
+                                   Задержка { valuesForTimer[Object.keys(valuesForTimer)[0]] || 0 } секунды
+                               </div>
+                               {
+                                   isOpenWindow && (
+                                       <div className={style.messageContainer}>
+                                           <label>Delay time</label>
+                                           <input
+                                               type={'number'}
+                                               defaultValue={valuesForTimer[Object.keys(valuesForTimer)[0]]}
+                                               onInput={(e) => updateTrigger(e, 'pause_delay')}
+                                           />
+                                       </div>
+                                   )
+                               }
 
+                           </div>
+                       </ClickOutsideHandler>
+                   }
+
+               </div>
+               <ButtonsContainer
+                   {...props}
+               />
            </div>
        )
     }else if(Object.keys(value)[0] === 'activity_lost') {
         return (
 
-            <div className={style.mainContainer} onClick={() => setStatusIsOpenWindow(true)}>
-                {
-                    <ClickOutsideHandler onClickedOutside={() => setStatusIsOpenWindow(false)}>
-                        <div className={style.container}>
-                            <div
-                                className={style.timerContainer}
-                                onClick={() => setStatusIsOpenWindow(true)}
-                            >
-                                Ожидать { value[Object.keys(value)[0]] || 0 } секунд
-                            </div>
-                            {
-                                isOpenWindow && (
-                                    <div className={style.messageContainer}>
-                                        <label>Delay time</label>
-                                        <input
-                                            type={'number'}
-                                            defaultValue={value[Object.keys(value)[0]]}
-                                            onInput={(e) => updateTrigger(e, 'activity_lost')}
-                                        />
-                                    </div>
-                                )
-                            }
-                        </div>
-                    </ClickOutsideHandler>
-                }
+            <div>
+                <div className={style.mainContainer} onClick={() => setStatusIsOpenWindow(true)}>
+                    {
+                        <ClickOutsideHandler onClickedOutside={() => setStatusIsOpenWindow(false)}>
+                            <div className={style.container}>
+                                <div
+                                    className={style.timerContainer}
+                                    onClick={() => setStatusIsOpenWindow(true)}
+                                >
+                                    Ожидать { valuesForTimer[Object.keys(valuesForTimer)[0]] || 0 } секунд
+                                </div>
+                                {
+                                    isOpenWindow && (
+                                        <div className={style.messageContainer}>
+                                            <label>Delay time</label>
+                                            <input
+                                                type={'number'}
+                                                defaultValue={valuesForTimer[Object.keys(valuesForTimer)[0]]}
+                                                onInput={(e) => updateTrigger(e, 'activity_lost')}
+                                            />
+                                        </div>
+                                    )
+                                }
 
+                            </div>
+                        </ClickOutsideHandler>
+                    }
+
+                </div>
+                <ButtonsContainer
+                    {...props}
+                />
             </div>
         )
     }else {
         return (
-            <div className={style.mainContainer} onClick={() => setStatusIsOpenWindow(true)}>
-                {
-                    <ClickOutsideHandler onClickedOutside={() => setStatusIsOpenWindow(false)}>
-                        <div className={style.container}>
-                            <div
-                                className={style.timerContainer}
-                            >
-                                Потеря активности до { value[Object.keys(value)[0]] || 0 }
-                            </div>
-                            {
-                                isOpenWindow && (
-                                    <div className={style.messageContainer}>
-                                        <label>Delay time</label>
-                                        <input
-                                            type={'date'}
-                                            defaultValue={value[Object.keys(value)[0]]}
-                                            onInput={(e) => updateTrigger(e, 'send_time')}
-                                        />
-                                    </div>
-                                )
-                            }
-                        </div>
-                    </ClickOutsideHandler>
-                }
+           <div>
+               <div className={style.mainContainer} onClick={() => setStatusIsOpenWindow(true)}>
+                   {
+                       <ClickOutsideHandler onClickedOutside={() => setStatusIsOpenWindow(false)}>
+                           <div className={style.container}>
+                               <div
+                                   className={style.timerContainer}
+                               >
+                                   Потеря активности до { valuesForTimer[Object.keys(valuesForTimer)[0]] || 0 }
+                               </div>
+                               {
+                                   isOpenWindow && (
+                                       <div className={style.messageContainer}>
+                                           <label>Delay time</label>
+                                           <input
+                                               type={'date'}
+                                               defaultValue={valuesForTimer[Object.keys(valuesForTimer)[0]]}
+                                               onInput={(e) => updateTrigger(e, 'send_time')}
+                                           />
+                                       </div>
+                                   )
+                               }
 
-            </div>
+                           </div>
+                       </ClickOutsideHandler>
+                   }
+
+               </div>
+               <ButtonsContainer
+                   {...props}
+               />
+           </div>
         )
     }
 

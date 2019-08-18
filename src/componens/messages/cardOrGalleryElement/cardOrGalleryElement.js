@@ -5,6 +5,7 @@ import {withRouter} from "react-router-dom";
 import {connect} from 'react-redux';
 import {updateTrigger} from "../../../actions/actionCreator";
 import {defaultValuesForNewMessages} from "../../../constants/defaultValues";
+import ButtonsContainer from "../../messages/buttonsContainer/buttonsContainer";
 
 
 // class CardOrGalleryElement extends React.Component {
@@ -189,7 +190,7 @@ const CardOrGalleryElement = (props) => {
 
 
         if(messagesCopy[index][type].length === changedSlide + 1) {
-            messagesCopy[index][type].push({photo: '', title: '', text: ''});
+            messagesCopy[index][type].push({photo: '', title: '', text: '', keyboard: {}});
             const triggerData = {
                 ...changedTrigger,
                 index: index,
@@ -257,6 +258,10 @@ const CardOrGalleryElement = (props) => {
                         ))
                     }
                 </div>
+                <ButtonsContainer
+                    {...props}
+                    changedSlideOrElement={changedSlide}
+                />
         </div>
     )
 };

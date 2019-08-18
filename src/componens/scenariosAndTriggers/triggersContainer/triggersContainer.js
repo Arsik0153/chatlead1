@@ -1,22 +1,20 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {withRouter} from "react-router-dom";
 import style from './triggersContainer.module.sass';
 import {addNewTrigger, updateTrigger} from "../../../actions/actionCreator";
 import {connect} from 'react-redux';
-import {fileDefinition, emptyFile} from "../../../utils/fileDefinition/fileDefinition";
+import {fileDefinition} from "../../../utils/fileDefinition/fileDefinition";
 import ButtonsForAddNewMessage from '../../inputs/buttons/buttonsForAddNewMessages/buttonsForAddNewMessage';
 import SideBarSocial from '../../sideBarSocial/sideBarSocial';
 
 
 const TriggersContainer = (props) => {
-    const changedScenario = props.botScenarios.filter(elem => elem.id === props.changedScenarioId)[0];
+    // const changedScenario = props.botScenarios.filter(elem => elem.id === props.changedScenarioId)[0];
+    const changedScenario = props.botScenarios.filter(elem => elem.id === props.scenarioId)[0];
     const {triggers} = changedScenario;
     const [changedTriggerId, changeTriggerId] = useState(triggers[0].id);
     const changedTrigger = triggers.filter(elem => elem.id === changedTriggerId)[0];
 
-    // useEffect(() => {
-    //
-    // }, [props.botScenarios]);
 
     const newTriggerHandler = () => {
         const triggerData = {
@@ -55,8 +53,6 @@ const TriggersContainer = (props) => {
 
     };
 
-    console.log(changedTriggerId);
-
 
     return (
         <div className={style.mainContainer}>
@@ -87,7 +83,8 @@ const TriggersContainer = (props) => {
                             {
                                 fileDefinition(
                                     Object.keys(elem)[0],
-                                    Object.values(elem)[0],
+                                    elem,
+                                    // Object.values(elem)[0],
                                     updateTriggerUpdateMessageHandler,
                                     index,
                                     updateTriggerDeleteMessageHandler,
