@@ -190,7 +190,7 @@ const CardOrGalleryElement = (props) => {
 
 
         if(messagesCopy[index][type].length === changedSlide + 1) {
-            messagesCopy[index][type].push({photo: '', title: '', text: '', keyboard: {}});
+            messagesCopy[index][type].push({photo: '', title: '', text: '', keyboard: []});
             const triggerData = {
                 ...changedTrigger,
                 index: index,

@@ -50,7 +50,7 @@ const ListElements = (props) => {
 
     const newListElementHanlder = () => {
         const messagesCopy = changedTrigger.messages.concat();
-        messagesCopy[index][type].push({photo: '', title: '', text: '', keyboard: {}});
+        messagesCopy[index][type].push({photo: '', title: '', text: '', keyboard: []});
         const triggerData = {
             ...changedTrigger,
             index: index,

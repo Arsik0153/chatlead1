@@ -6,11 +6,14 @@ import {withRouter} from "react-router-dom";
 import {updateTrigger} from "../../../actions/actionCreator";
 import ContextMenu from './contextMenu/contextMenu';
 import {ScenarioIdContext} from "../../../utils/Contexts";
-
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCircle} from "@fortawesome/free-regular-svg-icons";
+// import {faCircle} from "@fortawesome/free-solid-svg-icons";
+import {markForButton} from "../../../constants/markForButon";
 
 
 const ButtonsContainer = (props) => {
-    const [indexOpenButton, setIndexOpenButton] = useState(4);
+    const [indexOpenButton, setIndexOpenButton] = useState(false);
     const {
         type,
         index,
@@ -19,27 +22,11 @@ const ButtonsContainer = (props) => {
         changedSlideOrElement,
     } = props;
 
-    const countMessage = () => {
-        let count = 0;
-
-        if(changedSlideOrElement || changedSlideOrElement === 0) {
-            Object.values(value[changedSlideOrElement].keyboard).forEach(elem => {
-                count = count + elem.length
-            });
-        }else {
-            Object.values(value.keyboard).forEach(elem => {
-                count = count + elem.length
-            });
-        }
-
-        return count;
-    };
 
 
     const appendNewButton = () => {
 
         const messagesCopy = changedTrigger.messages.concat();
-        let text_button_Copy = null;
         let buttons = null;
 
         if(changedSlideOrElement || changedSlideOrElement === 0) {
@@ -47,21 +34,12 @@ const ButtonsContainer = (props) => {
 
         }else {
             buttons = messagesCopy[index].keyboard;
-            // text_button_Copy = messagesCopy[index][type].keyboard[buttonsTypes.text_buttons];
         }
 
-        text_button_Copy = buttons[buttonsTypes.text_buttons];
-
-        if(!text_button_Copy) {
-            text_button_Copy = [];
-        }
-        text_button_Copy.push({
+        buttons.push({
             caption: 'Новая Кнопка',
-            isEmpty: true
-        });
-
-        Object.assign(buttons, {
-            [buttonsTypes.text_buttons]: text_button_Copy
+            isEmpty: true,
+            type: buttonsTypes.text_buttons
         });
 
         const triggerData = {
@@ -71,7 +49,7 @@ const ButtonsContainer = (props) => {
             messages: messagesCopy,
             botId: props.match.params.botId
         };
-
+        //
         props.updateTrigger(triggerData);
 
 
@@ -79,22 +57,8 @@ const ButtonsContainer = (props) => {
 
     const allButtonsInMessage = () => {
         const messagesCopy = changedTrigger.messages.concat();
-        const buttonsArray = [];
-
-
-        const buttons
-            = changedSlideOrElement || changedSlideOrElement === 0 ?
-                    messagesCopy[index][type][changedSlideOrElement].keyboard :
-                    messagesCopy[index].keyboard;
-
-
-        Object.keys(buttons).forEach(typeButton => {
-            buttons[typeButton].forEach((button, index) => {
-                button.type = typeButton;
-                button.indexInOriginal = index;
-                buttonsArray.push(button);
-            });
-        });
+        const buttonsArray = changedSlideOrElement || changedSlideOrElement === 0 ?
+                messagesCopy[index][type][changedSlideOrElement].keyboard : messagesCopy[index].keyboard;
 
 
         return buttonsArray;
@@ -102,29 +66,17 @@ const ButtonsContainer = (props) => {
 
 
     const editButton = (typeButton, buttonData, indexButton, isEmpty) => {
+
         const messagesCopy = changedTrigger.messages.concat();
-        let buttons = null;
 
-        if(changedSlideOrElement || changedSlideOrElement === 0) {
-            buttons = messagesCopy[index][type][changedSlideOrElement].keyboard
+        const buttonsValues = allButtonsInMessage();
 
-        }else {
-            buttons = messagesCopy[index].keyboard
-        }
-
-        const buttonInMessagesArray = allButtonsInMessage()[indexButton];
-
-        if(!buttons[typeButton]) {
-            buttons[typeButton] = [];
-        }
-
-        buttons[buttonInMessagesArray.type].splice([buttonInMessagesArray.indexInOriginal], 1);
-        Object.assign(buttonData, {
-            isEmpty: isEmpty || false
+        Object.assign(buttonsValues[indexButton], buttonData, {
+            isEmpty: isEmpty || false,
+            type: typeButton
         });
 
-        buttons[typeButton].push(buttonData);
-
+        messagesCopy[index].keyboard = buttonsValues;
 
         const triggerData = {
             ...changedTrigger,
@@ -142,42 +94,60 @@ const ButtonsContainer = (props) => {
         <div className={style.mainContainer}>
 
             {
-                allButtonsInMessage().map((elem, index) => (
+                allButtonsInMessage().map((elem, indexArr) => (
 
-                    <div className={style.buttonElement} onClick={() => setIndexOpenButton(index)}>
+                    <div className={style.buttonElement} onClick={() => setIndexOpenButton(indexArr)}>
                            <div>
                                {
-                                   indexOpenButton === index && (
+                                   indexOpenButton === indexArr && (
                                        <ScenarioIdContext.Consumer>
                                            {scenarioId => (
                                                <ContextMenu
                                                    buttonEditHandler={editButton}
                                                    typeButton={elem.isEmpty ? 'empty' : elem.type}
                                                    scenarioId={scenarioId}
-                                                   indexButton={indexOpenButton}
+                                                   indexButton={indexArr}
                                                    buttonData={elem}
                                                    setIndexOpenButton={setIndexOpenButton}
                                                    changedTrigger={changedTrigger}
-                                                   messageIndex={index}
                                                />
                                            )}
                                        </ScenarioIdContext.Consumer>
                                    )
                                }
-                               <div>{elem.caption}{elem.isEmpty ? `(empty)` : `${elem.type}`}</div>
+                               <div className={style.button}>
+                                   <div className={style.captionContainer}>
+                                       {
+                                           elem.caption || 'Новая Кнопка'
+                                       }
+                                   </div>
+                                   <p>
+                                       {
+                                           elem.isEmpty
+                                               ? <FontAwesomeIcon icon={faCircle}/>
+                                               : markForButton[elem.type]
+                                       }
+                                   </p>
+                               </div>
                            </div>
                     </div>
                 ))
             }
 
-            <div className={style.controls}>
+            {
+                changedSlideOrElement || changedSlideOrElement === 0 ?
+                    allButtonsInMessage().length === 0 && (
+                        <div className={style.controls}>
+                            <h2 onClick={() => appendNewButton()}>+ Добавить кнопку</h2>
+                        </div>
+                    )
+                    : allButtonsInMessage().length < 3 && (
+                        <div className={style.controls}>
+                            <h2 onClick={() => appendNewButton()}>+ Добавить кнопку</h2>
+                        </div>
+                    )
+            }
 
-                {
-                    changedSlideOrElement || changedSlideOrElement === 0 ?
-                        countMessage() === 0 && <h2 onClick={() => appendNewButton()}>+ Кнопка</h2>
-                        : countMessage() < 3 && <h2 onClick={() => appendNewButton()}>>+ Кнопка</h2>
-                }
-            </div>
         </div>
     )
 };

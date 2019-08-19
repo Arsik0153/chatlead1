@@ -13,11 +13,14 @@ const TimerElement = (props) => {
 
     const valuesForTimer = Object.values(value)[0];
 
+    console.log(value);
+
 
 
 
     const updateTrigger = (e, typeInput) => {
         const messagesCopy = changedTrigger.messages.concat();
+
 
         Object.assign(messagesCopy[index].timer, {
             [typeInput]: e.target.value
@@ -36,7 +39,6 @@ const TimerElement = (props) => {
 
 
     };
-
 
 
 
@@ -77,7 +79,7 @@ const TimerElement = (props) => {
                />
            </div>
        )
-    }else if(Object.keys(value)[0] === 'activity_lost') {
+    }else if(Object.keys(valuesForTimer)[0] === 'activity_lost') {
         return (
 
             <div>
