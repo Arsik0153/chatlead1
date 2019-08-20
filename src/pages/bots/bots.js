@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import style from '../bots/bots.module.sass';
-import Header from '../../componens/header/header';
+import MainHeader from '../../componens/mainHeader/mainHeader';
 import CreateBotForm from '../../componens/forms/createBotForm/createBotForm';
 import {connect} from 'react-redux';
 import {getAllBotsForUser} from "../../actions/actionCreator";
@@ -13,8 +13,29 @@ const Bots = (props) => {
         props.getAllBots();
     }, [props.userData]);
 
-
+    // TODO styles
     return (
+        <div className="main_layout">
+            <MainHeader/>
+            <main id="main">
+                <section style={{marginTop: "10px"}}>
+                    <div className="container">
+                        <CreateBotForm/>
+
+                        <ul className="bot-list">
+                            {
+                                botsData.managers && botsData.managers.map(elem => (
+                                    <BotsElement
+                                        {...elem}
+                                    />
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+        {/*
         <div className={style.mainContainer}>
             <Header/>
             <CreateBotForm/>
@@ -29,6 +50,7 @@ const Bots = (props) => {
                 }
             </div>
         </div>
+        */}
     )
 };
 
