@@ -17,7 +17,7 @@ const FancyFileInput = (props) => {
 
 
     return (
-        <>
+        <div className={style.mainContainer}>
             <input type={'file'} accept={accept} name={index} id={index} onChange={onChange} className={style.inputFile}/>
             <label htmlFor={index}>
                 <div className={style.pictureContainer}>
@@ -25,10 +25,10 @@ const FancyFileInput = (props) => {
                     <p>{pathFile.length === 0 && pictureForLabel.label}</p>
                 </div>
             </label>
-            <ButtonsContainer
-                {...props}
-            />
-        </>
+            {/*<ButtonsContainer*/}
+                {/*{...props}*/}
+            {/*/>*/}
+        </div>
     )
 };
 

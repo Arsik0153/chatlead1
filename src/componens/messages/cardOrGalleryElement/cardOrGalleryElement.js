@@ -6,6 +6,8 @@ import {connect} from 'react-redux';
 import {updateTrigger} from "../../../actions/actionCreator";
 import {defaultValuesForNewMessages} from "../../../constants/defaultValues";
 import ButtonsContainer from "../../messages/buttonsContainer/buttonsContainer";
+import MiniImagesForSlider from './miniImagesForSlider/miniImagesForSlider';
+
 
 
 // class CardOrGalleryElement extends React.Component {
@@ -148,7 +150,6 @@ const CardOrGalleryElement = (props) => {
     const [changedSlide, changeSlide] = useState(0);
 
 
-
     const updateTrigger = (e, typeInput) => {
         const messagesCopy = changedTrigger.messages.concat();
 
@@ -208,30 +209,31 @@ const CardOrGalleryElement = (props) => {
 
     return (
         <div className={style.mainContainer}>
-            <div className={style.pictureContainer}>
-                <div onClick={newSlideOrNextSlide}>+</div>
-                <input
-                    type={'file'}
-                    accept={'image/*'}
-                    name={index}
-                    id={index}
-                    onChange={updateTrigger}
-                    className={style.inputFile}
-                />
-                <label htmlFor={index}>
-                    <div className={style.pictureContainer}>
-                        <h2>
+            <div className={style.contentContainer}>
+                <div className={style.controlsLeft} onClick={newSlideOrNextSlide}>+</div>
+                <div className={style.pictureContainer}>
+                    <input
+                        type={'file'}
+                        accept={'image/*'}
+                        name={index}
+                        id={index}
+                        onChange={updateTrigger}
+                        className={style.inputFile}
+                    />
+                    <label htmlFor={index}>
+                        <div className={style.cardPictureContainer}>
                             {
                                 value[changedSlide].photo.length > 0 ?
-                                    <img src={staticMedia + value[changedSlide].photo} alt={value} />
-                                    : pictureForLabel.img
+                                    <img src={staticMedia + value[changedSlide].photo} alt={value} /> :
+                                    <h2 className={style.labelPictureContainer}>
+                                        {pictureForLabel.img}
+                                        <p>Картинка</p>
+                                    </h2>
                             }
-                        </h2>
-                        <p>{value.length === 0 && pictureForLabel.label}</p>
-                    </div>
-                </label>
-                <div onClick={() => changedSlide !== 0 && changeSlide(changedSlide - 1)}>-</div>
-            </div>
+                            <p>{value.length === 0 && pictureForLabel.label}</p>
+                        </div>
+                    </label>
+                </div>
                 <div className={style.inputContainer}>
                     <input
                         type={'text'}
@@ -239,29 +241,29 @@ const CardOrGalleryElement = (props) => {
                         placeholder={'Введите титульное слово'}
                         onBlur={(e) => updateTrigger(e, 'title')}
                     />
-                    <input
-                        type={'text'}
+                    <textarea
                         defaultValue={value[changedSlide].text}
                         placeholder={'Введите текст'}
                         onBlur={(e) => updateTrigger(e, 'text')}
                     />
                 </div>
-                <div className={style.miniImagesContainer}>
-                    {
-                        value.map((elem, index) => (
-                            <img
-                                src={staticMedia + elem.photo}
-                                alt={elem.photo}
-                                onClick={() => changeSlide(index)}
-                                style={index === changedSlide ? {border: '1px solid green'} : {}}
-                            />
-                        ))
-                    }
-                </div>
-                <ButtonsContainer
-                    {...props}
-                    changedSlideOrElement={changedSlide}
+                <MiniImagesForSlider
+                    value={value}
+                    changeSlide={changeSlide}
+                    changedSlide={changedSlide}
                 />
+
+                <div
+                    onClick={() => changedSlide !== 0 && changeSlide(changedSlide - 1)}
+                    className={style.controlsRight}
+                >
+                    -
+                </div>
+            </div>
+            <ButtonsContainer
+                {...props}
+                changedSlideOrElement={changedSlide}
+            />
         </div>
     )
 };

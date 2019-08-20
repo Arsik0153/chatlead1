@@ -27,23 +27,6 @@ const CreateBotForm = (props) => {
             </button>
             <div className={style.error}>{props.error}</div>
         </form>
-        {/*
-        <form autoComplete={'off'} className={style.mainContainer}>
-            <Field
-                name={'name'}
-                type={'text'}
-                component={FancyInput}
-                label={'Название бота'}
-            />
-            <div
-                className={style.submitButton}
-                onClick={() => props.createBot(props.createBotForm.values)}
-            >
-                Добавить
-            </div>
-            <div className={style.error}>{props.error}</div>
-        </form>
-        */}
     )
 };
 

@@ -22,6 +22,8 @@ const ButtonsContainer = (props) => {
         changedSlideOrElement,
     } = props;
 
+    console.log(changedTrigger);
+
 
 
     const appendNewButton = () => {

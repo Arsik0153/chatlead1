@@ -35,22 +35,6 @@ const Bots = (props) => {
                 </section>
             </main>
         </div>
-        {/*
-        <div className={style.mainContainer}>
-            <Header/>
-            <CreateBotForm/>
-
-            <div className={style.botsMainContainer}>
-                {
-                    botsData.managers && botsData.managers.map(elem => (
-                        <BotsElement
-                            {...elem}
-                        />
-                    ))
-                }
-            </div>
-        </div>
-        */}
     )
 };
 

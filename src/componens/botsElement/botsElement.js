@@ -43,17 +43,6 @@ const BotsElement = (props) => {
             </button>
         </div>
         </li>
-        {/*
-        <div className={style.mainContainer}>
-            <h1>Название: {name}</h1>
-            <div className={style.controls}>
-                <Link to={`/bots/${id}/scenario`} className={style.link}>Изменить</Link>
-                <img src={trash} alt={'trash'} onClick={() => props.deleteBot({
-                    manager_id: id
-                })}/>
-            </div>
-        </div>
-        */}
     )
 };
 

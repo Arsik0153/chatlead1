@@ -35,9 +35,13 @@ const ButtonsForAddNewMessage = (props) => {
         <div className={style.mainContainer}>
             {
                 addNewMessagesButtons.map(elem => (
-                    <h2 onClick={() => updateTriggerNewMessageHandler(elem.type, elem.optionalType)}>
-                        {elem.label}
-                    </h2>
+                    <div
+                        onClick={() => updateTriggerNewMessageHandler(elem.type, elem.optionalType)}
+                        className={style.buttonElement}
+                    >
+                        {elem.icon}
+                        <p>{elem.label}</p>
+                    </div>
                 ))
             }
         </div>

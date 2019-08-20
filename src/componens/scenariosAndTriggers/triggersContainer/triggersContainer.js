@@ -12,8 +12,9 @@ const TriggersContainer = (props) => {
     // const changedScenario = props.botScenarios.filter(elem => elem.id === props.changedScenarioId)[0];
     const changedScenario = props.botScenarios.filter(elem => elem.id === props.scenarioId)[0];
     const {triggers} = changedScenario;
-    const [changedTriggerId, changeTriggerId] = useState(triggers[0].id);
-    const changedTrigger = triggers.filter(elem => elem.id === changedTriggerId)[0];
+    const [changedTriggerId, changeTriggerId]
+        = useState(triggers.length === 0 ? null : triggers[0].id);
+    const changedTrigger = changedTriggerId ? triggers.filter(elem => elem.id === changedTriggerId)[0] : null;
 
 
     const newTriggerHandler = () => {
@@ -52,6 +53,41 @@ const TriggersContainer = (props) => {
         props.updateTrigger(updatedTrigger, updationData);
 
     };
+
+    if(!changedTrigger) {
+        return(
+            <div className={style.emptyMainContainer}>
+                <div className={style.emptySideContainer}>
+                    {
+                        triggers.length === 0 ?
+                            (
+                                 <h2>Здесь пока пусто. Создайте первый триггер</h2>
+                            ) : (
+                                triggers.map(trigger => (
+                                    <div
+                                        className={style.singleTriggerContainer}
+                                        onClick={() => changeTriggerId(trigger.id)}
+                                    >
+                                        <div
+                                            style={trigger.id === changedTriggerId
+                                                ? {border: '1px solid #13ce66', color: '#13ce66'} : {}}
+                                            className={style.triggerElement}
+                                        >
+                                            {trigger.caption}
+                                        </div>
+                                    </div>
+                                ))
+                            )
+
+                    }
+                    <div onClick={newTriggerHandler} className={style.newTriggerContainer}>+ Новый триггер</div>
+                </div>
+                <div className={style.emptyContentContainer}>
+                    Выберете триггер
+                </div>
+            </div>
+        )
+    }
 
 
     return (
