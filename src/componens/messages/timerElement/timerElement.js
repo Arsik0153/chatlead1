@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import ClickOutsideHandler from "../../hoc/clickOutside";
 import ButtonsContainer from '../buttonsContainer/buttonsContainer';
+import HoverBarForMessage from "../hoverBarForMessage/hoverBarForMessage";
 
 
 const TimerElement = (props) => {
@@ -44,7 +45,14 @@ const TimerElement = (props) => {
 
     if(Object.keys(valuesForTimer)[0] === 'pause_delay') {
        return (
-           <div>
+           <div className={style.mainContentContainer}>
+               <div className={style.hoverBar}>
+                   <HoverBarForMessage
+                       {...props}
+                       styleForBar={{top: '-25px', left: '320px'}}
+                       // statusDraggable={(status) => setStatusDragable(status)}
+                   />
+               </div>
                <div className={style.mainContainer} onClick={() => setStatusIsOpenWindow(true)}>
                    {
                        <ClickOutsideHandler onClickedOutside={() => setStatusIsOpenWindow(false)}>
@@ -74,15 +82,23 @@ const TimerElement = (props) => {
                    }
 
                </div>
-               <ButtonsContainer
-                   {...props}
-               />
+               {/*<ButtonsContainer*/}
+                   {/*{...props}*/}
+               {/*/>*/}
            </div>
        )
     }else if(Object.keys(valuesForTimer)[0] === 'activity_lost') {
         return (
 
-            <div>
+            <div className={style.mainContentContainer}>
+
+                <div className={style.hoverBar}>
+                    <HoverBarForMessage
+                        {...props}
+                        styleForBar={{top: '-25px', left: '320px'}}
+                        // statusDraggable={(status) => setStatusDragable(status)}
+                    />
+                </div>
                 <div className={style.mainContainer} onClick={() => setStatusIsOpenWindow(true)}>
                     {
                         <ClickOutsideHandler onClickedOutside={() => setStatusIsOpenWindow(false)}>
@@ -111,14 +127,21 @@ const TimerElement = (props) => {
                     }
 
                 </div>
-                <ButtonsContainer
-                    {...props}
-                />
+                {/*<ButtonsContainer*/}
+                    {/*{...props}*/}
+                {/*/>*/}
             </div>
         )
     }else {
         return (
-           <div>
+           <div className={style.mainContentContainer}>
+               <div className={style.hoverBar}>
+                   <HoverBarForMessage
+                       {...props}
+                       styleForBar={{top: '-25px', left: '320px'}}
+                       // statusDraggable={(status) => setStatusDragable(status)}
+                   />
+               </div>
                <div className={style.mainContainer} onClick={() => setStatusIsOpenWindow(true)}>
                    {
                        <ClickOutsideHandler onClickedOutside={() => setStatusIsOpenWindow(false)}>
@@ -146,9 +169,9 @@ const TimerElement = (props) => {
                    }
 
                </div>
-               <ButtonsContainer
-                   {...props}
-               />
+               {/*<ButtonsContainer*/}
+                   {/*{...props}*/}
+               {/*/>*/}
            </div>
         )
     }

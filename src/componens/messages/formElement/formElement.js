@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
 import {updateTrigger} from "../../../actions/actionCreator";
 import ButtonsContainer from '../../messages/buttonsContainer/buttonsContainer';
+import HoverBarForMessage from "../hoverBarForMessage/hoverBarForMessage";
 
 const FormElement = (props) => {
     const {type, index, value, changedTrigger} = props;
@@ -48,16 +49,23 @@ const FormElement = (props) => {
 
     return (
         <div className={style.mainContainer}>
+            <div className={style.hoverBar}>
+                <HoverBarForMessage
+                    {...props}
+                    styleForBar={{top: '-20px', left: '320px'}}
+                    // statusDraggable={(status) => setStatusDragable(status)}
+                />
+            </div>
             {
                 Object.values(value)[0].map((elem, inputIndex) => (
-                    <input
+                    <textarea
                         defaultValue={elem}
                         onBlur={(e) => updateTrigger(e, inputIndex)}
                         placeholder={"Введите вопрос"}
                     />
                 ))
             }
-            <h2 onClick={newInput}>+ input</h2>
+            <div className={style.addInputButton} onClick={newInput}>+ Поле ввода</div>
             <ButtonsContainer
                 {...props}
             />

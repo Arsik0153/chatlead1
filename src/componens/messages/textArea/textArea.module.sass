@@ -6,6 +6,11 @@
   align-items: center
   font-family: 'Roboto'
   height: auto
+  background: transparent
+
+  &:hover
+    .hoverBar
+      display: block
 
   textarea
     padding: .5rem
@@ -25,18 +30,8 @@
 
     &:hover
       box-shadow: inset 0 0 0 2px #0084ff
-//
-//.button
-//  position: relative
-//  box-sizing: border-box
-//  border: 2px dashed #e0e6ed
-//  border-top-color: transparent
-//  border-bottom-right-radius: 15px
-//  border-bottom-left-radius: 15px
-//  color: #8492a6
-//  width: 80%
-//  transition: border-color .15s
-//  display: flex
-//  justify-content: center
-//  align-items: center
-//  padding: 5px
+
+.hoverBar
+  display: none
+  position: absolute
+

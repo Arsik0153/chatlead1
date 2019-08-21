@@ -1,7 +1,8 @@
 import React from 'react';
 import style from './fancyFileInput.module.sass';
 import {staticMedia} from "../../../api/baseURL";
-import ButtonsContainer from "../../messages/buttonsContainer/buttonsContainer";
+// import ButtonsContainer from "../../messages/hoverBarForMessage/hoverBarForMessage";
+import HoverBarForMessage from "../../messages/hoverBarForMessage/hoverBarForMessage";
 
 
 
@@ -18,6 +19,12 @@ const FancyFileInput = (props) => {
 
     return (
         <div className={style.mainContainer}>
+            <div className={style.hoverBar}>
+                <HoverBarForMessage
+                    {...props}
+                    styleForBar={{top: '0', left: '320px'}}
+                />
+            </div>
             <input type={'file'} accept={accept} name={index} id={index} onChange={onChange} className={style.inputFile}/>
             <label htmlFor={index}>
                 <div className={style.pictureContainer}>

@@ -2,6 +2,10 @@
   font-family: 'Lato', sans-serif
   z-index: 800
 
+  &:hover
+    .hoverBar
+      display: block
+
   .contentContainer
     display: flex
     flex-direction: column
@@ -18,6 +22,10 @@
     input
       border: none
       outline: none
+
+.hoverBar
+  display: none
+  position: absolute
 
 .inputFile
   width: 0.1px

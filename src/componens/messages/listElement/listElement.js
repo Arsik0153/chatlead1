@@ -5,6 +5,7 @@ import {withRouter} from "react-router-dom";
 import {updateTrigger} from "../../../actions/actionCreator";
 import {connect} from 'react-redux';
 import ButtonsContainer from '../buttonsContainer/buttonsContainer';
+import HoverBarForMessage from "../hoverBarForMessage/hoverBarForMessage";
 
 const ListElements = (props) => {
     const {type, index, pictureForLabel, value, changedTrigger} = props;
@@ -64,9 +65,15 @@ const ListElements = (props) => {
 
     return (
         <div className={style.mainContainer}>
+            <div className={style.hoverBar}>
+                <HoverBarForMessage
+                    {...props}
+                    styleForBar={{top: '0', left: '160px'}}
+                />
+            </div>
             {
                 value.map((elem, index) => (
-                    <div className={style.listElement}>
+                    <div className={style.listElement} style={index === value.length - 1 ? {border: 'none'} : {}}>
                         <div className={style.inputContainer}>
                             <input
                                 type={'text'}
@@ -74,8 +81,7 @@ const ListElements = (props) => {
                                 placeholder={'Введите титульное слово'}
                                 onBlur={(e) => updateTrigger(e, 'title', index)}
                             />
-                            <input
-                                type={'text'}
+                            <textarea
                                 defaultValue={elem.text}
                                 placeholder={'Введите текст'}
                                 onBlur={(e) => updateTrigger(e, 'text', index)}
@@ -83,6 +89,10 @@ const ListElements = (props) => {
                             <ButtonsContainer
                                 {...props}
                                 changedSlideOrElement={index}
+                                styleForControls={{borderRadius: '0'}}
+                                styleForButton={{fontSize: '12px'}}
+                                styleForCaption={{padding: '10px 5% 10px 5px', alignItems: 'center'}}
+                                styleForContextMenu={{left: '200px'}}
                             />
                         </div>
                         <div className={style.pictureContainer}>
@@ -110,7 +120,7 @@ const ListElements = (props) => {
                     </div>
                 ))
             }
-            <h2 onClick={newListElementHanlder}>+element</h2>
+            <div className={style.addTagButton} onClick={newListElementHanlder}>+element</div>
         </div>
     )
 };

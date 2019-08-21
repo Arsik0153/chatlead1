@@ -1,3 +1,8 @@
+.mainContentContainer
+  &:hover
+    .hoverBar
+      display: block
+
 .mainContainer
   border: 2px solid #e0e6ed
   border-radius: 15px
@@ -9,9 +14,15 @@
   display: flex
   justify-content: center
   align-items: center
+  box-sizing: border-box
 
   &:hover
     border-color: #0084ff
+
+.hoverBar
+  display: none
+  position: absolute
+
 
 .messageContainer
   width: 300px

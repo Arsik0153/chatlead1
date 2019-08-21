@@ -8,7 +8,7 @@ import Actions from '../actions/actions';
 
 
 const ContextMenu = (props) => {
-    const {buttonEditHandler, typeButton, scenarioId, indexButton, buttonData, setIndexOpenButton} = props;
+    const {buttonEditHandler, typeButton, scenarioId, indexButton, buttonData, setIndexOpenButton, styleForContextMenu} = props;
     const changedScenario = props.botScenarios.filter(elem => elem.id === scenarioId)[0];
 
 
@@ -192,7 +192,7 @@ const ContextMenu = (props) => {
 
 
     return (
-        <div className={style.mainContainer}>
+        <div className={style.mainContainer} style={styleForContextMenu}>
             {
                 buttonChanger()
             }

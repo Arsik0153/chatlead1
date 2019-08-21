@@ -20,6 +20,10 @@ const ButtonsContainer = (props) => {
         value,
         changedTrigger,
         changedSlideOrElement,
+        styleForControls,
+        styleForButton,
+        styleForCaption,
+        styleForContextMenu
     } = props;
 
     console.log(changedTrigger);
@@ -112,24 +116,25 @@ const ButtonsContainer = (props) => {
                                                    buttonData={elem}
                                                    setIndexOpenButton={setIndexOpenButton}
                                                    changedTrigger={changedTrigger}
+                                                   styleForContextMenu={styleForContextMenu}
                                                />
                                            )}
                                        </ScenarioIdContext.Consumer>
                                    )
                                }
-                               <div className={style.button}>
-                                   <div className={style.captionContainer}>
+                               <div className={style.button} style={styleForButton}>
+                                   <div className={style.captionContainer} style={styleForCaption}>
                                        {
                                            elem.caption || 'Новая Кнопка'
                                        }
                                    </div>
-                                   <p>
+                                   <div className={style.label}>
                                        {
                                            elem.isEmpty
                                                ? <FontAwesomeIcon icon={faCircle}/>
                                                : markForButton[elem.type]
                                        }
-                                   </p>
+                                   </div>
                                </div>
                            </div>
                     </div>
@@ -139,12 +144,12 @@ const ButtonsContainer = (props) => {
             {
                 changedSlideOrElement || changedSlideOrElement === 0 ?
                     allButtonsInMessage().length === 0 && (
-                        <div className={style.controls}>
+                        <div className={style.controls} style={styleForControls || {}}>
                             <h2 onClick={() => appendNewButton()}>+ Добавить кнопку</h2>
                         </div>
                     )
                     : allButtonsInMessage().length < 3 && (
-                        <div className={style.controls}>
+                        <div className={style.controls} style={styleForControls || {}}>
                             <h2 onClick={() => appendNewButton()}>+ Добавить кнопку</h2>
                         </div>
                     )

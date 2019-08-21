@@ -7,6 +7,7 @@ import {updateTrigger} from "../../../actions/actionCreator";
 import {defaultValuesForNewMessages} from "../../../constants/defaultValues";
 import ButtonsContainer from "../../messages/buttonsContainer/buttonsContainer";
 import MiniImagesForSlider from './miniImagesForSlider/miniImagesForSlider';
+import HoverBarForMessage from "../hoverBarForMessage/hoverBarForMessage";
 
 
 
@@ -209,6 +210,12 @@ const CardOrGalleryElement = (props) => {
 
     return (
         <div className={style.mainContainer}>
+            <div className={style.hoverBar}>
+                <HoverBarForMessage
+                    {...props}
+                    styleForBar={{top: '0', left: '320px'}}
+                />
+            </div>
             <div className={style.contentContainer}>
                 <div className={style.controlsLeft} onClick={newSlideOrNextSlide}>+</div>
                 <div className={style.pictureContainer}>

@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {fileDefinition} from "../../../utils/fileDefinition/fileDefinition";
 import ButtonsForAddNewMessage from '../../inputs/buttons/buttonsForAddNewMessages/buttonsForAddNewMessage';
 import SideBarSocial from '../../sideBarSocial/sideBarSocial';
+import MessagesContainer from './messagesContainer/messagesContainer';
 
 
 const TriggersContainer = (props) => {
@@ -113,23 +114,12 @@ const TriggersContainer = (props) => {
             </div>
             <div className={style.contentContainer}>
                 <div className={style.contentHeader}>{changedScenario.trigger_text}</div>
-                {
-                    changedTrigger.messages.map((elem, index) => (
-                        <div className={style.message}>
-                            {
-                                fileDefinition(
-                                    Object.keys(elem)[0],
-                                    elem,
-                                    // Object.values(elem)[0],
-                                    updateTriggerUpdateMessageHandler,
-                                    index,
-                                    updateTriggerDeleteMessageHandler,
-                                    changedTrigger
-                                )
-                            }
-                        </div>
-                    ))
-                }
+                <MessagesContainer
+                    changedTrigger={changedTrigger}
+                    updateTriggerUpdateMessageHandler={updateTriggerUpdateMessageHandler}
+                    updateTriggerDeleteMessageHandler={updateTriggerDeleteMessageHandler}
+                />
+
                 <div className={style.controls}>
                     <ButtonsForAddNewMessage
                         changedTrigger={changedTrigger}
