@@ -5,6 +5,7 @@ import FancyInput from "../../inputs/fancyInput";
 import {connect} from "react-redux";
 import {auth} from "../../../actions/actionCreator";
 import {withRouter} from 'react-router';
+import {Link} from "react-router-dom";
 
 const AuthForm = (props) => {
 
@@ -17,18 +18,23 @@ const AuthForm = (props) => {
   return (
       <form autoComplete={'off'} className={style.mainContainer}>
           <div className={style.fieldsContainer}>
-              <Field
-                  name={'login'}
-                  type={'text'}
-                  component={FancyInput}
-                  label={'Почта'}
-              />
-              <Field
-                  name={'password'}
-                  type={'password'}
-                  component={FancyInput}
-                  label={'Пароль'}
-              />
+              <div className={style.inputContainer}>
+                  <Field
+                      name={'login'}
+                      type={'text'}
+                      component={FancyInput}
+                      label={'Email:'}
+                      placeholder={'mail@example.com'}
+                  />
+              </div>
+             <div className={style.inputContainer}>
+                 <Field
+                     name={'password'}
+                     type={'password'}
+                     component={FancyInput}
+                     label={'Пароль:'}
+                 />
+             </div>
           </div>
           <div
               className={style.submitButton}
@@ -36,6 +42,8 @@ const AuthForm = (props) => {
           >
               Войти
           </div>
+
+          <Link to={'/forgotPassword'} className={style.link}>Забыли пароль?</Link>
           <div className={style.error}>{props.error}</div>
       </form>
   )

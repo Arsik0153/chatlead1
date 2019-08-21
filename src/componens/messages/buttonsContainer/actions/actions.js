@@ -3,7 +3,7 @@ import style from './actions.module.sass';
 import ActionsContextMenu from './actionsContextMenu/actionsContextMenu';
 import {connect} from "react-redux";
 import {updateTrigger} from "../../../../actions/actionCreator";
-import {tagsTypes} from "../../../../constants/defaultValues";
+import {tagsTypes, tagsTranscription} from "../../../../constants/defaultValues";
 
 
 const Actions = (props) => {
@@ -22,6 +22,12 @@ const Actions = (props) => {
 
     };
 
+    const updateTag = (e, key, index) => {
+       buttonData[key][index] = e.target.value;
+
+       buttonEditHandler(typeButton, buttonData, indexButton, buttonData.isEmpty);
+    };
+
 
     return (
         <div className={style.actionsMainContainer}>
@@ -29,10 +35,10 @@ const Actions = (props) => {
             {
                 Object.keys(buttonData).map(key => (
                     (key === tagsTypes.AddTags || key === tagsTypes.Remove_Tags) && (
-                        buttonData[key].map(elem => (
+                        buttonData[key].map((elem, index) => (
                             <div className={style.actionElement}>
-                                <label>{key}</label>
-                                <input type={'text'} defaultValue={elem} />
+                                <label>{tagsTranscription[key]}</label>
+                                <input type={'text'} defaultValue={elem} onInput={(e) => updateTag(e, key, index)}/>
                             </div>
                         ))
                     )

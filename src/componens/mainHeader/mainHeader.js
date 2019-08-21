@@ -1,50 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import style from './mainHeader.module.sass';
-import Logo from '../../images/chatlead.png';
+import Logo from '../../images/logo_panel.png';
 import {Link} from 'react-router-dom';
 import UserIcon from '../../images/user.png';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faAngleDown, faAngleUp} from "@fortawesome/free-solid-svg-icons";
+import ClickOutSide from '../hoc/clickOutside';
 
 const MainHeader = (props) => {
-    // TODO styles
+    const [isOpenMenu, setStatusToOpenMenu] = useState(false);
+
     return (
-        <header id="header" className="add-status">
-            <div className="header__container">
-                <div className="header__bot-selector">
-                    <div className="header__logo panel__logo">
-                        {/* <a href="dashboard_1.html" className="inner-link"></a> */}
-                    </div>
+        <header className={style.mainContainer}>
+            <img src={Logo} alt={'logo'} />
+            <ClickOutSide onClickedOutside={() => setStatusToOpenMenu(false)}>
+                <div className={style.menuContainer} onClick={() => setStatusToOpenMenu(true)}>
+                    <img src={UserIcon} alt={'userIcon'} />
+                    <FontAwesomeIcon icon={isOpenMenu ? faAngleUp : faAngleDown}/>
+                    {
+                        isOpenMenu && (
+                            <ul className={style.contextMenuContainer}>
+                                <li>Аккаунт</li>
+                                <li>Тарифы</li>
+                                <li>Партнерам</li>
+                                <li>Панель</li>
+                                <li>Выйти</li>
+                            </ul>
+                        )
+                    }
                 </div>
-                <div className="mobile-menu-trigger" id="mobile-menu-trigger"></div>
-                <nav className="header__mobile-nav" data-tooltip=""></nav>
-                <div className="header__profile-wrap">
-            
-                    <div className="header-profile" id="header-active-profile-nav">
-                        <div className="header-profile__item">
-                            <div className="header-profile__item__trigger" data-tooltip=""></div>
-                            <img src={UserIcon} alt="Аватар" className="avatar"/>
-                            <div className="header__ui-menu" data-tooltip-ignore="">
-                                <ul>
-                                    <li className="communities">
-                                        Аккаунт
-                                    </li>
-                                    <li className="accounts">
-                                        Тарифы
-                                    </li>
-                                    <li className="communities">
-                                        Партнерам
-                                    </li>
-                                    <li className="communities">
-                                        Панель
-                                    </li>
-                                    <li id="user-logout" className="border-top logout" data-app-hide="">
-                                        Выйти
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </ClickOutSide>
         </header>
     )
 };

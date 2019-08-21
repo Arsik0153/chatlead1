@@ -8,33 +8,33 @@ const FancyInput = (props) => {
         input,
         label,
         type,
+        placeholder,
         onClick,
         isValidation = true,
         meta: { asyncValidating, touched, error }
     } = props;
+
     const [isFocusInInput, setStatusForFocus] = useState(false);
 
 
 
     return(
         <div className={style.mainContainer}>
-            {
-                isFocusInInput && (
-                    <label htmlFor={input.name} onClick={onClick}>
-                        {label}
-                    </label>
-                )
-            }
-            <div className={style.inputContainer}
-                 onFocus={() => setStatusForFocus(true)}
-                 onBlur={() => setStatusForFocus(false)}
-            >
+
+            <label htmlFor={input.name} onClick={onClick}>{label}</label>
+            {/*<div className={style.inputContainer}*/}
+                 {/*// onFocus={() => setStatusForFocus(true)}*/}
+                 {/*// onBlur={() => setStatusForFocus(false)}*/}
+            {/*>*/}
                 <input
                     {...input}
                     id={input.name}
                     type={type}
-                    className={isFocusInInput ? style.inputFocus : style.input}
-                    placeholder={!isFocusInInput && label}
+                    className={isFocusInInput ? style.activeInput : style.input}
+                    placeholder={placeholder}
+                    onFocus={() => setStatusForFocus(true)}
+                    onBlur={() => setStatusForFocus(false)}
+                    // placeholder={!isFocusInInput && label}
 
                 />
                 {/*{*/}
@@ -44,7 +44,7 @@ const FancyInput = (props) => {
                 {/*}*/}
 
                 {touched && error && <span className={style.errorMessage}>{error}</span>}
-            </div>
+            {/*</div>*/}
         </div>
     );
 };

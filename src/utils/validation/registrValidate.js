@@ -9,7 +9,8 @@ const validationRegister = values => {
     const errors = {};
     const {
         login,
-        password
+        password,
+        passwordConfirm
     } = values;
 
 
@@ -31,6 +32,10 @@ const validationRegister = values => {
                 = "Пароль должен быть больше 6 символов и меньше 30"
         );
     });
+
+    if(password !== passwordConfirm) {
+        errors.passwordConfirm = 'Пароли не совпадают'
+    }
 
 
 

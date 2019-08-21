@@ -3,6 +3,10 @@ import style from './sideBarSocial.module.sass';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
 import {updateSocialInTrigger} from "../../actions/actionCreator";
+import faceBookMassanger from '../../images/facebook-messenger-logo-big.png';
+import telegram from '../../images/telegram-icon-big.png';
+import vk from '../../images/vk-logo-big.png';
+import whatsApp from '../../images/whatsapp-big.png';
 
 
 const SideBarSocial = (props) => {
@@ -24,9 +28,9 @@ const SideBarSocial = (props) => {
 
     return (
         <div className={style.mainContainer}>
+            <h2>Каналы</h2>
 
-            <div className={style.socialContainer}>
-                <label htmlFor={'Facebook Messenger'}>Facebook Messenger</label>
+            <div className={style.inputGroup}>
                 <input
                     type="radio"
                     id="Facebook Messenger"
@@ -35,9 +39,12 @@ const SideBarSocial = (props) => {
                     checked={changedTrigger.social === 'facebook'}
                     onChange={updateSocialInTriggerHandler}
                 />
+                <label htmlFor={'Facebook Messenger'}>
+                    <img src={faceBookMassanger} alt={'facebook'} />
+                    Facebook Messenger
+                </label>
             </div>
-            <div className={style.socialContainer}>
-                <label htmlFor={'Telegram'}>Telegram</label>
+            <div className={style.inputGroup}>
                 <input
                     type="radio"
                     id="Telegram"
@@ -46,20 +53,26 @@ const SideBarSocial = (props) => {
                     checked={changedTrigger.social === 'telegram'}
                     onChange={updateSocialInTriggerHandler}
                 />
+                <label htmlFor={'Telegram'}>
+                    <img src={telegram} alt={'telegram'} />
+                    Telegram
+                </label>
             </div>
-            <div className={style.socialContainer}>
-                <label htmlFor={'ВКонтакте'}>ВКонтакте</label>
+            <div className={style.inputGroup}>
                 <input
                     type="radio"
-                    id="Вконтакте"
+                    id="vk"
                     name={'social'}
                     value={'vk'}
                     checked={changedTrigger.social === 'vk'}
                     onChange={updateSocialInTriggerHandler}
                 />
+                <label htmlFor={'vk'}>
+                    <img src={vk} alt={'vk'} />
+                    ВКонтакте
+                </label>
             </div>
-            <div className={style.socialContainer}>
-                <label htmlFor={'WhatsApp'} >WhatsApp</label>
+            <div className={style.inputGroup}>
                 <input
                     type="radio"
                     id="WhatsApp"
@@ -68,6 +81,10 @@ const SideBarSocial = (props) => {
                     onChange={updateSocialInTriggerHandler}
                     checked={changedTrigger.social === 'whatsapp'}
                 />
+                <label htmlFor={'WhatsApp'}>
+                    <img src={whatsApp} alt={'whatsApp'} />
+                    WhatsApp
+                </label>
             </div>
         </div>
     )

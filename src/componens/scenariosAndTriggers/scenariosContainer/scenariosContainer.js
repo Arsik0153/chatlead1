@@ -14,9 +14,6 @@ const ScenariosContainer = (props) => {
 
     const [changedScenarioId, changeScenarioId] = useState(false);
 
-    // const ScenarioIdContext = React.createContext(
-    //   changedScenarioId
-    // );
 
     const newScenarioHandler = () => {
 

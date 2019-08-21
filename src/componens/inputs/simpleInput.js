@@ -11,7 +11,6 @@ const SimpleInput = (props) => {
         meta: { asyncValidating, touched, error }
     } = props;
 
-    // TODO styles
     return(
         <input
             {...input}

@@ -26,8 +26,6 @@ const ButtonsContainer = (props) => {
         styleForContextMenu
     } = props;
 
-    console.log(changedTrigger);
-
 
 
     const appendNewButton = () => {
@@ -117,6 +115,7 @@ const ButtonsContainer = (props) => {
                                                    setIndexOpenButton={setIndexOpenButton}
                                                    changedTrigger={changedTrigger}
                                                    styleForContextMenu={styleForContextMenu}
+                                                   index={index}
                                                />
                                            )}
                                        </ScenarioIdContext.Consumer>
@@ -158,8 +157,6 @@ const ButtonsContainer = (props) => {
         </div>
     )
 };
-
-
 
 const mapDispatchToProps = dispatch => ({
     updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),

@@ -30,3 +30,8 @@ export const tagsTypes = {
     AddTags: 'Add_Tags',
     Remove_Tags: 'Remove_Tags'
 };
+
+export const tagsTranscription = {
+  Add_Tags: 'Добавить тег',
+  Remove_Tags: 'Удалить тег'
+};

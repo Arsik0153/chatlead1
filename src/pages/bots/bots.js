@@ -15,22 +15,22 @@ const Bots = (props) => {
 
     // TODO styles
     return (
-        <div className="main_layout">
+        <div className={style.mainContainer}>
             <MainHeader/>
-            <main id="main">
-                <section style={{marginTop: "10px"}}>
+            <main className={style.botsMainContainer}>
+                <section>
                     <div className="container">
                         <CreateBotForm/>
 
-                        <ul className="bot-list">
-                            {
-                                botsData.managers && botsData.managers.map(elem => (
-                                    <BotsElement
-                                        {...elem}
-                                    />
-                                ))
-                            }
-                        </ul>
+                        {/*<ul className="bot-list">*/}
+                            {/*{*/}
+                                {/*botsData.managers && botsData.managers.map(elem => (*/}
+                                    {/*<BotsElement*/}
+                                        {/*{...elem}*/}
+                                    {/*/>*/}
+                                {/*))*/}
+                            {/*}*/}
+                        {/*</ul>*/}
                     </div>
                 </section>
             </main>

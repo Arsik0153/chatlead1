@@ -5,6 +5,7 @@ import SignUp from './pages/signUp/signUp';
 import Auth from './pages/auth/auth';
 import Bots from './pages/bots/bots';
 import SingleBot from './pages/singleBot/singleBot';
+import Autoride from './pages/autoride/autoride';
 // import SingleScenario from './pages/singleScenario/singleScenario';
 import onlyAutorizenUsers from './componens/hoc/onlyAutorizedUsers';
 import onlyDontRegistrationUsers from './componens/hoc/onlyNotRegistration';
@@ -18,7 +19,10 @@ class App extends React.Component {
           <div>
             <Switch>
               <Route exact path={"/"} render={() => (
-                  <Redirect to={'signUp'}/>
+                  <Redirect to={'/signUp'}/>
+              )}/>
+              <Route exact path={"/forgotPassword"} render={() => (
+                  <Redirect to={'/signUp'}/>
               )}/>
               <Route
                   exact
@@ -39,6 +43,11 @@ class App extends React.Component {
                   exact
                   path={"/bots/:botId/scenario"}
                   component={onlyAutorizenUsers(SingleBot)}
+              />
+              <Route
+                  exact
+                  path={"/bots/:botId/autoride"}
+                  component={onlyAutorizenUsers(Autoride)}
               />
               {/*<Route*/}
                   {/*exact*/}

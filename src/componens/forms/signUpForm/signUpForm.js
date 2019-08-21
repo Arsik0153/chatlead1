@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Field, reduxForm } from 'redux-form';
 import {withRouter} from 'react-router';
 import {connect} from "react-redux";
@@ -11,39 +11,67 @@ import {signUp} from "../../../actions/actionCreator";
 
 const SignUpForm = (props) => {
     const {registration} = props;
+    const [isError, setError] = useState(false);
 
     const submit = (values) => {
 
-        if(!registration.syncErrors) {
+        if(registration.syncErrors) {
+            setError(true);
+        }else {
             props.signUpAction(registration.values, props.history);
         }
+
     };
 
 
     return(
         <form autoComplete={'off'} className={style.mainContainer}>
-                <div className={style.fieldsContainer}>
-                    <Field
-                        name={'login'}
-                        type={'text'}
-                        component={FancyInput}
-                        label={'Почта'}
-                    />
-                    <Field
-                        name={'password'}
-                        type={'password'}
-                        component={FancyInput}
-                        label={'Пароль'}
-                    />
-                </div>
-                <div
-                    className={style.submitButton}
-                    onClick={submit}
-                >
-                    Зарегистрироватся
-                    {/*{props.isFetching ? 'Подождите...' : 'Зарегистрироватся'}*/}
-                </div>
+            <div className={style.fieldsContainer}>
+                <Field
+                    name={'login'}
+                    type={'text'}
+                    component={FancyInput}
+                    label={'Email:'}
+                    placeholder={'mail@example.com'}
+                />
+               <div className={style.passwordContainer}>
+                   <div className={style.inputPasswordContainer}>
+                       <Field
+                           name={'password'}
+                           type={'password'}
+                           component={FancyInput}
+                           label={'Пароль:'}
+                       />
+                   </div>
+                   <div className={style.inputPasswordContainer}>
+                       <Field
+                           name={'passwordConfirm'}
+                           type={'password'}
+                           component={FancyInput}
+                           label={'Повторите пароль:'}
+                       />
+                   </div>
+               </div>
+            </div>
+            <div
+                className={style.submitButton}
+                onClick={submit}
+            >
+                Создать аккаунт
+            </div>
+
+            <div className={style.errorsContainer}>
                 <div className={style.error}>{props.error}</div>
+                {isError && (
+                    <div className={style.error}>Введите пожалуйста коректные данные</div>
+                )}
+            </div>
+
+            <p>
+                Продолжая, вы соглашаетесь с нашей
+                <span> политикой конфиденциальности </span> и
+                <span> правилами пользования</span>
+            </p>
         </form>
     );
 };
