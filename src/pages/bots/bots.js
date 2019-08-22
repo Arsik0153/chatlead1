@@ -18,21 +18,17 @@ const Bots = (props) => {
         <div className={style.mainContainer}>
             <MainHeader/>
             <main className={style.botsMainContainer}>
-                <section>
-                    <div className="container">
-                        <CreateBotForm/>
+                <CreateBotForm/>
 
-                        {/*<ul className="bot-list">*/}
-                            {/*{*/}
-                                {/*botsData.managers && botsData.managers.map(elem => (*/}
-                                    {/*<BotsElement*/}
-                                        {/*{...elem}*/}
-                                    {/*/>*/}
-                                {/*))*/}
-                            {/*}*/}
-                        {/*</ul>*/}
-                    </div>
-                </section>
+                <ul className={style.bots}>
+                    {
+                        botsData.managers && botsData.managers.map(elem => (
+                            <BotsElement
+                                {...elem}
+                            />
+                        ))
+                    }
+                </ul>
             </main>
         </div>
     )

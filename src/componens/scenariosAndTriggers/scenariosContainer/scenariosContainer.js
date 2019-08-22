@@ -8,6 +8,7 @@ import {addNewScenario, deleteScenario} from "../../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import trashImage from '../../../images/trash.png';
 import {ScenarioIdContext} from "../../../utils/Contexts";
+import {destinationScenario} from "../../../constants/defaultValues";
 
 
 const ScenariosContainer = (props) => {
@@ -17,7 +18,7 @@ const ScenariosContainer = (props) => {
 
     const newScenarioHandler = () => {
 
-        props.addScenario(props.match.params.botId);
+        props.addScenario(props.match.params.botId, destinationScenario.default);
     };
 
 
@@ -54,13 +55,15 @@ const ScenariosContainer = (props) => {
             <div className={style.scenariosContainer}>
                 {
                     props.botScenarios && props.botScenarios.map(elem => (
-                        <div className={style.scenariosElement}>
-                            <h2 onClick={() => changeScenarioId(elem.id)}>{elem.trigger_text}</h2>
-                            <img src={trashImage} alt={'trash'} onClick={() => props.deleteScenario({
-                                botId: props.match.params.botId,
-                                idScenario: elem.id
-                            })}/>
-                        </div>
+                        elem.destination === 'undefined' && (
+                            <div className={style.scenariosElement}>
+                                <h2 onClick={() => changeScenarioId(elem.id)}>{elem.trigger_text}</h2>
+                                <img src={trashImage} alt={'trash'} onClick={() => props.deleteScenario({
+                                    botId: props.match.params.botId,
+                                    idScenario: elem.id
+                                })}/>
+                            </div>
+                        )
                     ))
                 }
             </div>

@@ -46,3 +46,15 @@ export const updateTrigger = (triggerData) => (
 export const uploadMedia = (mediaData) => (
   axios.post(`${restURL}/UploadFile/`, mediaData)
 );
+
+export const getAllAutorides = (botData) => (
+  axios.post(`${restURL}/GetAutoRide/`, botData)
+);
+
+export const addNewAutoride = (data) => (
+  axios.post(`${restURL}/CreateAutoRide/`, data)
+);
+
+export const getAllBroadCasts = (data) => (
+  axios.post(`${restURL}/GetBroadcastMessages/`, data)
+);

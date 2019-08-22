@@ -6,6 +6,7 @@ import Auth from './pages/auth/auth';
 import Bots from './pages/bots/bots';
 import SingleBot from './pages/singleBot/singleBot';
 import Autoride from './pages/autoride/autoride';
+import BroadCast from './pages/broadcast/broadcast';
 // import SingleScenario from './pages/singleScenario/singleScenario';
 import onlyAutorizenUsers from './componens/hoc/onlyAutorizedUsers';
 import onlyDontRegistrationUsers from './componens/hoc/onlyNotRegistration';
@@ -48,6 +49,11 @@ class App extends React.Component {
                   exact
                   path={"/bots/:botId/autoride"}
                   component={onlyAutorizenUsers(Autoride)}
+              />
+              <Route
+                  exact
+                  path={"/bots/:botId/broadcast"}
+                  component={onlyAutorizenUsers(BroadCast)}
               />
               {/*<Route*/}
                   {/*exact*/}

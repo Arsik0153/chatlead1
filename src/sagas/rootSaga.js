@@ -10,7 +10,10 @@ import {
     updateSocialInTriggerSagas,
     deleteBotSaga,
     deleteScenarioSagas,
-    addNewTriggerSagas
+    addNewTriggerSagas,
+    getAllAutoridesSagas,
+    appendNewAutorideSagas,
+    getAllBroadCastSagas
 } from "./botsSagas";
 
 function* rootSaga() {
@@ -25,6 +28,9 @@ function* rootSaga() {
   yield takeLatest(ACTION.UPDATE_TRIGGER, updateTriggerSaga);
   yield takeLatest(ACTION.DELETE_SCENARIO, deleteScenarioSagas);
   yield takeLatest(ACTION.UPDATE_SOCIAL_IN_TRIGGER, updateSocialInTriggerSagas);
+  yield takeLatest(ACTION.GET_ALL_AUTORIDES, getAllAutoridesSagas);
+  yield takeLatest(ACTION.APPEND_AUTORIDE, appendNewAutorideSagas);
+  yield takeLatest(ACTION.GET_ALL_BROADCASTS, getAllBroadCastSagas);
 }
 
 export default rootSaga;

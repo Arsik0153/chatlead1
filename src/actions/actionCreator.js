@@ -32,9 +32,10 @@ export const getAllScenariesForBot = (idBot) => ({
     idBot
 });
 
-export const addNewScenario = (botId) => ({
+export const addNewScenario = (botId, destination) => ({
    type: ACTION.ADD_NEW_SCENARIO,
-   botId
+   botId,
+    destination
 });
 
 export const deleteScenario = (scenarioData) => ({
@@ -66,4 +67,20 @@ export const updateButtonsInTrigger = (triggerData) => ({
 export const updateSocialInTrigger = (triggerData) => ({
    type: ACTION.UPDATE_SOCIAL_IN_TRIGGER,
     triggerData
+});
+
+export const getAllAutorides = (botId) => ({
+   type: ACTION.GET_ALL_AUTORIDES,
+   botId
+});
+
+
+export const addNewAutoride = (managerId) => ({
+    type: ACTION.APPEND_AUTORIDE,
+    managerId
+});
+
+export const getAllBroadCasts = (managerId) => ({
+   type: ACTION.GET_ALL_BROADCASTS,
+   managerId
 });

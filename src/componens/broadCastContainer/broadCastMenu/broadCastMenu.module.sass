@@ -1,0 +1,117 @@
+.mainContainer
+  width: 100%
+  margin-top: 40px
+  font-family: 'Roboto', sans-serif
+
+.navigation
+  display: flex
+  justify-content: space-between
+  padding: 0 15px 0 15px
+  box-sizing: border-box
+  color: #82848b
+  font-size: 16px
+  border-bottom: 1px solid silver
+  width: 100%
+
+  li
+    cursor: pointer
+    padding-bottom: 6px
+
+.activeNavigationElement
+  border-bottom: 2px solid #517df9
+
+.contentContainer
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.userListBroadcast
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 40px 0 40px 0
+  border-bottom: 1px solid silver
+  width: 100%
+  box-sizing: border-box
+
+
+.userListElement
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+
+  h2
+    color: #000
+    font-size: 16px
+    margin-bottom: 10px
+
+  label
+    font-size: 16px
+    font-weight: 400
+    display: flex
+    align-items: center
+    color: #000
+    margin-left: 10px
+
+.options
+  display: flex
+  flex-direction: column
+  padding: 40px 0 40px 0
+  border-bottom: 1px solid silver
+  align-items: center
+  width: 100%
+
+  div
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+
+  label
+    color: #82848b
+    margin-bottom: 5px
+    display: flex
+    align-items: center
+    font-size: 15px
+
+.buttonsContainer
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 40px 0 40px 0
+
+.submitButton
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16)
+  border-radius: 33px
+  background-color: #517df9
+  color: #fff
+  padding: 10px 25px
+
+.putOffButton
+  @extend .submitButton
+  background: #fff
+  border: 1px solid #517df9
+  color: #517df9
+  padding: 9px 15px
+
+  p
+    color: #82848b
+    margin-top: 0
+    font-size: 16px
+
+.testBroadCastContainer
+  padding: 40px 0 40px 0
+  border-bottom: 1px solid silver
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  p
+    color: #4680fe
+    text-decoration: none
+    font-size: 16px
+    cursor: pointer
+
+.buttonsContainerTest
+  padding: 40px 25px
+

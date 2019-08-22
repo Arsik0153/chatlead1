@@ -50,7 +50,6 @@ const TimerElement = (props) => {
                    <HoverBarForMessage
                        {...props}
                        styleForBar={{top: '-25px', left: '320px'}}
-                       // statusDraggable={(status) => setStatusDragable(status)}
                    />
                </div>
                <div className={style.mainContainer} onClick={() => setStatusIsOpenWindow(true)}>
@@ -60,7 +59,6 @@ const TimerElement = (props) => {
                                <div
                                    className={style.timerContainer}
                                    onClick={() => setStatusIsOpenWindow(true)}
-                                   // onBlur={() => setStatusIsOpenWindow(true)}
                                >
                                    Задержка { valuesForTimer[Object.keys(valuesForTimer)[0]] || 0 } секунды
                                </div>

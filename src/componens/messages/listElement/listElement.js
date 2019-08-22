@@ -11,7 +11,7 @@ const ListElements = (props) => {
     const {type, index, pictureForLabel, value, changedTrigger} = props;
 
 
-
+    console.log(index);
 
     const updateTrigger = (e, typeInput, indexListElement) => {
         const messagesCopy = changedTrigger.messages.concat();
@@ -72,23 +72,23 @@ const ListElements = (props) => {
                 />
             </div>
             {
-                value.map((elem, index) => (
-                    <div className={style.listElement} style={index === value.length - 1 ? {border: 'none'} : {}}>
+                value.map((elem, indexInListArray) => (
+                    <div className={style.listElement} style={indexInListArray === value.length - 1 ? {border: 'none'} : {}}>
                         <div className={style.inputContainer}>
                             <input
                                 type={'text'}
                                 defaultValue={elem.title}
                                 placeholder={'Введите титульное слово'}
-                                onBlur={(e) => updateTrigger(e, 'title', index)}
+                                onBlur={(e) => updateTrigger(e, 'title', indexInListArray)}
                             />
                             <textarea
                                 defaultValue={elem.text}
                                 placeholder={'Введите текст'}
-                                onBlur={(e) => updateTrigger(e, 'text', index)}
+                                onBlur={(e) => updateTrigger(e, 'text', indexInListArray)}
                             />
                             <ButtonsContainer
                                 {...props}
-                                changedSlideOrElement={index}
+                                changedSlideOrElement={indexInListArray}
                                 styleForControls={{borderRadius: '0'}}
                                 styleForButton={{fontSize: '12px'}}
                                 styleForCaption={{padding: '10px 5% 10px 5px', alignItems: 'center'}}
@@ -99,12 +99,12 @@ const ListElements = (props) => {
                             <input
                                 type={'file'}
                                 accept={'image/*'}
-                                name={index}
-                                id={index}
-                                onChange={(e) => updateTrigger(e, 'file', index)}
+                                name={indexInListArray + index}
+                                id={indexInListArray + index}
+                                onChange={(e) => updateTrigger(e, 'file', indexInListArray)}
                                 className={style.inputFile}
                             />
-                            <label htmlFor={index}>
+                            <label htmlFor={indexInListArray + index}>
                                 <div className={style.pictureContainer}>
                                     <h2>
                                         {
@@ -120,7 +120,7 @@ const ListElements = (props) => {
                     </div>
                 ))
             }
-            <div className={style.addTagButton} onClick={newListElementHanlder}>+element</div>
+            <div className={style.addTagButton} onClick={newListElementHanlder}>+ Елемент списка</div>
         </div>
     )
 };

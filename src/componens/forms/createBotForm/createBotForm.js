@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './createBotForm.module.sass';
 import {Field, reduxForm} from "redux-form";
-import FancyInput from "../../inputs/fancyInput";
+import BotCreateInput from '../../inputs/botCreateInput/botCreateInput';
 import {connect} from "react-redux";
 import {createBot} from "../../../actions/actionCreator";
 import {withRouter} from 'react-router';
@@ -14,8 +14,8 @@ const CreateBotForm = (props) => {
             <Field
                 name={'name'}
                 type={'text'}
-                component={FancyInput}
-                label={'Название бота'}
+                component={BotCreateInput}
+                placeholder={'Название бота'}
             />
             <div
                 className={style.submitButton}

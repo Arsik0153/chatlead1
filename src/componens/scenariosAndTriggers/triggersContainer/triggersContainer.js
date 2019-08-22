@@ -7,6 +7,8 @@ import {fileDefinition} from "../../../utils/fileDefinition/fileDefinition";
 import ButtonsForAddNewMessage from '../../inputs/buttons/buttonsForAddNewMessages/buttonsForAddNewMessage';
 import SideBarSocial from '../../sideBarSocial/sideBarSocial';
 import MessagesContainer from './messagesContainer/messagesContainer';
+import BroadCastMenu from '../../broadCastContainer/broadCastMenu/broadCastMenu';
+import {destinationScenario} from "../../../constants/defaultValues";
 
 
 const TriggersContainer = (props) => {
@@ -17,6 +19,7 @@ const TriggersContainer = (props) => {
         = useState(triggers.length === 0 ? null : triggers[0].id);
     const changedTrigger = changedTriggerId ? triggers.filter(elem => elem.id === changedTriggerId)[0] : null;
 
+    console.log(changedScenario);
 
     const newTriggerHandler = () => {
         const triggerData = {
@@ -124,6 +127,13 @@ const TriggersContainer = (props) => {
                     <ButtonsForAddNewMessage
                         changedTrigger={changedTrigger}
                     />
+                </div>
+                <div className={style.broadCastMenu}>
+                    {
+                        changedScenario.destination === destinationScenario.broadcast && (
+                            <BroadCastMenu/>
+                        )
+                    }
                 </div>
             </div>
             <div className={style.social}>

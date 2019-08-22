@@ -9,9 +9,13 @@ import {
     uploadMedia,
     deleteBot,
     deleteScenario,
-    addNewTrigger
+    addNewTrigger,
+    getAllAutorides,
+    addNewAutoride,
+    getAllBroadCasts
 } from "../api/rest/restContoller";
 import {signUpErrors, authErrors} from "../constants/errors/user";
+import {destinationScenario} from "../constants/defaultValues";
 
 
 export function* createBotSaga({ createBotData }) {
@@ -106,7 +110,7 @@ export function* getAllScenariesForBotSaga({ idBot }) {
 
         // console.log(data.scenarios);
 
-        console.log(data);
+        // console.log(data);
 
 
         if(data.ok) {
@@ -119,7 +123,7 @@ export function* getAllScenariesForBotSaga({ idBot }) {
 }
 
 
-export function* addNewScenarioSagas({ botId }) {
+export function* addNewScenarioSagas({ botId, destination }) {
 
     if(localStorage.getItem('token')) {
 
@@ -130,6 +134,8 @@ export function* addNewScenarioSagas({ botId }) {
         formData.append('manager_id', botId);
         formData.append('user_token', localStorage.getItem('token'));
         formData.append('trigger_text', 'Безымяная команда');
+        formData.append('destination', destination);
+
 
 
         const {data} = yield call(addNewScenario, formData);
@@ -282,6 +288,117 @@ export function* updateSocialInTriggerSagas({ triggerData }) {
         } else {
             yield put({type: ACTION.SINGLE_BOT_DATA_ERROR, error: signUpErrors[data.desc]})
         }
+
+    }
+}
+
+export function* getAllAutoridesSagas({ botId }) {
+
+
+    if (localStorage.getItem('token')) {
+        yield put({type: ACTION.AUTORIDE_REQUEST});
+
+
+        const formData = new FormData();
+        formData.append('user_token', localStorage.getItem('token'));
+        formData.append('manager_id', botId);
+
+
+        const allAutorides = yield call(getAllAutorides, formData);
+
+
+        if (allAutorides.data.ok) {
+            yield put({type: ACTION.AUTORIDE_RESPONSE, autoridesData: allAutorides.data.auto_rides});
+
+            const allScenaries = yield call(getScenariesForManager, formData);
+            yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});
+
+        } else {
+            yield put({type: ACTION.AUTORIDE_ERROR, error: signUpErrors[allAutorides.data.desc]})
+        }
+
+
+    }
+}
+
+export function* appendNewAutorideSagas({ managerId }) {
+
+
+    if (localStorage.getItem('token')) {
+        yield put({type: ACTION.AUTORIDE_REQUEST});
+
+
+        const formData = new FormData();
+        formData.append('user_token', localStorage.getItem('token'));
+        formData.append('manager_id', managerId);
+        formData.append('trigger_text', 'Сценарий для воронки');
+        formData.append('destination', destinationScenario.autoride);
+
+
+        const createScenarioStatus = yield call(addNewScenario, formData);
+
+
+        if(createScenarioStatus.data.ok) {
+            formData.append('trigger_text', 'Безымянная автоворонка');
+            formData.append('scenario_id', createScenarioStatus.data.scenario.id);
+
+            const [createAutorideStatus, allScenaries, allAutorides] = yield all([
+                call(addNewAutoride, formData),
+                call(getScenariesForManager, formData),
+                call(getAllAutorides, formData)
+            ]);
+
+            if(createAutorideStatus.data.ok) {
+                yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});
+                yield put({type: ACTION.AUTORIDE_RESPONSE, autoridesData: allAutorides.data.auto_rides});
+            }
+
+            // const createAutorideStatus = yield call(addNewAutoride, formData);
+            //
+            // if(createAutorideStatus.data.ok) {
+            //     const allScenaries = yield call(getScenariesForManager, formData);
+            //     yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});
+            //     const allAutorides = yield call(getAllAutorides, formData);
+            //     yield put({type: ACTION.AUTORIDE_RESPONSE, autoridesData: allAutorides.data.auto_rides});
+            // }
+
+        }else {
+            yield put({type: ACTION.SINGLE_BOT_DATA_ERROR, dataScenarios: createScenarioStatus.data.desc});
+        }
+
+    }
+}
+
+export function* getAllBroadCastSagas({ managerId }) {
+
+
+
+    if (localStorage.getItem('token')) {
+        yield put({type: ACTION.BROADCAST_REQUEST});
+
+
+        const formData = new FormData();
+        formData.append('user_token', localStorage.getItem('token'));
+        formData.append('manager_id', managerId);
+
+        const [allBroadcast, allScenaries] = yield all([
+            call(getAllBroadCasts, formData),
+            call(getScenariesForManager, formData),
+        ]);
+
+        //
+        if (allBroadcast.data.ok) {
+            yield put({type: ACTION.BROADCAST_RESPONSE, broadCastData: allBroadcast.data.broadcasts});
+
+            if(allScenaries.data.ok) {
+                yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});
+
+            }
+
+        } else {
+            yield put({type: ACTION.BROADCAST_ERROR, error: signUpErrors[allBroadcast.data.desc]})
+        }
+
 
     }
 }

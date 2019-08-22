@@ -14,7 +14,7 @@ const TextArea = (props) => {
             <div className={style.hoverBar}>
                 <HoverBarForMessage
                     {...props}
-                    styleForBar={{top: '-150px', left: '160px'}}
+                    styleForBar={{top: '-100px', left: '160px'}}
                     // statusDraggable={(status) => setStatusDragable(status)}
                 />
             </div>

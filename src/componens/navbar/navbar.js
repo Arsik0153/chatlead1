@@ -52,7 +52,7 @@ const Navbar = (props) => {
                 <li>
                     <FontAwesomeIcon icon={faPaperPlane} />
                     <NavLink
-                        to={`/bots/${botId}/mailing`}
+                        to={`/bots/${botId}/broadcast`}
                         className={style.link}
                         activeClassName={style.activeLink}
                     >

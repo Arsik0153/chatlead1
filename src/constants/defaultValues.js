@@ -35,3 +35,9 @@ export const tagsTranscription = {
   Add_Tags: 'Добавить тег',
   Remove_Tags: 'Удалить тег'
 };
+
+export const destinationScenario = {
+    default: '',
+    broadcast: 'broadcast',
+    autoride: 'autoride'
+};
