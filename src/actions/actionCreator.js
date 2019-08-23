@@ -84,3 +84,15 @@ export const getAllBroadCasts = (managerId) => ({
    type: ACTION.GET_ALL_BROADCASTS,
    managerId
 });
+
+// setup
+
+export const getManager = (idBot) => ({
+   type: ACTION.GET_BOT_SETUP,
+   idBot
+});
+
+export const editManager = (setupData) => ({
+   type: ACTION.UPDATE_BOT_SETUP,
+   setupData
+});
