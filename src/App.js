@@ -60,6 +60,11 @@ class App extends React.Component {
                   {/*path={"/scenarios/:scenarioId"}*/}
                   {/*component={onlyAutorizenUsers(SingleScenario)}*/}
               {/*/>*/}
+              <Route
+                  exact
+                  path={"/bots/:botId/setup"}
+                  component={onlyAutorizenUsers(BotSetup)}
+              />
             </Switch>
           </div>
         </Router>
