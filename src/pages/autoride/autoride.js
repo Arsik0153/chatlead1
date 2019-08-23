@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import style from './autoride.module.sass';
-import Header from "../../componens/header/header";
 import NavBar from '../../componens/navbar/navbar';
 import {connect} from "react-redux";
 import {getAllAutorides, getAllScenariesForBot} from "../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import AutorideContainer from '../../componens/autorideContainer/autorideContainer';
+import MainHeader from "../../componens/mainHeader/mainHeader";
 
 
 const Autoride = (props) => {
@@ -16,7 +16,9 @@ const Autoride = (props) => {
 
     return (
         <div className={style.mainContainer}>
-            <Header/>
+            <MainHeader
+                isMainHeader={false}
+            />
             <NavBar/>
             <div className={style.contentBlock}>
                 <AutorideContainer/>

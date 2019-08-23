@@ -58,3 +58,7 @@ export const addNewAutoride = (data) => (
 export const getAllBroadCasts = (data) => (
   axios.post(`${restURL}/GetBroadcastMessages/`, data)
 );
+
+export const updateBroadCasts = (data) => (
+  axios.post(`${restURL}/EditBroadcast/`, data)
+);

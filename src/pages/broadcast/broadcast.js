@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import style from './broadcast.module.sass';
-import Header from "../../componens/header/header";
+// import Header from "../../componens/header/header";
+import MainHeader from '../../componens/mainHeader/mainHeader';
 import NavBar from '../../componens/navbar/navbar';
 import BroadCastContainer from '../../componens/broadCastContainer/broadCastContainer';
 import {getAllBroadCasts} from "../../actions/actionCreator";
@@ -14,12 +15,12 @@ const BroadCast = (props) => {
         props.getBroadCasts(props.match.params.botId);
     }, []);
 
-    console.log(props.broadCastData);
-
 
     return (
         <div className={style.mainContainer}>
-            <Header/>
+            <MainHeader
+                isMainHeader={false}
+            />
             <NavBar/>
             <div className={style.contentBlock}>
                 <BroadCastContainer/>

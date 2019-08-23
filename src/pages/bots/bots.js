@@ -16,7 +16,9 @@ const Bots = (props) => {
     // TODO styles
     return (
         <div className={style.mainContainer}>
-            <MainHeader/>
+            <MainHeader
+                isMainHeader={true}
+            />
             <main className={style.botsMainContainer}>
                 <CreateBotForm/>
 

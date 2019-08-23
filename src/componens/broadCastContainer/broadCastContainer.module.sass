@@ -1,64 +1,187 @@
 .mainContainer
   display: flex
-  justify-content: space-around
+  //justify-content: space-around
+  font-family: "Roboto", sans-serif
   margin-top: 0
+  padding: 0 20px
+  //height: 100vh
+  //box-sizing: border-box
 
   h2
     font-size: 24px
     font-weight: 400
     line-height: 32px
-    font-family: "Roboto"
     color: #8492a6
 
 .infoBlock
   display: flex
-  padding: 15px 10px 15px 45px
-  position: relative
-  color: #444
-  width: 50%
+  padding: 15px 10px 15px 20px
+  //position: relative
+  color: #67707a
+  //width: 50%
   border: 1px solid #dadada
-  margin-top: 10px
+  //border: 1px solid red
+
+  .infoText
+    margin-left: 10px
+    p
+      text-align: left
+      font-size: 14px
+      margin-top: 0
+      margin-bottom: 5px
+      color: #444
+
+    span
+      text-align: left
+      font-size: 14px
+      border-bottom: 1px solid rgba(70,128,254,.7)
+      padding-bottom: 2px
+      color: #4680fe
+      margin-top: 5px
+
+//p
+//  &:last-child
+//    margin-top: 10px
 
 .createButton
   height: 52px
   line-height: 20px
   background-color: #4680fe
   border-radius: 25px
-  width: 40%
+  padding: 0 100px
   display: flex
   justify-content: center
   align-items: center
-  color: #ffffff
+  color: white
   cursor: pointer
+  font-size: 13px
 
 .controls
   display: flex
+  width: 30%
   flex-direction: column
   align-items: center
 
+  .hardLine
+    width: 100%
+    border: none
+    background: #e1e1e1
+    content: ''
+    height: 1px
+    margin-top: 30px
+    margin-bottom: 30px
 
-.infoText
-  margin-left: 10px
 
-  p
-    &:last-child
-      margin-top: 10px
+.inputContainer
+  width: 95%
+
+  h2
+    color: #444
+    font-weight: 400
+    font-size: 28px
+    margin-bottom: 32px
+
+  input
+    padding: 10px 45px 10px 20px
+    border: 1px solid #dadada
+    background-color: transparent
+    -webkit-transition: .2s ease-out
+    -o-transition: .2s ease-out
+    transition: .2s ease-out
+    -webkit-border-radius: 25px
+    border-radius: 25px
+    width: 35%
+    margin-bottom: 30px
+    outline: none
+
+    &::placeholder
+      font-size: 13px
 
 
 .scenariosContainer
   display: flex
   flex-direction: column
-  align-items: center
-  border: 1px solid #e0e6ed
+  align-items: flex-end
+  //border: 1px solid #e0e6ed
   border-radius: 4px
   background-color: #fff
-  margin-top: 20px
+  //margin-left: 60px
+  //margin-top: 20px
+  width: 80%
+  padding: 0
+  box-sizing: border-box
+
 
   img
     width: 40px
     height: 40px
 
-.broadCastElement
+  table
+    width: 95%
+    border: 1px solid #e1e1e1
+
+    .keyWord
+      font-size: 14px
+      color: #444
+
+      span
+        color: #000
+        font-weight: 500
+
+
+    .controlsImages
+      display: flex
+      justify-content: flex-end
+      margin: 0
+      //padding-right: 20px
+
+      .icon
+        color: #82848B
+        font-weight: 400
+        background: #fff
+        border: 1px solid #82848B
+        //background-color: transparent
+        white-space: nowrap
+        width: 25px
+        height: 25px
+        display: flex
+        justify-content: center
+        align-items: center
+        border-radius: 2px
+        margin-left: 4px
+
+        img
+          width: 15px
+          height: 15px
+
+
+    tr
+      background: #fafafa
+      width: 100%
+      border: 1px solid #e1e1e1
+      cursor: pointer
+
+
+      td
+        padding: 15px
+
+        img
+          width: 20px
+          height: 20px
+          margin-left: 2px
+
+    tr
+      &:first-child
+        border: 1px solid #e1e1e1
+        background: #fff
+        border-radius: 6px 6px 0 0
+
+        td
+          &:last-child
+            display: flex
+            justify-content: flex-end
+
+.autoridesElement
   width: 100%
   display: flex
   justify-content: flex-start
@@ -75,3 +198,21 @@
 .triggersContainer
   width: 100%
   display: flex
+
+.navbar
+  display: flex
+  justify-content: space-between
+  border-bottom: 1px solid #edf0f2
+  padding: 5px
+  width: 30%
+  margin-bottom: 20px
+  color: #9b9b9b
+
+  .navElement
+    cursor: pointer
+
+  .navElementActive
+    border-bottom: 4px solid #4680fe
+    padding-bottom: 10px
+    margin-bottom: -5px
+    cursor: pointer

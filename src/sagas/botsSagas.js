@@ -12,7 +12,8 @@ import {
     addNewTrigger,
     getAllAutorides,
     addNewAutoride,
-    getAllBroadCasts
+    getAllBroadCasts,
+    updateBroadCasts
 } from "../api/rest/restContoller";
 import {signUpErrors, authErrors} from "../constants/errors/user";
 import {destinationScenario} from "../constants/defaultValues";
@@ -389,6 +390,50 @@ export function* getAllBroadCastSagas({ managerId }) {
         //
         if (allBroadcast.data.ok) {
             yield put({type: ACTION.BROADCAST_RESPONSE, broadCastData: allBroadcast.data.broadcasts});
+
+            if(allScenaries.data.ok) {
+                yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});
+
+            }
+
+        } else {
+            yield put({type: ACTION.BROADCAST_ERROR, error: signUpErrors[allBroadcast.data.desc]})
+        }
+
+
+    }
+}
+
+export function* updateBroadCastSagas({ broadCastData }) {
+
+
+    if (localStorage.getItem('token')) {
+        yield put({type: ACTION.BROADCAST_REQUEST});
+
+
+
+        const formData = new FormData();
+        formData.append('user_token', localStorage.getItem('token'));
+        formData.append('manager_id', broadCastData.managerId);
+        formData.append('broadcast_id', broadCastData.id);
+        formData.append('tag', broadCastData.tag);
+        formData.append('time', broadCastData.time.toFixed(0));
+        if(broadCastData.sent) {
+            formData.append('sent', broadCastData.sent);
+        }
+
+
+        const [updateStatus, allScenaries] = yield all([
+            call(updateBroadCasts, formData),
+            call(getScenariesForManager, formData),
+        ]);
+
+        const allBroadcast = yield call(getAllBroadCasts, formData);
+
+        if (updateStatus.data.ok) {
+            if(allBroadcast.data.ok) {
+                yield put({type: ACTION.BROADCAST_RESPONSE, broadCastData: allBroadcast.data.broadcasts});
+            }
 
             if(allScenaries.data.ok) {
                 yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});

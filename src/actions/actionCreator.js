@@ -84,3 +84,8 @@ export const getAllBroadCasts = (managerId) => ({
    type: ACTION.GET_ALL_BROADCASTS,
    managerId
 });
+
+export const updateBroadCasts = (broadCastData) => ({
+    type: ACTION.UPDATE_BROADCAST,
+    broadCastData
+});

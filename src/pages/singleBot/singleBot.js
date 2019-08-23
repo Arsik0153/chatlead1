@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import style from './singleBot.module.sass';
-import Header from '../../componens/header/header';
 import {getAllScenariesForBot} from "../../actions/actionCreator";
 import {connect} from 'react-redux';
 import ScenariosContainer from '../../componens/scenariosAndTriggers/scenariosContainer/scenariosContainer';
 import NavBar from '../../componens/navbar/navbar';
+import MainHeader from "../../componens/mainHeader/mainHeader";
 
 
 const SingleBot = (props) => {
@@ -18,7 +18,9 @@ const SingleBot = (props) => {
 
     return (
         <div className={style.mainContainer}>
-            <Header/>
+            <MainHeader
+                isMainHeader={false}
+            />
             <NavBar/>
             <div className={style.contentBlock}>
                 <ScenariosContainer/>

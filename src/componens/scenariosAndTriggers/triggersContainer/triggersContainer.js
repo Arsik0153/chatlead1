@@ -19,7 +19,6 @@ const TriggersContainer = (props) => {
         = useState(triggers.length === 0 ? null : triggers[0].id);
     const changedTrigger = changedTriggerId ? triggers.filter(elem => elem.id === changedTriggerId)[0] : null;
 
-    console.log(changedScenario);
 
     const newTriggerHandler = () => {
         const triggerData = {
@@ -131,7 +130,10 @@ const TriggersContainer = (props) => {
                 <div className={style.broadCastMenu}>
                     {
                         changedScenario.destination === destinationScenario.broadcast && (
-                            <BroadCastMenu/>
+                            <BroadCastMenu
+                                broadCastId={props.broadCastId}
+                                changedTrigger={changedTrigger}
+                            />
                         )
                     }
                 </div>

@@ -2,10 +2,15 @@ import React, {useState} from 'react';
 import style from './timerElement.module.sass';
 import {updateTrigger} from "../../../actions/actionCreator";
 import {connect} from "react-redux";
+import DatePicker, { registerLocale } from 'react-datepicker';
 import {withRouter} from "react-router-dom";
 import ClickOutsideHandler from "../../hoc/clickOutside";
+import moment from 'moment';
 import ButtonsContainer from '../buttonsContainer/buttonsContainer';
 import HoverBarForMessage from "../hoverBarForMessage/hoverBarForMessage";
+import "react-datepicker/dist/react-datepicker.css";
+import ru from "date-fns/locale/ru"; // the locale you want
+registerLocale("ru", ru);
 
 
 const TimerElement = (props) => {
@@ -137,7 +142,6 @@ const TimerElement = (props) => {
                    <HoverBarForMessage
                        {...props}
                        styleForBar={{top: '-25px', left: '320px'}}
-                       // statusDraggable={(status) => setStatusDragable(status)}
                    />
                </div>
                <div className={style.mainContainer} onClick={() => setStatusIsOpenWindow(true)}>
@@ -152,11 +156,21 @@ const TimerElement = (props) => {
                                {
                                    isOpenWindow && (
                                        <div className={style.messageContainer}>
-                                           <label>Delay time</label>
-                                           <input
-                                               type={'date'}
-                                               defaultValue={valuesForTimer[Object.keys(valuesForTimer)[0]]}
-                                               onInput={(e) => updateTrigger(e, 'send_time')}
+                                           <label>Установить потерю активности</label>
+                                           <DatePicker
+                                               selected={new Date(valuesForTimer[Object.keys(valuesForTimer)[0]])}
+                                               dateFormat={'yyyy-MM-dd'}
+                                               locale={ru}
+                                               onChange={(date) => {
+                                                   const dateObject = {
+                                                           target: {
+                                                               value: moment(date).format('YYYY-MM-DD')
+                                                           }
+                                                       };
+                                                   updateTrigger(dateObject, 'send_time')
+                                               }}
+                                               minDate={new Date()}
+                                               className={style.datePickerInput}
                                            />
                                        </div>
                                    )
