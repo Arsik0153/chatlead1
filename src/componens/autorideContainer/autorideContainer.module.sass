@@ -104,7 +104,6 @@
   align-items: flex-end
   //border: 1px solid #e0e6ed
   border-radius: 4px
-  background-color: #fff
   //margin-left: 60px
   //margin-top: 20px
   width: 80%
@@ -192,4 +191,68 @@
 
 .triggersContainer
   width: 100%
+  display: flex
+
+.buttonsContainer
+  width: 25%
+  box-sizing: border-box
+  margin-left: 20px
+
+  .next
+    width: 100%
+    //height: 52px
+    line-height: 20px
+    position: relative
+    font-family: 'Roboto', sans-serif
+    margin-bottom: 15px
+    font-size: 13px
+    background-color: #4680fe
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 14px 12px 14px
+    border-radius: 25px
+    box-sizing: border-box
+    color: #fff
+    cursor: pointer
+
+  .before
+    @extend .next
+    color: #82848B
+    font-weight: 400
+    border: 1px solid #82848B
+    background-color: transparent
+    white-space: nowrap
+
+.createScenarioContainer
+  //max-width: 600px
+  width: 100%
+  border-radius: 6px
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16)
+  background-color: #ffffff
+  padding: 45px
+
+  textarea
+    padding: 5px
+    word-wrap: break-word
+    display: block
+    font-size: 14px
+    line-height: 1.45
+    min-height: 86px
+    width: 100%
+    resize: none
+    outline: none
+
+.contentContainer
+  margin-left: 40px
+  width: 40%
+
+  h2
+    font-family: 'Roboto', sans-serif
+    color: #444
+    font-weight: 400
+    font-size: 28px
+    margin-bottom: 32px
+
+.newScenarioContainer
   display: flex

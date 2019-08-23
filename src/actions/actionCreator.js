@@ -32,10 +32,16 @@ export const getAllScenariesForBot = (idBot) => ({
     idBot
 });
 
-export const addNewScenario = (botId, destination) => ({
+export const addNewScenario = (botId, destination, trigger_text) => ({
    type: ACTION.ADD_NEW_SCENARIO,
    botId,
-    destination
+    destination,
+    trigger_text
+});
+
+export const copyScenario = (scenarioData) => ({
+   type: ACTION.COPY_SCENARIO,
+   scenarioData
 });
 
 export const deleteScenario = (scenarioData) => ({
@@ -75,9 +81,10 @@ export const getAllAutorides = (botId) => ({
 });
 
 
-export const addNewAutoride = (managerId) => ({
+export const addNewAutoride = (managerId, trigger_text) => ({
     type: ACTION.APPEND_AUTORIDE,
-    managerId
+    managerId,
+    trigger_text
 });
 
 export const getAllBroadCasts = (managerId) => ({
@@ -88,4 +95,9 @@ export const getAllBroadCasts = (managerId) => ({
 export const updateBroadCasts = (broadCastData) => ({
     type: ACTION.UPDATE_BROADCAST,
     broadCastData
+});
+
+export const appendBroadCast = (broadCastData) => ({
+   type: ACTION.APPEND_BROADCAST,
+   broadCastData
 });

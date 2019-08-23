@@ -37,7 +37,7 @@ export const tagsTranscription = {
 };
 
 export const destinationScenario = {
-    default: '',
+    default: 'undefined',
     broadcast: 'broadcast',
     autoride: 'autoride'
 };

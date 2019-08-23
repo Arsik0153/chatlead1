@@ -3,6 +3,7 @@ import ACTION from '../actions/actionTypes';
 
 const initialState = {
     botScenarios: [],
+    scenariosForScenarioContainer: [],
     isFetching: false,
     error: null
 };
@@ -19,9 +20,14 @@ export default function (state = initialState, action) {
             }
         }
         case ACTION.SINGLE_BOT_DATA_RESPONSE: {
+            const scenariosForScenarioContainer
+                = action.dataScenarios.filter(elem => elem.destination === 'undefined');
+
+
             return {
                 ...state,
                 botScenarios: action.dataScenarios,
+                scenariosForScenarioContainer: scenariosForScenarioContainer,
                 isFetching: false,
                 error: null
             }
