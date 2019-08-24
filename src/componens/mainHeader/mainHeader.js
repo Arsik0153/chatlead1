@@ -14,12 +14,12 @@ import {getAllBotsForUser} from "../../actions/actionCreator";
 const MainHeader = (props) => {
     const [isOpenMenu, setStatusToOpenMenu] = useState(false);
     const {isMainHeader} = props;
+    const {changedBotData} = props;
 
     useEffect(() => {
         props.getAllBots(props.match.params.botId);
     }, []);
 
-    console.log(props.changedBotData);
 
     return (
         <header className={style.mainContainer}>
@@ -35,7 +35,7 @@ const MainHeader = (props) => {
             {
                 !isMainHeader && (
                     <div className={style.botSelector}>
-                        <div className={style.nameBot}>{props.changedBotData.name}</div>
+                        <div className={style.nameBot}>{changedBotData && changedBotData.name}</div>
                     </div>
                 )
             }
@@ -59,6 +59,10 @@ const MainHeader = (props) => {
         </header>
     )
 };
+
+// MainHeader.defaultProps = {
+//     isMainHeader: true
+// };
 
 
 const mapStateToProps = state => {

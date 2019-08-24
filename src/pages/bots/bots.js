@@ -24,7 +24,7 @@ const Bots = (props) => {
 
                 <ul className={style.bots}>
                     {
-                        botsData.managers && botsData.managers.map(elem => (
+                        botsData.map(elem => (
                             <BotsElement
                                 {...elem}
                             />

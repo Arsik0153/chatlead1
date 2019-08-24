@@ -2,7 +2,7 @@
 import ACTION from '../actions/actionTypes';
 
 const initialState = {
-    botsData: {},
+    botsData: [],
     changedBotData: {},
     isFetching: false,
     error: null

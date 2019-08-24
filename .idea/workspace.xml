@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fcd43ec-14cc-4573-8ee9-c78fe8fdd487" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/actionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actionCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/broadCastContainer/broadCastContainer.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/broadCastContainer/broadCastContainer.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componens/mainHeader/mainHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/mainHeader/mainHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/mainHeader/mainHeader.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/mainHeader/mainHeader.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/bots/bots.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/bots/bots.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reducers/botsReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/botsReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sagas/botsSagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sagas/botsSagas.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,20 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/componens/mainHeader/mainHeader.module.sass">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/componens/mainHeader/mainHeader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="52" column="13" lean-forward="true" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+            <state relative-caret-position="210">
+              <caret line="37" column="93" selection-start-line="37" selection-start-column="93" selection-end-line="37" selection-end-column="93" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/componens/mainHeader/mainHeader.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/bots/bots.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+            <state relative-caret-position="345">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,7 +61,6 @@
         <option value="$PROJECT_DIR$/src/componens/inputs/fancyFileInput/fancyFileInput.js" />
         <option value="$PROJECT_DIR$/src/componens/messages/textArea/textArea.js" />
         <option value="$PROJECT_DIR$/src/App.sass" />
-        <option value="$PROJECT_DIR$/src/pages/bots/bots.js" />
         <option value="$PROJECT_DIR$/src/pages/broadcast/broadcast.js" />
         <option value="$PROJECT_DIR$/src/pages/singleBot/singleBot.js" />
         <option value="$PROJECT_DIR$/src/pages/autoride/autoride.js" />
@@ -90,14 +85,15 @@
         <option value="$PROJECT_DIR$/src/componens/broadCastContainer/broadCastContainer.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/componens/broadCastContainer/broadCastContainer.module.sass" />
-        <option value="$PROJECT_DIR$/src/sagas/botsSagas.js" />
         <option value="$PROJECT_DIR$/src/actions/actionCreator.js" />
         <option value="$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.js" />
-        <option value="$PROJECT_DIR$/src/reducers/botsReducers.js" />
         <option value="$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.js" />
         <option value="$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.module.sass" />
         <option value="$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.module.sass" />
         <option value="$PROJECT_DIR$/src/componens/mainHeader/mainHeader.module.sass" />
+        <option value="$PROJECT_DIR$/src/sagas/botsSagas.js" />
+        <option value="$PROJECT_DIR$/src/reducers/botsReducers.js" />
+        <option value="$PROJECT_DIR$/src/pages/bots/bots.js" />
         <option value="$PROJECT_DIR$/src/componens/mainHeader/mainHeader.js" />
       </list>
     </option>
@@ -174,6 +170,19 @@
               <item name="componens" type="462c0819:PsiDirectoryNode" />
               <item name="scenariosAndTriggers" type="462c0819:PsiDirectoryNode" />
               <item name="scenariosContainer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="bots" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
@@ -264,12 +273,12 @@
       <workItem from="1566625195220" duration="7631000" />
       <workItem from="1566634879765" duration="163000" />
       <workItem from="1566635671590" duration="78000" />
-      <workItem from="1566651956703" duration="2068000" />
+      <workItem from="1566651956703" duration="3684000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="461482000" />
+    <option name="totallyTimeSpent" value="463098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1347" y="142" width="1213" height="999" extended-state="6" />
@@ -372,30 +381,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/bots/bots.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/componens/botsElement/botsElement.module.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="890">
           <caret line="60" column="15" lean-forward="true" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/botsElement/botsElement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="32" column="64" selection-start-line="32" selection-start-column="64" selection-end-line="32" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -616,26 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/botsReducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sagas/botsSagas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/componens/broadCastContainer/broadCastContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1460">
@@ -687,10 +656,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/botsElement/botsElement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="73" column="15" selection-start-line="73" selection-start-column="15" selection-end-line="73" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/botsReducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sagas/botsSagas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="88" column="63" lean-forward="true" selection-start-line="88" selection-start-column="63" selection-end-line="88" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/bots/bots.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/componens/mainHeader/mainHeader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        <state relative-caret-position="210">
+          <caret line="37" column="93" selection-start-line="37" selection-start-column="93" selection-end-line="37" selection-end-column="93" />
         </state>
       </provider>
     </entry>
