@@ -13,9 +13,7 @@ const Bots = (props) => {
         props.getAllBots();
     }, [props.userData]);
 
-    console.log(botsData);
 
-    // TODO styles
     return (
         <div className={style.mainContainer}>
             <MainHeader
