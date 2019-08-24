@@ -15,7 +15,8 @@ import viber from '../../images/imageForTable/wh-icon.png';
 import edit from '../../images/buttons/edit.png';
 import trash from '../../images/buttons/trash.png';
 import copy from '../../images/duplicate.jpg';
-import {destinationScenario} from "../../constants/defaultValues";
+import leftArrow from '../../svg/db/left-arrow.svg';
+
 
 
 const AutorideContainer = (props) => {
@@ -43,6 +44,7 @@ const AutorideContainer = (props) => {
                         className={style.before}
                         onClick={() => setStatusCreateScenarioFild(false)}
                     >
+                        <img src={leftArrow} alt={'back'}/>
                         Назад к списку
                     </div>
                     <div className={style.next} onClick={newAutorideHandler}>Далее</div>

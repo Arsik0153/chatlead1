@@ -76,7 +76,8 @@ export function* deleteBotSaga({ deleteBotData }) {
 
 }
 
-export function* getAllBotsSagas() {
+export function* getAllBotsSagas({ botId }) {
+    let singleBotData = null;
 
     if(localStorage.getItem('token')) {
         yield put({ type: ACTION.BOTS_DATA_REQUEST});
@@ -87,10 +88,14 @@ export function* getAllBotsSagas() {
 
         const {data} = yield call(getAllBotsForUser, formData);
 
-        console.log(data);
+        if(botId) {
+            singleBotData = data.managers.filter(elem => elem.id == botId)[0];
+        }
+
+
 
         if(data.ok) {
-            yield put({type: ACTION.BOTS_DATA_RESPONSE, data: data});
+            yield put({type: ACTION.BOTS_DATA_RESPONSE, data: data.managers, changedBotData: singleBotData});
         }else {
             yield put({ type: ACTION.BOTS_DATA_ERROR, error: signUpErrors[data.desc] })
         }

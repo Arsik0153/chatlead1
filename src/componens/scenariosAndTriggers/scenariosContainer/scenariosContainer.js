@@ -11,6 +11,7 @@ import {destinationScenario} from "../../../constants/defaultValues";
 import edit from "../../../images/buttons/edit.png";
 import copy from "../../../images/duplicate.jpg";
 import trash from "../../../images/buttons/trash.png";
+import leftArrow from "../../../svg/db/left-arrow.svg";
 
 
 const ScenariosContainer = (props) => {
@@ -46,6 +47,7 @@ const ScenariosContainer = (props) => {
                         className={style.before}
                         onClick={() => setStatusCreateScenarioFild(false)}
                     >
+                        <img src={leftArrow} alt={'back'}/>
                         Назад к списку
                     </div>
                     <div className={style.next} onClick={newScenarioHandler}>Далее</div>

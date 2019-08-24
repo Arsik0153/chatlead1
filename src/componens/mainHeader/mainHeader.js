@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import style from './mainHeader.module.sass';
 import Logo from '../../images/logo_panel.png';
 import {Link} from 'react-router-dom';
@@ -7,10 +7,19 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleDown, faAngleUp} from "@fortawesome/free-solid-svg-icons";
 import ClickOutSide from '../hoc/clickOutside';
 import chatLeadLogo from '../../images/chatlead.png';
+import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
+import {getAllBotsForUser} from "../../actions/actionCreator";
 
 const MainHeader = (props) => {
     const [isOpenMenu, setStatusToOpenMenu] = useState(false);
     const {isMainHeader} = props;
+
+    useEffect(() => {
+        props.getAllBots(props.match.params.botId);
+    }, []);
+
+    console.log(props.changedBotData);
 
     return (
         <header className={style.mainContainer}>
@@ -21,6 +30,13 @@ const MainHeader = (props) => {
                     <Link to={'/bots'}>
                         <img src={chatLeadLogo} alt={'logo'} style={{width: '35px', height: '35px'}}/>
                     </Link>
+                )
+            }
+            {
+                !isMainHeader && (
+                    <div className={style.botSelector}>
+                        <div className={style.nameBot}>{props.changedBotData.name}</div>
+                    </div>
                 )
             }
             <ClickOutSide onClickedOutside={() => setStatusToOpenMenu(false)}>
@@ -45,4 +61,17 @@ const MainHeader = (props) => {
 };
 
 
-export default MainHeader;
+const mapStateToProps = state => {
+    const {botsData, changedBotData, isFetching, error} = state.botsReducers;
+
+    return {
+        botsData, isFetching, error, changedBotData
+    }
+};
+
+const mapDispatchToProps = dispatch => ({
+    getAllBots: (botId) => dispatch(getAllBotsForUser(botId))
+});
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainHeader));
