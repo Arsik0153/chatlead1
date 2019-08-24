@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import trashImage from "../../images/trash.png";
 import {ScenarioIdContext} from "../../utils/Contexts";
 import TriggersContainer from "../scenariosAndTriggers/triggersContainer/triggersContainer";
-import {addNewAutoride, deleteAutoride} from "../../actions/actionCreator";
+import {addNewAutoride, deleteAutoride, editScenario} from "../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import vk from '../../images/imageForTable/vk-icon.png';
 import telegram from '../../images/imageForTable/tlg-icon.png';
@@ -16,6 +16,7 @@ import edit from '../../images/buttons/edit.png';
 import trash from '../../images/buttons/trash.png';
 import copy from '../../images/duplicate.jpg';
 import leftArrow from '../../svg/db/left-arrow.svg';
+import ContextMenuForEditAutoride from "./contextMenuForEditAutoride/contextMenuForEditAutoride";
 
 
 
@@ -23,6 +24,7 @@ const AutorideContainer = (props) => {
     const [changedScenarioId, changeScenarioId] = useState(false);
     const [autoridesDataInFilter, setautoridesDataInFilter] = useState([]);
     const [isOpenCreateScenarioFild, setStatusCreateScenarioFild] = useState(false);
+    const [idEditTriggerText, setIdEditTriggerText] = useState(false);
 
 
     useEffect(() => {
@@ -34,6 +36,15 @@ const AutorideContainer = (props) => {
         // // props.addScenario(props.match.params.botId, destinationScenario.default, isOpenCreateScenarioFild);
         setStatusCreateScenarioFild(false);
     };
+
+    const editScenario = (e, scenarioId) => {
+        props.editScenario({
+            trigger_text: e.target.value,
+            botId: props.match.params.botId,
+            scenarioId: scenarioId
+        })
+    };
+
 
 
     if(isOpenCreateScenarioFild) {
@@ -72,6 +83,7 @@ const AutorideContainer = (props) => {
                             <TriggersContainer
                                 changedScenarioId={changedScenarioId}
                                 scenarioId={scenarioId}
+                                changeScenarioId={changeScenarioId}
                             />
                         )}
                     </ScenarioIdContext.Consumer>
@@ -130,8 +142,27 @@ const AutorideContainer = (props) => {
                     {
                         autoridesDataInFilter.map(elem => (
                             <tr>
-                                <td className={style.keyWord} onClick={() => changeScenarioId(elem.scenario.id)}>
+                                <td
+                                    className={style.keyWord}
+                                    // onClick={() => changeScenarioId(elem.scenario.id)}
+                                    onClick={
+                                        idEditTriggerText === elem.scenario.id ?
+                                            null :
+                                            () => changeScenarioId(elem.scenario.id)
+                                    }
+                                >
                                     Сообщение в точности совпадает с <span>{elem.scenario.trigger_text}</span>
+                                    <div className={style.mainEditScenario}>
+                                        {
+                                            idEditTriggerText === elem.scenario.id && (
+                                                <ContextMenuForEditAutoride
+                                                    onInput={(e) => editScenario(e, elem.scenario.id)}
+                                                    defaultValue={elem.scenario.trigger_text}
+                                                    setIdEditTriggerText={(id) => setIdEditTriggerText(id)}
+                                                />
+                                            )
+                                        }
+                                    </div>
                                 </td>
                                 <td>
                                     <img src={vk} alt={'vk'} />
@@ -140,17 +171,21 @@ const AutorideContainer = (props) => {
                                     <img src={viber} alt={'viber'} />
                                 </td>
                                 <td className={style.controlsImages}>
-                                   <div className={style.icon}>
+                                   <div
+                                       className={style.icon}
+                                       onClick={() => setIdEditTriggerText(elem.scenario.id)}
+                                       title={'Редактировать'}
+                                   >
                                        <img src={edit} alt={'edit'} />
                                    </div>
                                     <div className={style.icon}>
-                                        <img src={copy} alt={'copy'} />
+                                        <img src={copy} alt={'copy'} title={'Копировать'}/>
                                     </div>
                                     <div
                                         className={style.icon}
                                         onClick={() => props.deleteAutoride(props.match.params.botId, elem.id)}
                                     >
-                                        <img src={trash} alt={'trash'} />
+                                        <img src={trash} alt={'trash'} title={'Удалить'}/>
                                     </div>
                                 </td>
                             </tr>
@@ -173,7 +208,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
    appendAutoride: (managerId, name) => dispatch(addNewAutoride(managerId, name)),
-    deleteAutoride: (managerId, autorideId) => dispatch(deleteAutoride(managerId, autorideId))
+    deleteAutoride: (managerId, autorideId) => dispatch(deleteAutoride(managerId, autorideId)),
+    editScenario: (scenarioData) => dispatch(editScenario(scenarioData))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AutorideContainer));

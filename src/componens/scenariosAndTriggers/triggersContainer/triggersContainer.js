@@ -9,6 +9,7 @@ import SideBarSocial from '../../sideBarSocial/sideBarSocial';
 import MessagesContainer from './messagesContainer/messagesContainer';
 import BroadCastMenu from '../../broadCastContainer/broadCastMenu/broadCastMenu';
 import {destinationScenario} from "../../../constants/defaultValues";
+import leftArrow from "../../../svg/db/left-arrow.svg";
 
 
 const TriggersContainer = (props) => {
@@ -91,6 +92,15 @@ const TriggersContainer = (props) => {
     return (
         <div className={style.mainContainer}>
             <div className={style.sideContainer}>
+                <div className={style.buttonsContainer}>
+                    <div className={style.before} onClick={() => props.changeScenarioId(false)}>
+                        <img src={leftArrow} alt={'back'}/>
+                        Назад к списку
+                    </div>
+                    <div className={style.next} onClick={() => props.changeScenarioId(false)}>
+                        Сохранить
+                    </div>
+                </div>
                 {
                     triggers.map(trigger => (
                         <div
@@ -109,28 +119,31 @@ const TriggersContainer = (props) => {
                 }
                 <div onClick={newTriggerHandler} className={style.newTriggerContainer}>+ Новый триггер</div>
             </div>
-            <div className={style.contentContainer}>
-                <div className={style.contentHeader}>{changedScenario.trigger_text}</div>
-                <MessagesContainer
-                    changedTrigger={changedTrigger}
-                    updateTriggerUpdateMessageHandler={updateTriggerUpdateMessageHandler}
-                    updateTriggerDeleteMessageHandler={updateTriggerDeleteMessageHandler}
-                />
-
-                <div className={style.controls}>
-                    <ButtonsForAddNewMessage
+            <div className={style.triggerConstructor}>
+                <div className={style.saveDataStatus}>{props.isFetching ? 'Идет сохранение' : 'Ваши данные сохранены!'}</div>
+                <div className={style.contentContainer}>
+                    <div className={style.contentHeader}>{changedScenario.trigger_text}</div>
+                    <MessagesContainer
                         changedTrigger={changedTrigger}
+                        updateTriggerUpdateMessageHandler={updateTriggerUpdateMessageHandler}
+                        updateTriggerDeleteMessageHandler={updateTriggerDeleteMessageHandler}
                     />
-                </div>
-                <div className={style.broadCastMenu}>
-                    {
-                        changedScenario.destination === destinationScenario.broadcast && (
-                            <BroadCastMenu
-                                broadCastId={props.broadCastId}
-                                changedTrigger={changedTrigger}
-                            />
-                        )
-                    }
+
+                    <div className={style.controls}>
+                        <ButtonsForAddNewMessage
+                            changedTrigger={changedTrigger}
+                        />
+                    </div>
+                    <div className={style.broadCastMenu}>
+                        {
+                            changedScenario.destination === destinationScenario.broadcast && (
+                                <BroadCastMenu
+                                    broadCastId={props.broadCastId}
+                                    changedTrigger={changedTrigger}
+                                />
+                            )
+                        }
+                    </div>
                 </div>
             </div>
             <div className={style.social}>
@@ -145,6 +158,7 @@ const TriggersContainer = (props) => {
 const mapStateToProps = state => {
     const {botScenarios, isFetching, error} = state.singleBotReducers;
     const {botsData} = state.botsReducers;
+    // const {isFetching} = state.
 
     return {
         botScenarios, isFetching, error, botsData

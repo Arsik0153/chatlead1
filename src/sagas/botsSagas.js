@@ -15,7 +15,8 @@ import {
     getAllBroadCasts,
     updateBroadCasts,
     deleteAutoride,
-    appendBroadCast
+    appendBroadCast,
+    editScenario
 } from "../api/rest/restContoller";
 import {signUpErrors, authErrors} from "../constants/errors/user";
 import {destinationScenario} from "../constants/defaultValues";
@@ -154,6 +155,40 @@ export function* addNewScenarioSagas({ botId, destination, trigger_text }) {
         }else {
             yield put({ type: ACTION.SINGLE_BOT_DATA_RESPONSE, error: signUpErrors[data.desc] })
         }
+
+    }
+}
+
+export function* editScenarioSagas({ scenarioData }) {
+
+    if(localStorage.getItem('token')) {
+
+        yield put({ type: ACTION.SINGLE_BOT_DATA_REQUEST});
+
+
+        const formData = new FormData();
+        formData.append('manager_id', scenarioData.botId);
+        formData.append('user_token', localStorage.getItem('token'));
+        formData.append('trigger_text', scenarioData.trigger_text);
+        formData.append('scenario_id', scenarioData.scenarioId);
+
+
+
+        if(scenarioData.trigger_text.length > 0) {
+            const {data} = yield call(editScenario, formData);
+
+            if(data.ok) {
+                const [allScenaries, allAutorides] = yield all([
+                    call(getScenariesForManager, formData),
+                    call(getAllAutorides, formData)
+                ]);
+                yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});
+                yield put({type: ACTION.AUTORIDE_RESPONSE, autoridesData: allAutorides.data.auto_rides});
+            }else {
+                yield put({ type: ACTION.SINGLE_BOT_DATA_RESPONSE, error: signUpErrors[data.desc] })
+            }
+        }
+
 
     }
 }

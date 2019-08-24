@@ -30,6 +30,7 @@ const AutorideContainer = (props) => {
                                 changedScenarioId={changedScenarioId}
                                 scenarioId={scenarioId}
                                 broadCastId={changedBroadCastId}
+                                changeScenarioId={changeScenarioId}
                             />
                         )}
                     </ScenarioIdContext.Consumer>

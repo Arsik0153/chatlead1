@@ -23,7 +23,6 @@ const ContextMenu = (props) => {
         changedTrigger
     } = props;
     const changedScenario = props.botScenarios.filter(elem => elem.id === scenarioId)[0];
-
     const changedTriggerInFastButton = typeButton === buttonsTypes.fast_buttons && (
         changedScenario.triggers.filter(elem => elem.id === buttonData.payload.trigger_id)[0]
     );
@@ -149,18 +148,24 @@ const ContextMenu = (props) => {
                         >
                             Открыть веб-сайт
                         </div>
-                        <div
-                            onClick={() => {
-                                buttonEditHandler(
-                                    buttonsTypes.fast_buttons,
-                                    defaultValuesForNewButtons[buttonsTypes.fast_buttons],
-                                    indexButton
-                                )
-                            }}
-                            className={style.changerElement}
-                        >
-                            Перейти на другой тригер
-                        </div>
+
+                        {
+                            (changedTrigger.social === 'telegram' || changedTrigger.social === 'facebook') && (
+                                <div
+                                    onClick={() => {
+                                        buttonEditHandler(
+                                            buttonsTypes.fast_buttons,
+                                            defaultValuesForNewButtons[buttonsTypes.fast_buttons],
+                                            indexButton
+                                        )
+                                    }}
+                                    className={style.changerElement}
+                                >
+                                    Перейти на другой тригер
+                                </div>
+                            )
+                        }
+
                         <Actions
                             {...props}
                         />

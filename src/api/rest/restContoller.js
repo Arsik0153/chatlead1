@@ -31,6 +31,10 @@ export const addNewScenario = (botData) => (
   axios.post(`${restURL}/CreateScenario/`, botData)
 );
 
+export const editScenario = (scenarioData) => (
+    axios.post(`${restURL}/EditScenario/`, scenarioData)
+);
+
 export const deleteScenario = (scenarioData) => (
   axios.post(`${restURL}/DeleteScenario/`, scenarioData)
 );

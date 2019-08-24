@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import style from './botSetup.module.sass';
 import SetupContainer from "../../componens/setupContainer/setupContainer"
 import Header from '../../componens/header/header';
+import MainHeader from '../../componens/mainHeader/mainHeader';
 import NavBar from '../../componens/navbar/navbar';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
@@ -17,7 +18,8 @@ const BotSetup = (props) => {
 
     return(
         <div className="main_layout">
-            <Header/>
+            {/*<Header/>*/}
+            <MainHeader/>
             <main id="main">
                 <NavBar/>
                 <SetupContainer

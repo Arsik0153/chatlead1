@@ -15,7 +15,7 @@ const ContextMenuBots = (props) => {
         <div className={style.contextBotMenu}>
             {
                 props.botsData.map(elem => (
-                    <Link to={`/bots/${elem.id}/scenario`} className={style.link}>
+                    <Link to={`/bots/${elem.id}/setup`} className={style.link}>
                         {elem.name}
                     </Link>
                 ))

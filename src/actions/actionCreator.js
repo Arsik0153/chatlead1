@@ -45,6 +45,11 @@ export const copyScenario = (scenarioData) => ({
    scenarioData
 });
 
+export const editScenario = (scenarioData) => ({
+    type: ACTION.EDIT_SCENARIO,
+    scenarioData
+})
+
 export const deleteScenario = (scenarioData) => ({
    type: ACTION.DELETE_SCENARIO,
     scenarioData
