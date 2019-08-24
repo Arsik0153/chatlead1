@@ -10,7 +10,6 @@ import BroadCast from './pages/broadcast/broadcast';
 // import SingleScenario from './pages/singleScenario/singleScenario';
 import onlyAutorizenUsers from './componens/hoc/onlyAutorizedUsers';
 import onlyDontRegistrationUsers from './componens/hoc/onlyNotRegistration';
-import BotSetup from './pages/botSetup/botSetup';
 
 
 class App extends React.Component {
