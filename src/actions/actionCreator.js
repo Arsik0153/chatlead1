@@ -23,8 +23,9 @@ export const deleteBot = (deleteBotData) => ({
    deleteBotData
 });
 
-export const getAllBotsForUser = () => ({
-   type: ACTION.GET_ALL_BOTS_ACTION
+export const getAllBotsForUser = (botId) => ({
+    type: ACTION.GET_ALL_BOTS_ACTION,
+    botId
 });
 
 export const getAllScenariesForBot = (idBot) => ({

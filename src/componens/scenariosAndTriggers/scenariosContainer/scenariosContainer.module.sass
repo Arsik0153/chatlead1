@@ -82,17 +82,17 @@
     margin-bottom: 32px
 
   input
-    padding: 10px 45px 10px 20px
-    border: 1px solid #dadada
-    background-color: transparent
-    -webkit-transition: .2s ease-out
-    -o-transition: .2s ease-out
-    transition: .2s ease-out
-    -webkit-border-radius: 25px
-    border-radius: 25px
-    width: 35%
-    margin-bottom: 30px
-    outline: none
+    padding: 10px 45px 10px 20px !important
+    border: 1px solid #dadada !important
+    background-color: transparent !important
+    -webkit-transition: .2s ease-out !important
+    -o-transition: .2s ease-out !important
+    transition: .2s ease-out !important
+    -webkit-border-radius: 25px !important
+    border-radius: 25px !important
+    width: 35% !important
+    margin-bottom: 30px !important
+    outline: none !important
 
     &::placeholder
       font-size: 13px
@@ -229,6 +229,13 @@
     background-color: transparent
     white-space: nowrap
 
+
+    img
+      position: absolute
+      height: 15px
+      width: 15px
+      left: 20px
+
 .createScenarioContainer
   //max-width: 600px
   width: 100%
@@ -251,6 +258,9 @@
 .contentContainer
   margin-left: 40px
   width: 40%
+
+  textarea
+    border: 1px solid #b5b5b5
 
   h2
     font-family: 'Roboto', sans-serif

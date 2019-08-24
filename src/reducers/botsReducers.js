@@ -3,6 +3,7 @@ import ACTION from '../actions/actionTypes';
 
 const initialState = {
     botsData: {},
+    changedBotData: {},
     isFetching: false,
     error: null
 };
@@ -21,6 +22,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 botsData: action.data,
+                changedBotData: action.changedBotData,
                 isFetching: false,
                 error: null
             }
