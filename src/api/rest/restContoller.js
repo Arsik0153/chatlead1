@@ -70,3 +70,24 @@ export const appendBroadCast = (data) => (
 export const updateBroadCasts = (data) => (
   axios.post(`${restURL}/EditBroadcast/`, data)
 );
+
+// setup
+export const getManager = (userData) => (
+  axios.post(`${restURL}/GetManager/`, userData)
+);
+
+export const editManager = (setupData) => (
+  axios.post(`${restURL}/EditManager/`, setupData)
+);
+
+export const getFacebookAuthUrl = (userData) => (
+  axios.post(`${restURL}/FacebookAuth/`, userData)
+);
+
+export const getVkAuthUrl = (userData) => (
+  axios.post(`${restURL}/VkAuth/`, userData)
+);
+
+export const getQRCodeUrl = (userData) => (
+  axios.post(`${restURL}/GetQRCodeUrl/`, userData)
+);

@@ -106,3 +106,31 @@ export const appendBroadCast = (managerId) => ({
    type: ACTION.APPEND_BROADCAST,
    managerId
 });
+
+
+// setup
+
+export const getManager = (idBot) => ({
+   type: ACTION.GET_BOT_SETUP,
+   idBot
+});
+
+export const editManager = (setupData) => ({
+   type: ACTION.UPDATE_BOT_SETUP,
+   setupData
+});
+
+export const getFacebookAuthUrl = (idBot) => ({
+   type: ACTION.GET_FACEBOOK_AUTH_URL,
+   idBot
+});
+
+export const getVkAuth = (idBot) => ({
+   type: ACTION.GET_VK_AUTH_URL,
+   idBot
+});
+
+export const getQRCodeUrl = (idBot) => ({
+   type: ACTION.GET_WA_QR_URL,
+   idBot
+});

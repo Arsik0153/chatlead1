@@ -22,7 +22,7 @@ const Navbar = (props) => {
                 <li>
                     <FontAwesomeIcon icon={faCog}/>
                     <NavLink
-                        to={`/bots/${botId}/settings`}
+                        to={`/bots/${botId}/setup`}
                         className={style.link}
                         activeClassName={style.activeLink}
                     >

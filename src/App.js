@@ -10,6 +10,7 @@ import BroadCast from './pages/broadcast/broadcast';
 // import SingleScenario from './pages/singleScenario/singleScenario';
 import onlyAutorizenUsers from './componens/hoc/onlyAutorizedUsers';
 import onlyDontRegistrationUsers from './componens/hoc/onlyNotRegistration';
+import BotSetup from './pages/botSetup/botSetup';
 
 
 class App extends React.Component {
@@ -39,6 +40,11 @@ class App extends React.Component {
                   exact
                   path={"/bots"}
                   component={onlyAutorizenUsers(Bots)}
+              />
+              <Route
+                  exact
+                  path={"/bots/:botId/setup"}
+                  component={onlyAutorizenUsers(BotSetup)}
               />
               <Route
                   exact

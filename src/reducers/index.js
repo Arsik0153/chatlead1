@@ -5,6 +5,7 @@ import botsReducers from '../reducers/botsReducers';
 import singleBotReducers from '../reducers/singleBotReducers';
 import autoridesReducers from '../reducers/autoridesReducers';
 import broadCastReducers from '../reducers/broadcastReducers';
+import botSetupReducers from '../reducers/botSetupReducers';
 
 const appReducer = combineReducers({
   userReducers,
@@ -12,7 +13,8 @@ const appReducer = combineReducers({
   botsReducers,
   singleBotReducers,
   autoridesReducers,
-  broadCastReducers
+  broadCastReducers,
+  botSetupReducers
 });
 
 const rootReducer = (state, action) => appReducer(state, action);
