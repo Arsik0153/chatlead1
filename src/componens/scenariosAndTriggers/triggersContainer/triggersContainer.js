@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {withRouter} from "react-router-dom";
 import style from './triggersContainer.module.sass';
 import {addNewTrigger, updateTrigger} from "../../../actions/actionCreator";
@@ -19,6 +19,12 @@ const TriggersContainer = (props) => {
         = useState(triggers.length === 0 ? null : triggers[0].id);
     const changedTrigger = changedTriggerId ? triggers.filter(elem => elem.id === changedTriggerId)[0] : null;
 
+    useEffect(() => {
+        if(triggers.length === 1) {
+            changeTriggerId(triggers[0].id)
+        }
+    }, [triggers]);
+
 
     const newTriggerHandler = () => {
         const triggerData = {
@@ -28,6 +34,16 @@ const TriggersContainer = (props) => {
 
         props.appendTrigger(triggerData);
     };
+
+    const newTriggerInEmptyScenario = () => {
+        const triggerData = {
+            scenario_id: changedScenario.id,
+            manager_id: props.match.params.botId,
+        };
+
+        props.appendTrigger(triggerData);
+    };
+
 
     const updateTriggerDeleteMessageHandler = (index) => {
         console.log(index);
@@ -62,31 +78,26 @@ const TriggersContainer = (props) => {
             <div className={style.emptyMainContainer}>
                 <div className={style.emptySideContainer}>
                     {
-                        triggers.length === 0 ?
-                            (
-                                 <h2>Здесь пока пусто. Создайте первый триггер</h2>
-                            ) : (
-                                triggers.map(trigger => (
-                                    <div
-                                        className={style.singleTriggerContainer}
-                                        onClick={() => changeTriggerId(trigger.id)}
-                                    >
-                                        <div
-                                            style={trigger.id === changedTriggerId
-                                                ? {border: '1px solid #13ce66', color: '#13ce66'} : {}}
-                                            className={style.triggerElement}
-                                        >
-                                            {trigger.caption}
-                                        </div>
-                                    </div>
-                                ))
-                            )
+                        triggers.length === 0 && <h2>Здесь пока пусто. Создайте первый триггер</h2>
+                            // ) : (
+                            //     // triggers.map(trigger => (
+                            //     //     <div
+                                //         className={style.singleTriggerContainer}
+                                //         onClick={() => changeTriggerId(trigger.id)}
+                                //     >
+                                //         <div
+                                //             style={trigger.id === changedTriggerId
+                                //                 ? {border: '1px solid #13ce66', color: '#13ce66'} : {}}
+                                //             className={style.triggerElement}
+                                //         >
+                                //             {trigger.caption}
+                                //         </div>
+                                //     </div>
+                                // ))
+                            // )
 
                     }
-                    <div onClick={newTriggerHandler} className={style.newTriggerContainer}>+ Новый триггер</div>
-                </div>
-                <div className={style.emptyContentContainer}>
-                    Выберете триггер
+                    <div onClick={newTriggerInEmptyScenario} className={style.newTriggerContainer}>+ Новый триггер</div>
                 </div>
             </div>
         )

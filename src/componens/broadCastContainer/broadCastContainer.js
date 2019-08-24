@@ -15,6 +15,10 @@ const AutorideContainer = (props) => {
     const [changedBroadCastId, changeBroadCastId] = useState(false);
     const [chanedTypeBroadcast, changeTypeBroadcast] = useState('sended');
 
+    const appendBroadcastHandler = () => {
+        props.appendBroadcast(props.match.params.botId)
+    };
+
 
     if(changedScenarioId) {
         return (
@@ -88,7 +92,7 @@ const AutorideContainer = (props) => {
     return (
         <div className={style.mainContainer}>
             <div className={style.controls}>
-                <div className={style.createButton}>Создать рассылку</div>
+                <div className={style.createButton} onClick={appendBroadcastHandler}>Создать рассылку</div>
                 <div className={style.hardLine} />
                 <div className={style.infoBlock}>
                     <FontAwesomeIcon icon={faInfoCircle}/>
@@ -138,7 +142,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    appendBroadcast: (broadCastData) => dispatch(appendBroadCast(broadCastData))
+    appendBroadcast: (managerId) => dispatch(appendBroadCast(managerId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AutorideContainer));

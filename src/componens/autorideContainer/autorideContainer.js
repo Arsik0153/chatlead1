@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import trashImage from "../../images/trash.png";
 import {ScenarioIdContext} from "../../utils/Contexts";
 import TriggersContainer from "../scenariosAndTriggers/triggersContainer/triggersContainer";
-import {addNewAutoride, deleteScenario} from "../../actions/actionCreator";
+import {addNewAutoride, deleteAutoride} from "../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import vk from '../../images/imageForTable/vk-icon.png';
 import telegram from '../../images/imageForTable/tlg-icon.png';
@@ -33,8 +33,6 @@ const AutorideContainer = (props) => {
         // // props.addScenario(props.match.params.botId, destinationScenario.default, isOpenCreateScenarioFild);
         setStatusCreateScenarioFild(false);
     };
-
-    console.log(autoridesDataInFilter, props.autoridesData);
 
 
     if(isOpenCreateScenarioFild) {
@@ -148,20 +146,11 @@ const AutorideContainer = (props) => {
                                     </div>
                                     <div
                                         className={style.icon}
-                                        // onClick={() => props.deleteScenario({
-                                        //     botId: props.match.params.botId,
-                                        //     idScenario: elem.scenario.id
-                                        // })}
+                                        onClick={() => props.deleteAutoride(props.match.params.botId, elem.id)}
                                     >
                                         <img src={trash} alt={'trash'} />
                                     </div>
                                 </td>
-                                {/*/!*<td>*!/*/}
-                                    {/*<img src={trashImage} alt={'trash'} onClick={() => props.deleteScenario({*/}
-                                        {/*botId: props.match.params.botId,*/}
-                                        {/*idScenario: elem.id*/}
-                                    {/*})}/>*/}
-                                {/*/!*</td>*!/*/}
                             </tr>
                         ))
                     }
@@ -182,7 +171,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
    appendAutoride: (managerId, name) => dispatch(addNewAutoride(managerId, name)),
-    deleteScenario: (scenarioData) => dispatch(deleteScenario(scenarioData))
+    deleteAutoride: (managerId, autorideId) => dispatch(deleteAutoride(managerId, autorideId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AutorideContainer));

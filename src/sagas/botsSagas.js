@@ -13,7 +13,9 @@ import {
     getAllAutorides,
     addNewAutoride,
     getAllBroadCasts,
-    updateBroadCasts
+    updateBroadCasts,
+    deleteAutoride,
+    appendBroadCast
 } from "../api/rest/restContoller";
 import {signUpErrors, authErrors} from "../constants/errors/user";
 import {destinationScenario} from "../constants/defaultValues";
@@ -518,50 +520,103 @@ export function* copyScenarioSagas({ scenarioData }) {
     }
 }
 
-export function* appendBroadCastSagas({ broadCastData }) {
-
-    console.log(broadCastData);
-
-
-    // if (localStorage.getItem('token')) {
-    //     yield put({type: ACTION.BROADCAST_REQUEST});
-    //
-    //
-    //
-    //     const formData = new FormData();
-    //     formData.append('user_token', localStorage.getItem('token'));
-    //     formData.append('manager_id', broadCastData.managerId);
-    //     formData.append('broadcast_id', broadCastData.id);
-    //     formData.append('tag', broadCastData.tag);
-    //     formData.append('time', broadCastData.time.toFixed(0));
-    //     if(broadCastData.sent) {
-    //         formData.append('sent', broadCastData.sent);
-    //     }
-    //
-    //
-    //     const [updateStatus, allScenaries] = yield all([
-    //         call(updateBroadCasts, formData),
-    //         call(getScenariesForManager, formData),
-    //     ]);
-    //
-    //     const allBroadcast = yield call(getAllBroadCasts, formData);
-    //
-    //     if (updateStatus.data.ok) {
-    //         if(allBroadcast.data.ok) {
-    //             yield put({type: ACTION.BROADCAST_RESPONSE, broadCastData: allBroadcast.data.broadcasts});
-    //         }
-    //
-    //         if(allScenaries.data.ok) {
-    //             yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});
-    //
-    //         }
-    //
-    //     } else {
-    //         yield put({type: ACTION.BROADCAST_ERROR, error: signUpErrors[allBroadcast.data.desc]})
-    //     }
+export function* appendBroadCastSagas({ managerId }) {
+    const futureTime = new Date().setFullYear(new Date().getFullYear() + 1);
 
 
-    // }
+    if (localStorage.getItem('token')) {
+        yield put({type: ACTION.BROADCAST_REQUEST});
+
+
+
+        const formData = new FormData();
+        formData.append('user_token', localStorage.getItem('token'));
+        formData.append('manager_id', managerId);
+        formData.append('destination', destinationScenario.broadcast);
+        formData.append('trigger_text','Сценарий для рассылки');
+
+        const scenarioCreateStatus = yield call(addNewScenario, formData);
+
+
+        if(scenarioCreateStatus.data.ok) {
+            formData.append('scenario_id', scenarioCreateStatus.data.scenario.id);
+            formData.append('time', (futureTime / 1000).toFixed(0));
+            const broadCastCreateStatus = yield call(appendBroadCast, formData);
+            if(broadCastCreateStatus.data.ok) {
+                const [allBroadcast, allScenaries] = yield all([
+                    call(getAllBroadCasts, formData),
+                    call(getScenariesForManager, formData),
+                ]);
+                if(allBroadcast.data.ok) {
+                    yield put({type: ACTION.BROADCAST_RESPONSE, broadCastData: allBroadcast.data.broadcasts});
+                }
+                if(allScenaries.data.ok) {
+                    yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});
+                }
+            }
+        }else {
+            yield put({ type: ACTION.SINGLE_BOT_DATA_RESPONSE, error: signUpErrors[scenarioCreateStatus.data.desc] })
+        }
+        // formData.append('broadcast_id', broadCastData.id);
+        // formData.append('tag', broadCastData.tag);
+        // formData.append('time', broadCastData.time.toFixed(0));
+        // if(broadCastData.sent) {
+        //     formData.append('sent', broadCastData.sent);
+        // }
+        //
+        //
+        // const [updateStatus, allScenaries] = yield all([
+        //     call(updateBroadCasts, formData),
+        //     call(getScenariesForManager, formData),
+        // ]);
+        //
+        // const allBroadcast = yield call(getAllBroadCasts, formData);
+        //
+        // if (updateStatus.data.ok) {
+        //     if(allBroadcast.data.ok) {
+        //         yield put({type: ACTION.BROADCAST_RESPONSE, broadCastData: allBroadcast.data.broadcasts});
+        //     }
+        //
+        //     if(allScenaries.data.ok) {
+        //         yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});
+        //
+        //     }
+        //
+        // } else {
+        //     yield put({type: ACTION.BROADCAST_ERROR, error: signUpErrors[allBroadcast.data.desc]})
+        // }
+
+
+    }
+}
+
+
+export function* deleteAutorideSagas({ managerId, idAutoride }) {
+
+
+    if (localStorage.getItem('token')) {
+        yield put({type: ACTION.AUTORIDE_REQUEST});
+
+
+        const formData = new FormData();
+        formData.append('user_token', localStorage.getItem('token'));
+        formData.append('manager_id', managerId);
+        formData.append('auto_ride_id', idAutoride);
+
+
+        const delAutorideStatus = yield call(deleteAutoride, formData);
+
+
+        if (delAutorideStatus.data.ok) {
+            const allAutorides = yield call(getAllAutorides, formData);
+            yield put({type: ACTION.AUTORIDE_RESPONSE, autoridesData: allAutorides.data.auto_rides});
+
+        } else {
+            yield put({type: ACTION.AUTORIDE_ERROR, error: signUpErrors[delAutorideStatus.data.desc]})
+        }
+
+
+    }
 }
 
 

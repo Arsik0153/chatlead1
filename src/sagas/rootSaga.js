@@ -16,7 +16,8 @@ import {
     getAllBroadCastSagas,
     updateBroadCastSagas,
     copyScenarioSagas,
-    appendBroadCastSagas
+    appendBroadCastSagas,
+    deleteAutorideSagas
 } from "./botsSagas";
 
 function* rootSaga() {
@@ -37,6 +38,7 @@ function* rootSaga() {
   yield takeLatest(ACTION.UPDATE_BROADCAST, updateBroadCastSagas);
   yield takeLatest(ACTION.COPY_SCENARIO, copyScenarioSagas);
   yield takeLatest(ACTION.APPEND_BROADCAST, appendBroadCastSagas);
+  yield takeLatest(ACTION.DELETE_AUTORIDE, deleteAutorideSagas);
 }
 
 export default rootSaga;

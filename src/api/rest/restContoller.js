@@ -55,8 +55,16 @@ export const addNewAutoride = (data) => (
   axios.post(`${restURL}/CreateAutoRide/`, data)
 );
 
+export const deleteAutoride = (data) => (
+  axios.post(`${restURL}/DeleteAutoRide/`, data)
+);
+
 export const getAllBroadCasts = (data) => (
   axios.post(`${restURL}/GetBroadcastMessages/`, data)
+);
+
+export const appendBroadCast = (data) => (
+  axios.post(`${restURL}/CreateBroadcast/`, data)
 );
 
 export const updateBroadCasts = (data) => (
