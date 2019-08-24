@@ -28,7 +28,12 @@ const ScenariosContainer = (props) => {
     const newScenarioHandler = () => {
         props.addScenario(props.match.params.botId, destinationScenario.default, isOpenCreateScenarioFild);
         setStatusCreateScenarioFild(false);
+        if(!props.isFetching) {
+            console.log(props.botScenarios[props.botScenarios.length - 1].id);
+        }
     };
+
+    // console.log(props.botScenarios);
 
     const copyScenario = (id) => {
         const copyedScenario = props.botScenarios.filter(elem => elem.id === id)[0];

@@ -79,22 +79,6 @@ const TriggersContainer = (props) => {
                 <div className={style.emptySideContainer}>
                     {
                         triggers.length === 0 && <h2>Здесь пока пусто. Создайте первый триггер</h2>
-                            // ) : (
-                            //     // triggers.map(trigger => (
-                            //     //     <div
-                                //         className={style.singleTriggerContainer}
-                                //         onClick={() => changeTriggerId(trigger.id)}
-                                //     >
-                                //         <div
-                                //             style={trigger.id === changedTriggerId
-                                //                 ? {border: '1px solid #13ce66', color: '#13ce66'} : {}}
-                                //             className={style.triggerElement}
-                                //         >
-                                //             {trigger.caption}
-                                //         </div>
-                                //     </div>
-                                // ))
-                            // )
 
                     }
                     <div onClick={newTriggerInEmptyScenario} className={style.newTriggerContainer}>+ Новый триггер</div>

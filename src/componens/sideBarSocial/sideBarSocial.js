@@ -22,9 +22,7 @@ const SideBarSocial = (props) => {
         props.updateSocialInTrigger(updatedTrigger);
 
     };
-
-    console.log(changedTrigger);
-
+    
 
     return (
         <div className={style.mainContainer}>

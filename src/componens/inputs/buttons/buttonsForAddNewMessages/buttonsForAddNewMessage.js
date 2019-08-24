@@ -8,6 +8,7 @@ import {defaultValuesForNewMessages} from "../../../../constants/defaultValues";
 
 const ButtonsForAddNewMessage = (props) => {
     const {changedTrigger} = props;
+    const {social} = changedTrigger;
 
 
     const updateTriggerNewMessageHandler = (type, optional) => {
@@ -19,7 +20,6 @@ const ButtonsForAddNewMessage = (props) => {
             messagesCopy.push(defaultValuesForNewMessages[type]);
         }
 
-        // console.log(messagesCopy);
 
 
         const updatedTrigger = {
@@ -31,10 +31,11 @@ const ButtonsForAddNewMessage = (props) => {
     };
 
 
+
     return (
         <div className={style.mainContainer}>
             {
-                addNewMessagesButtons.map(elem => (
+                addNewMessagesButtons[social].map(elem => (
                     <div
                         onClick={() => updateTriggerNewMessageHandler(elem.type, elem.optionalType)}
                         className={style.buttonElement}

@@ -12,59 +12,197 @@ import activityLost from '../images/buttons/calendar.png';
 import form from '../images/buttons/form.png';
 import sendTime from '../images/buttons/warn.png';
 
-
-
-export const addNewMessagesButtons = [
-    {
-        label: '+Текст',
-        icon: <img src={text} alt={'text'} />,
-        type: 'text'
-    }, {
-        label: '+Картинка',
-        icon: <img src={picture} alt={'image'} />,
-        type: 'photo'
-    }, {
-        label: '+Аудио',
-        icon: <img src={audio} alt={'audio'} />,
-        type: 'audio'
-    }, {
-        label: '+Видео',
-        icon: <img src={video} alt={'video'} />,
-        type: 'video'
-    }, {
-        label: '+Файл',
-        icon: <img src={file} alt={'file'} />,
-        type: 'file'
-    }, {
-        label: '+Карта',
-        icon: <img src={card} alt={'card'} />,
-        type: 'card'
-    }, {
-        label: '+Галерея',
-        icon: <img src={gallery} alt={'gallery'} />,
-        type: 'gallery'
-    }, {
-        label: '+Список',
-        icon: <img src={list} alt={'list'} />,
-        type: 'list'
-    }, {
-        label: '+Пауза',
-        type: 'timer',
-        icon: <img src={pause} alt={'pause'} />,
-        optionalType: 'pause_delay'
-    }, {
-        label: '+Ждать до',
-        type: 'timer',
-        icon: <img src={activityLost} alt={'activityLost'} />,
-        optionalType: 'activity_lost'
-    }, {
-        label: '+Форма',
-        icon: <img src={form} alt={'form'} />,
-        type: 'form'
-    }, {
-        label: '+Потеря активности',
-        icon: <img src={sendTime} alt={'sendTime'} />,
-        type: 'timer',
-        optionalType: 'send_time'
-    }
-];
+export const addNewMessagesButtons = {
+    facebook: [
+        {
+            label: '+Текст',
+            icon: <img src={text} alt={'text'} />,
+            type: 'text'
+        }, {
+            label: '+Картинка',
+            icon: <img src={picture} alt={'image'} />,
+            type: 'photo'
+        }, {
+            label: '+Аудио',
+            icon: <img src={audio} alt={'audio'} />,
+            type: 'audio'
+        }, {
+            label: '+Видео',
+            icon: <img src={video} alt={'video'} />,
+            type: 'video'
+        }, {
+            label: '+Файл',
+            icon: <img src={file} alt={'file'} />,
+            type: 'file'
+        }, {
+            label: '+Карта',
+            icon: <img src={card} alt={'card'} />,
+            type: 'card'
+        }, {
+            label: '+Галерея',
+            icon: <img src={gallery} alt={'gallery'} />,
+            type: 'gallery'
+        }, {
+            label: '+Список',
+            icon: <img src={list} alt={'list'} />,
+            type: 'list'
+        }, {
+            label: '+Пауза',
+            type: 'timer',
+            icon: <img src={pause} alt={'pause'} />,
+            optionalType: 'pause_delay'
+        }, {
+            label: '+Ждать до',
+            type: 'timer',
+            icon: <img src={activityLost} alt={'activityLost'} />,
+            optionalType: 'activity_lost'
+        }, {
+            label: '+Форма',
+            icon: <img src={form} alt={'form'} />,
+            type: 'form'
+        }, {
+            label: '+Потеря активности',
+            icon: <img src={sendTime} alt={'sendTime'} />,
+            type: 'timer',
+            optionalType: 'send_time'
+        }
+    ],
+    telegram: [
+        {
+            label: '+Текст',
+            icon: <img src={text} alt={'text'} />,
+            type: 'text'
+        }, {
+            label: '+Картинка',
+            icon: <img src={picture} alt={'image'} />,
+            type: 'photo'
+        }, {
+            label: '+Аудио',
+            icon: <img src={audio} alt={'audio'} />,
+            type: 'audio'
+        }, {
+            label: '+Видео',
+            icon: <img src={video} alt={'video'} />,
+            type: 'video'
+        }, {
+            label: '+Файл',
+            icon: <img src={file} alt={'file'} />,
+            type: 'file'
+        }, {
+            label: '+Карта',
+            icon: <img src={card} alt={'card'} />,
+            type: 'card'
+        }, {
+            label: '+Галерея',
+            icon: <img src={gallery} alt={'gallery'} />,
+            type: 'gallery'
+        }, {
+            label: '+Список',
+            icon: <img src={list} alt={'list'} />,
+            type: 'list'
+        }, {
+            label: '+Пауза',
+            type: 'timer',
+            icon: <img src={pause} alt={'pause'} />,
+            optionalType: 'pause_delay'
+        }, {
+            label: '+Ждать до',
+            type: 'timer',
+            icon: <img src={activityLost} alt={'activityLost'} />,
+            optionalType: 'activity_lost'
+        }, {
+            label: '+Форма',
+            icon: <img src={form} alt={'form'} />,
+            type: 'form'
+        }, {
+            label: '+Потеря активности',
+            icon: <img src={sendTime} alt={'sendTime'} />,
+            type: 'timer',
+            optionalType: 'send_time'
+        }
+    ],
+    vk: [
+        {
+            label: '+Текст',
+            icon: <img src={text} alt={'text'} />,
+            type: 'text'
+        }, {
+            label: '+Картинка',
+            icon: <img src={picture} alt={'image'} />,
+            type: 'photo'
+        }, {
+            label: '+Аудио',
+            icon: <img src={audio} alt={'audio'} />,
+            type: 'audio'
+        }, {
+            label: '+Видео',
+            icon: <img src={video} alt={'video'} />,
+            type: 'video'
+        }, {
+            label: '+Файл',
+            icon: <img src={file} alt={'file'} />,
+            type: 'file'
+        }, {
+            label: '+Пауза',
+            type: 'timer',
+            icon: <img src={pause} alt={'pause'} />,
+            optionalType: 'pause_delay'
+        }, {
+            label: '+Ждать до',
+            type: 'timer',
+            icon: <img src={activityLost} alt={'activityLost'} />,
+            optionalType: 'activity_lost'
+        }, {
+            label: '+Форма',
+            icon: <img src={form} alt={'form'} />,
+            type: 'form'
+        }, {
+            label: '+Потеря активности',
+            icon: <img src={sendTime} alt={'sendTime'} />,
+            type: 'timer',
+            optionalType: 'send_time'
+        }
+    ],
+    whatsapp: [
+        {
+            label: '+Текст',
+            icon: <img src={text} alt={'text'} />,
+            type: 'text'
+        }, {
+            label: '+Картинка',
+            icon: <img src={picture} alt={'image'} />,
+            type: 'photo'
+        }, {
+            label: '+Аудио',
+            icon: <img src={audio} alt={'audio'} />,
+            type: 'audio'
+        }, {
+            label: '+Видео',
+            icon: <img src={video} alt={'video'} />,
+            type: 'video'
+        }, {
+            label: '+Файл',
+            icon: <img src={file} alt={'file'} />,
+            type: 'file'
+        }, {
+            label: '+Пауза',
+            type: 'timer',
+            icon: <img src={pause} alt={'pause'} />,
+            optionalType: 'pause_delay'
+        }, {
+            label: '+Ждать до',
+            type: 'timer',
+            icon: <img src={activityLost} alt={'activityLost'} />,
+            optionalType: 'activity_lost'
+        }, {
+            label: '+Форма',
+            icon: <img src={form} alt={'form'} />,
+            type: 'form'
+        }, {
+            label: '+Потеря активности',
+            icon: <img src={sendTime} alt={'sendTime'} />,
+            type: 'timer',
+            optionalType: 'send_time'
+        }
+    ]
+};

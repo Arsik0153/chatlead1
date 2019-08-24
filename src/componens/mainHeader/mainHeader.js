@@ -42,7 +42,7 @@ const MainHeader = (props) => {
                         {
                             !isMainHeader && (
                                 <div
-                                    className={isOpenBotContext ? style.botSelector : style.activeBotSelector}
+                                    className={isOpenBotContext ? style.activeBotSelector : style.botSelector}
                                     onClick={() => setStatusBotContext(true)}
                                 >
                                     <div className={style.nameBot}>{changedBotData && changedBotData.name}</div>

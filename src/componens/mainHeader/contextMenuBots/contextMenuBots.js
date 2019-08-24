@@ -20,7 +20,7 @@ const ContextMenuBots = (props) => {
                     </Link>
                 ))
             }
-            <Link to={'/bots'} className={style.link}>Создать новый бот</Link>
+            <Link to={'/bots'} className={style.link}>Создать нового бота</Link>
         </div>
     )
 };

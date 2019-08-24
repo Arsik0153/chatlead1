@@ -48,10 +48,9 @@
   -webkit-border-radius: 4px
   border-radius: 4px
   text-align: left
-  z-index: 5
   position: absolute
-  top: 60px
-  right: 20px
+  top: 0
+  left: 0
   z-index: 1000
 
   li
@@ -100,6 +99,17 @@
     font-weight: 600
     font-size: 18px
     //position: absolute
+
+    img
+      width: 10px
+      height: 10px
+      margin-left: 40px
+
+  .activeBotSelector
+    @extend .botSelector
+    box-shadow: rgba(9,30,66,.25) 0 20px 32px -8px
+    border-right-color: #e8e8e8
+    border-left-color: #e8e8e8
 
     img
       width: 10px
