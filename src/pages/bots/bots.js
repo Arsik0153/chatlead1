@@ -13,6 +13,8 @@ const Bots = (props) => {
         props.getAllBots();
     }, [props.userData]);
 
+    console.log(botsData);
+
     // TODO styles
     return (
         <div className={style.mainContainer}>
@@ -24,7 +26,7 @@ const Bots = (props) => {
 
                 <ul className={style.bots}>
                     {
-                        botsData.map(elem => (
+                        botsData && botsData.map(elem => (
                             <BotsElement
                                 {...elem}
                             />

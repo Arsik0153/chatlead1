@@ -1,0 +1,46 @@
+.contextBotMenu
+  display: flex
+  flex-direction: column
+  position: absolute
+  top: 30px
+  left: 0
+  z-index: 900
+  cursor: auto
+  width: 100%
+  min-width: 270px
+  -webkit-transition: .2s ease-out
+  -o-transition: .2s ease-out
+  transition: .2s ease-out
+  pointer-events: auto
+  border: 1px solid #e1e1e1
+  -webkit-border-radius: 0 0 4px 4px
+  border-radius: 0 0 4px 4px
+  -webkit-box-shadow: rgba(9,30,66,.25) 0 20px 32px -8px
+  box-shadow: rgba(9,30,66,.25) 0 20px 32px -8px
+  border-top: none
+  background-color: #fff
+  font-family: "Roboto", sans-serif
+
+  .link
+    height: 50px
+    padding: 10px
+    cursor: pointer
+    position: relative
+    //-webkit-transform: translateY(-10px)
+    //-ms-transform: translateY(-10px)
+    //transform: translateY(-10px)
+    //opacity: 0
+    z-index: 1000
+    font-size: 14px
+    border: 1px solid #e1e1e1
+    text-decoration: none
+    color: #000
+
+    &:last-child
+      border-bottom: none
+      color: #4680fe
+      font-weight: 400
+      text-decoration: none
+
+    &:hover
+      background-color: #eef4fa

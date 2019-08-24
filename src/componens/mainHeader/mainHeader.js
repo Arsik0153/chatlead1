@@ -10,11 +10,14 @@ import chatLeadLogo from '../../images/chatlead.png';
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {getAllBotsForUser} from "../../actions/actionCreator";
+import downArrow from '../../svg/db/down-button.svg';
+import ContextMenuBots from './contextMenuBots/contextMenuBots';
 
 const MainHeader = (props) => {
     const [isOpenMenu, setStatusToOpenMenu] = useState(false);
     const {isMainHeader} = props;
     const {changedBotData} = props;
+    const [isOpenBotContext, setStatusBotContext] = useState(false);
 
     useEffect(() => {
         props.getAllBots(props.match.params.botId);
@@ -23,22 +26,43 @@ const MainHeader = (props) => {
 
     return (
         <header className={style.mainContainer}>
-            {
-                isMainHeader ? (
-                    <Link to={'/bots'}><img src={Logo} alt={'logo'} /></Link>
-                ) : (
-                    <Link to={'/bots'}>
-                        <img src={chatLeadLogo} alt={'logo'} style={{width: '35px', height: '35px'}}/>
-                    </Link>
-                )
-            }
-            {
-                !isMainHeader && (
-                    <div className={style.botSelector}>
-                        <div className={style.nameBot}>{changedBotData && changedBotData.name}</div>
-                    </div>
-                )
-            }
+            <div className={style.leftSideContainer}>
+                {
+                    isMainHeader ? (
+                        <Link to={'/bots'}><img src={Logo} alt={'logo'} /></Link>
+                    ) : (
+                        <Link to={'/bots'}>
+                            <img src={chatLeadLogo} alt={'logo'} style={{width: '35px', height: '35px'}}/>
+                        </Link>
+                    )
+                }
+
+                <ClickOutSide onClickedOutside={() => setStatusBotContext(false)}>
+                    <>
+                        {
+                            !isMainHeader && (
+                                <div
+                                    className={isOpenBotContext ? style.botSelector : style.activeBotSelector}
+                                    onClick={() => setStatusBotContext(true)}
+                                >
+                                    <div className={style.nameBot}>{changedBotData && changedBotData.name}</div>
+                                    <img src={downArrow} alt={'downArrow'} />
+                                    <div className={style.contextBotContainer}>
+                                        {
+                                            isOpenBotContext && (
+                                                <ContextMenuBots
+                                                    setStatusBotContext={setStatusBotContext}
+                                                />
+                                            )
+                                        }
+                                    </div>
+                                </div>
+                            )
+                        }
+                    </>
+                </ClickOutSide>
+
+            </div>
             <ClickOutSide onClickedOutside={() => setStatusToOpenMenu(false)}>
                 <div className={style.menuContainer} onClick={() => setStatusToOpenMenu(true)}>
                     <img src={UserIcon} alt={'userIcon'} />
@@ -60,9 +84,6 @@ const MainHeader = (props) => {
     )
 };
 
-// MainHeader.defaultProps = {
-//     isMainHeader: true
-// };
 
 
 const mapStateToProps = state => {

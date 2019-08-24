@@ -20,6 +20,7 @@
   box-sizing: border-box
   padding: 0 40px
   border-bottom: 1px solid #eeeeee
+  font-family: 'Roboto', sans-serif
 
   img
     height: 23px
@@ -71,3 +72,39 @@
     &:hover
       color: #1e88e5
       background-color: rgba(22,105,186,.075)
+
+.leftSideContainer
+  display: flex
+  align-items: center
+
+  .botSelector
+    margin-left: 50px
+    display: flex
+    align-items: center
+    height: 70px
+    width: 100%
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    padding: 10px 40px 10px 10px
+    cursor: pointer
+    background-color: #fff
+    border: 1px solid transparent
+    border-bottom-color: #edf0f2
+    border-top: none
+    -webkit-transition: .2s ease-out
+    -o-transition: .2s ease-out
+    transition: .2s ease-out
+    -webkit-align-items: center
+    font-weight: 600
+    font-size: 18px
+    //position: absolute
+
+    img
+      width: 10px
+      height: 10px
+      margin-left: 40px
+
+.contextBotContainer
+  position: absolute

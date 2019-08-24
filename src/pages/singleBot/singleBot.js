@@ -11,7 +11,7 @@ const SingleBot = (props) => {
 
     useEffect(() => {
         props.getScenaries(props.match.params.botId)
-    }, []);
+    }, [props.match.params.botId]);
 
 
 

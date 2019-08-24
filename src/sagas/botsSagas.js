@@ -39,7 +39,7 @@ export function* createBotSaga({ createBotData }) {
 
         if(data.ok) {
             const {data} = yield call(getAllBotsForUser, formData);
-            yield put({type: ACTION.BOTS_DATA_RESPONSE, data: data});
+            yield put({type: ACTION.BOTS_DATA_RESPONSE, data: data.managers});
         }else {
             yield put({ type: ACTION.BOTS_DATA_ERROR, error: signUpErrors[data.desc] })
         }
@@ -67,7 +67,7 @@ export function* deleteBotSaga({ deleteBotData }) {
 
         if(data.ok) {
             const {data} = yield call(getAllBotsForUser, formData);
-            yield put({type: ACTION.BOTS_DATA_RESPONSE, data: data});
+            yield put({type: ACTION.BOTS_DATA_RESPONSE, data: data.managers});
         }else {
             yield put({ type: ACTION.BOTS_DATA_ERROR, error: signUpErrors[data.desc] })
         }
