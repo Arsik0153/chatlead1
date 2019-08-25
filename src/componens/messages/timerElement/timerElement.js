@@ -21,17 +21,14 @@ const TimerElement = (props) => {
 
     const valuesForTimer = Object.values(value)[0];
 
-    console.log(value);
-
-
 
 
     const updateTrigger = (e, typeInput) => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
         if(typeInput === 'activity_lost' || typeInput === 'pause_delay') {
             if(e.target.value < 60 && e.target.value > 0) {
-                Object.assign(messagesCopy[index].timer, {
+                Object.assign(messagesCopy[props.changedSocial][index].timer, {
                     [typeInput]: e.target.value
                 });
 
@@ -43,11 +40,11 @@ const TimerElement = (props) => {
                     botId: props.match.params.botId
                 };
 
-                props.updateTrigger(triggerData);
+                props.updateTrigger(triggerData, null, props.changedSocial);
             }
 
         }else {
-            Object.assign(messagesCopy[index].timer, {
+            Object.assign(messagesCopy[props.changedSocial][index].timer, {
                 [typeInput]: e.target.value
             });
 
@@ -59,7 +56,7 @@ const TimerElement = (props) => {
                 botId: props.match.params.botId
             };
 
-            props.updateTrigger(triggerData);
+            props.updateTrigger(triggerData, null, props.changedSocial);
         }
 
 
@@ -260,28 +257,6 @@ const TimerElement = (props) => {
                                        </div>
                                    )
                                }
-                               {/*{*/}
-                                   {/*isOpenWindow && (*/}
-                                       {/*<div className={style.messageContainer}>*/}
-                                           {/*<label>Установить потерю активности</label>*/}
-                                           {/*<DatePicker*/}
-                                               {/*selected={new Date(valuesForTimer[Object.keys(valuesForTimer)[0]])}*/}
-                                               {/*dateFormat={'yyyy-MM-dd'}*/}
-                                               {/*locale={ru}*/}
-                                               {/*onChange={(date) => {*/}
-                                                   {/*const dateObject = {*/}
-                                                           {/*target: {*/}
-                                                               {/*value: moment(date).format('YYYY-MM-DD')*/}
-                                                           {/*}*/}
-                                                       {/*};*/}
-                                                   {/*updateTrigger(dateObject, 'send_time')*/}
-                                               {/*}}*/}
-                                               {/*minDate={new Date()}*/}
-                                               {/*className={style.datePickerInput}*/}
-                                           {/*/>*/}
-                                       {/*</div>*/}
-                                   {/*)*/}
-                               {/*}*/}
 
                            </div>
                        </ClickOutsideHandler>
@@ -297,8 +272,17 @@ const TimerElement = (props) => {
 
 };
 
+
+const mapStateToProps = state => {
+    const {changedSocial} = state.singleBotReducers;
+
+    return {
+        changedSocial
+    }
+};
+
 const mapDispatchToProps = dispatch => ({
-    updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),
+    updateTrigger: (triggerData, updationData, social) => dispatch(updateTrigger(triggerData, updationData, social)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(TimerElement));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TimerElement));

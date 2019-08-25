@@ -2,7 +2,7 @@ import React from 'react';
 import style from './sideBarSocial.module.sass';
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
-import {updateSocialInTrigger} from "../../actions/actionCreator";
+import {updateSocialInTrigger, changeSocial} from "../../actions/actionCreator";
 import faceBookMassanger from '../../images/facebook-messenger-logo-big.png';
 import telegram from '../../images/telegram-icon-big.png';
 import vk from '../../images/vk-logo-big.png';
@@ -13,16 +13,16 @@ const SideBarSocial = (props) => {
     const {changedTrigger} = props;
 
 
-    const updateSocialInTriggerHandler = (e) => {
-        const updatedTrigger = {
-            ...changedTrigger,
-            social: e.target.value,
-            botId: props.match.params.botId
-        };
-        props.updateSocialInTrigger(updatedTrigger);
+    // const updateSocialInTriggerHandler = (e) => {
+    //     const updatedTrigger = {
+    //         ...changedTrigger,
+    //         social: e.target.value,
+    //         botId: props.match.params.botId
+    //     };
+    //     props.updateSocialInTrigger(updatedTrigger);
+    //
+    // };
 
-    };
-    
 
     return (
         <div className={style.mainContainer}>
@@ -34,8 +34,8 @@ const SideBarSocial = (props) => {
                     id="Facebook Messenger"
                     name="social"
                     value="facebook"
-                    checked={changedTrigger.social === 'facebook'}
-                    onChange={updateSocialInTriggerHandler}
+                    checked={props.changedSocial === 'facebook'}
+                    onChange={() => props.changeSocial('facebook')}
                 />
                 <label htmlFor={'Facebook Messenger'}>
                     <img src={faceBookMassanger} alt={'facebook'} />
@@ -48,8 +48,8 @@ const SideBarSocial = (props) => {
                     id="Telegram"
                     name="social"
                     value='telegram'
-                    checked={changedTrigger.social === 'telegram'}
-                    onChange={updateSocialInTriggerHandler}
+                    checked={props.changedSocial === 'telegram'}
+                    onChange={() => props.changeSocial('telegram')}
                 />
                 <label htmlFor={'Telegram'}>
                     <img src={telegram} alt={'telegram'} />
@@ -62,8 +62,8 @@ const SideBarSocial = (props) => {
                     id="vk"
                     name={'social'}
                     value={'vk'}
-                    checked={changedTrigger.social === 'vk'}
-                    onChange={updateSocialInTriggerHandler}
+                    checked={props.changedSocial === 'vk'}
+                    onChange={() => props.changeSocial('vk')}
                 />
                 <label htmlFor={'vk'}>
                     <img src={vk} alt={'vk'} />
@@ -76,8 +76,8 @@ const SideBarSocial = (props) => {
                     id="WhatsApp"
                     name={'social'}
                     value={'whatsapp'}
-                    onChange={updateSocialInTriggerHandler}
-                    checked={changedTrigger.social === 'whatsapp'}
+                    onChange={() => props.changeSocial('whatsapp')}
+                    checked={props.changedSocial === 'whatsapp'}
                 />
                 <label htmlFor={'WhatsApp'}>
                     <img src={whatsApp} alt={'whatsApp'} />
@@ -88,9 +88,18 @@ const SideBarSocial = (props) => {
     )
 };
 
+const mapStateToProps = state => {
+    const {changedSocial} = state.singleBotReducers;
+
+    return {
+        changedSocial
+    }
+};
+
 const mapDispatchToProps = dispatch => ({
     updateSocialInTrigger: (triggerData) => dispatch(updateSocialInTrigger(triggerData)),
+    changeSocial: (social) => dispatch(changeSocial(social))
 });
 
 
-export default withRouter(connect(null, mapDispatchToProps)(SideBarSocial));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SideBarSocial));

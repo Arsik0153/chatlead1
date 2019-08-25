@@ -11,9 +11,9 @@ const FormElement = (props) => {
 
     const updateTrigger = (e, inputIndex) => {
 
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
-        messagesCopy[index].form.splice(inputIndex, 1,  e.target.value);
+        messagesCopy[props.changedSocial][index].form.splice(inputIndex, 1,  e.target.value);
 
 
         const triggerData = {
@@ -24,15 +24,15 @@ const FormElement = (props) => {
             botId: props.match.params.botId
         };
 
-        props.updateTrigger(triggerData);
+        props.updateTrigger(triggerData, null, props.changedSocial);
 
 
     };
 
     const newInput = () => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
-        messagesCopy[index].form.push('');
+        messagesCopy[props.changedSocial][index].form.push('');
 
         const triggerData = {
             ...changedTrigger,
@@ -42,7 +42,7 @@ const FormElement = (props) => {
             botId: props.match.params.botId
         };
 
-        props.updateTrigger(triggerData);
+        props.updateTrigger(triggerData, null, props.changedSocial);
 
     };
 
@@ -75,8 +75,18 @@ const FormElement = (props) => {
 
 
 
+const mapStateToProps = state => {
+    const {changedSocial} = state.singleBotReducers;
+
+    return {
+        changedSocial
+    }
+};
+
+
+
 const mapDispatchToProps = dispatch => ({
-    updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),
+    updateTrigger: (triggerData, updationData, social) => dispatch(updateTrigger(triggerData, updationData, social)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(FormElement));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FormElement));

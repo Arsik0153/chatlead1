@@ -16,14 +16,14 @@ const CardOrGalleryElement = (props) => {
 
 
     const updateTrigger = (e, typeInput) => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
 
         const updationData = {
             type: 'text'
         };
         if(typeInput === 'text' || typeInput === 'title') {
-            Object.assign(messagesCopy[index][type][changedSlide], {
+            Object.assign(messagesCopy[props.changedSocial][index][type][changedSlide], {
                 [typeInput]: e.target.value
             });
         }else {
@@ -44,19 +44,19 @@ const CardOrGalleryElement = (props) => {
 
 
         if(typeInput === 'text' || typeInput === 'title') {
-            props.updateTrigger(triggerData);
+            props.updateTrigger(triggerData, null, props.changedSocial);
         }else {
-            props.updateTrigger(triggerData, updationData);
+            props.updateTrigger(triggerData, updationData, props.changedSocial);
         }
 
     };
 
     const newSlideOrNextSlide = () => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
 
-        if(messagesCopy[index][type].length === changedSlide + 1) {
-            messagesCopy[index][type].push({photo: '', title: '', text: '', keyboard: []});
+        if(messagesCopy[props.changedSocial][index][type].length === changedSlide + 1) {
+            messagesCopy[props.changedSocial][index][type].push({photo: '', title: '', text: '', keyboard: []});
             const triggerData = {
                 ...changedTrigger,
                 index: index,
@@ -64,7 +64,7 @@ const CardOrGalleryElement = (props) => {
                 changedSlide: changedSlide,
                 botId: props.match.params.botId
             };
-            props.updateTrigger(triggerData);
+            props.updateTrigger(triggerData, null, props.changedSocial);
             changeSlide(changedSlide + 1);
         }else {
             changeSlide(changedSlide + 1);
@@ -141,8 +141,17 @@ const CardOrGalleryElement = (props) => {
     )
 };
 
+
+const mapStateToProps = state => {
+    const {changedSocial} = state.singleBotReducers;
+
+    return {
+        changedSocial
+    }
+};
+
 const mapDispatchToProps = dispatch => ({
-    updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),
+    updateTrigger: (triggerData, updationData, changedSocial) => dispatch(updateTrigger(triggerData, updationData, changedSocial)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)( CardOrGalleryElement ));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)( CardOrGalleryElement ));

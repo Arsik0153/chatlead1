@@ -30,14 +30,14 @@ const ButtonsContainer = (props) => {
 
     const appendNewButton = () => {
 
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
         let buttons = null;
 
         if(changedSlideOrElement || changedSlideOrElement === 0) {
-            buttons = messagesCopy[index][type][changedSlideOrElement].keyboard;
+            buttons = messagesCopy[props.changedSocial][index][type][changedSlideOrElement].keyboard;
 
         }else {
-            buttons = messagesCopy[index].keyboard;
+            buttons = messagesCopy[props.changedSocial][index].keyboard;
         }
 
         buttons.push({
@@ -54,15 +54,15 @@ const ButtonsContainer = (props) => {
             botId: props.match.params.botId
         };
         //
-        props.updateTrigger(triggerData);
+        props.updateTrigger(triggerData, null, props.changedSocial);
 
 
     };
 
     const allButtonsInMessage = () => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
         const buttonsArray = changedSlideOrElement || changedSlideOrElement === 0 ?
-                messagesCopy[index][type][changedSlideOrElement].keyboard : messagesCopy[index].keyboard;
+                messagesCopy[props.changedSocial][index][type][changedSlideOrElement].keyboard : messagesCopy[props.changedSocial][index].keyboard;
 
 
         return buttonsArray;
@@ -71,7 +71,7 @@ const ButtonsContainer = (props) => {
 
     const editButton = (typeButton, buttonData, indexButton, isEmpty) => {
 
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
         const buttonsValues = allButtonsInMessage();
 
@@ -80,7 +80,7 @@ const ButtonsContainer = (props) => {
             type: typeButton
         });
 
-        messagesCopy[index].keyboard = buttonsValues;
+        messagesCopy[props.changedSocial][index].keyboard = buttonsValues;
 
         const triggerData = {
             ...changedTrigger,
@@ -90,7 +90,7 @@ const ButtonsContainer = (props) => {
             botId: props.match.params.botId
         };
 
-        props.updateTrigger(triggerData);
+        props.updateTrigger(triggerData, null, props.changedSocial);
     };
 
 
@@ -157,9 +157,16 @@ const ButtonsContainer = (props) => {
         </div>
     )
 };
+const mapStateToProps = state => {
+    const {changedSocial} = state.singleBotReducers;
+
+    return {
+        changedSocial
+    }
+};
 
 const mapDispatchToProps = dispatch => ({
-    updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),
+    updateTrigger: (triggerData, updationData, social) => dispatch(updateTrigger(triggerData, updationData, social)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(ButtonsContainer));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ButtonsContainer));

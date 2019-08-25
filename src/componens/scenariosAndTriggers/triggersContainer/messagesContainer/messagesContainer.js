@@ -2,7 +2,7 @@ import React from 'react';
 import style from './messagesContainer.module.sass';
 import {fileDefinition} from "../../../../utils/fileDefinition/fileDefinition";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
+import {connect} from "react-redux";
 
 
 const MessagesContainer = (props) => {
@@ -48,10 +48,11 @@ const MessagesContainer = (props) => {
 
 
 
+
     return (
         <>
             {
-                changedTrigger.messages.map((elem, index) => (
+                changedTrigger.messages[props.changedSocial].map((elem, index) => (
                     <div className={style.message}>
                         {
                             fileDefinition(
@@ -103,4 +104,12 @@ const MessagesContainer = (props) => {
     )
 };
 
-export default MessagesContainer;
+const mapStateToProps = state => {
+  const {changedSocial} = state.singleBotReducers;
+
+  return {
+      changedSocial
+  }
+};
+
+export default connect(mapStateToProps)(MessagesContainer);

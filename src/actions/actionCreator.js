@@ -45,6 +45,11 @@ export const changeScenarioId = (scenarioId) => ({
    scenarioId
 });
 
+export const changeSocial = (social) => ({
+   type: ACTION.CHANGE_SOCIAL,
+   social
+});
+
 export const copyScenario = (scenarioData) => ({
    type: ACTION.COPY_SCENARIO,
    scenarioData
@@ -65,10 +70,11 @@ export const addNewTrigger = (triggerData) => ({
    triggerData
 });
 
-export const updateTrigger = (triggerData, updationData) => ({
+export const updateTrigger = (triggerData, updationData, changedSocial) => ({
    type: ACTION.UPDATE_TRIGGER,
    triggerData,
-    updationData
+    updationData,
+    changedSocial
 });
 
 export const deleteMessageInTrigger = (index) => ({

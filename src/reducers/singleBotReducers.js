@@ -5,6 +5,7 @@ const initialState = {
     botScenarios: [],
     scenariosForScenarioContainer: [],
     changedScenarioId: false,
+    changedSocial: 'facebook',
     isFetching: false,
     error: null
 };
@@ -34,10 +35,15 @@ export default function (state = initialState, action) {
             }
         }
         case ACTION.CHANGE_SCENARIO_ID: {
-            console.log(action.scenarioId);
             return {
                 ...state,
                 changedScenarioId: action.scenarioId
+            }
+        }
+        case ACTION.CHANGE_SOCIAL: {
+            return {
+                ...state,
+                changedSocial: action.social
             }
         }
         case ACTION.SINGLE_BOT_DATA_ERROR: {

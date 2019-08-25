@@ -14,10 +14,10 @@ const TypeProcessing = (props) => {
     const {type, index, value, changedTrigger} = props;
 
     const updateTrigger = (value) => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
         if(value < 60 && value > 0) {
-            Object.assign(messagesCopy[index].type_processing, {
+            Object.assign(messagesCopy[props.changedSocial][index].type_processing, {
                 delay: value
             });
 
@@ -29,7 +29,7 @@ const TypeProcessing = (props) => {
                 botId: props.match.params.botId
             };
 
-            props.updateTrigger(triggerData);
+            props.updateTrigger(triggerData, null, props.changedSocial);
         }
 
     };
@@ -94,8 +94,17 @@ const TypeProcessing = (props) => {
     )
 };
 
+
+const mapStateToProps = state => {
+    const {changedSocial} = state.singleBotReducers;
+
+    return {
+        changedSocial
+    }
+};
+
 const mapDispatchToProps = dispatch => ({
-    updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),
+    updateTrigger: (triggerData, updationData, social) => dispatch(updateTrigger(triggerData, updationData, social)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(TypeProcessing));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TypeProcessing));

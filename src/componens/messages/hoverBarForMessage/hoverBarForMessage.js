@@ -12,9 +12,9 @@ const HoverBarForMessage = (props) => {
     const {styleForBar, statusDraggable, index, changedTrigger} = props;
 
     const deleteMessage = () => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
-        messagesCopy.splice(index, 1);
+        messagesCopy[props.changedSocial].splice(index, 1);
 
         const updatedTrigger = {
             ...changedTrigger,
@@ -26,9 +26,9 @@ const HoverBarForMessage = (props) => {
     };
 
     const cloneMessage = () => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
-        messagesCopy.splice(index, 0, messagesCopy[index]);
+        messagesCopy[props.changedSocial].splice(index, 0, messagesCopy[props.changedSocial][index]);
 
         const updatedTrigger = {
             ...changedTrigger,
@@ -40,10 +40,10 @@ const HoverBarForMessage = (props) => {
     };
 
     const messageInUp = () => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
-        messagesCopy.splice(index - 1, 0, messagesCopy[index]);
-        messagesCopy.splice(index + 1, 1);
+        messagesCopy[props.changedSocial].splice(index - 1, 0, messagesCopy[props.changedSocial][index]);
+        messagesCopy[props.changedSocial].splice(index + 1, 1);
 
         const updatedTrigger = {
             ...changedTrigger,
@@ -56,11 +56,11 @@ const HoverBarForMessage = (props) => {
     };
 
     const messageInDown = () => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
 
-        messagesCopy.splice(index + 2, 0, messagesCopy[index]);
-        messagesCopy.splice(index, 1);
+        messagesCopy[props.changedSocial].splice(index + 2, 0, messagesCopy[props.changedSocial][index]);
+        messagesCopy[props.changedSocial].splice(index, 1);
 
         const updatedTrigger = {
             ...changedTrigger,
@@ -111,9 +111,17 @@ const HoverBarForMessage = (props) => {
     )
 };
 
+const mapStateToProps = state => {
+    const {changedSocial} = state.singleBotReducers;
+
+    return {
+        changedSocial
+    }
+};
+
 const mapDispatchToProps = dispatch => ({
     updateTrigger: (triggerData) => dispatch(updateTrigger(triggerData)),
 });
 
 
-export default withRouter(connect(null, mapDispatchToProps)(HoverBarForMessage));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HoverBarForMessage));

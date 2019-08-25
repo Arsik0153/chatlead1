@@ -9,9 +9,9 @@ const Controls = (props) => {
 
     const deleteButton = () => {
 
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
-        messagesCopy[index].keyboard.splice(indexButton, 1);
+        messagesCopy[props.changedSocial][index].keyboard.splice(indexButton, 1);
 
         const triggerData = {
             ...changedTrigger,
@@ -21,7 +21,7 @@ const Controls = (props) => {
             botId: props.match.params.botId
         };
 
-        props.updateTrigger(triggerData);
+        props.updateTrigger(triggerData, null, props.changedSocial);
 
     };
 
@@ -39,9 +39,17 @@ const Controls = (props) => {
     )
 };
 
+const mapStateToProps = state => {
+    const {changedSocial} = state.singleBotReducers;
+
+    return {
+        changedSocial
+    }
+};
+
 const mapDispatchToProps = dispatch => ({
-    updateTrigger: (triggerData) => dispatch(updateTrigger(triggerData)),
+    updateTrigger: (triggerData, fileData, social) => dispatch(updateTrigger(triggerData, fileData, social)),
 });
 
 
-export default withRouter(connect(null, mapDispatchToProps)(Controls));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Controls));

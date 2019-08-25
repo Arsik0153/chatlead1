@@ -235,7 +235,7 @@ export function* addNewTriggerSagas({ triggerData }) {
         formData.append('manager_id', triggerData.manager_id);
         formData.append('user_token', localStorage.getItem('token'));
         formData.append('scenario_id', triggerData.scenario_id);
-        formData.append('messages', "[]");
+        formData.append('messages', JSON.stringify({facebook: [], telegram: [], vk: [], whatsapp: []}));
         formData.append('social', 'telegram');
         // formData.append('caption', 'Новый тригер');
 
@@ -253,12 +253,14 @@ export function* addNewTriggerSagas({ triggerData }) {
     }
 }
 
-export function* updateTriggerSaga({ triggerData, updationData }) {
+export function* updateTriggerSaga({ triggerData, updationData, changedSocial }) {
     const {messages, index, id, caption, botId, changedSlide, type} = triggerData;
+
+
+    // console.log(triggerData, updationData);
 
     if(localStorage.getItem('token')) {
         yield put({ type: ACTION.SINGLE_BOT_DATA_REQUEST});
-
 
 
         const formData = new FormData();
@@ -274,7 +276,7 @@ export function* updateTriggerSaga({ triggerData, updationData }) {
             if(updationData.type === 'text') {
                 formData.append('type', updationData.type);
                 formData.append('file', updationData.file);
-                Object.assign(messages[index], {
+                Object.assign(messages[changedSocial][index], {
                     [updationData.type]: updationData[updationData.type]
                 });
             }else {
@@ -284,11 +286,11 @@ export function* updateTriggerSaga({ triggerData, updationData }) {
                 if(data.ok) {
                     // console.log(changedSlide);
                     if(changedSlide || changedSlide === 0) {
-                        Object.assign(messages[index][type][changedSlide], {
+                        Object.assign(messages[changedSocial][index][type][changedSlide], {
                             photo: data.message[updationData.type].url
                         });
                     }else {
-                        Object.assign(messages[index], {
+                        Object.assign(messages[changedSocial][index], {
                             [updationData.type]: data.message[updationData.type].url
                         })
                     }

@@ -11,17 +11,15 @@ const ListElements = (props) => {
     const {type, index, pictureForLabel, value, changedTrigger} = props;
 
 
-    console.log(index);
-
     const updateTrigger = (e, typeInput, indexListElement) => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
 
         const updationData = {
             type: 'text'
         };
         if(typeInput === 'text' || typeInput === 'title') {
-            Object.assign(messagesCopy[index][type][indexListElement], {
+            Object.assign(messagesCopy[props.changedSocial][index][type][indexListElement], {
                 [typeInput]: e.target.value
             });
         }else {
@@ -42,23 +40,23 @@ const ListElements = (props) => {
 
 
         if(typeInput === 'text' || typeInput === 'title') {
-            props.updateTrigger(triggerData);
+            props.updateTrigger(triggerData, null, props.changedSocial);
         }else {
-            props.updateTrigger(triggerData, updationData);
+            props.updateTrigger(triggerData, updationData, props.changedSocial);
         }
 
     };
 
     const newListElementHanlder = () => {
-        const messagesCopy = changedTrigger.messages.concat();
-        messagesCopy[index][type].push({photo: '', title: '', text: '', keyboard: []});
+        const messagesCopy = changedTrigger.messages;
+        messagesCopy[props.changedSocial][index][type].push({photo: '', title: '', text: '', keyboard: []});
         const triggerData = {
             ...changedTrigger,
             index: index,
             messages: messagesCopy,
             botId: props.match.params.botId
         };
-        props.updateTrigger(triggerData);
+        props.updateTrigger(triggerData, null, props.changedSocial);
     };
 
 
@@ -125,8 +123,16 @@ const ListElements = (props) => {
     )
 };
 
+const mapStateToProps = state => {
+    const {changedSocial} = state.singleBotReducers;
+
+    return {
+        changedSocial
+    }
+};
+
 const mapDispatchToProps = dispatch => ({
-    updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),
+    updateTrigger: (triggerData, updationData, social) => dispatch(updateTrigger(triggerData, updationData, social)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(ListElements));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ListElements));

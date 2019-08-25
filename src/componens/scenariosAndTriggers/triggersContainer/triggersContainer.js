@@ -51,7 +51,7 @@ const TriggersContainer = (props) => {
 
     const updateTriggerUpdateMessageHandler = (e, index, typeFile) => {
 
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
 
         const updationData = {
@@ -69,7 +69,7 @@ const TriggersContainer = (props) => {
             messages: messagesCopy,
             botId: props.match.params.botId
         };
-        props.updateTrigger(updatedTrigger, updationData);
+        props.updateTrigger(updatedTrigger, updationData, props.changedSocial);
 
     };
 
@@ -155,17 +155,17 @@ const TriggersContainer = (props) => {
 };
 
 const mapStateToProps = state => {
-    const {botScenarios, isFetching, error} = state.singleBotReducers;
+    const {botScenarios, isFetching, error, changedSocial} = state.singleBotReducers;
     const {botsData} = state.botsReducers;
     // const {isFetching} = state.
 
     return {
-        botScenarios, isFetching, error, botsData
+        botScenarios, isFetching, error, botsData, changedSocial
     }
 };
 
 const mapDispatchToProps = dispatch => ({
-    updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),
+    updateTrigger: (triggerData, updationData, changedSocial) => dispatch(updateTrigger(triggerData, updationData, changedSocial)),
     appendTrigger: (triggerData) => dispatch(addNewTrigger(triggerData))
 });
 
