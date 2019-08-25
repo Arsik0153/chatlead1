@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import trashImage from "../../images/trash.png";
 import {ScenarioIdContext} from "../../utils/Contexts";
 import TriggersContainer from "../scenariosAndTriggers/triggersContainer/triggersContainer";
-import {addNewAutoride, deleteAutoride, editScenario} from "../../actions/actionCreator";
+import {addNewAutoride, changeScenarioId, deleteAutoride, editScenario} from "../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import vk from '../../images/imageForTable/vk-icon.png';
 import telegram from '../../images/imageForTable/tlg-icon.png';
@@ -21,7 +21,9 @@ import ContextMenuForEditAutoride from "./contextMenuForEditAutoride/contextMenu
 
 
 const AutorideContainer = (props) => {
-    const [changedScenarioId, changeScenarioId] = useState(false);
+    const {changeScenarioId, changedScenarioId} = props;
+
+    // const [changedScenarioId, changeScenarioId] = useState(false);
     const [autoridesDataInFilter, setautoridesDataInFilter] = useState([]);
     const [isOpenCreateScenarioFild, setStatusCreateScenarioFild] = useState(false);
     const [idEditTriggerText, setIdEditTriggerText] = useState(false);
@@ -200,16 +202,20 @@ const AutorideContainer = (props) => {
 
 const mapStateToProps = state => {
     const {autoridesData, isFetching, error} = state.autoridesReducers;
+    const {changedScenarioId} = state.singleBotReducers;
+
 
     return {
-        autoridesData, isFetching, error
+        autoridesData, isFetching, error, changedScenarioId
     }
 };
 
 const mapDispatchToProps = dispatch => ({
    appendAutoride: (managerId, name) => dispatch(addNewAutoride(managerId, name)),
     deleteAutoride: (managerId, autorideId) => dispatch(deleteAutoride(managerId, autorideId)),
-    editScenario: (scenarioData) => dispatch(editScenario(scenarioData))
+    editScenario: (scenarioData) => dispatch(editScenario(scenarioData)),
+    changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId))
+
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AutorideContainer));

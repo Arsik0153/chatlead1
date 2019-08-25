@@ -5,13 +5,15 @@ import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 import {connect} from "react-redux";
 import {ScenarioIdContext} from "../../utils/Contexts";
 import TriggersContainer from "../scenariosAndTriggers/triggersContainer/triggersContainer";
-import {appendBroadCast} from "../../actions/actionCreator";
+import {appendBroadCast, changeScenarioId} from "../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import moment from 'moment';
 
 
 const AutorideContainer = (props) => {
-    const [changedScenarioId, changeScenarioId] = useState(false);
+    const {changeScenarioId, changedScenarioId} = props;
+
+    // const [changedScenarioId, changeScenarioId] = useState(false);
     const [changedBroadCastId, changeBroadCastId] = useState(false);
     const [chanedTypeBroadcast, changeTypeBroadcast] = useState('sended');
 
@@ -136,14 +138,17 @@ const AutorideContainer = (props) => {
 
 const mapStateToProps = state => {
     const {broadCastData, isFetching, error} = state.broadCastReducers;
+    const {changedScenarioId} = state.singleBotReducers;
+
 
     return {
-        broadCastData, isFetching, error
+        broadCastData, isFetching, error, changedScenarioId
     }
 };
 
 const mapDispatchToProps = dispatch => ({
-    appendBroadcast: (managerId) => dispatch(appendBroadCast(managerId))
+    appendBroadcast: (managerId) => dispatch(appendBroadCast(managerId)),
+    changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AutorideContainer));

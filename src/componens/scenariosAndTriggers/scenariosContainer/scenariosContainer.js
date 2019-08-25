@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TriggersContainer from '../../scenariosAndTriggers/triggersContainer/triggersContainer';
 import {faAngleDown, faAngleUp, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
-import {addNewScenario, deleteScenario, copyScenario, editScenario} from "../../../actions/actionCreator";
+import {addNewScenario, deleteScenario, copyScenario, editScenario, changeScenarioId} from "../../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import {ScenarioIdContext} from "../../../utils/Contexts";
 import {destinationScenario} from "../../../constants/defaultValues";
@@ -19,8 +19,9 @@ import ContextMenuForEditScenario from './contextMenuForEditScenario/contextMenu
 
 
 const ScenariosContainer = (props) => {
+    const {changeScenarioId, changedScenarioId} = props;
 
-    const [changedScenarioId, changeScenarioId] = useState(false);
+    // const [changedScenarioId, changeScenarioId] = useState(false);
     const [scenariosDataInFilter, setScenariosDataInFilter] = useState([]);
     const [isOpenCreateScenarioFild, setStatusCreateScenarioFild] = useState(false);
     const [idEditTriggerText, setIdEditTriggerText] = useState(false);
@@ -28,6 +29,8 @@ const ScenariosContainer = (props) => {
     useEffect(() => {
         setScenariosDataInFilter(props.scenariosForScenarioContainer)
     }, [props.scenariosForScenarioContainer]);
+
+    console.log(props.changedScenarioId);
 
 
     const newScenarioHandler = () => {
@@ -38,7 +41,7 @@ const ScenariosContainer = (props) => {
         }
     };
 
-    // console.log(props.botScenarios);
+    console.log(props.botScenarios);
 
     const copyScenario = (id) => {
         const copyedScenario = props.botScenarios.filter(elem => elem.id === id)[0];
@@ -214,10 +217,10 @@ const ScenariosContainer = (props) => {
 };
 
 const mapStateToProps = state => {
-    const {botScenarios, scenariosForScenarioContainer, isFetching, error} = state.singleBotReducers;
+    const {botScenarios, scenariosForScenarioContainer, isFetching, error, changedScenarioId} = state.singleBotReducers;
 
     return {
-        botScenarios, scenariosForScenarioContainer, isFetching, error
+        botScenarios, scenariosForScenarioContainer, isFetching, error, changedScenarioId
     }
 };
 
@@ -225,7 +228,8 @@ const mapDispatchToProps = dispatch => ({
     addScenario: (botId, destination, trigger_text) => dispatch(addNewScenario(botId, destination, trigger_text)),
     deleteScenario: (scenarioData) => dispatch(deleteScenario(scenarioData)),
     copyScenario: (scenarioData) => dispatch(copyScenario(scenarioData)),
-    editScenario: (scenarioData) => dispatch(editScenario(scenarioData))
+    editScenario: (scenarioData) => dispatch(editScenario(scenarioData)),
+    changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ScenariosContainer));

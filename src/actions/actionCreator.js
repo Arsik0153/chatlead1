@@ -40,6 +40,11 @@ export const addNewScenario = (botId, destination, trigger_text) => ({
     trigger_text
 });
 
+export const changeScenarioId = (scenarioId) => ({
+   type: ACTION.CHANGE_SCENARIO_ID,
+   scenarioId
+});
+
 export const copyScenario = (scenarioData) => ({
    type: ACTION.COPY_SCENARIO,
    scenarioData

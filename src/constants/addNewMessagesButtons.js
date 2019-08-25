@@ -11,6 +11,7 @@ import pause from '../images/buttons/clock.png';
 import activityLost from '../images/buttons/calendar.png';
 import form from '../images/buttons/form.png';
 import sendTime from '../images/buttons/warn.png';
+import print from '../images/buttons/print.png';
 
 export const addNewMessagesButtons = {
     facebook: [
@@ -65,6 +66,10 @@ export const addNewMessagesButtons = {
             icon: <img src={sendTime} alt={'sendTime'} />,
             type: 'timer',
             optionalType: 'send_time'
+        }, {
+            label: '+Печать',
+            icon: <img src={print} alt={'typing'} />,
+            type: 'type_processing'
         }
     ],
     telegram: [
@@ -119,6 +124,10 @@ export const addNewMessagesButtons = {
             icon: <img src={sendTime} alt={'sendTime'} />,
             type: 'timer',
             optionalType: 'send_time'
+        }, {
+            label: '+Печать',
+            icon: <img src={print} alt={'typing'} />,
+            type: 'type_processing'
         }
     ],
     vk: [
@@ -161,6 +170,10 @@ export const addNewMessagesButtons = {
             icon: <img src={sendTime} alt={'sendTime'} />,
             type: 'timer',
             optionalType: 'send_time'
+        }, {
+            label: '+Печать',
+            icon: <img src={print} alt={'typing'} />,
+            type: 'type_processing'
         }
     ],
     whatsapp: [
@@ -203,6 +216,10 @@ export const addNewMessagesButtons = {
             icon: <img src={sendTime} alt={'sendTime'} />,
             type: 'timer',
             optionalType: 'send_time'
+        }, {
+            label: '+Печать',
+            icon: <img src={print} alt={'typing'} />,
+            type: 'type_processing'
         }
     ]
 };

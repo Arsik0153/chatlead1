@@ -147,14 +147,19 @@ export function* addNewScenarioSagas({ botId, destination, trigger_text }) {
 
 
 
-        const {data} = yield call(addNewScenario, formData);
+        const newScearioStatus = yield call(addNewScenario, formData);
 
-        if(data.ok) {
+
+        if(newScearioStatus.data.ok) {
             const {data} = yield call(getScenariesForManager, formData);
             yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: data.scenarios});
         }else {
-            yield put({ type: ACTION.SINGLE_BOT_DATA_RESPONSE, error: signUpErrors[data.desc] })
+            yield put({ type: ACTION.SINGLE_BOT_DATA_RESPONSE, error: signUpErrors[newScearioStatus.data.desc] })
         }
+
+
+        yield put({type: ACTION.CHANGE_SCENARIO_ID, scenarioId: newScearioStatus.data.scenario.id})
+
 
     }
 }
@@ -394,6 +399,7 @@ export function* appendNewAutorideSagas({ managerId, trigger_text }) {
             if(createAutorideStatus.data.ok) {
                 yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});
                 yield put({type: ACTION.AUTORIDE_RESPONSE, autoridesData: allAutorides.data.auto_rides});
+                yield put({type: ACTION.CHANGE_SCENARIO_ID, scenarioId: createScenarioStatus.data.scenario.id})
             }
 
             // const createAutorideStatus = yield call(addNewAutoride, formData);
@@ -592,6 +598,7 @@ export function* appendBroadCastSagas({ managerId }) {
                 }
                 if(allScenaries.data.ok) {
                     yield put({type: ACTION.SINGLE_BOT_DATA_RESPONSE, dataScenarios: allScenaries.data.scenarios});
+                    yield put({type: ACTION.CHANGE_SCENARIO_ID, scenarioId: scenarioCreateStatus.data.scenario.id})
                 }
             }
         }else {

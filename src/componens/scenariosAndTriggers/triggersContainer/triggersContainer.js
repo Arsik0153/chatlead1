@@ -13,7 +13,6 @@ import leftArrow from "../../../svg/db/left-arrow.svg";
 
 
 const TriggersContainer = (props) => {
-    // const changedScenario = props.botScenarios.filter(elem => elem.id === props.changedScenarioId)[0];
     const changedScenario = props.botScenarios.filter(elem => elem.id === props.scenarioId)[0];
     const {triggers} = changedScenario;
     const [changedTriggerId, changeTriggerId]

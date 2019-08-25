@@ -6,6 +6,7 @@ export const defaultValuesForNewMessages = {
     audio: {audio: '', keyboard: []},
     video: {video: '', keyboard: []},
     file: {file: '', keyboard: []},
+    type_processing: { type_processing: { delay: 5 } },
     card: {card: [{photo: '', title: '', text: '', keyboard: []}]},
     gallery: {gallery: [{photo: '', title: '', text: '', keyboard: []}]},
     list: {list: [{photo: '', title: '', text: '', keyboard: []}, {photo: '', title: '', text: '', keyboard: []}]},
