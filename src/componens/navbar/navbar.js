@@ -1,20 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from './navbar.module.sass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {NavLink} from 'react-router-dom';
 import {withRouter} from "react-router-dom";
-import {
-    faCog,
-    faCommentDots,
-    faFilter,
-    faPaperPlane,
-    faComments,
-    faChartLine,
-    faChartBar
-} from '@fortawesome/free-solid-svg-icons'
+import {connect} from "react-redux";
+import {changeScenarioId} from "../../actions/actionCreator";
 
 const Navbar = (props) => {
     const {botId} = props.match.params;
+
+    useEffect(() => {
+        props.changeScenarioId(false);
+    }, [props.match.url]);
+
 
     return (
         <div className={style.mainContainer}>
@@ -146,4 +144,8 @@ const Navbar = (props) => {
     )
 };
 
-export default withRouter(Navbar);
+const mapDispatchToProps = dispatch => ({
+   changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId))
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(Navbar));

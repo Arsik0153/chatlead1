@@ -81,7 +81,7 @@ const TriggersContainer = (props) => {
                         triggers.length === 0 && <h2>Здесь пока пусто. Создайте первый триггер</h2>
 
                     }
-                    <div onClick={newTriggerInEmptyScenario} className={style.newTriggerContainer}>+ Новый триггер</div>
+                    <div onClick={newTriggerInEmptyScenario} className={style.newFirstTrigger}>+ Новый триггер</div>
                 </div>
             </div>
         )

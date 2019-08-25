@@ -25,7 +25,7 @@
 
 .triggerElement
   position: relative
-  width: 200px
+  width: 100%
   padding: 0 20px 0 20px
   height: 44px
   border: 1px solid #e0e6ed
@@ -40,7 +40,7 @@
 
 .newTriggerContainer
   padding: 0 20px
-  width: 200px
+  width: 100%
   height: 44px
   border: 1px dashed #8492a6
   border-radius: 4px
@@ -55,6 +55,10 @@
   &:hover
     color: #0084FF
     border-color: #0084ff
+
+.newFirstTrigger
+  @extend .newTriggerContainer
+  width: 20%
 
 .contentHeader
   background: #e0e6ed
@@ -117,7 +121,7 @@
   align-items: center
 
 .buttonsContainer
-  width: 100%
+  width: 300px
   display: flex
   flex-direction: column
   align-items: center
@@ -155,3 +159,7 @@
       height: 15px
       width: 15px
       left: 20px
+
+
+.singleTriggerContainer
+  width: 100%
