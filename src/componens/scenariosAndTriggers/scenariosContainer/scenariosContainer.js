@@ -30,6 +30,11 @@ const ScenariosContainer = (props) => {
         setScenariosDataInFilter(props.scenariosForScenarioContainer)
     }, [props.scenariosForScenarioContainer]);
 
+    // useEffect(() => {
+    //     changeScenarioId(false);
+    // }, [props.match.url]);
+    // console.log()
+
 
 
     const newScenarioHandler = () => {
@@ -141,9 +146,14 @@ const ScenariosContainer = (props) => {
             <div className={style.scenariosContainer}>
                 <div className={style.inputContainer}>
                     <h2>Команды бота</h2>
-                    <input type={'text'} className={style.searchString} placeholder={'Найти команду'} onInput={(e) => {
-                        dynamicSearhData(e.target.value)
-                    }}/>
+                    <input
+                        type={'text'}
+                        className={style.searchString}
+                        placeholder={'Найти команду'}
+                        onInput={(e) => {
+                            dynamicSearhData(e.target.value)
+                        }}
+                    />
                 </div>
                 <table>
                     <tr>
@@ -156,7 +166,10 @@ const ScenariosContainer = (props) => {
                                 <tr>
                                     <td
                                         className={style.keyWord}
-                                        onClick={idEditTriggerText === elem.id ? null : () => changeScenarioId(elem.id)}
+                                        onClick={
+                                            idEditTriggerText === elem.id ?
+                                                null : () => changeScenarioId(elem.id)
+                                        }
                                     >
                                         Сообщение в точности совпадает с <span>{elem.trigger_text}</span>
                                         <div className={style.mainEditScenario}>
@@ -177,16 +190,19 @@ const ScenariosContainer = (props) => {
                                     <td className={style.controlsImages}>
                                         <div
                                             className={style.icon}
-                                            title={'Редактировать'}
+                                            // title={'Редактировать'}
                                             onClick={() => setIdEditTriggerText(elem.id)}
                                         >
+                                            <span className={style.tooltipText}>Редактировать</span>
                                             <img src={edit} alt={'edit'}/>
                                         </div>
 
-                                        <div className={style.icon} title={'Копировать'}>
-                                            <img src={copy} alt={'copy'} onClick={() => {
-                                                copyScenario(elem.id)
-                                            }}/>
+                                        <div
+                                            className={style.icon}
+                                            onClick={() => copyScenario(elem.id)}
+                                        >
+                                            <span className={style.tooltipText}>Копировать</span>
+                                            <img src={copy} alt={'copy'}/>
                                         </div>
                                         <div
                                             className={style.icon}
@@ -194,8 +210,8 @@ const ScenariosContainer = (props) => {
                                                 botId: props.match.params.botId,
                                                 idScenario: elem.id
                                             })}
-                                            title={'Удалить'}
                                         >
+                                            <span className={style.tooltipText}>Удалить</span>
                                             <img src={trash} alt={'trash'} />
                                         </div>
                                     </td>

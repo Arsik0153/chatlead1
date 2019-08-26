@@ -13,15 +13,26 @@
   padding: 15px 30px
 
   li
-    display: flex
+    //display: flex
     font-size: 15px
     text-transform: uppercase
     color: #82848B
     cursor: pointer
-    display: flex
-    align-items: center
-    justify-content: center
-    
+    display: inline-block
+    //align-items: center
+    //justify-content: center
+    //border-left: 1px solid #82848B
+    border-left: 1px solid #82848B
+    //padding: 0 0 0 25px
+    position: relative
+    padding: 0 25px
+    //padding-left: 2%
+    //padding-right: 2%
+
+    &:first-child
+      border-left: none
+
+
     .swg_style
       color: inherit
       width: 20px
@@ -37,6 +48,9 @@
       font-size: 13px
       font-family: 'Roboto'
       transition: .2s ease-out
+      //
+      //&:first-child
+      //  border-left: none
 
       &:hover
         color: #4680fe

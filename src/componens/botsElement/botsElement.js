@@ -19,8 +19,8 @@ const BotsElement = (props) => {
     return (
         <li className={style.mainContainer}>
             <div className={style.nameContainer}>
-                <h2>{name}</h2>?
-                <img src={edit} alt="Edit" className="btn-icon"/>
+                <h2>{name}</h2>
+                <img src={edit} alt="Edit"/>
             </div>
             <div className={style.socialContainer}>
                 <img src={facebookIcon} alt="Facebook" />

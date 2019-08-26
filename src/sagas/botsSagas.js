@@ -16,7 +16,8 @@ import {
     updateBroadCasts,
     deleteAutoride,
     appendBroadCast,
-    editScenario
+    editScenario,
+    getAutoridesLink
 } from "../api/rest/restContoller";
 import {signUpErrors, authErrors} from "../constants/errors/user";
 import {destinationScenario} from "../constants/defaultValues";
@@ -667,5 +668,36 @@ export function* deleteAutorideSagas({ managerId, idAutoride }) {
 
     }
 }
+
+export function* getAutorideLinksSagas({ autorideData }) {
+
+
+    if (localStorage.getItem('token')) {
+        yield put({type: ACTION.AUTORIDE_REQUEST});
+
+
+        const formData = new FormData();
+        formData.append('user_token', localStorage.getItem('token'));
+        formData.append('manager_id', autorideData.managerId);
+        formData.append('autoride_id', autorideData.idAutoride);
+        formData.append('social', 'all');
+
+
+        const {data} = yield call(getAutoridesLink, formData);
+
+        console.log(data);
+
+
+        if (data.ok) {
+            yield put({type: ACTION.AUTORIDE_RESPONSE, autoridesLinks: data.links});
+
+        } else {
+            yield put({type: ACTION.AUTORIDE_ERROR, error: signUpErrors[data.desc]})
+        }
+
+
+    }
+}
+
 
 

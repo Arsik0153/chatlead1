@@ -13,6 +13,11 @@ export const auth = (authData, history) => ({
     history
 });
 
+export const logout = (history) => ({
+   type: ACTION.LOGOUT_ACTION,
+   history
+});
+
 export const createBot = (createBotData) => ({
    type: ACTION.CREATE_BOT_ACTION,
    createBotData
@@ -95,6 +100,11 @@ export const updateSocialInTrigger = (triggerData) => ({
 export const getAllAutorides = (botId) => ({
    type: ACTION.GET_ALL_AUTORIDES,
    botId
+});
+
+export const getAutorideLinks = (autorideData) => ({
+   type: ACTION.GET_AUTORDIDE_LINKS,
+   autorideData
 });
 
 export const addNewAutoride = (managerId, trigger_text) => ({

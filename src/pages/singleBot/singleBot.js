@@ -31,9 +31,11 @@ const SingleBot = (props) => {
 
 const mapStateToProps = state => {
   const {botScenarios, isFetching, error} = state.singleBotReducers;
+    const {changedScenarioId} = state.singleBotReducers;
 
-  return {
-      botScenarios, isFetching, error
+
+    return {
+      botScenarios, isFetching, error, changedScenarioId
   }
 };
 

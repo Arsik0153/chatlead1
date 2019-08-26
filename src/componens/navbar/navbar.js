@@ -10,8 +10,10 @@ const Navbar = (props) => {
     const {botId} = props.match.params;
 
     useEffect(() => {
-        props.changeScenarioId(false);
+        props.changeScenarioId(null);
     }, [props.match.url]);
+
+
 
 
     return (

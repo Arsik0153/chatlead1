@@ -21,6 +21,7 @@ const BroadCastMenu = (props) => {
     const futureTime = new Date().setFullYear(new Date().getFullYear() + 1);
 
 
+
     const getAllTagsInTrigger = () => {
         const allTags = [];
         changedTrigger.messages[props.changedSocial].forEach(message => {

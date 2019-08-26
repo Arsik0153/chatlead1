@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import style from './autoride.module.sass';
 import NavBar from '../../componens/navbar/navbar';
 import {connect} from "react-redux";
-import {getAllAutorides, getAllScenariesForBot} from "../../actions/actionCreator";
+import {changeScenarioId, getAllAutorides, getAllScenariesForBot} from "../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import AutorideContainer from '../../componens/autorideContainer/autorideContainer';
 import MainHeader from "../../componens/mainHeader/mainHeader";
@@ -30,15 +30,19 @@ const Autoride = (props) => {
 
 const mapStateToProps = state => {
     const {autoridesData, isFetching, error} = state.autoridesReducers;
+    const {changedScenarioId} = state.singleBotReducers;
+
 
     return {
-        autoridesData, isFetching, error
+        autoridesData, isFetching, error, changedScenarioId
     }
 };
 
 const mapDispatchToProps = dispatch => ({
     getAutorides: (botId) => dispatch(getAllAutorides(botId)),
-    getScenaries: (botId) => dispatch(getAllScenariesForBot(botId))
+    getScenaries: (botId) => dispatch(getAllScenariesForBot(botId)),
+    changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId))
+
 });
 
 

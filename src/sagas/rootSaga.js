@@ -1,6 +1,6 @@
 import { takeLatest } from 'redux-saga/effects';
 import ACTION from '../actions/actionTypes';
-import {signUpSaga, authSaga} from "./userSagas";
+import {signUpSaga, authSaga, logoutSaga} from "./userSagas";
 import {
   createBotSaga,
   getAllBotsSagas,
@@ -18,7 +18,8 @@ import {
     copyScenarioSagas,
     appendBroadCastSagas,
     deleteAutorideSagas,
-    editScenarioSagas
+    editScenarioSagas,
+    getAutorideLinksSagas
 } from "./botsSagas";
 import {
   getManagerSaga,
@@ -28,6 +29,7 @@ import {
 function* rootSaga() {
   yield takeLatest(ACTION.SIGN_UP_ACTION, signUpSaga);
   yield takeLatest(ACTION.AUTH_ACTION, authSaga);
+  yield takeLatest(ACTION.LOGOUT_ACTION, logoutSaga);
   yield takeLatest(ACTION.CREATE_BOT_ACTION, createBotSaga);
   yield takeLatest(ACTION.DELETE_BOT_ACTION, deleteBotSaga);
   yield takeLatest(ACTION.GET_ALL_BOTS_ACTION, getAllBotsSagas);
@@ -47,6 +49,7 @@ function* rootSaga() {
   yield takeLatest(ACTION.EDIT_SCENARIO, editScenarioSagas);
   yield takeLatest(ACTION.GET_BOT_SETUP, getManagerSaga);
   yield takeLatest(ACTION.UPDATE_BOT_SETUP, editManagerSaga);
+  yield takeLatest(ACTION.GET_AUTORDIDE_LINKS, getAutorideLinksSagas);
 }
 
 export default rootSaga;

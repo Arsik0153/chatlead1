@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import trashImage from "../../images/trash.png";
 import {ScenarioIdContext} from "../../utils/Contexts";
 import TriggersContainer from "../scenariosAndTriggers/triggersContainer/triggersContainer";
-import {addNewAutoride, changeScenarioId, deleteAutoride, editScenario} from "../../actions/actionCreator";
+import {addNewAutoride, changeScenarioId, deleteAutoride, editScenario, getAutorideLinks} from "../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import vk from '../../images/imageForTable/vk-icon.png';
 import telegram from '../../images/imageForTable/tlg-icon.png';
@@ -29,8 +29,35 @@ const AutorideContainer = (props) => {
     const [idEditTriggerText, setIdEditTriggerText] = useState(false);
 
 
+    // useEffect(() => {
+    //     changeScenarioId(false);
+    // }, []);
+    //
+    // console.log(changedScenarioId);
+
+
     useEffect(() => {
-        setautoridesDataInFilter(props.autoridesData)
+        // console.log(props.autoridesData);
+        let changedAutorideData = null;
+        if(changedScenarioId && props.autoridesData) {
+            changedAutorideData
+                = props.autoridesData.filter(elem => elem.scenario.id === changedScenarioId)[0];
+        }
+
+        if(changedAutorideData) {
+            props.getAutoridesLinks({
+                idAutoride: changedAutorideData.id,
+                managerId: props.match.params.botId
+            });
+
+        }
+
+    }, [props.changedScenarioId]);
+
+    useEffect(() => {
+        if(props.autoridesData) {
+            setautoridesDataInFilter(props.autoridesData)
+        }
     }, [props.autoridesData]);
 
     const newAutorideHandler = () => {
@@ -86,6 +113,7 @@ const AutorideContainer = (props) => {
                                 changedScenarioId={changedScenarioId}
                                 scenarioId={scenarioId}
                                 changeScenarioId={changeScenarioId}
+                                autoridesLinks={props.autoridesLinks}
                             />
                         )}
                     </ScenarioIdContext.Consumer>
@@ -176,18 +204,20 @@ const AutorideContainer = (props) => {
                                    <div
                                        className={style.icon}
                                        onClick={() => setIdEditTriggerText(elem.scenario.id)}
-                                       title={'Редактировать'}
                                    >
+                                       <span className={style.tooltipText}>Редактировать</span>
                                        <img src={edit} alt={'edit'} />
                                    </div>
                                     <div className={style.icon}>
-                                        <img src={copy} alt={'copy'} title={'Копировать'}/>
+                                        <span className={style.tooltipText}>Копировать</span>
+                                        <img src={copy} alt={'copy'}/>
                                     </div>
                                     <div
                                         className={style.icon}
                                         onClick={() => props.deleteAutoride(props.match.params.botId, elem.id)}
                                     >
-                                        <img src={trash} alt={'trash'} title={'Удалить'}/>
+                                        <span className={style.tooltipText}>Удалить</span>
+                                        <img src={trash} alt={'trash'}/>
                                     </div>
                                 </td>
                             </tr>
@@ -201,12 +231,12 @@ const AutorideContainer = (props) => {
 };
 
 const mapStateToProps = state => {
-    const {autoridesData, isFetching, error} = state.autoridesReducers;
+    const {autoridesData, isFetching, error, autoridesLinks} = state.autoridesReducers;
     const {changedScenarioId} = state.singleBotReducers;
 
 
     return {
-        autoridesData, isFetching, error, changedScenarioId
+        autoridesData, isFetching, error, changedScenarioId, autoridesLinks
     }
 };
 
@@ -214,7 +244,8 @@ const mapDispatchToProps = dispatch => ({
    appendAutoride: (managerId, name) => dispatch(addNewAutoride(managerId, name)),
     deleteAutoride: (managerId, autorideId) => dispatch(deleteAutoride(managerId, autorideId)),
     editScenario: (scenarioData) => dispatch(editScenario(scenarioData)),
-    changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId))
+    changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId)),
+    getAutoridesLinks: (autorideData) => dispatch(getAutorideLinks(autorideData))
 
 });
 
