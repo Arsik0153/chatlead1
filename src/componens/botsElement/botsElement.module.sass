@@ -45,6 +45,19 @@
     border: 1px solid #82848B
     background-color: transparent
     white-space: nowrap
+  // img
+  //   padding: 6px
+  //   width: 15px
+  //   height: 15px
+  //   border-radius: 5px
+  //   //border-color: #D0D0D0
+  //   position: relative
+  //   top: 2px
+  //   color: #82848B
+  //   font-weight: 400
+  //   border: 1px solid #82848B
+  //   background-color: transparent
+  //   white-space: nowrap
 
 .socialContainer
   display: flex
@@ -75,3 +88,51 @@
   text-transform: uppercase
   background: transparent
   text-decoration: none
+
+.bot_edit_btn
+  padding: 10px 12px 9px
+  -webkit-transition: .2s ease-out
+  -o-transition: .2s ease-out
+  transition: .2s ease-out
+  font-weight: 500
+  font-size: 13px
+  color: #fff
+  -webkit-border-radius: 3px
+  border-radius: 3px
+
+  position: relative
+  z-index: 1
+  padding: 4px 7px
+  width: 30px
+  height: 30px
+  border-radius: 5px
+  border-color: #D0D0D0
+  top: 2px
+  color: #82848B
+  font-weight: 400
+  border: 1px solid #82848B
+  background-color: transparent
+  white-space: nowrap
+  cursor: pointer
+  float: left
+  outline: 0
+  img.btn_edit_img
+    width: 16px
+    height: 16px
+    margin-right: 8px
+    -webkit-transition: opacity .2s
+    -o-transition: opacity .2s
+    transition: opacity .2s
+  span
+    opacity: 0
+    visibility: hidden
+    bottom: -webkit-calc(100% + 8px)
+    bottom: calc(100% + 8px)
+  span:after
+    content: ''
+    position: absolute
+    border: 5px solid transparent
+    border-top-color: rgba(32,35,38,.95)
+    left: -webkit-calc(50% - 5px)
+    left: calc(50% - 5px)
+    top: 100%

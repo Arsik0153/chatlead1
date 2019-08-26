@@ -37,7 +37,6 @@ export function* authSaga({ authData, history }) {
 
     const {data} = yield call(auth, formData);
 
-
     if(data.ok) {
         yield put({type: ACTION.USER_DATA_RESPONSE, data: data});
         yield localStorage.setItem('token', data.user_token);

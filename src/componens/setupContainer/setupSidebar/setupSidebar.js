@@ -43,6 +43,10 @@ const SetupSidebar = (props) => {
                         <input type="radio" name="radio" value="whatsapp" className={style.ui_vmenu__item_input}/><span className={style.ui_vmenu__item_span}>Whatsapp</span>
                     </label>
                     <div className="for-fb">
+                        {props.botSetupData.facebook_name!=='' ? (
+                        <p className={style.ui_vmenu__item_p}>{props.botSetupData.facebook_name}</p>
+                        ) : (
+                        <div>
                         <p className={style.ui_vmenu__item_p}>ШАГ 1: Авторизуйтесь через ваш Facebook аккаунт. Вы должны иметь права на управление страницами Facebook. <a href="">Подробнее.</a></p>
                         <button onClick={(e) => {
                             e.preventDefault();
@@ -54,11 +58,19 @@ const SetupSidebar = (props) => {
                                     window.open(result.data.url);
                                 }
                             });
-                            }} className={style.ui_vmenu_sep_button}><span>АВТОРИЗОВАТЬСЯ</span></button>
+                            }} className={style.ui_vmenu_sep_button}><span>АВТОРИЗОВАТЬСЯ</span>
+                        </button>
+                        </div>
+                        )}
+                        
                     </div>
                     <div className="for-telegram" style={{display: "none;"}}>
+                        {props.botSetupData.telegram_name!=='' ? (
+                            <p className={style.ui_vmenu__item_p}>{props.botSetupData.telegram_name}</p>
+                        ) : (
+                        <div>
                         <p className={style.ui_vmenu__item_p}>ШАГ 1: Введите токен доступа скрипт ниже. <a href="">узнаете больше</a> о том, как получить токен. </p>
-                        <label className="ui_vmenu__item">
+                        <label className={style.ui_vmenu__item}>
                             <input type="text" name="token" placeholder="Token" className={style.telegram_input}/>
                         </label>
                         <button onClick={(e) => {
@@ -72,8 +84,16 @@ const SetupSidebar = (props) => {
                             } className={style.ui_vmenu_sep_button}>
                                     <span>ПРОДОЛЖИТЬ</span>
                         </button>
+                        </div>
+                        )}
+                        
+                        
                     </div>
                     <div className="for-vk" style={{display: "none;"}}>
+                        {props.botSetupData.vk_name!=='' ? (
+                            <p className={style.ui_vmenu__item_p}>{props.botSetupData.vk_name}</p>
+                        ) : (
+                            <div>
                         <p className={style.ui_vmenu__item_p}>ШАГ 1: Подключите свой аккаунт Вконтакте. Вам нужно иметь права администратора.</p>
                         <button onClick={(e) => {
                             e.preventDefault();
@@ -85,11 +105,26 @@ const SetupSidebar = (props) => {
                                     window.open(result.data.url);
                                 }
                             });
-                            }} className={style.ui_vmenu_sep_button}><span>АВТОРИЗОВАТЬСЯ</span></button>
+                            }} className={style.ui_vmenu_sep_button}><span>АВТОРИЗОВАТЬСЯ</span>
+                            </button>
+                            </div>
+                            )}
                     </div>
                     <div className="for-whatsapp" style={{display: "none;"}}>
                         <p className={style.ui_vmenu__item_p}>ШАГ 1: Откройте WhatsApp Web, наведите свой телефон чтобы считать код</p>
-                        <div><img src="/img/qr-code.png" alt="" width="100%"/></div>
+                        <button onClick={(e) => {
+                            e.preventDefault();
+                            const formData = new FormData();
+                            formData.append('user_token', localStorage.getItem('token'));
+                            formData.append('manager_id', botId);
+                            getQRCodeUrl(formData).then(result => {
+                                if (result.data.ok) {
+                                    props.qrcodeurl = result.data.url
+                                }
+                            });
+                            }} className={style.ui_vmenu_sep_button}><span>ПОЛУЧИТЬ QR КОД</span>
+                        </button>
+                        <div><img src={props.qrcodeurl} alt="" width="100%"/></div>
                     </div>
                 </form>
             </div>

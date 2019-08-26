@@ -21,6 +21,10 @@ const BotsElement = (props) => {
             <div className={style.nameContainer}>
                 <h2>{name}</h2>
                 <img src={edit} alt="Edit"/>
+                <button class={style.bot_edit_btn+" bot-list__edit default-btn default-btn--icon-style default-btn--outline"}>
+                    <img src={edit} alt="Edit" className={style.btn_edit_img}/>
+                    <span class="text-tooltip text-tooltip--top">Редактировать</span>
+                </button>
             </div>
             <div className={style.socialContainer}>
                 <img src={facebookIcon} alt="Facebook" />

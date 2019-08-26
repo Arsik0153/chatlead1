@@ -75,6 +75,7 @@ const MainHeader = (props) => {
                                 <li>Партнерам</li>
                                 <li>Панель</li>
                                 <li onClick={() => props.logout(props.history)}>Выйти</li>
+                                <li onClick={() => {localStorage.removeItem('token');window.location.href = "/";}}>Выйти</li>
                             </ul>
                         )
                     }

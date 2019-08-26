@@ -6,7 +6,7 @@ import validate from "../../../utils/validation/registrValidate";
 import FancyInput from "../../inputs/fancyInput";
 // import {sendFormDataSignUp} from "../../../actions/actionCreator";
 import style from "./signUpForm.module.sass";
-import {signUp} from "../../../actions/actionCreator";
+import {signUp, auth} from "../../../actions/actionCreator";
 
 
 const SignUpForm = (props) => {
@@ -19,6 +19,7 @@ const SignUpForm = (props) => {
             setError(true);
         }else {
             props.signUpAction(registration.values, props.history);
+            props.authAction(registration.values, props.history);
         }
 
     };
@@ -86,7 +87,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    signUpAction: (signUpData, history) => dispatch(signUp(signUpData, history))
+    signUpAction: (signUpData, history) => dispatch(signUp(signUpData, history)),
+    authAction: (authData, history) => dispatch(auth(authData, history))
 });
 
 

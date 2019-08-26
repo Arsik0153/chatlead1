@@ -5,6 +5,7 @@ import CreateBotForm from '../../componens/forms/createBotForm/createBotForm';
 import {connect} from 'react-redux';
 import {getAllBotsForUser} from "../../actions/actionCreator";
 import BotsElement from '../../componens/botsElement/botsElement';
+import Attention from '../../images/attention.png';
 
 const Bots = (props) => {
     const {botsData} = props;
@@ -32,6 +33,17 @@ const Bots = (props) => {
                     }
                 </ul>
             </main>
+            <div className={style.bot_remove_modal}>
+                <div className={style.bot_remove}>
+                    <img src={Attention} alt="Attention"/>
+                    <h3>Подтвердите действие</h3>
+                    <p>Вы уверены, что хотите удалить "ТЕСТ бот"?</p>
+                    <div className={style.bot_remove__buttons}>
+                        <button className={style.blueBtn+" "+style.remove}>Удалить</button>
+                        <button className={style.blueBtn+" "+style.cansel}>Отмена</button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 };
