@@ -74,7 +74,7 @@ const MainHeader = (props) => {
                                 <li>Тарифы</li>
                                 <li>Партнерам</li>
                                 <li>Панель</li>
-                                <li>Выйти</li>
+                                <li onClick={() => {localStorage.removeItem('token');window.location.href = "/";}}>Выйти</li>
                             </ul>
                         )
                     }

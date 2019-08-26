@@ -7,6 +7,7 @@ import Bots from './pages/bots/bots';
 import SingleBot from './pages/singleBot/singleBot';
 import Autoride from './pages/autoride/autoride';
 import BroadCast from './pages/broadcast/broadcast';
+import {Dialog} from './pages/dialog/dialog';
 // import SingleScenario from './pages/singleScenario/singleScenario';
 import onlyAutorizenUsers from './componens/hoc/onlyAutorizedUsers';
 import onlyDontRegistrationUsers from './componens/hoc/onlyNotRegistration';
@@ -66,6 +67,12 @@ class App extends React.Component {
                   {/*path={"/scenarios/:scenarioId"}*/}
                   {/*component={onlyAutorizenUsers(SingleScenario)}*/}
               {/*/>*/}
+              <Route
+                  exact
+                  path={"/bots/:botId/dialog"}
+                  component={onlyAutorizenUsers(Dialog)}
+              />
+              
             </Switch>
           </div>
         </Router>

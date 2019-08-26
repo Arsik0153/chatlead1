@@ -72,13 +72,23 @@ const SetupWideColumn = (props) => {
                                     <span className={style.slider+" "+style.round}></span>
                                 </label>
                                 <p>Получать уведомления о заявках</p>
+                                <button class={style.default_btn+" "+style.default_btn__primary} onClick={(e) => {
+                            e.preventDefault();
+                            props.editManager({
+                                idBot: botId,
+                                application_email: document.querySelector('.'+style.notifyme+' input[name=mail]').value,
+                                application_whatsapp_id: document.querySelector('.'+style.notifyme+' input[name=phone]').value,
+                                optional_params: ["application_email", "application_whatsapp_id"]
+                            });
+                                }
+                            }>Сохранить</button>
                             </div>
                             <div className={style.switcher+" "}>
                                 <input type="text" name="mail" placeholder="example@mail.com"/>
                                 <span> | </span>
                                 <input type="text" name="phone" placeholder="+7 ___ ___ __ __"/>
                             </div>
-                            <div className={style.switcher+" underinput "}>
+                            <div className={style.switcher+" "+style.underinput}>
                                 <span>Добавьте емейл, на который отправлять уведомления и нажмите Enter </span>
                                 <span>Или Напишите WhatsApp номер</span>
                             </div>
