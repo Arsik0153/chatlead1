@@ -8,18 +8,18 @@ import {defaultValuesForNewMessages} from "../../../../constants/defaultValues";
 
 const ButtonsForAddNewMessage = (props) => {
     const {changedTrigger} = props;
+    const {social} = changedTrigger;
 
 
     const updateTriggerNewMessageHandler = (type, optional) => {
-        const messagesCopy = changedTrigger.messages.concat();
+        const messagesCopy = changedTrigger.messages;
 
         if(type === "timer") {
-            messagesCopy.push(defaultValuesForNewMessages[optional]);
+            messagesCopy[props.changedSocial].push(defaultValuesForNewMessages[optional]);
         }else {
-            messagesCopy.push(defaultValuesForNewMessages[type]);
+            messagesCopy[props.changedSocial].push(defaultValuesForNewMessages[type]);
         }
 
-        // console.log(messagesCopy);
 
 
         const updatedTrigger = {
@@ -27,14 +27,15 @@ const ButtonsForAddNewMessage = (props) => {
             messages: messagesCopy,
             botId: props.match.params.botId
         };
-        props.updateTrigger(updatedTrigger, false);
+        props.updateTrigger(updatedTrigger, false, props.changedSocial);
     };
+
 
 
     return (
         <div className={style.mainContainer}>
             {
-                addNewMessagesButtons.map(elem => (
+                addNewMessagesButtons[props.changedSocial].map(elem => (
                     <div
                         onClick={() => updateTriggerNewMessageHandler(elem.type, elem.optionalType)}
                         className={style.buttonElement}
@@ -48,9 +49,17 @@ const ButtonsForAddNewMessage = (props) => {
     )
 };
 
+const mapStateToProps = state => {
+    const {changedSocial} = state.singleBotReducers;
+
+    return {
+        changedSocial
+    }
+};
+
 
 const mapDispatchToProps = dispatch => ({
-    updateTrigger: (triggerData, updationData) => dispatch(updateTrigger(triggerData, updationData)),
+    updateTrigger: (triggerData, updationData, social) => dispatch(updateTrigger(triggerData, updationData, social)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(ButtonsForAddNewMessage));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ButtonsForAddNewMessage));

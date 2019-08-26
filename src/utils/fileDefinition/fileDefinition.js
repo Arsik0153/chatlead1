@@ -7,6 +7,7 @@ import ListElement from '../../componens/messages/listElement/listElement';
 import FormElement  from '../../componens/messages/formElement/formElement';
 import TimerElement from '../../componens/messages/timerElement/timerElement';
 import TextArea from '../../componens/messages/textArea/textArea';
+import TypeProcessing from '../../componens/messages/typeProcessing/typeProcessing';
 
 
 export const fileDefinition = (key, value, handler, index, deleteHandler, changedTrigger, changedScenario) => {
@@ -140,6 +141,16 @@ export const fileDefinition = (key, value, handler, index, deleteHandler, change
                 onChange={(e) => handler(e, index, key)}
             />
         )
+    }else if(key === 'type_processing') {
+            return (
+                <TypeProcessing
+                    type={'type_processing'}
+                    index={index}
+                    changedTrigger={changedTrigger}
+                    value={value}
+                    onChange={(e) => handler(e, index, key)}
+                />
+            )
     }else {
         return (
             <FancyFileInput

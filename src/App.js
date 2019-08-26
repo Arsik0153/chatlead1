@@ -12,6 +12,7 @@ import {Dialog} from './pages/dialog/dialog';
 import onlyAutorizenUsers from './componens/hoc/onlyAutorizedUsers';
 import onlyDontRegistrationUsers from './componens/hoc/onlyNotRegistration';
 import BotSetup from './pages/botSetup/botSetup';
+import NotFound from './pages/inDevelopment/inDevelopment';
 
 
 class App extends React.Component {
@@ -61,6 +62,21 @@ class App extends React.Component {
                   exact
                   path={"/bots/:botId/broadcast"}
                   component={onlyAutorizenUsers(BroadCast)}
+              />
+              <Route
+                  exact
+                  path={"/bots/:botId/dialog"}
+                  component={onlyAutorizenUsers(NotFound)}
+              />
+              <Route
+                  exact
+                  path={"/bots/:botId/growth"}
+                  component={onlyAutorizenUsers(NotFound)}
+              />
+              <Route
+                  exact
+                  path={"/bots/:botId/statistics"}
+                  component={onlyAutorizenUsers(NotFound)}
               />
               {/*<Route*/}
                   {/*exact*/}

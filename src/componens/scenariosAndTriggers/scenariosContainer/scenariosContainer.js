@@ -3,8 +3,8 @@ import style from './scenariosContainer.module.sass';
 import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TriggersContainer from '../../scenariosAndTriggers/triggersContainer/triggersContainer';
-import {faInfoCircle} from '@fortawesome/free-solid-svg-icons'
-import {addNewScenario, deleteScenario, copyScenario} from "../../../actions/actionCreator";
+import {faAngleDown, faAngleUp, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
+import {addNewScenario, deleteScenario, copyScenario, editScenario, changeScenarioId} from "../../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import {ScenarioIdContext} from "../../../utils/Contexts";
 import {destinationScenario} from "../../../constants/defaultValues";
@@ -12,17 +12,24 @@ import edit from "../../../images/buttons/edit.png";
 import copy from "../../../images/duplicate.jpg";
 import trash from "../../../images/buttons/trash.png";
 import leftArrow from "../../../svg/db/left-arrow.svg";
+import ClickOutSide from '../../hoc/clickOutside';
+import UserIcon from "../../../images/user.png";
+import ContextMenuForEditScenario from './contextMenuForEditScenario/contextMenuForEditScenario';
+
 
 
 const ScenariosContainer = (props) => {
+    const {changeScenarioId, changedScenarioId} = props;
 
-    const [changedScenarioId, changeScenarioId] = useState(false);
+    // const [changedScenarioId, changeScenarioId] = useState(false);
     const [scenariosDataInFilter, setScenariosDataInFilter] = useState([]);
     const [isOpenCreateScenarioFild, setStatusCreateScenarioFild] = useState(false);
+    const [idEditTriggerText, setIdEditTriggerText] = useState(false);
 
     useEffect(() => {
         setScenariosDataInFilter(props.scenariosForScenarioContainer)
     }, [props.scenariosForScenarioContainer]);
+
 
 
     const newScenarioHandler = () => {
@@ -30,12 +37,21 @@ const ScenariosContainer = (props) => {
         setStatusCreateScenarioFild(false);
     };
 
+
     const copyScenario = (id) => {
         const copyedScenario = props.botScenarios.filter(elem => elem.id === id)[0];
         Object.assign(copyedScenario, {
            managerId: props.match.params.botId
         });
         props.copyScenario(copyedScenario);
+    };
+
+    const editScenario = (e, scenarioId) => {
+        props.editScenario({
+            trigger_text: e.target.value,
+            botId: props.match.params.botId,
+            scenarioId: scenarioId
+        })
     };
 
 
@@ -75,6 +91,7 @@ const ScenariosContainer = (props) => {
                                <TriggersContainer
                                    changedScenarioId={changedScenarioId}
                                    scenarioId={scenarioId}
+                                   changeScenarioId={changeScenarioId}
                                />
                            )}
                        </ScenarioIdContext.Consumer>
@@ -102,13 +119,22 @@ const ScenariosContainer = (props) => {
 
         <div className={style.mainContainer}>
             <div className={style.controls}>
-                <div className={style.createButton} onClick={() => setStatusCreateScenarioFild(true)}>Создать команду</div>
+                <div
+                    className={style.createButton}
+                    onClick={() => setStatusCreateScenarioFild(true)}
+                >
+                    Создать команду
+                </div>
                 <div className={style.hardLine} />
                 <div className={style.infoBlock}>
                     <FontAwesomeIcon icon={faInfoCircle}/>
                     <div className={style.infoText}>
-                        <p>Ответы на популярные вопросы и уроки по настройке бота находятся в Руководстве.</p>
-                        <span>Перейти в руководство</span>
+                        <p>
+                            Ответы на популярные вопросы и уроки по настройке бота находятся в Руководстве.
+                        </p>
+                        <span>
+                            Перейти в руководство
+                        </span>
                     </div>
                 </div>
             </div>
@@ -128,17 +154,36 @@ const ScenariosContainer = (props) => {
                     {
                         scenariosDataInFilter.map(elem => (
                                 <tr>
-                                    <td className={style.keyWord} onClick={() => changeScenarioId(elem.id)}>
+                                    <td
+                                        className={style.keyWord}
+                                        onClick={idEditTriggerText === elem.id ? null : () => changeScenarioId(elem.id)}
+                                    >
                                         Сообщение в точности совпадает с <span>{elem.trigger_text}</span>
+                                        <div className={style.mainEditScenario}>
+                                            {
+                                                idEditTriggerText === elem.id && (
+                                                    <ContextMenuForEditScenario
+                                                        onInput={(e) => editScenario(e, elem.id)}
+                                                        defaultValue={elem.trigger_text}
+                                                        setIdEditTriggerText={(id) => setIdEditTriggerText(id)}
+                                                    />
+                                                )
+                                            }
+                                        </div>
                                     </td>
                                     <td>
                                         {elem.triggers.length} ответ
                                     </td>
                                     <td className={style.controlsImages}>
-                                        <div className={style.icon}>
-                                            <img src={edit} alt={'edit'} />
+                                        <div
+                                            className={style.icon}
+                                            title={'Редактировать'}
+                                            onClick={() => setIdEditTriggerText(elem.id)}
+                                        >
+                                            <img src={edit} alt={'edit'}/>
                                         </div>
-                                        <div className={style.icon}>
+
+                                        <div className={style.icon} title={'Копировать'}>
                                             <img src={copy} alt={'copy'} onClick={() => {
                                                 copyScenario(elem.id)
                                             }}/>
@@ -149,6 +194,7 @@ const ScenariosContainer = (props) => {
                                                 botId: props.match.params.botId,
                                                 idScenario: elem.id
                                             })}
+                                            title={'Удалить'}
                                         >
                                             <img src={trash} alt={'trash'} />
                                         </div>
@@ -166,17 +212,19 @@ const ScenariosContainer = (props) => {
 };
 
 const mapStateToProps = state => {
-    const {botScenarios, scenariosForScenarioContainer, isFetching, error} = state.singleBotReducers;
+    const {botScenarios, scenariosForScenarioContainer, isFetching, error, changedScenarioId} = state.singleBotReducers;
 
     return {
-        botScenarios, scenariosForScenarioContainer, isFetching, error
+        botScenarios, scenariosForScenarioContainer, isFetching, error, changedScenarioId
     }
 };
 
 const mapDispatchToProps = dispatch => ({
     addScenario: (botId, destination, trigger_text) => dispatch(addNewScenario(botId, destination, trigger_text)),
     deleteScenario: (scenarioData) => dispatch(deleteScenario(scenarioData)),
-    copyScenario: (scenarioData) => dispatch(copyScenario(scenarioData))
+    copyScenario: (scenarioData) => dispatch(copyScenario(scenarioData)),
+    editScenario: (scenarioData) => dispatch(editScenario(scenarioData)),
+    changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ScenariosContainer));

@@ -5,7 +5,19 @@ import HoverBarForMessage from '../hoverBarForMessage/hoverBarForMessage';
 
 const TextArea = (props) => {
     const {value, handler, index, type, changedTrigger} = props;
+    const [valueTextArea, setValueTextArea] = useState(Object.values(value)[0]);
 
+    // console.log(Object.values(value)[0].indexOf('{phone}'));
+
+    // console.log(Object.values(value)[0].replace(/{phone}/g, <div className={style.var}>Phone</div>));
+
+
+    // Object.values(value)[0]
+    //     .splice(
+    //         Object.values(value)[0].indexOf('{phone}'),
+    //         7,
+    //         <div className={style.var}>Phone</div>
+    //     )
 
 
 
@@ -18,7 +30,8 @@ const TextArea = (props) => {
                     // statusDraggable={(status) => setStatusDragable(status)}
                 />
             </div>
-            <textarea defaultValue={Object.values(value)[0]} onBlur={(e) => handler(e, index, type)} />
+            {/*<p onInput={(e) => console.log(e.target)} tabIndex={1} contentEditable={true}>{valueTextArea}</p>*/}
+            <textarea onBlur={(e) => handler(e, index, type)} defaultValue={Object.values(value)[0]} />
             <ButtonsContainer
                 {...props}
             />

@@ -25,6 +25,7 @@
 
 .triggerElement
   position: relative
+  width: 100%
   padding: 0 20px 0 20px
   height: 44px
   border: 1px solid #e0e6ed
@@ -33,12 +34,13 @@
   cursor: pointer
   display: flex
   justify-content: center
+  box-sizing: border-box
   align-items: center
   margin-top: 10px
 
 .newTriggerContainer
   padding: 0 20px
-  width: 200px
+  width: 100%
   height: 44px
   border: 1px dashed #8492a6
   border-radius: 4px
@@ -53,6 +55,10 @@
   &:hover
     color: #0084FF
     border-color: #0084ff
+
+.newFirstTrigger
+  @extend .newTriggerContainer
+  width: 20%
 
 .contentHeader
   background: #e0e6ed
@@ -97,4 +103,63 @@
   width: 100%
 
 .broadCastMenu
+  width: 100%
+
+.triggerConstructor
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  .saveDataStatus
+    color: #8492a6
+    font-size: 18px
+    margin-bottom: 10px
+
+.sideContainer
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.buttonsContainer
+  width: 300px
+  display: flex
+  flex-direction: column
+  align-items: center
+  box-sizing: border-box
+
+  .next
+    width: 100%
+    //height: 52px
+    line-height: 20px
+    position: relative
+    font-family: 'Roboto', sans-serif
+    margin-bottom: 15px
+    font-size: 13px
+    background-color: #4680fe
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 14px 12px 14px
+    border-radius: 25px
+    box-sizing: border-box
+    color: #fff
+    cursor: pointer
+
+  .before
+    @extend .next
+    color: #82848B
+    font-weight: 400
+    border: 1px solid #82848B
+    background-color: transparent
+    white-space: nowrap
+
+
+    img
+      position: absolute
+      height: 15px
+      width: 15px
+      left: 20px
+
+
+.singleTriggerContainer
   width: 100%

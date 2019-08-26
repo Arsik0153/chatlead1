@@ -23,7 +23,7 @@ const BroadCastMenu = (props) => {
 
     const getAllTagsInTrigger = () => {
         const allTags = [];
-        changedTrigger.messages.forEach(message => {
+        changedTrigger.messages[props.changedSocial].forEach(message => {
             message.keyboard.forEach(button => {
                 if(button.Add_Tags) {
                     button.Add_Tags.forEach(tag => {
@@ -35,7 +35,6 @@ const BroadCastMenu = (props) => {
 
         return allTags;
     };
-    console.log(props.broadCastData[broadCastId]);
 
     const updateBroadCast = (broadCastUpdatedData) => {
         const broadCastDataCopy = props.broadCastData.concat();
@@ -177,9 +176,11 @@ const BroadCastMenu = (props) => {
 
 const mapStateToProps = state => {
     const {broadCastData, isFetching, error} = state.broadCastReducers;
+    const {changedSocial} = state.singleBotReducers;
+
 
     return {
-        broadCastData, isFetching, error
+        broadCastData, isFetching, error, changedSocial
     }
 };
 

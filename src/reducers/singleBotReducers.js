@@ -4,6 +4,8 @@ import ACTION from '../actions/actionTypes';
 const initialState = {
     botScenarios: [],
     scenariosForScenarioContainer: [],
+    changedScenarioId: false,
+    changedSocial: 'facebook',
     isFetching: false,
     error: null
 };
@@ -30,6 +32,18 @@ export default function (state = initialState, action) {
                 scenariosForScenarioContainer: scenariosForScenarioContainer,
                 isFetching: false,
                 error: null
+            }
+        }
+        case ACTION.CHANGE_SCENARIO_ID: {
+            return {
+                ...state,
+                changedScenarioId: action.scenarioId
+            }
+        }
+        case ACTION.CHANGE_SOCIAL: {
+            return {
+                ...state,
+                changedSocial: action.social
             }
         }
         case ACTION.SINGLE_BOT_DATA_ERROR: {

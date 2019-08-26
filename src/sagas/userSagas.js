@@ -15,10 +15,13 @@ export function* signUpSaga({ signUpData, history }) {
 
     const {data} = yield call(signUp, formData);
 
+    console.log(data);
+
 
     if(data.ok) {
         yield put({type: ACTION.USER_DATA_RESPONSE, data: data});
-        yield history.push('/auth');
+        yield localStorage.setItem('token', data.user_token);
+        yield history.push('/bots');
     }else {
         yield put({ type: ACTION.USER_DATA_ERROR, error: signUpErrors[data.desc] })
     }

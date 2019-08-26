@@ -21,6 +21,8 @@
   padding: 0 40px
   border-bottom: 1px solid #eeeeee
   font-family: 'Roboto', sans-serif
+  border-bottom: 1px solid #edf0f2
+  z-index: 1000
 
   img
     height: 23px
@@ -48,10 +50,9 @@
   -webkit-border-radius: 4px
   border-radius: 4px
   text-align: left
-  z-index: 5
   position: absolute
   top: 60px
-  right: 20px
+  right: 40px
   z-index: 1000
 
   li
@@ -91,7 +92,6 @@
     cursor: pointer
     background-color: #fff
     border: 1px solid transparent
-    border-bottom-color: #edf0f2
     border-top: none
     -webkit-transition: .2s ease-out
     -o-transition: .2s ease-out
@@ -99,7 +99,19 @@
     -webkit-align-items: center
     font-weight: 600
     font-size: 18px
+    letter-spacing: 1px
     //position: absolute
+
+    img
+      width: 10px
+      height: 10px
+      margin-left: 40px
+
+  .activeBotSelector
+    @extend .botSelector
+    box-shadow: rgba(9,30,66,.25) 0 20px 32px -8px
+    border-right-color: #e8e8e8
+    border-left-color: #e8e8e8
 
     img
       width: 10px
