@@ -19,19 +19,11 @@ const BotsElement = (props) => {
     return (
         <li className={style.mainContainer}>
             <div className={style.nameContainer}>
-<<<<<<< HEAD
                 <h2>{name}</h2>
                 <button class={style.bot_edit_btn+" bot-list__edit default-btn default-btn--icon-style default-btn--outline"}>
                     <img src={edit} alt="Edit" className={style.btn_edit_img}/>
                     <span class="text-tooltip text-tooltip--top">Редактировать</span>
                 </button>
-=======
-                <h2>{name}</h2>
-                <button class={style.bot_edit_btn+" bot-list__edit default-btn default-btn--icon-style default-btn--outline"}>
-                    <img src={edit} alt="Edit" className={style.btn_edit_img}/>
-                    <span class="text-tooltip text-tooltip--top">Редактировать</span>
-                </button>
->>>>>>> eeb9c324f14ad3a707229ec1cfb9a4bc8da20f53
             </div>
             <div className={style.socialContainer}>
                 <img src={facebookIcon} alt="Facebook" />
