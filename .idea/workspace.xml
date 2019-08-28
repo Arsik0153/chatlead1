@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fcd43ec-14cc-4573-8ee9-c78fe8fdd487" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggers/editContainer/editContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggers/editContainer/editContainer.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggers/triggers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggers/triggers.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/actionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actionCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/rest/restContoller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/rest/restContoller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/broadCastContainer/broadCastContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/broadCastContainer/broadCastContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/messages/buttonsContainer/buttonsContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/messages/buttonsContainer/buttonsContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/messages/textArea/textArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/messages/textArea/textArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/messages/textArea/textArea.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/messages/textArea/textArea.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarSelectTime.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarSelectTime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarStyle.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarStyleForTimer.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/messages/timerElement/calendarStyle.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/messages/timerElement/calendarStyle.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/navbar/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/navbar/navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggersContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggersContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggersContainer.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggersContainer.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sagas/botsSagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sagas/botsSagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sagas/rootSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sagas/rootSaga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +25,21 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+                <element signature="e#186#291#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,7 +73,6 @@
         <option value="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarStyle.sass" />
         <option value="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarSelectTime.module.sass" />
         <option value="$PROJECT_DIR$/src/pages/botSetup/botSetup.js" />
-        <option value="$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.js" />
         <option value="$PROJECT_DIR$/src/componens/setupContainer/setupContainer.js" />
         <option value="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarStyleForTimer.module.sass" />
         <option value="$PROJECT_DIR$/src/componens/messages/timerElement/calendarStyle.sass" />
@@ -108,6 +97,7 @@
         <option value="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggers/editContainer/editContainer.js" />
         <option value="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggers/triggers.module.sass" />
         <option value="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggers/triggers.js" />
+        <option value="$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.js" />
       </list>
     </option>
   </component>
@@ -141,121 +131,7 @@
               <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
               <item name="chatLead" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="rest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="componens" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="autorideContainer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="autorideContainer" type="462c0819:PsiDirectoryNode" />
-              <item name="contextMenuForEditAutoride" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="broadCastContainer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="messages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="messages" type="462c0819:PsiDirectoryNode" />
-              <item name="buttonsContainer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="messages" type="462c0819:PsiDirectoryNode" />
-              <item name="buttonsContainer" type="462c0819:PsiDirectoryNode" />
-              <item name="contextMenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="messages" type="462c0819:PsiDirectoryNode" />
-              <item name="buttonsContainer" type="462c0819:PsiDirectoryNode" />
-              <item name="contextMenu" type="462c0819:PsiDirectoryNode" />
-              <item name="controls" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="messages" type="462c0819:PsiDirectoryNode" />
-              <item name="textArea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="navbar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="scenariosAndTriggers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="scenariosAndTriggers" type="462c0819:PsiDirectoryNode" />
-              <item name="triggersContainer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="scenariosAndTriggers" type="462c0819:PsiDirectoryNode" />
-              <item name="triggersContainer" type="462c0819:PsiDirectoryNode" />
-              <item name="triggers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
@@ -263,6 +139,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="componens" type="462c0819:PsiDirectoryNode" />
               <item name="setupContainer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="componens" type="462c0819:PsiDirectoryNode" />
+              <item name="setupContainer" type="462c0819:PsiDirectoryNode" />
+              <item name="setupWideColumn" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
@@ -277,12 +161,6 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="botSetup" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sagas" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -292,7 +170,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567007009090" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567007987917" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -370,12 +248,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="608801000" />
+    <option name="totallyTimeSpent" value="609857000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1347" y="142" width="1213" height="999" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2570694" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2570694" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -393,7 +272,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.16091955" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.22643678" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2159383" />
@@ -414,16 +293,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/componens/botsElement/botsElement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/componens/forms/signUpForm/signUpForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -570,13 +439,6 @@
     <entry file="file://$PROJECT_DIR$/src/svg/db/check.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.module.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="139" column="26" selection-start-line="139" selection-start-column="26" selection-end-line="139" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/constants/defaultValues.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -598,31 +460,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="54" column="80" selection-start-line="54" selection-start-column="80" selection-end-line="54" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-            <element signature="e#186#291#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="32" lean-forward="true" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/botSetup/botSetup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="16" lean-forward="true" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -831,6 +672,39 @@
           <caret line="345" column="29" selection-start-line="345" selection-start-column="29" selection-end-line="345" selection-end-column="29" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupContainer.module.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-810" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.module.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3270">
+          <caret line="139" column="26" selection-start-line="139" selection-start-column="26" selection-end-line="139" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/botSetup/botSetup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#186#291#0" expanded="true" />
           </folding>
         </state>
       </provider>

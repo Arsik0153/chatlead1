@@ -31,12 +31,18 @@ const SetupWideColumn = (props) => {
     };
 
     const [WillSend, setWillSend] = useState(0);
-    const [MailAndWasap, setMW] = useState(0)
+    const [MailAndWasap, setMW] = useState(0);
+
+    console.log(props.botSetupData);
     
     useEffect(() => {
-        setWillSend(props.botSetupData.application_will_send)
-        setMW({ mails: props.botSetupData.application_email.split(','),
-                 wa: props.botSetupData.application_whatsapp_id.split(',') })
+        setWillSend(props.botSetupData.application_will_send);
+
+        props.botSetupData.application_email && props.botSetupData.application_whatsapp_id && (
+            setMW({ mails: props.botSetupData.application_email.split(','),
+                wa: props.botSetupData.application_whatsapp_id.split(',') })
+        )
+
     }, [props.botSetupData]);
 
 
