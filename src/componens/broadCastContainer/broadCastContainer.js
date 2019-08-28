@@ -22,8 +22,13 @@ const BroadCastContainer = (props) => {
         props.appendBroadcast(props.match.params.botId)
     };
 
+    useEffect(() => {
+        return () => {
+            changeScenarioId(null);
+        }
+    }, []);
 
-    console.log(changedBroadCastId, '>>>');
+
 
 
 

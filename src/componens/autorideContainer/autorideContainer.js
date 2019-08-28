@@ -6,7 +6,14 @@ import {connect} from "react-redux";
 import trashImage from "../../images/trash.png";
 import {ScenarioIdContext} from "../../utils/Contexts";
 import TriggersContainer from "../scenariosAndTriggers/triggersContainer/triggersContainer";
-import {addNewAutoride, changeScenarioId, deleteAutoride, editScenario, getAutorideLinks} from "../../actions/actionCreator";
+import {
+    addNewAutoride,
+    changeScenarioId,
+    deleteAutoride,
+    editScenario,
+    getAllScenariesForBot,
+    getAutorideLinks
+} from "../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import vk from '../../images/imageForTable/vk-icon.png';
 import telegram from '../../images/imageForTable/tlg-icon.png';
@@ -17,6 +24,7 @@ import trash from '../../images/buttons/trash.png';
 import copy from '../../images/duplicate.jpg';
 import leftArrow from '../../svg/db/left-arrow.svg';
 import ContextMenuForEditAutoride from "./contextMenuForEditAutoride/contextMenuForEditAutoride";
+import {destinationScenario} from "../../constants/defaultValues";
 
 
 
@@ -27,13 +35,10 @@ const AutorideContainer = (props) => {
     const [autoridesDataInFilter, setautoridesDataInFilter] = useState([]);
     const [isOpenCreateScenarioFild, setStatusCreateScenarioFild] = useState(false);
     const [idEditTriggerText, setIdEditTriggerText] = useState(false);
-
-
-    // useEffect(() => {
-    //     changeScenarioId(false);
-    // }, []);
-    //
-    // console.log(changedScenarioId);
+    const scenariosForAutoride = [];
+    props.botScenarios.filter(elem => elem.destination === destinationScenario.autoride).forEach(elem => {
+       scenariosForAutoride.push(elem.id);
+    });
 
 
     useEffect(() => {
@@ -103,7 +108,7 @@ const AutorideContainer = (props) => {
     }
 
 
-    if(changedScenarioId) {
+    if(changedScenarioId && props.botScenarios.length > 0 && scenariosForAutoride.indexOf(changedScenarioId) !== -1) {
         return (
             <div className={style.triggersContainer}>
                 <ScenarioIdContext.Provider value={changedScenarioId}>
@@ -232,11 +237,12 @@ const AutorideContainer = (props) => {
 
 const mapStateToProps = state => {
     const {autoridesData, isFetching, error, autoridesLinks} = state.autoridesReducers;
-    const {changedScenarioId} = state.singleBotReducers;
+    const {botScenarios, changedScenarioId} = state.singleBotReducers;
+
 
 
     return {
-        autoridesData, isFetching, error, changedScenarioId, autoridesLinks
+        autoridesData, isFetching, error, changedScenarioId, autoridesLinks, botScenarios
     }
 };
 
@@ -245,8 +251,8 @@ const mapDispatchToProps = dispatch => ({
     deleteAutoride: (managerId, autorideId) => dispatch(deleteAutoride(managerId, autorideId)),
     editScenario: (scenarioData) => dispatch(editScenario(scenarioData)),
     changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId)),
-    getAutoridesLinks: (autorideData) => dispatch(getAutorideLinks(autorideData))
-
+    getAutoridesLinks: (autorideData) => dispatch(getAutorideLinks(autorideData)),
+    getAllScenariesForBot: (idBot) => dispatch(getAllScenariesForBot(idBot))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AutorideContainer));

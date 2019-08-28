@@ -47,6 +47,10 @@ export const updateTrigger = (triggerData) => (
   axios.post(`${restURL}/EditTrigger/`, triggerData)
 );
 
+export const deleteTrigger = (triggerData) => (
+  axios.post(`${restURL}/DeleteTrigger/`, triggerData)
+);
+
 export const uploadMedia = (mediaData) => (
   axios.post(`${restURL}/UploadFile/`, mediaData)
 );

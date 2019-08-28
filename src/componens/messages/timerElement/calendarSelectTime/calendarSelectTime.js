@@ -1,38 +1,60 @@
 import React from 'react';
-import style from './calendarSelectTime.module.sass';
-import moment from "../timerElement";
+import moment from "moment";
+import styled from 'styled-components';
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker, { registerLocale } from 'react-datepicker';
 import ru from "date-fns/locale/ru";
 registerLocale("ru", ru);
 
 
+
+
+
 const CalendarSelectTime = (props) => {
     const {valuesForTimer, updateTrigger} = props;
 
+    const FixDatePickerTimer = styled.span`
+      & .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
+        padding-left: unset !important;
+        padding-right: unset !important;
+        width: 100px !important;
+      }
+      & .react-datepicker__input-container {
+        width:100% !important;
+      }
+      & .react-datepicker-wrapper {
+        width:100% !important;
+      }
+      & .react-datepicker {
+        width: 314px !important;
+      }
+    `;
+
 
     return (
-        <DatePicker
-            selected={new Date(valuesForTimer[Object.keys(valuesForTimer)[0]])}
-            dateFormat="MMMM d, yyyy h:mm aa"
-            timeFormat="HH:mm"
-            timeIntervals={15}
-            timeCaption="time"
-            locale={ru}
-            onChange={(date) => {
-                const dateObject = {
-                    target: {
-                        value: moment(date).format('YYYY-MM-DD')
-                    }
-                };
-                updateTrigger(dateObject, 'send_time')
-            }}
-            minDate={new Date()}
-            className={style.datePickerInput}
-            calendarClassName={style}
-            showTimeSelect
-            style={style}
-        />
+        <FixDatePickerTimer>
+
+            <DatePicker
+                selected={new Date(valuesForTimer[Object.keys(valuesForTimer)[0]])}
+                dateFormat="MMMM d, yyyy h:mm aa"
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                timeCaption="time"
+                locale={ru}
+                onChange={(date) => {
+                    const dateObject = {
+                        target: {
+                            value: moment(date).format('YYYY-MM-DD, h:mm')
+                        }
+                    };
+                    updateTrigger(dateObject, 'activity_lost')
+                }}
+                minDate={new Date()}
+                // className={style.datePickerInput}
+                showTimeSelect
+                // style={style}
+            />
+        </FixDatePickerTimer>
     )
 };
 

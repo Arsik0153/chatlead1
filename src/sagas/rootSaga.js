@@ -19,7 +19,9 @@ import {
     appendBroadCastSagas,
     deleteAutorideSagas,
     editScenarioSagas,
-    getAutorideLinksSagas
+    getAutorideLinksSagas,
+    deleteTriggerSagas,
+    updateCaptionTriggerSaga
 } from "./botsSagas";
 import {
   getManagerSaga,
@@ -38,6 +40,8 @@ function* rootSaga() {
   yield takeLatest(ACTION.ADD_NEW_TRIGGER, addNewTriggerSagas);
   yield takeLatest(ACTION.ADD_NEW_SCENARIO, addNewScenarioSagas);
   yield takeLatest(ACTION.UPDATE_TRIGGER, updateTriggerSaga);
+  yield takeLatest(ACTION.DELETE_TRIGGER, deleteTriggerSagas);
+  yield takeLatest(ACTION.UPDATE_TRIGGER_TEXT, updateCaptionTriggerSaga);
   yield takeLatest(ACTION.DELETE_SCENARIO, deleteScenarioSagas);
   yield takeLatest(ACTION.UPDATE_SOCIAL_IN_TRIGGER, updateSocialInTriggerSagas);
   yield takeLatest(ACTION.GET_ALL_AUTORIDES, getAllAutoridesSagas);

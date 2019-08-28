@@ -82,6 +82,16 @@ export const updateTrigger = (triggerData, updationData, changedSocial) => ({
     changedSocial
 });
 
+export const deleteTrigger = (triggerData) => ({
+    type: ACTION.DELETE_TRIGGER,
+    triggerData
+});
+
+export const editTriggerCaption = (triggerData) => ({
+   type: ACTION.UPDATE_TRIGGER_TEXT,
+   triggerData
+});
+
 export const deleteMessageInTrigger = (index) => ({
    type: ACTION.DELETE_MESSAGE_IN_TRIGGER,
    index

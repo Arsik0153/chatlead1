@@ -13,6 +13,15 @@ const Navbar = (props) => {
         props.changeScenarioId(null);
     }, [props.match.path]);
 
+    useEffect(() => {
+        if(props.changedScenarioId) {
+            props.changeScenarioId(null);
+            // console.log(">>>");
+        }
+    }, [props.match.path]);
+
+    // console.log(props.match.path);
+
 
     return (
         <div className={style.mainContainer}>
@@ -145,8 +154,18 @@ const Navbar = (props) => {
     )
 };
 
+const mapStateToProps = state => {
+    const {changedScenarioId} = state.singleBotReducers;
+
+
+
+    return {
+        changedScenarioId
+    }
+};
+
 const mapDispatchToProps = dispatch => ({
    changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Navbar));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

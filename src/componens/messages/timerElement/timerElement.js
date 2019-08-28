@@ -29,7 +29,7 @@ const TimerElement = (props) => {
     const updateTrigger = (e, typeInput) => {
         const messagesCopy = changedTrigger.messages;
 
-        if(typeInput === 'activity_lost' || typeInput === 'pause_delay') {
+        if(typeInput === 'pause_delay') {
             if(e.target.value < 60 && e.target.value > 0) {
                 Object.assign(messagesCopy[props.changedSocial][index].timer, {
                     [typeInput]: e.target.value
@@ -45,6 +45,21 @@ const TimerElement = (props) => {
 
                 props.updateTrigger(triggerData, null, props.changedSocial);
             }
+
+        }else if(typeInput === 'activity_lost') {
+            Object.assign(messagesCopy[props.changedSocial][index].timer, {
+                [typeInput]: e.target.value
+            });
+
+            const triggerData = {
+                ...changedTrigger,
+                index,
+                type,
+                messages: messagesCopy,
+                botId: props.match.params.botId
+            };
+
+            props.updateTrigger(triggerData, null, props.changedSocial);
 
         }else {
             Object.assign(messagesCopy[props.changedSocial][index].timer, {
@@ -159,7 +174,7 @@ const TimerElement = (props) => {
                                     className={style.timerContainer}
                                     onClick={() => setStatusIsOpenWindow(true)}
                                 >
-                                    Ожидать { valuesForTimer[Object.keys(valuesForTimer)[0]] || 0 } секунд
+                                    Ожидать до { valuesForTimer[Object.keys(valuesForTimer)[0]] || 0 }
                                 </div>
                                 {
                                     isOpenWindow && (
@@ -173,34 +188,10 @@ const TimerElement = (props) => {
                                                     <CalendarSelectTime
                                                         {...props}
                                                         valuesForTimer={valuesForTimer}
+                                                        updateTrigger={updateTrigger}
                                                     />
                                                 </div>
-                                                    {/*<input*/}
-                                                        {/*type={'number'}*/}
-                                                        {/*value={valuesForTimer[Object.keys(valuesForTimer)[0]]}*/}
-                                                        {/*onInput={(e) => updateTrigger(e, 'activity_lost')}*/}
-                                                    {/*/>*/}
-                                                    {/*<div className={style.buttonSetTime} onClick={(e) => {*/}
-                                                        {/*if(valuesForTimer[Object.keys(valuesForTimer)[0]] < 60) {*/}
-                                                            {/*updateTrigger({*/}
-                                                                {/*target: {*/}
-                                                                    {/*value: +valuesForTimer[Object.keys(valuesForTimer)[0]] + 1*/}
-                                                                {/*}*/}
-                                                            {/*}, 'activity_lost')*/}
-                                                        {/*}*/}
-                                                    {/*}}>*/}
-                                                        {/*<FontAwesomeIcon icon={faPlus}/>*/}
-                                                    {/*</div>*/}
-                                                    {/*<div className={style.buttonSetTime} onClick={(e) => {*/}
-                                                        {/*updateTrigger({*/}
-                                                            {/*target: {*/}
-                                                                {/*value: +valuesForTimer[Object.keys(valuesForTimer)[0]] - 1*/}
-                                                            {/*}*/}
-                                                        {/*}, 'activity_lost')*/}
-                                                    {/*}}>*/}
-                                                        {/*<FontAwesomeIcon icon={faMinus}/>*/}
-                                                    {/*</div>*/}
-                                                {/*</div>*/}
+
                                             </div>
 
                                         </div>
