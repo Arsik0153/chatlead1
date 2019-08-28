@@ -15,8 +15,6 @@ export function* signUpSaga({ signUpData, history }) {
 
     const {data} = yield call(signUp, formData);
 
-    console.log(data);
-
 
     if(data.ok) {
         yield put({type: ACTION.USER_DATA_RESPONSE, data: data});
@@ -48,3 +46,10 @@ export function* authSaga({ authData, history }) {
     }
 
 }
+
+export function* logoutSaga({  history }) {
+
+    yield localStorage.removeItem('token');
+    yield history.push('/auth');
+}
+

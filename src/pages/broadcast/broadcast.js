@@ -4,7 +4,7 @@ import style from './broadcast.module.sass';
 import MainHeader from '../../componens/mainHeader/mainHeader';
 import NavBar from '../../componens/navbar/navbar';
 import BroadCastContainer from '../../componens/broadCastContainer/broadCastContainer';
-import {getAllBroadCasts} from "../../actions/actionCreator";
+import {changeScenarioId, getAllBroadCasts} from "../../actions/actionCreator";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
@@ -23,7 +23,7 @@ const BroadCast = (props) => {
             />
             <NavBar/>
             <div className={style.contentBlock}>
-                <BroadCastContainer/>
+                    <BroadCastContainer/>
             </div>
         </div>
     )
@@ -31,14 +31,18 @@ const BroadCast = (props) => {
 
 const mapStateToProps = state => {
     const {broadCastData, isFetching, error} = state.broadCastReducers;
+    const {changedScenarioId} = state.singleBotReducers;
+
 
     return {
-        broadCastData, isFetching, error
+        broadCastData, isFetching, error, changedScenarioId
     }
 };
 
 const mapDispatchToProps = dispatch => ({
-    getBroadCasts: (botId) => dispatch(getAllBroadCasts(botId))
+    getBroadCasts: (botId) => dispatch(getAllBroadCasts(botId)),
+    changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId)),
+
 });
 
 

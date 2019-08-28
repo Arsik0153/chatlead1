@@ -15,9 +15,8 @@ import leftArrow from "../../../svg/db/left-arrow.svg";
 const TriggersContainer = (props) => {
     const changedScenario = props.botScenarios.filter(elem => elem.id === props.scenarioId)[0];
     const {triggers} = changedScenario;
-    const [changedTriggerId, changeTriggerId]
-        = useState(triggers.length === 0 ? null : triggers[0].id);
-    const changedTrigger = changedTriggerId ? triggers.filter(elem => elem.id === changedTriggerId)[0] : null;
+    const [changedTriggerId, changeTriggerId] = useState(triggers[0].id);
+    const changedTrigger = triggers.filter(elem => elem.id === changedTriggerId)[0];
 
     useEffect(() => {
         if(triggers.length === 1) {
@@ -35,14 +34,14 @@ const TriggersContainer = (props) => {
         props.appendTrigger(triggerData);
     };
 
-    const newTriggerInEmptyScenario = () => {
-        const triggerData = {
-            scenario_id: changedScenario.id,
-            manager_id: props.match.params.botId,
-        };
-
-        props.appendTrigger(triggerData);
-    };
+    // const newTriggerInEmptyScenario = () => {
+    //     const triggerData = {
+    //         scenario_id: changedScenario.id,
+    //         manager_id: props.match.params.botId,
+    //     };
+    //
+    //     props.appendTrigger(triggerData);
+    // };
 
 
     const updateTriggerDeleteMessageHandler = (index) => {
@@ -73,19 +72,19 @@ const TriggersContainer = (props) => {
 
     };
 
-    if(!changedTrigger) {
-        return(
-            <div className={style.emptyMainContainer}>
-                <div className={style.emptySideContainer}>
-                    {
-                        triggers.length === 0 && <h2>Здесь пока пусто. Создайте первый триггер</h2>
-
-                    }
-                    <div onClick={newTriggerInEmptyScenario} className={style.newFirstTrigger}>+ Новый триггер</div>
-                </div>
-            </div>
-        )
-    }
+    // if(!changedTrigger) {
+    //     return(
+    //         <div className={style.emptyMainContainer}>
+    //             <div className={style.emptySideContainer}>
+    //                 {
+    //                     triggers.length === 0 && <h2>Здесь пока пусто. Создайте первый триггер</h2>
+    //
+    //                 }
+    //                 <div onClick={newTriggerInEmptyScenario} className={style.newFirstTrigger}>+ Новый триггер</div>
+    //             </div>
+    //         </div>
+    //     )
+    // }
 
 
     return (
@@ -100,6 +99,7 @@ const TriggersContainer = (props) => {
                         Сохранить
                     </div>
                 </div>
+                <div className={style.saveDataStatus}>{props.isFetching ? 'Идет сохранение' : 'Ваши данные сохранены!'}</div>
                 {
                     triggers.map(trigger => (
                         <div
@@ -119,7 +119,6 @@ const TriggersContainer = (props) => {
                 <div onClick={newTriggerHandler} className={style.newTriggerContainer}>+ Новый триггер</div>
             </div>
             <div className={style.triggerConstructor}>
-                <div className={style.saveDataStatus}>{props.isFetching ? 'Идет сохранение' : 'Ваши данные сохранены!'}</div>
                 <div className={style.contentContainer}>
                     <div className={style.contentHeader}>{changedScenario.trigger_text}</div>
                     <MessagesContainer
@@ -146,6 +145,26 @@ const TriggersContainer = (props) => {
                 </div>
             </div>
             <div className={style.social}>
+                {/*{*/}
+                    {/*console.log(props.autoridesLinks)*/}
+                {/*}*/}
+                {
+                    props.autoridesLinks && (
+                        <div className={style.autorideLink}>
+                            <a
+                                href={props.autoridesLinks[props.changedSocial]}
+                            >
+                                {
+                                    props.autoridesLinks[props.changedSocial].length && (
+                                        props.autoridesLinks[props.changedSocial].length > 28 ?
+                                            `${props.autoridesLinks[props.changedSocial].slice(0, 28)}...` :
+                                            props.autoridesLinks[props.changedSocial]
+                                    )
+                                }
+                            </a>
+                        </div>
+                    )
+                }
                 <SideBarSocial
                     changedTrigger={changedTrigger}
                 />
@@ -157,6 +176,7 @@ const TriggersContainer = (props) => {
 const mapStateToProps = state => {
     const {botScenarios, isFetching, error, changedSocial} = state.singleBotReducers;
     const {botsData} = state.botsReducers;
+    // const {autoridesLinks} = state.autoridesReducers;
     // const {isFetching} = state.
 
     return {

@@ -9,7 +9,7 @@ import ClickOutSide from '../hoc/clickOutside';
 import chatLeadLogo from '../../images/chatlead.png';
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-import {getAllBotsForUser} from "../../actions/actionCreator";
+import {getAllBotsForUser, logout} from "../../actions/actionCreator";
 import downArrow from '../../svg/db/down-button.svg';
 import ContextMenuBots from './contextMenuBots/contextMenuBots';
 
@@ -74,6 +74,7 @@ const MainHeader = (props) => {
                                 <li>Тарифы</li>
                                 <li>Партнерам</li>
                                 <li>Панель</li>
+                                <li onClick={() => props.logout(props.history)}>Выйти</li>
                                 <li onClick={() => {localStorage.removeItem('token');window.location.href = "/";}}>Выйти</li>
                             </ul>
                         )
@@ -95,7 +96,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    getAllBots: (botId) => dispatch(getAllBotsForUser(botId))
+    getAllBots: (botId) => dispatch(getAllBotsForUser(botId)),
+    logout: (history) => dispatch(logout(history))
 });
 
 

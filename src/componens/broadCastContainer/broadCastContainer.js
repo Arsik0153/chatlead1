@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import style from './broadCastContainer.module.sass';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
@@ -10,16 +10,21 @@ import {withRouter} from "react-router-dom";
 import moment from 'moment';
 
 
-const AutorideContainer = (props) => {
+const BroadCastContainer = (props) => {
     const {changeScenarioId, changedScenarioId} = props;
 
     // const [changedScenarioId, changeScenarioId] = useState(false);
     const [changedBroadCastId, changeBroadCastId] = useState(false);
     const [chanedTypeBroadcast, changeTypeBroadcast] = useState('sended');
 
+
     const appendBroadcastHandler = () => {
         props.appendBroadcast(props.match.params.botId)
     };
+
+
+    console.log(changedBroadCastId, '>>>');
+
 
 
     if(changedScenarioId) {
@@ -151,4 +156,4 @@ const mapDispatchToProps = dispatch => ({
     changeScenarioId: (scenarioId) => dispatch(changeScenarioId(scenarioId))
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AutorideContainer));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BroadCastContainer));

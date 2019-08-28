@@ -3,6 +3,7 @@ import ACTION from '../actions/actionTypes';
 
 const initialState = {
     autoridesData: [],
+    autoridesLinks: {},
     isFetching: false,
     error: null
 };
@@ -21,6 +22,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 autoridesData: action.autoridesData,
+                autoridesLinks: action.autoridesLinks,
                 isFetching: false,
                 error: null
             }
