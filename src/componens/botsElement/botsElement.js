@@ -28,7 +28,7 @@ const BotsElement = (props) => {
                 
 
                 
-                <input name="name" type="text" placeholder="Название" style={{fontSize: "27px", maxWidth: "75%"}} />
+                <input name="name" type="text" placeholder="Название" style={{fontSize: "27px", maxWidth: "75%", marginTop: "19px"}} />
                 <button className={style.bot_edit_btn+" bot-list__edit default-btn default-btn--icon-style default-btn--outline"} onClick={() => {
                     const new_name = document.querySelector('.'+style.nameContainer+' input[name=name]').value
                     props.editManager({

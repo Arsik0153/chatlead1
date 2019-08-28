@@ -34,6 +34,8 @@ export function* getManagerSaga({ idBot }){
             }
         }
         */
+       console.log(data)
+
         if(data.ok) {
             yield put({type: ACTION.BOT_SETUP_RESPONSE, data: data.manager});
         }else {
