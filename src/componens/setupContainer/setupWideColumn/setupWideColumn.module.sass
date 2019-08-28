@@ -63,7 +63,7 @@
 
 .table__settings
   .table_row
-      padding-left: 65px
+      //padding-left: 65px
 
 .table
   width: 100%
@@ -73,9 +73,9 @@
 .table__settings
   .table_row.jsSelected
     .statusIcon
-      background-image: url(../../../svg/db/check.svg)
-      border-color: #66bb6a
-      background-color: #66bb6a
+      //background-image: url(../../../svg/db/check.svg)
+      //border-color: #66bb6a
+      //background-color: #66bb6a
 
 .statusIcon
   width: 20px
@@ -97,43 +97,101 @@
 
 
 .table_row
-  border-bottom: 1px solid #efefef
-  font-size: 15px
-  padding: 20px 40px 20px 15px
-  color: #444
-  -webkit-user-select: none
-  -moz-user-select: none
-  -ms-user-select: none
-  user-select: none
-  position: relative
-  cursor: pointer
+  display: flex
+  justify-content: center
+  label
+    width: 100%
+    border-bottom: 1px solid #efefef
+    font-size: 15px
+    padding: 20px 40px 20px 10px
+    color: #444
+    //display: flex
+    //justify-content: center
 
-  div:after
-    background-color: #26c577
-    content: ''
+    .content
+      padding: 0
+      margin-left: 10%
+
+      p
+        font-size: 15px
+        line-height: 1.55
+        color: #444
+        font-weight: 400
+
+    img
+      position: absolute
+      left: 3%
+      width: 30px
+      height: 30px
+
+.inputGroup
+  position: absolute
+  right: 5%
+  top: 40%
+
+  input
+    width: 20px
+    height: 20px
+    order: 1
+    z-index: 2
     position: absolute
-    width: 3px
-    height: 100%
-    -webkit-transition: .2s ease-out
-    -o-transition: .2s ease-out
-    transition: .2s ease-out
-    opacity: 0
-    left: 0
-    top: 0
+    right: 10px
+    top: 50%
+    transform: translateY(-50%)
+    cursor: pointer
+    visibility: hidden
 
-  .label
-    font-weight: 700
-    color: #555
+    &:checked ~
+      label
+        &:before
+          opacity: 1
+          z-index: 9
 
-  .table_image
-    position: absolute
-    left: 15px
-    top: 20px
-    float: left
-    width: 30px
-    height: 30px
-    margin-top: 3px
-    margin-right: 20px
+        &:after
+          background-color: #fff
+          border-color: transparent
+
+
+  label
+    border-bottom: none
+
+    &:before
+      width: 20px
+      height: 20px
+      border-radius: 50%
+      content: ''
+      border-color: #66bb6a
+      background-color: #66bb6a
+      background-image: url("../../../svg/db/check.svg")
+      background-position: 50% 50%
+      position: absolute
+      background-size: 10px 10px
+      background-repeat: no-repeat
+      right: -8px
+      top: 50%
+      transform: translate(-50%, -50%) scale3d(1, 1, 1)
+      transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1)
+      opacity: 0
+      z-index: -1
+
+    &:after
+      width: 20px
+      height: 20px
+      content: ''
+      border: 1px solid #D1D7DC
+      background-color: #fff
+      border-radius: 50%
+      z-index: 2
+      position: absolute
+      right: 0
+      top: 50%
+      transform: translateY(-50%)
+      cursor: pointer
+      transition: all 200ms ease-in
+
+      &:checked
+        background-color: #fff
+        border-color: transparent
 
 .settingsBodyColumn
   article

@@ -23,7 +23,8 @@ import {
 } from "./botsSagas";
 import {
   getManagerSaga,
-  editManagerSaga
+  editManagerSaga,
+    updateBotReactionsSaga
 } from "./botSetupSagas";
 
 function* rootSaga() {
@@ -50,6 +51,7 @@ function* rootSaga() {
   yield takeLatest(ACTION.GET_BOT_SETUP, getManagerSaga);
   yield takeLatest(ACTION.UPDATE_BOT_SETUP, editManagerSaga);
   yield takeLatest(ACTION.GET_AUTORDIDE_LINKS, getAutorideLinksSagas);
+  yield takeLatest(ACTION.UPDATE_BOT_REACTIONS, updateBotReactionsSaga);
 }
 
 export default rootSaga;

@@ -11,7 +11,7 @@ export const defaultValuesForNewMessages = {
     gallery: {gallery: [{photo: '', title: '', text: '', keyboard: []}]},
     list: {list: [{photo: '', title: '', text: '', keyboard: []}, {photo: '', title: '', text: '', keyboard: []}]},
     pause_delay: {timer: { pause_delay: '' }, keyboard: []},
-    activity_lost: {timer: { activity_lost: '' }, keyboard: []},
+    activity_lost: {timer: { activity_lost: moment().format('YYYY-MM-DD') }, keyboard: []},
     send_time: {timer: { send_time: moment().format('YYYY-MM-DD') }, keyboard: []},
     form: {form: [""], keyboard: []}
 };
@@ -41,5 +41,7 @@ export const tagsTranscription = {
 export const destinationScenario = {
     default: 'undefined',
     broadcast: 'broadcast',
-    autoride: 'autoride'
+    autoride: 'autoride',
+    welcome_message: 'welcome_message',
+    default_response: 'default_response'
 };

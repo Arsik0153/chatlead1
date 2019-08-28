@@ -36,14 +36,14 @@ const SetupContainer = (props) => {
     )
 };
 
-const mapStateToProps = state => {
-
-    return
-};
-
-const mapDispatchToProps = dispatch => ({
-
-});
+// const mapStateToProps = state => {
+//
+//     return
+// };
+//
+// const mapDispatchToProps = dispatch => ({
+//
+// });
 
 // export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SetupContainer));
 export default withRouter(SetupContainer);

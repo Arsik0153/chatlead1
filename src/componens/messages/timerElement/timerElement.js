@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import style from './timerElement.module.sass';
 import {updateTrigger} from "../../../actions/actionCreator";
+import "react-datepicker/dist/react-datepicker.css";
+import './calendarStyle.sass';
 import {connect} from "react-redux";
 import DatePicker, { registerLocale } from 'react-datepicker';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -9,9 +11,10 @@ import ClickOutsideHandler from "../../hoc/clickOutside";
 import moment from 'moment';
 import ButtonsContainer from '../buttonsContainer/buttonsContainer';
 import HoverBarForMessage from "../hoverBarForMessage/hoverBarForMessage";
-import "react-datepicker/dist/react-datepicker.css";
 import ru from "date-fns/locale/ru";
 import {faMinus, faPlus} from "@fortawesome/free-solid-svg-icons"; // the locale you want
+import CalendarSelectTime from './calendarSelectTime/calendarSelectTime';
+
 registerLocale("ru", ru);
 
 
@@ -167,32 +170,37 @@ const TimerElement = (props) => {
                                             <div className={style.controlsContainer}>
                                                 <label>Ждать до:</label>
                                                 <div className={style.inputContainer}>
-                                                    <input
-                                                        type={'number'}
-                                                        value={valuesForTimer[Object.keys(valuesForTimer)[0]]}
-                                                        onInput={(e) => updateTrigger(e, 'activity_lost')}
+                                                    <CalendarSelectTime
+                                                        {...props}
+                                                        valuesForTimer={valuesForTimer}
                                                     />
-                                                    <div className={style.buttonSetTime} onClick={(e) => {
-                                                        if(valuesForTimer[Object.keys(valuesForTimer)[0]] < 60) {
-                                                            updateTrigger({
-                                                                target: {
-                                                                    value: +valuesForTimer[Object.keys(valuesForTimer)[0]] + 1
-                                                                }
-                                                            }, 'activity_lost')
-                                                        }
-                                                    }}>
-                                                        <FontAwesomeIcon icon={faPlus}/>
-                                                    </div>
-                                                    <div className={style.buttonSetTime} onClick={(e) => {
-                                                        updateTrigger({
-                                                            target: {
-                                                                value: +valuesForTimer[Object.keys(valuesForTimer)[0]] - 1
-                                                            }
-                                                        }, 'activity_lost')
-                                                    }}>
-                                                        <FontAwesomeIcon icon={faMinus}/>
-                                                    </div>
                                                 </div>
+                                                    {/*<input*/}
+                                                        {/*type={'number'}*/}
+                                                        {/*value={valuesForTimer[Object.keys(valuesForTimer)[0]]}*/}
+                                                        {/*onInput={(e) => updateTrigger(e, 'activity_lost')}*/}
+                                                    {/*/>*/}
+                                                    {/*<div className={style.buttonSetTime} onClick={(e) => {*/}
+                                                        {/*if(valuesForTimer[Object.keys(valuesForTimer)[0]] < 60) {*/}
+                                                            {/*updateTrigger({*/}
+                                                                {/*target: {*/}
+                                                                    {/*value: +valuesForTimer[Object.keys(valuesForTimer)[0]] + 1*/}
+                                                                {/*}*/}
+                                                            {/*}, 'activity_lost')*/}
+                                                        {/*}*/}
+                                                    {/*}}>*/}
+                                                        {/*<FontAwesomeIcon icon={faPlus}/>*/}
+                                                    {/*</div>*/}
+                                                    {/*<div className={style.buttonSetTime} onClick={(e) => {*/}
+                                                        {/*updateTrigger({*/}
+                                                            {/*target: {*/}
+                                                                {/*value: +valuesForTimer[Object.keys(valuesForTimer)[0]] - 1*/}
+                                                            {/*}*/}
+                                                        {/*}, 'activity_lost')*/}
+                                                    {/*}}>*/}
+                                                        {/*<FontAwesomeIcon icon={faMinus}/>*/}
+                                                    {/*</div>*/}
+                                                {/*</div>*/}
                                             </div>
 
                                         </div>

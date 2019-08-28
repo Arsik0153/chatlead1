@@ -147,6 +147,11 @@ export const editManager = (setupData) => ({
    setupData
 });
 
+export const updateBotReactions = (reactionsData) => ({
+   type: ACTION.UPDATE_BOT_REACTIONS,
+    reactionsData
+});
+
 export const getFacebookAuthUrl = (idBot) => ({
    type: ACTION.GET_FACEBOOK_AUTH_URL,
    idBot

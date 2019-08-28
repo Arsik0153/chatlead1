@@ -11,9 +11,7 @@ const Navbar = (props) => {
 
     useEffect(() => {
         props.changeScenarioId(null);
-    }, [props.match.url]);
-
-
+    }, [props.match.path]);
 
 
     return (

@@ -2,23 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fcd43ec-14cc-4573-8ee9-c78fe8fdd487" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarSelectTime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarSelectTime.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarStyle.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/componens/messages/timerElement/calendarStyle.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/botsElement/botsElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/botsElement/botsElement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/botsElement/botsElement.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/botsElement/botsElement.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/forms/signUpForm/signUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/forms/signUpForm/signUpForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/mainHeader/mainHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/mainHeader/mainHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/actionCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actionCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/actionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componens/messages/textArea/textArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/messages/textArea/textArea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componens/messages/textArea/textArea.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/messages/textArea/textArea.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.module.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componens/navbar/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/navbar/navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/setupContainer/setupSidebar/setupSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/setupContainer/setupSidebar/setupSidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componens/setupContainer/setupSidebar/setupSidebar.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/setupContainer/setupSidebar/setupSidebar.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/componens/setupContainer/setupContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/setupContainer/setupContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/defaultValues.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/defaultValues.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/botSetup/botSetup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/botSetup/botSetup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/bots/bots.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/bots/bots.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/bots/bots.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/bots/bots.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dialog/dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dialog/dialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dialog/dialog.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dialog/dialog.module.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sagas/userSagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sagas/userSagas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/botSetup/botSetup.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/botSetup/botSetup.module.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sagas/botSetupSagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sagas/botSetupSagas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sagas/rootSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sagas/rootSaga.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,13 +32,60 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/dialog/dialog.module.sass">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/constants/defaultValues.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="120">
+              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="248" column="29" lean-forward="true" selection-start-line="248" selection-start-column="29" selection-end-line="248" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarSelectTime.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarSelectTime.module.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="548">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -45,45 +98,25 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pages/inDevelopment/inDevelopment.module.sass" />
-        <option value="$PROJECT_DIR$/src/componens/inputs/fansyInput.module.sass" />
-        <option value="$PROJECT_DIR$/src/pages/signUp/signUp.module.sass" />
-        <option value="$PROJECT_DIR$/src/componens/messages/textArea/textArea.js" />
-        <option value="$PROJECT_DIR$/src/componens/messages/textArea/textArea.module.sass" />
-        <option value="$PROJECT_DIR$/src/componens/messages/typeProcessing/typeProcessing.module.sass" />
-        <option value="$PROJECT_DIR$/src/constants/addNewMessagesButtons.js" />
-        <option value="$PROJECT_DIR$/src/constants/defaultValues.js" />
-        <option value="$PROJECT_DIR$/src/utils/fileDefinition/fileDefinition.js" />
-        <option value="$PROJECT_DIR$/src/reducers/singleBotReducers.js" />
-        <option value="$PROJECT_DIR$/src/componens/sideBarSocial/sideBarSocial.js" />
-        <option value="$PROJECT_DIR$/src/componens/messages/hoverBarForMessage/hoverBarForMessage.js" />
-        <option value="$PROJECT_DIR$/src/componens/messages/cardOrGalleryElement/cardOrGalleryElement.js" />
-        <option value="$PROJECT_DIR$/src/componens/messages/buttonsContainer/contextMenu/controls/controls.js" />
         <option value="$PROJECT_DIR$/src/componens/messages/buttonsContainer/buttonsContainer.js" />
         <option value="$PROJECT_DIR$/src/componens/messages/formElement/formElement.js" />
         <option value="$PROJECT_DIR$/src/componens/messages/listElement/listElement.js" />
-        <option value="$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.js" />
         <option value="$PROJECT_DIR$/src/componens/messages/typeProcessing/typeProcessing.js" />
         <option value="$PROJECT_DIR$/src/componens/inputs/buttons/buttonsForAddNewMessages/buttonsForAddNewMessage.js" />
         <option value="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/messagesContainer/messagesContainer.js" />
         <option value="$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggersContainer.module.sass" />
         <option value="$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.module.sass" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/index.sass" />
         <option value="$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.module.sass" />
         <option value="$PROJECT_DIR$/src/pages/singleBot/singleBot.module.sass" />
         <option value="$PROJECT_DIR$/src/pages/autoride/autoride.module.sass" />
         <option value="$PROJECT_DIR$/src/componens/navbar/navbar.module.sass" />
         <option value="$PROJECT_DIR$/src/sagas/userSagas.js" />
-        <option value="$PROJECT_DIR$/src/actions/actionTypes.js" />
-        <option value="$PROJECT_DIR$/src/actions/actionCreator.js" />
-        <option value="$PROJECT_DIR$/src/sagas/rootSaga.js" />
         <option value="$PROJECT_DIR$/src/api/rest/restContoller.js" />
         <option value="$PROJECT_DIR$/src/sagas/botsSagas.js" />
         <option value="$PROJECT_DIR$/src/reducers/autoridesReducers.js" />
         <option value="$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.js" />
         <option value="$PROJECT_DIR$/src/componens/broadCastContainer/broadCastMenu/broadCastMenu.js" />
-        <option value="$PROJECT_DIR$/src/componens/navbar/navbar.js" />
         <option value="$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.js" />
         <option value="$PROJECT_DIR$/src/pages/broadcast/broadcast.js" />
         <option value="$PROJECT_DIR$/src/pages/autoride/autoride.js" />
@@ -93,17 +126,37 @@
         <option value="$PROJECT_DIR$/src/componens/mainHeader/mainHeader.js" />
         <option value="$PROJECT_DIR$/src/componens/botsElement/botsElement.js" />
         <option value="$PROJECT_DIR$/src/componens/botsElement/botsElement.module.sass" />
-        <option value="$PROJECT_DIR$/src/pages/botSetup/botSetup.js" />
         <option value="$PROJECT_DIR$/src/pages/dialog/dialog.js" />
         <option value="$PROJECT_DIR$/src/pages/dialog/dialog.module.sass" />
+        <option value="$PROJECT_DIR$/src/componens/navbar/navbar.js" />
+        <option value="$PROJECT_DIR$/src/componens/messages/textArea/textArea.module.sass" />
+        <option value="$PROJECT_DIR$/src/componens/messages/textArea/textArea.js" />
+        <option value="$PROJECT_DIR$/src/componens/setupContainer/setupContainer.js" />
+        <option value="$PROJECT_DIR$/src/pages/bots/bots.js" />
+        <option value="$PROJECT_DIR$/src/actions/actionTypes.js" />
+        <option value="$PROJECT_DIR$/src/sagas/rootSaga.js" />
+        <option value="$PROJECT_DIR$/src/actions/actionCreator.js" />
+        <option value="$PROJECT_DIR$/src/pages/botSetup/botSetup.js" />
+        <option value="$PROJECT_DIR$/src/pages/botSetup/botSetup.module.sass" />
+        <option value="$PROJECT_DIR$/src/sagas/botSetupSagas.js" />
+        <option value="$PROJECT_DIR$/src/index.sass" />
+        <option value="$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.module.sass" />
+        <option value="$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.js" />
+        <option value="$PROJECT_DIR$/src/constants/defaultValues.js" />
+        <option value="$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.module.sass" />
+        <option value="$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.js" />
+        <option value="$PROJECT_DIR$/src/componens/messages/timerElement/calendarStyle.sass" />
+        <option value="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarStyle.sass" />
+        <option value="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarSelectTime.module.sass" />
+        <option value="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarSelectTime.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="1347" />
-    <option name="y" value="142" />
-    <option name="width" value="1213" />
-    <option name="height" value="999" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1570" />
+    <option name="y" value="609" />
+    <option name="width" value="1084" />
+    <option name="height" value="890" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -111,8 +164,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -136,97 +187,44 @@
               <item name="chatLead" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
+              <item name="messages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
               <item name="chatLead" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
-              <item name="authForm" type="462c0819:PsiDirectoryNode" />
+              <item name="messages" type="462c0819:PsiDirectoryNode" />
+              <item name="timerElement" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
               <item name="chatLead" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
-              <item name="createBotForm" type="462c0819:PsiDirectoryNode" />
+              <item name="messages" type="462c0819:PsiDirectoryNode" />
+              <item name="timerElement" type="462c0819:PsiDirectoryNode" />
+              <item name="calendarSelectTime" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
               <item name="chatLead" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="setupContainer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="componens" type="462c0819:PsiDirectoryNode" />
-              <item name="sideBarSocial" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="autoride" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="bots" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="botSetup" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="broadcast" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatLead" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatLead" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="dialog" type="462c0819:PsiDirectoryNode" />
+              <item name="constants" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566743958478" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../robochat/my-app" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566945125412" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
@@ -235,17 +233,18 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/componens/inputs/buttons/buttonsForAddNewMessages" />
-      <recent name="$PROJECT_DIR$/src/utils/fileDefinition" />
-      <recent name="$PROJECT_DIR$/src/pages/signUp" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/componens/messages/timerElement" />
       <recent name="$PROJECT_DIR$/src/images/buttons" />
       <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/src/componens/broadCastContainer/broadCastMenu" />
       <recent name="$PROJECT_DIR$/src/images/imageForTable" />
-      <recent name="$PROJECT_DIR$/src/pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime" />
+      <recent name="$PROJECT_DIR$/src/componens/inputs/buttons/buttonsForAddNewMessages" />
+      <recent name="$PROJECT_DIR$/src/utils/fileDefinition" />
+      <recent name="$PROJECT_DIR$/src/pages/signUp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -297,17 +296,17 @@
       <workItem from="1566723055162" duration="16553000" />
       <workItem from="1566760041047" duration="9204000" />
       <workItem from="1566801778847" duration="19309000" />
+      <workItem from="1566889018506" duration="41929000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="537457000" />
+    <option name="totallyTimeSpent" value="582408000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1347" y="142" width="1213" height="999" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25107113" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20822622" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -325,7 +324,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2137931" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20689656" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2159383" />
@@ -335,7 +334,7 @@
       <window_info anchor="right" id="Maven" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32990575" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,250 +345,12 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/componens/messages/buttonsContainer/contextMenu/controls/controls.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="21" column="10" lean-forward="true" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/messages/buttonsContainer/buttonsContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="92" column="66" selection-start-line="92" selection-start-column="66" selection-end-line="92" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/messages/cardOrGalleryElement/cardOrGalleryElement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="917">
-          <caret line="141" column="2" lean-forward="true" selection-start-line="141" selection-start-column="2" selection-end-line="141" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/messages/textArea/textArea.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/messages/formElement/formElement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="37" column="30" lean-forward="true" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/messages/listElement/listElement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="56" column="43" lean-forward="true" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="263" lean-forward="true" selection-start-line="263" selection-end-line="263" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/messages/typeProcessing/typeProcessing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="92" column="14" lean-forward="true" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/inputs/buttons/buttonsForAddNewMessages/buttonsForAddNewMessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/singleBotReducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="38" column="25" lean-forward="true" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/sideBarSocial/sideBarSocial.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="91" column="21" selection-start-line="91" selection-end-line="92" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/defaultValues.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="34" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/messagesContainer/messagesContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggersContainer.module.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="125" column="24" lean-forward="true" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.module.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="168" lean-forward="true" selection-start-line="168" selection-end-line="168" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/images/buttons/edit.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/broadCastContainer/broadCastContainer.module.sass">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/broadcast/broadcast.module.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="15" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="6" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.sass">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.module.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/singleBot/singleBot.module.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="9" selection-start-line="7" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/navbar/navbar.module.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/botsReducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sagas/userSagas.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
           <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/actionTypes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="43" column="41" lean-forward="true" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sagas/rootSaga.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="37" column="49" lean-forward="true" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/actionCreator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="97" column="3" lean-forward="true" selection-start-line="97" selection-start-column="3" selection-end-line="97" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/rest/restContoller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="66" column="42" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sagas/botsSagas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="689" lean-forward="true" selection-start-line="689" selection-end-line="689" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -632,42 +393,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="33" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="32" selection-start-line="32" selection-end-line="34" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/autoride/autoride.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/singleBot/singleBot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -687,16 +418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggersContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
@@ -739,36 +460,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/componens/navbar/navbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/bots/bots.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/botSetup/botSetup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/bots/bots.module.sass">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-118" />
@@ -788,6 +479,302 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/autorideContainer/autorideContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="58" column="37" lean-forward="true" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/navbar/navbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/messages/textArea/textArea.module.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/messages/textArea/textArea.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="171" column="13" lean-forward="true" selection-start-line="171" selection-start-column="13" selection-end-line="171" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/fileDefinition/fileDefinition.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/singleBot/singleBot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/bots/bots.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupSidebar/setupSidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2025">
+          <caret line="146" column="15" selection-start-line="146" selection-start-column="15" selection-end-line="146" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/scenariosAndTriggers/triggersContainer/triggersContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="192" column="15" selection-start-line="192" selection-start-column="15" selection-end-line="192" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/actionTypes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sagas/rootSaga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="48" column="64" lean-forward="true" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/actionCreator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="156" column="8" lean-forward="true" selection-start-line="156" selection-start-column="8" selection-end-line="156" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/rest/restContoller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="66" column="42" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/fadeAnimation.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/botSetup/botSetup.module.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.module.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3375">
+          <caret line="225" selection-start-line="225" selection-end-line="227" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/scenariosAndTriggers/scenariosContainer/scenariosContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="91" column="40" selection-start-line="91" selection-start-column="40" selection-end-line="91" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sagas/botSetupSagas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1013">
+          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sagas/botsSagas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2016">
+          <caret line="404" column="58" lean-forward="true" selection-start-line="404" selection-end-line="405" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.sass">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/sideBarSocial/sideBarSocial.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="43" column="18" lean-forward="true" selection-start-line="30" selection-start-column="12" selection-end-line="43" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/sideBarSocial/sideBarSocial.module.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="94" column="31" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="94" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/svg/db/check.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.module.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="139" column="26" selection-start-line="139" selection-start-column="26" selection-end-line="139" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/setupContainer/setupWideColumn/setupWideColumn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="103" column="36" lean-forward="true" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#177#282#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/botSetup/botSetup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="59" lean-forward="true" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/defaultValues.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.module.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/messages/timerElement/calendarStyle.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="33" column="24" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/messages/timerElement/timerElement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="248" column="29" lean-forward="true" selection-start-line="248" selection-start-column="29" selection-end-line="248" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarStyle.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="43" column="25" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarSelectTime.module.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/componens/messages/timerElement/calendarSelectTime/calendarSelectTime.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
