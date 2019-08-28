@@ -18,13 +18,8 @@ const BotSetup = (props) => {
 
     return(
         <div className="main_layout">
-<<<<<<< HEAD
-            {console.log(botSetupData)}
-            <Header/>
-=======
             {/*<Header/>*/}
             <MainHeader/>
->>>>>>> eeb9c324f14ad3a707229ec1cfb9a4bc8da20f53
             <main id="main">
                 <NavBar/>
                 <SetupContainer

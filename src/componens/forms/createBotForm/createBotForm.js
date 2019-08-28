@@ -10,7 +10,10 @@ const CreateBotForm = (props) => {
 
 
     return (
-        <form autoComplete={'off'} className={style.mainContainer}>
+        <form autoComplete={'off'} className={style.mainContainer} onSubmit={(e) => {
+            e.preventDefault();
+            props.createBot(props.createBotForm.values)}
+            }>
             <Field
                 name={'name'}
                 type={'text'}
