@@ -20,7 +20,6 @@ import faceBookMassanger from "../../../images/facebook-messenger-logo-big.png";
 const SetupWideColumn = (props) => {
     const botId = props.botSetupData.id;
     const {default_response, welcome_message} = props.botSetupData;
-    // console.log(props.botSetupData);
 
 
     const reactionBots = (typeReaction, statusChecked) => {
@@ -32,11 +31,13 @@ const SetupWideColumn = (props) => {
     };
 
     const [WillSend, setWillSend] = useState(0);
+    const [MailAndWasap, setMW] = useState(0)
     
     useEffect(() => {
         setWillSend(props.botSetupData.application_will_send)
+        setMW({ mails: props.botSetupData.application_email.split(','),
+                 wa: props.botSetupData.application_whatsapp_id.split(',') })
     }, [props.botSetupData]);
-    // console.log(WillSend);
 
 
     return(
@@ -145,12 +146,11 @@ const SetupWideColumn = (props) => {
                             <h3>Оповещение</h3>
                             <div className={style.switcher}>
                                 <label className={style.switch}>
-                                    {/* {WillSend ? (<input type="checkbox" checked/>) : (<input type="checkbox" />)} */}
                                     <input type="checkbox" checked={WillSend} onClick={(e) => setWillSend(!WillSend)}/>
                                     <span className={style.slider+" "+style.round}></span>
                                 </label>
                                 <p>Получать уведомления о заявках</p>
-                                <button class={style.default_btn+" "+style.default_btn__primary} onClick={(e) => {
+                                <button className={style.default_btn+" "+style.default_btn__primary} onClick={(e) => {
                             e.preventDefault();
                             console.log(document.querySelector('.'+style.notifyme+' input[type=checkbox]').checked)
                             props.editManager({
@@ -163,10 +163,12 @@ const SetupWideColumn = (props) => {
                                 }
                             }>Сохранить</button>
                             </div>
+                            {}
                             <div className={style.switcher+" "}>
                                 <input type="text" name="mail" placeholder="example@mail.com"/>
                                 <span> | </span>
                                 <input type="text" name="phone" placeholder="+7 ___ ___ __ __"/>
+                                <button className={style.default_btn+" "+style.default_btn__primary}>Добавить</button>
                             </div>
                             <div className={style.switcher+" "+style.underinput}>
                                 <span>Добавьте емейл, на который отправлять уведомления и нажмите Enter </span>
