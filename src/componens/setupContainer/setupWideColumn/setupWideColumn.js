@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState,useEffect} from 'react';
 import style from './setupWideColumn.module.sass';
 import {connect} from 'react-redux';
 // import { stringLiteral } from '@babel/types';
@@ -22,7 +22,6 @@ const SetupWideColumn = (props) => {
     const {default_response, welcome_message} = props.botSetupData;
     // console.log(props.botSetupData);
 
-    console.log(props.botSetupData);
 
     const reactionBots = (typeReaction, statusChecked) => {
         props.updateBotReactions({
@@ -31,6 +30,14 @@ const SetupWideColumn = (props) => {
             botId
         })
     };
+
+    const [WillSend, setWillSend] = useState(0);
+    
+    useEffect(() => {
+        setWillSend(props.botSetupData.application_will_send)
+    }, [props.botSetupData]);
+    // console.log(WillSend);
+
 
     return(
         <div className={style.wideСolumn}>
@@ -138,17 +145,20 @@ const SetupWideColumn = (props) => {
                             <h3>Оповещение</h3>
                             <div className={style.switcher}>
                                 <label className={style.switch}>
-                                    <input type="checkbox"/>
+                                    {/* {WillSend ? (<input type="checkbox" checked/>) : (<input type="checkbox" />)} */}
+                                    <input type="checkbox" checked={WillSend} onClick={(e) => setWillSend(!WillSend)}/>
                                     <span className={style.slider+" "+style.round}></span>
                                 </label>
                                 <p>Получать уведомления о заявках</p>
                                 <button class={style.default_btn+" "+style.default_btn__primary} onClick={(e) => {
                             e.preventDefault();
+                            console.log(document.querySelector('.'+style.notifyme+' input[type=checkbox]').checked)
                             props.editManager({
                                 idBot: botId,
+                                application_will_send: WillSend,
                                 application_email: document.querySelector('.'+style.notifyme+' input[name=mail]').value,
                                 application_whatsapp_id: document.querySelector('.'+style.notifyme+' input[name=phone]').value,
-                                optional_params: ["application_email", "application_whatsapp_id"]
+                                optional_params: ["application_email", "application_whatsapp_id", "application_will_send"]
                             });
                                 }
                             }>Сохранить</button>

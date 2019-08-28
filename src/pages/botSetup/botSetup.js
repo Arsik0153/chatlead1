@@ -39,7 +39,6 @@ const BotSetup = (props) => {
             )
         }
 
-
         return (
             <main id="main">
                 <SetupContainer
@@ -56,7 +55,7 @@ const BotSetup = (props) => {
             {contentContainer()}
         </div>
     )
-}
+};
 
 const mapStateToProps = state => {
     const {botSetupData, isFetching, error} = state.botSetupReducers;

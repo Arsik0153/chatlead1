@@ -17,7 +17,7 @@ const SetupSidebar = (props) => {
     useEffect(() => {
         if (document.getElementById("sidebar")!==undefined) {
             InputControler();
-            }
+        }
     })
 
     return(
@@ -31,16 +31,16 @@ const SetupSidebar = (props) => {
                 </div>
                 <form action=""className={style.ui_vmenu_sep_form}>
                     <label className={style.ui_vmenu__item +" "}>
-                        <input type="radio" name="radio" value="fb" className={style.ui_vmenu__item_input}/><span className={style.ui_vmenu__item_span}>Facebook Messenger</span>
+                        <input type="radio" name="radio" value="fb" /><span className={style.ui_vmenu__item_span}>Facebook Messenger</span>
                     </label>
                     <label className={style.ui_vmenu__item +" "}>
-                        <input type="radio" name="radio" value="telegram" className={style.ui_vmenu__item_input}/><span className={style.ui_vmenu__item_span}>Telegram</span>
+                        <input type="radio" name="radio" value="telegram" /><span className={style.ui_vmenu__item_span}>Telegram</span>
                     </label>
                     <label className={style.ui_vmenu__item +" "}>
-                        <input type="radio" name="radio" value="vk" className={style.ui_vmenu__item_input}/><span className={style.ui_vmenu__item_span}>Вконтакте</span>
+                        <input type="radio" name="radio" value="vk" /><span className={style.ui_vmenu__item_span}>Вконтакте</span>
                     </label>
                     <label className={style.ui_vmenu__item +" "}>
-                        <input type="radio" name="radio" value="whatsapp" className={style.ui_vmenu__item_input}/><span className={style.ui_vmenu__item_span}>Whatsapp</span>
+                        <input type="radio" name="radio" value="whatsapp" /><span className={style.ui_vmenu__item_span}>Whatsapp</span>
                     </label>
                     <div className="for-fb">
                         {props.botSetupData.facebook_name!=='' ? (
