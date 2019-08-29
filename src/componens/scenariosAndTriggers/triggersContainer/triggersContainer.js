@@ -11,6 +11,9 @@ import BroadCastMenu from '../../broadCastContainer/broadCastMenu/broadCastMenu'
 import {destinationScenario} from "../../../constants/defaultValues";
 import leftArrow from "../../../svg/db/left-arrow.svg";
 import Triggers from './triggers/triggers';
+import FastButtons from './fastButtons/fastButtons';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faClone} from "@fortawesome/free-regular-svg-icons";
 
 
 const TriggersContainer = (props) => {
@@ -28,6 +31,8 @@ const TriggersContainer = (props) => {
             changeTriggerId(triggers[0].id)
         }
     }, [triggers]);
+
+    // console.log(props.broadCastId);
 
 
 
@@ -123,6 +128,9 @@ const TriggersContainer = (props) => {
                                                updateTriggerUpdateMessageHandler={updateTriggerUpdateMessageHandler}
                                                updateTriggerDeleteMessageHandler={updateTriggerDeleteMessageHandler}
                                            />
+                                           <FastButtons
+                                               changedTrigger={changedTrigger}
+                                           />
                                            <div className={style.controls}>
                                                <ButtonsForAddNewMessage
                                                    changedTrigger={changedTrigger}
@@ -151,23 +159,35 @@ const TriggersContainer = (props) => {
                 {/*{*/}
                     {/*console.log(props.autoridesLinks)*/}
                 {/*}*/}
-                {
-                    props.autoridesLinks && (
-                        <div className={style.autorideLink}>
-                            <a
-                                href={props.autoridesLinks[props.changedSocial]}
-                            >
-                                {
-                                    props.autoridesLinks[props.changedSocial].length && (
-                                        props.autoridesLinks[props.changedSocial].length > 28 ?
-                                            `${props.autoridesLinks[props.changedSocial].slice(0, 28)}...` :
-                                            props.autoridesLinks[props.changedSocial]
-                                    )
-                                }
-                            </a>
-                        </div>
-                    )
-                }
+                <div className={style.linkContainer}>
+                    {
+                        props.autoridesLinks && (
+                            <>
+                                <div className={style.autorideLink}>
+                                    <a
+                                        href={props.autoridesLinks[props.changedSocial]}
+                                    >
+                                        {
+                                            props.autoridesLinks[props.changedSocial].length && (
+                                                props.autoridesLinks[props.changedSocial].length > 28 ?
+                                                    `${props.autoridesLinks[props.changedSocial].slice(0, 28)}...` :
+                                                    props.autoridesLinks[props.changedSocial]
+                                            )
+                                        }
+                                    </a>
+                                </div>
+
+                                <div className={style.linkButton} onClick={() => {
+                                    navigator.clipboard.writeText(props.autoridesLinks[props.changedSocial])
+                                }}>
+                                    <p><FontAwesomeIcon icon={faClone}/></p>
+                                    Копировать ссылку
+                                </div>
+                            </>
+                        )
+                    }
+
+                </div>
                 <SideBarSocial
                     changedTrigger={changedTrigger}
                 />

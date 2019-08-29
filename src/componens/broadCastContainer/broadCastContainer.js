@@ -23,16 +23,19 @@ const BroadCastContainer = (props) => {
     };
 
     useEffect(() => {
-        return () => {
-            changeScenarioId(null);
+        if(changedScenarioId) {
+            props.broadCastData.forEach((elem, index) => {
+                if(elem.scenario.id === changedScenarioId) {
+                    changeBroadCastId(index);
+                }
+            })
+        }else {
+            changeBroadCastId(false);
         }
-    }, []);
+    }, [changedScenarioId]);
 
 
-
-
-
-    if(changedScenarioId) {
+    if(changedScenarioId && (changedBroadCastId || changedBroadCastId === 0)) {
         return (
             <div className={style.triggersContainer}>
                 <ScenarioIdContext.Provider value={changedScenarioId}>
@@ -60,7 +63,7 @@ const BroadCastContainer = (props) => {
                           <tr>
                               <td className={style.keyWord} onClick={() => {
                                   changeScenarioId(elem.scenario.id);
-                                  changeBroadCastId(index);
+                                  // changeBroadCastId(index);
                               }}>
                                   Сообщение в точности совпадает с <span>{elem.scenario.trigger_text}</span>
                               </td>
@@ -83,7 +86,7 @@ const BroadCastContainer = (props) => {
                           <tr>
                               <td className={style.keyWord} onClick={() => {
                                   changeScenarioId(elem.scenario.id);
-                                  changeBroadCastId(index);
+                                  // changeBroadCastId(index);
                               }}>
                                   Сообщение в точности совпадает с <span>{elem.scenario.trigger_text}</span>
                               </td>

@@ -23,9 +23,9 @@ export const buttonsTypes = {
 };
 
 export const defaultValuesForNewButtons = {
-    text_buttons: { caption: '', type: 'text_buttons' },
-    url_buttons: { caption: '', url: '', type: 'url_buttons' },
-    fast_buttons: { caption: '', payload: { trigger_id: ''}, type: 'fast_buttons' }
+    text_buttons: { caption: 'Новая кнопка', trigger_text: '', type: 'text_buttons' },
+    url_buttons: { caption: 'Новая кнопка', url: '', type: 'url_buttons' },
+    fast_buttons: { caption: 'Новая кнопка', payload: { trigger_id: ''}, type: 'fast_buttons' }
 };
 
 export const tagsTypes = {

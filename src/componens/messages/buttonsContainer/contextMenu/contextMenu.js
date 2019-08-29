@@ -29,11 +29,24 @@ const ContextMenu = (props) => {
 
     const editButton = (e, forCaption) => {
 
+        console.log(typeButton, buttonData);
+
 
         if(typeButton === buttonsTypes.text_buttons) {
-            Object.assign(buttonData, {
-                caption: e.target.value
-            })
+            if(forCaption) {
+                Object.assign(buttonData, {
+                    caption: e.target.value
+                })
+            }else {
+                Object.assign(buttonData, {
+                    trigger_text: e.target.value
+                })
+            }
+            // Object.assign(buttonData, {
+            //     caption: e.target.value
+            // });
+
+            buttonEditHandler(typeButton, buttonData, indexButton);
         }else if(typeButton === buttonsTypes.url_buttons) {
             if(forCaption) {
                 Object.assign(buttonData, {
@@ -44,6 +57,9 @@ const ContextMenu = (props) => {
                     url: e.target.value
                 })
             }
+
+            buttonEditHandler(typeButton, buttonData, indexButton);
+
         }else if(typeButton === buttonsTypes.fast_buttons) {
             if(forCaption) {
                 Object.assign(buttonData, {
@@ -57,37 +73,45 @@ const ContextMenu = (props) => {
                 })
             }
 
+            buttonEditHandler(typeButton, buttonData, indexButton);
+
+        }else if(typeButton === 'empty') {
+            Object.assign(buttonData, {
+                caption: e.target.value
+            });
+            buttonEditHandler(typeButton, buttonData, indexButton, true);
         }
 
 
-        buttonEditHandler(typeButton, buttonData, indexButton);
     };
 
     const getBotScenarios = () => {
       const botScenarios = [];
 
       props.botScenarios.forEach(elem => {
-          botScenarios.push({
-              value: elem.trigger_text,
-              label: elem.trigger_text
-          })
+          if(elem.destination === changedScenario.destination) {
+              botScenarios.push({
+                  value: elem.trigger_text,
+                  label: elem.trigger_text
+              })
+          }
       });
 
         return botScenarios;
     };
 
-    const getTriggers = () => {
-        const triggers = [];
-
-        changedScenario.triggers.map(trigger => {
-            triggers.push({
-                value: trigger.id,
-                label: trigger.caption
-            })
-        });
-
-        return triggers;
-    };
+    // const getTriggers = () => {
+    //     const triggers = [];
+    //
+    //     changedScenario.triggers.map(trigger => {
+    //         triggers.push({
+    //             value: trigger.id,
+    //             label: trigger.caption
+    //         })
+    //     });
+    //
+    //     return triggers;
+    // };
 
     const stylesForSelector = {
         control: (styles, state) => ({
@@ -122,8 +146,15 @@ const ContextMenu = (props) => {
                     <div className={style.header}>
                         Редактировать кнопку
                     </div>
-                    <h2>Типы кнопок: </h2>
+                    {/*<h2>Типы кнопок: </h2>*/}
                     <div className={style.buttonChanger}>
+                        <h2>Заголовок кнопки</h2>
+                        <input
+                            type={'text'}
+                            defaultValue={buttonData.caption}
+                            placeholder={'title'}
+                            onInput={(e) => editButton(e, true)}
+                        />
                         <div
                             onClick={() => {
                                 buttonEditHandler(
@@ -149,22 +180,22 @@ const ContextMenu = (props) => {
                             Открыть веб-сайт
                         </div>
 
-                        {
-                            (changedTrigger.social === 'telegram' || changedTrigger.social === 'facebook') && (
-                                <div
-                                    onClick={() => {
-                                        buttonEditHandler(
-                                            buttonsTypes.fast_buttons,
-                                            defaultValuesForNewButtons[buttonsTypes.fast_buttons],
-                                            indexButton
-                                        )
-                                    }}
-                                    className={style.changerElement}
-                                >
-                                    Перейти на другой тригер
-                                </div>
-                            )
-                        }
+                        {/*{*/}
+                            {/*(changedTrigger.social === 'telegram' || changedTrigger.social === 'facebook') && (*/}
+                                {/*<div*/}
+                                    {/*onClick={() => {*/}
+                                        {/*buttonEditHandler(*/}
+                                            {/*buttonsTypes.fast_buttons,*/}
+                                            {/*defaultValuesForNewButtons[buttonsTypes.fast_buttons],*/}
+                                            {/*indexButton*/}
+                                        {/*)*/}
+                                    {/*}}*/}
+                                    {/*className={style.changerElement}*/}
+                                {/*>*/}
+                                    {/*Перейти на другой тригер*/}
+                                {/*</div>*/}
+                            {/*)*/}
+                        {/*}*/}
 
                         <Actions
                             {...props}
@@ -182,27 +213,21 @@ const ContextMenu = (props) => {
                         Редактировать кнопку
                     </div>
                     <div className={style.buttonChanger}>
-                        {
-                            buttonData.caption && (
-                                <>
-                                    <h2>Заголовок кнопки:</h2>
-                                    <input
-                                        type={'text'}
-                                        defaultValue={buttonData.caption}
-                                        placeholder={'title'}
-                                        disabled={true}
-                                    />
-                                </>
-                            )
-                        }
+                        <h2>Заголовок кнопки</h2>
+                        <input
+                            type={'text'}
+                            defaultValue={buttonData.caption}
+                            placeholder={'title'}
+                            onInput={(e) => editButton(e, true)}
+                        />
                         <h2>Выберите команду:</h2>
                         <div className={style.inputContainer}>
                             <Select
                                 placeholder={'Команда'}
                                 options={getBotScenarios()}
-                                defaultValue={buttonData.caption && {
-                                    value: buttonData.caption,
-                                    label: buttonData.caption
+                                defaultValue={buttonData.trigger_text && {
+                                    value: buttonData.trigger_text,
+                                    label: buttonData.trigger_text
                                 }}
                                 onChange={(value) => editButton({
                                     target: {
@@ -276,59 +301,61 @@ const ContextMenu = (props) => {
                     </div>
                 </>
             )
-        }else if(typeButton === buttonsTypes.fast_buttons) {
-           return (
-              <>
-                  <div className={style.header}>
-                      Редактировать кнопку
-                  </div>
-                  <div className={style.buttonChanger}>
-                      <h2>Заголовок кнопки</h2>
-                      <input
-                          type={'text'}
-                          defaultValue={buttonData.caption}
-                          title={'title'}
-                          onInput={(e) => editButton(e, true)}
-                      />
-                      <div className={style.inputContainer}>
-                          <Select
-                              placeholder={'Триггер'}
-                              options={getTriggers()}
-                              defaultValue={buttonData.payload.trigger_id && {
-                                  value: buttonData.payload.trigger_id,
-                                  label: changedTriggerInFastButton.caption
-                              }}
-                              onChange={(value) => editButton({
-                                  target: {
-                                      value: value.value
-                                  }
-                              })}
-                              styles={stylesForSelector}
-                              className={style.selector}
-                              isSearchable={false}
-                              components={{ DropdownIndicator:() => null }}
-                              // arrowRenderer={() => ''}
-                          />
-                          <div
-                              className={style.closeButton}
-                              onClick={() => buttonEditHandler(typeButton, Object.assign(buttonData, {
-                                  caption: ''
-                              }), indexButton, true)}
-                          >
-                              <FontAwesomeIcon icon={faTimes}/>
-                          </div>
-                      </div>
-                      <Actions
-                          {...props}
-                      />
-                      <Controls
-                          {...props}
-                      />
-                  </div>
-              </>
-           )
 
         }
+        // }else if(typeButton === buttonsTypes.fast_buttons) {
+        //    return (
+        //       <>
+        //           <div className={style.header}>
+        //               Редактировать кнопку
+        //           </div>
+        //           <div className={style.buttonChanger}>
+        //               <h2>Заголовок кнопки</h2>
+        //               <input
+        //                   type={'text'}
+        //                   defaultValue={buttonData.caption}
+        //                   title={'title'}
+        //                   onInput={(e) => editButton(e, true)}
+        //               />
+        //               <div className={style.inputContainer}>
+        //                   <Select
+        //                       placeholder={'Триггер'}
+        //                       options={getTriggers()}
+        //                       defaultValue={buttonData.payload.trigger_id && {
+        //                           value: buttonData.payload.trigger_id,
+        //                           label: changedTriggerInFastButton.caption
+        //                       }}
+        //                       onChange={(value) => editButton({
+        //                           target: {
+        //                               value: value.value
+        //                           }
+        //                       })}
+        //                       styles={stylesForSelector}
+        //                       className={style.selector}
+        //                       isSearchable={false}
+        //                       components={{ DropdownIndicator:() => null }}
+        //                       // arrowRenderer={() => ''}
+        //                   />
+        //                   <div
+        //                       className={style.closeButton}
+        //                       onClick={() => buttonEditHandler(typeButton, Object.assign(buttonData, {
+        //                           caption: ''
+        //                       }), indexButton, true)}
+        //                   >
+        //                       <FontAwesomeIcon icon={faTimes}/>
+        //                   </div>
+        //               </div>
+        //               <Actions
+        //                   {...props}
+        //               />
+        //               <Controls
+        //                   {...props}
+        //               />
+        //           </div>
+        //       </>
+        //    )
+        //
+        // }
     };
 
     ContextMenu.handleClickOutside = () => setIndexOpenButton(false);
@@ -348,10 +375,10 @@ const clickOutsideConfig = {
 };
 
 const mapStateToProps = state => {
-    const {botScenarios, isFetching, error} = state.singleBotReducers;
+    const {botScenarios, isFetching, error, changedScenarioId} = state.singleBotReducers;
 
     return {
-        botScenarios, isFetching, error
+        botScenarios, isFetching, error, changedScenarioId
     }
 };
 

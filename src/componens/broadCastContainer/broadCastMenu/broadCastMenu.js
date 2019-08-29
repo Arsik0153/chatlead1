@@ -20,7 +20,7 @@ const BroadCastMenu = (props) => {
     const oldDate = new Date(2015, 0, 1).getTime();
     const futureTime = new Date().setFullYear(new Date().getFullYear() + 1);
 
-
+    // console.log(broadCastId);
 
     const getAllTagsInTrigger = () => {
         const allTags = [];

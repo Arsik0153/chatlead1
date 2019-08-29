@@ -652,6 +652,7 @@ export function* appendBroadCastSagas({ managerId }) {
                     call(getAllBroadCasts, formData),
                     call(getScenariesForManager, formData),
                 ]);
+                console.log(broadCastCreateStatus);
                 if(allBroadcast.data.ok) {
                     yield put({type: ACTION.BROADCAST_RESPONSE, broadCastData: allBroadcast.data.broadcasts});
                 }

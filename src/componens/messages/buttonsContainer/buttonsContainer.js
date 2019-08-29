@@ -62,7 +62,8 @@ const ButtonsContainer = (props) => {
     const allButtonsInMessage = () => {
         const messagesCopy = changedTrigger.messages;
         const buttonsArray = changedSlideOrElement || changedSlideOrElement === 0 ?
-                messagesCopy[props.changedSocial][index][type][changedSlideOrElement].keyboard : messagesCopy[props.changedSocial][index].keyboard;
+                messagesCopy[props.changedSocial][index][type][changedSlideOrElement].keyboard
+                    : messagesCopy[props.changedSocial][index].keyboard;
 
 
         return buttonsArray;
@@ -92,6 +93,8 @@ const ButtonsContainer = (props) => {
 
         props.updateTrigger(triggerData, null, props.changedSocial);
     };
+
+    console.log(allButtonsInMessage());
 
 
     return (
