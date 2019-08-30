@@ -175,58 +175,68 @@ const AutorideContainer = (props) => {
                         <td />
                     </tr>
                     {
-                        autoridesDataInFilter.map(elem => (
-                            <tr>
-                                <td
-                                    className={style.keyWord}
-                                    // onClick={() => changeScenarioId(elem.scenario.id)}
-                                    onClick={
-                                        idEditTriggerText === elem.scenario.id ?
-                                            null :
-                                            () => changeScenarioId(elem.scenario.id)
-                                    }
-                                >
-                                    Сообщение в точности совпадает с <span>{elem.scenario.trigger_text}</span>
-                                    <div className={style.mainEditScenario}>
-                                        {
-                                            idEditTriggerText === elem.scenario.id && (
-                                                <ContextMenuForEditAutoride
-                                                    onInput={(e) => editScenario(e, elem.scenario.id)}
-                                                    defaultValue={elem.scenario.trigger_text}
-                                                    setIdEditTriggerText={(id) => setIdEditTriggerText(id)}
-                                                />
-                                            )
+                        autoridesDataInFilter.length > 0 ? (
+                            autoridesDataInFilter.map(elem => (
+                                <tr>
+                                    <td
+                                        className={style.keyWord}
+                                        // onClick={() => changeScenarioId(elem.scenario.id)}
+                                        onClick={
+                                            idEditTriggerText === elem.scenario.id ?
+                                                null :
+                                                () => changeScenarioId(elem.scenario.id)
                                         }
-                                    </div>
-                                </td>
-                                <td>
-                                    <img src={vk} alt={'vk'} />
-                                    <img src={telegram} alt={'tg'} />
-                                    <img src={facebook} alt={'fb'} />
-                                    <img src={viber} alt={'viber'} />
-                                </td>
-                                <td className={style.controlsImages}>
-                                   <div
-                                       className={style.icon}
-                                       onClick={() => setIdEditTriggerText(elem.scenario.id)}
-                                   >
-                                       <span className={style.tooltipText}>Редактировать</span>
-                                       <img src={edit} alt={'edit'} />
-                                   </div>
-                                    <div className={style.icon}>
-                                        <span className={style.tooltipText}>Копировать</span>
-                                        <img src={copy} alt={'copy'}/>
-                                    </div>
-                                    <div
-                                        className={style.icon}
-                                        onClick={() => props.deleteAutoride(props.match.params.botId, elem.id)}
                                     >
-                                        <span className={style.tooltipText}>Удалить</span>
-                                        <img src={trash} alt={'trash'}/>
-                                    </div>
+                                        Сообщение в точности совпадает с <span>{elem.scenario.trigger_text}</span>
+                                        <div className={style.mainEditScenario}>
+                                            {
+                                                idEditTriggerText === elem.scenario.id && (
+                                                    <ContextMenuForEditAutoride
+                                                        onInput={(e) => editScenario(e, elem.scenario.id)}
+                                                        defaultValue={elem.scenario.trigger_text}
+                                                        setIdEditTriggerText={(id) => setIdEditTriggerText(id)}
+                                                    />
+                                                )
+                                            }
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <img src={vk} alt={'vk'} />
+                                        <img src={telegram} alt={'tg'} />
+                                        <img src={facebook} alt={'fb'} />
+                                        <img src={viber} alt={'viber'} />
+                                    </td>
+                                    <td className={style.controlsImages}>
+                                        <div
+                                            className={style.icon}
+                                            onClick={() => setIdEditTriggerText(elem.scenario.id)}
+                                        >
+                                            <span className={style.tooltipText}>Редактировать</span>
+                                            <img src={edit} alt={'edit'} />
+                                        </div>
+                                        <div className={style.icon}>
+                                            <span className={style.tooltipText}>Копировать</span>
+                                            <img src={copy} alt={'copy'}/>
+                                        </div>
+                                        <div
+                                            className={style.icon}
+                                            onClick={() => props.deleteAutoride(props.match.params.botId, elem.id)}
+                                        >
+                                            <span className={style.tooltipText}>Удалить</span>
+                                            <img src={trash} alt={'trash'}/>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td className={style.keyWord}>
+                                  Ничего не найдено
                                 </td>
+                                <td />
+                                <td className={style.controlsImages} />
                             </tr>
-                        ))
+                        )
                     }
                 </table>
 

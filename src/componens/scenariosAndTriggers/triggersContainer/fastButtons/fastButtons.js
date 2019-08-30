@@ -17,7 +17,7 @@ const FastButtons = (props) => {
     //     styleForContextMenu
     // } = props;
 
-    // console.log(props.changedTrigger);
+    // console.log(Object.keys(props.changedTrigger.keyboard));
 
     return (
         <div className={style.mainContainer}>

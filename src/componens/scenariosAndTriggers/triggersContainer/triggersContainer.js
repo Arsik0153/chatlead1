@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {withRouter} from "react-router-dom";
 import style from './triggersContainer.module.sass';
-import {addNewTrigger, getAllScenariesForBot, updateTrigger} from "../../../actions/actionCreator";
+import {addNewTrigger, getAllScenariesForBot, updateTrigger, editScenario} from "../../../actions/actionCreator";
 import {connect} from 'react-redux';
 import {fileDefinition} from "../../../utils/fileDefinition/fileDefinition";
 import ButtonsForAddNewMessage from '../../inputs/buttons/buttonsForAddNewMessages/buttonsForAddNewMessage';
@@ -21,7 +21,7 @@ const TriggersContainer = (props) => {
     // const {triggers} = changedScenario;
     const triggers = changedScenario && changedScenario.triggers;
     const triggerText = changedScenario && changedScenario.trigger_text;
-
+    const [triggerTextInputLength, setTriggerTextInputLength] = useState(false);
     const [changedTriggerId, changeTriggerId] = useState(triggers && triggers[0].id);
     const changedTrigger = triggers && triggers.filter(elem => elem.id === changedTriggerId)[0];
 
@@ -35,7 +35,7 @@ const TriggersContainer = (props) => {
     // console.log(props.broadCastId);
 
 
-
+    console.log(triggerTextInputLength, '>>>');
 
     const newTriggerHandler = () => {
         const triggerData = {
@@ -75,6 +75,15 @@ const TriggersContainer = (props) => {
 
     };
 
+    const changeTriggerText = (e) => {
+        props.editScenario({
+            botId: props.match.params.botId,
+            scenarioId: changedScenario.id,
+            trigger_text: e.target.value
+        });
+        setTriggerTextInputLength(false);
+    };
+
     return (
         <div className={style.mainContainer}>
             <div className={style.sideContainer}>
@@ -87,7 +96,11 @@ const TriggersContainer = (props) => {
                         Сохранить
                     </div>
                 </div>
-                <div className={style.saveDataStatus}>{props.isFetching ? 'Идет сохранение' : 'Ваши данные сохранены!'}</div>
+                <div
+                    className={style.saveDataStatus}
+                >
+                    {props.isFetching ? 'Идет сохранение' : 'Ваши данные сохранены!'}
+                </div>
                 <Triggers
                     changeTriggerId={changeTriggerId}
                     changedScenario={changedScenario}
@@ -117,8 +130,22 @@ const TriggersContainer = (props) => {
                     {
                         // changedScenario && (
                            <>
-                               <div className={style.contentHeader}>
-                                   {triggerText}
+                               <div
+                                   className={style.contentHeader}
+                                   onDoubleClick={() => setTriggerTextInputLength(triggerText.length)}
+                               >
+                                   {
+                                       triggerTextInputLength ?
+                                           <input
+                                               type={'text'}
+                                               autoFocus={true}
+                                               onBlur={changeTriggerText}
+                                               defaultValue={triggerText}
+                                               style={{width: `${triggerTextInputLength || 1}em`}}
+                                               onKeyDown={(e) => setTriggerTextInputLength(e.target.value.length || 1)}
+                                           /> :
+                                           <p>{triggerText}</p>
+                                   }
                                </div>
                                {
                                    changedTrigger && (
@@ -210,6 +237,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     updateTrigger: (triggerData, updationData, changedSocial) => dispatch(updateTrigger(triggerData, updationData, changedSocial)),
     appendTrigger: (triggerData) => dispatch(addNewTrigger(triggerData)),
+    editScenario: (scenarioData) => dispatch(editScenario(scenarioData))
 });
 
 

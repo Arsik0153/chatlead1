@@ -162,7 +162,8 @@ const ScenariosContainer = (props) => {
                         <td />
                     </tr>
                     {
-                        scenariosDataInFilter.map(elem => (
+                        scenariosDataInFilter.length > 0 ? (
+                            scenariosDataInFilter.map(elem => (
                                 <tr>
                                     <td
                                         className={style.keyWord}
@@ -217,8 +218,18 @@ const ScenariosContainer = (props) => {
                                     </td>
 
                                 </tr>
-                            // )
-                        ))
+                                // )
+                            ))
+                        ) : (
+                            <tr>
+                                <td className={style.keyWord}>
+                                    Ничего не найдено
+                                </td>
+                                <td />
+                                <td className={style.controlsImages} />
+
+                            </tr>
+                        )
                     }
                 </table>
 

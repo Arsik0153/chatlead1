@@ -34,7 +34,7 @@ const BroadCastContainer = (props) => {
         }
     }, [changedScenarioId]);
 
-
+    console.log(props.broadCastData);
     if(changedScenarioId && (changedBroadCastId || changedBroadCastId === 0)) {
         return (
             <div className={style.triggersContainer}>
@@ -57,50 +57,70 @@ const BroadCastContainer = (props) => {
     const broadCastData = () => {
       if(chanedTypeBroadcast === 'sended') {
           return (
-              props.broadCastData.map((elem, index) => {
-                  if(elem.sent) {
-                      return (
-                          <tr>
-                              <td className={style.keyWord} onClick={() => {
-                                  changeScenarioId(elem.scenario.id);
-                                  // changeBroadCastId(index);
-                              }}>
-                                  Сообщение в точности совпадает с <span>{elem.scenario.trigger_text}</span>
-                              </td>
-                              <td>
-                                  {elem.users_count}
-                              </td>
-                              <td className={style.controlsImages}>
-                                  {moment(elem.time * 1000).format('YYYY-MM-DD hh:mm')}
-                              </td>
-                          </tr>
-                      )
-                  }
-              })
+              props.broadCastData.filter(elem => elem.sent).length > 0 ? (
+                  props.broadCastData.map((elem, index) => {
+                      if(elem.sent) {
+                          return (
+                              <tr>
+                                  <td className={style.keyWord} onClick={() => {
+                                      changeScenarioId(elem.scenario.id);
+                                      // changeBroadCastId(index);
+                                  }}>
+                                      Сообщение в точности совпадает с <span>{elem.scenario.trigger_text}</span>
+                                  </td>
+                                  <td>
+                                      {elem.users_count}
+                                  </td>
+                                  <td className={style.controlsImages}>
+                                      {moment(elem.time * 1000).format('YYYY-MM-DD hh:mm')}
+                                  </td>
+                              </tr>
+                          )
+                      }
+                  })
+              ) : (
+                  <tr>
+                      <td className={style.keyWord}>
+                          Тут пока пусто
+                      </td>
+                      <td/>
+                      <td className={style.controlsImages} />
+                  </tr>
+              )
           );
       }else {
           return (
-              props.broadCastData.map((elem, index) => {
-                  if(!elem.sent) {
-                      return (
-                          <tr>
-                              <td className={style.keyWord} onClick={() => {
-                                  changeScenarioId(elem.scenario.id);
-                                  // changeBroadCastId(index);
-                              }}>
-                                  Сообщение в точности совпадает с <span>{elem.scenario.trigger_text}</span>
-                              </td>
-                              <td>
-                                  {elem.users_count}
-                              </td>
-                              <td className={style.controlsImages}>
-                                  {moment(elem.time * 1000).format('YYYY-MM-DD hh:mm')}
-                              </td>
-                          </tr>
-                      )
-                  }
-              })
-          )
+              props.broadCastData.filter(elem => !elem.sent).length > 0 ? (
+                  props.broadCastData.map((elem, index) => {
+                      if(!elem.sent) {
+                          return (
+                              <tr>
+                                  <td className={style.keyWord} onClick={() => {
+                                      changeScenarioId(elem.scenario.id);
+                                      // changeBroadCastId(index);
+                                  }}>
+                                      Сообщение в точности совпадает с <span>{elem.scenario.trigger_text}</span>
+                                  </td>
+                                  <td>
+                                      {elem.users_count}
+                                  </td>
+                                  <td className={style.controlsImages}>
+                                      {moment(elem.time * 1000).format('YYYY-MM-DD hh:mm')}
+                                  </td>
+                              </tr>
+                          )
+                      }
+                  })
+              ) : (
+                  <tr>
+                      <td className={style.keyWord}>
+                          Тут пока пусто
+                      </td>
+                      <td/>
+                      <td className={style.controlsImages} />
+                  </tr>
+              )
+          );
       }
     };
 

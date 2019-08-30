@@ -62,6 +62,7 @@ const Triggers = (props) => {
                                            onBlur={(e) => editTrigger(e, changedScenario.triggers[0].id)}
                                            type={'text'}
                                            defaultValue={changedScenario.triggers[0].caption}
+                                           autoFocus={true}
                                            className={style.editInput}
                                        />
                                        : changedScenario.triggers[0].caption
