@@ -96,6 +96,14 @@ const ButtonsContainer = (props) => {
 
     console.log(allButtonsInMessage());
 
+    const addVariable = () => {
+        let myField = document.querySelector("#insertVariable");
+        let myValue = " {firstName}";
+        let input = myField.value;
+        input += myValue;
+        myField.value = input;
+    }
+
 
     return (
         <div className={style.mainContainer}>
@@ -142,12 +150,14 @@ const ButtonsContainer = (props) => {
                     </div>
                 ))
             }
-
+            <div className={style.controls} onClick={addVariable}>
+                + Добавить переменную
+            </div>
             {
                 changedSlideOrElement || changedSlideOrElement === 0 ?
                     allButtonsInMessage().length === 0 && (
                         <div
-                            className={style.controls}
+                            className={style.variable}
                             style={styleForControls || {}}
                             onClick={() => appendNewButton()}
                         >
@@ -156,7 +166,7 @@ const ButtonsContainer = (props) => {
                     )
                     : allButtonsInMessage().length < 3 && (
                         <div
-                            className={style.controls}
+                            className={style.variable}
                             style={styleForControls || {}}
                             onClick={() => appendNewButton()}
                         >

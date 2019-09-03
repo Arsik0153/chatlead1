@@ -35,7 +35,7 @@ const TextArea = (props) => {
                 {/*tagName='article' // Use a custom HTML tag (uses a div by default)*/}
             {/*/>*/}
             {/*<p onInput={(e) => console.log(e.target)} tabIndex={1} contentEditable={true}>{valueTextArea}</p>*/}
-            <textarea onBlur={(e) => handler(e, index, type)} defaultValue={Object.values(value)[0]} />
+            <textarea id="insertVariable" onBlur={(e) => handler(e, index, type)} defaultValue={Object.values(value)[0]} />
             <ButtonsContainer
                 {...props}
             />
