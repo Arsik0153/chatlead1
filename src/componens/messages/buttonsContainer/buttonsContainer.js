@@ -14,6 +14,7 @@ import {markForButton} from "../../../constants/markForButon";
 
 const ButtonsContainer = (props) => {
     const [indexOpenButton, setIndexOpenButton] = useState(false);
+    
     const {
         type,
         index,
@@ -25,6 +26,9 @@ const ButtonsContainer = (props) => {
         styleForCaption,
         styleForContextMenu
     } = props;
+
+    console.log("TYPE")
+    console.log(type)
 
 
 

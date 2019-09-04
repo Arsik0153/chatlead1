@@ -103,3 +103,7 @@ export const getVkAuthUrl = (userData) => (
 export const getQRCodeUrl = (userData) => (
   axios.post(`${restURL}/GetQRCodeUrl/`, userData)
 );
+
+export const editFastButtonName = (idBtn) => (
+  axios.post(`${restURL}/EditFastBtnName/`, idBtn)
+);

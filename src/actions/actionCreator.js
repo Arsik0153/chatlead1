@@ -176,3 +176,8 @@ export const getQRCodeUrl = (idBot) => ({
    type: ACTION.GET_WA_QR_URL,
    idBot
 });
+
+export const editFastButtonName = (idBtn) => ({
+   type: ACTION.EDIT_FAST_BUTTON_NAME,
+   idBtn
+});

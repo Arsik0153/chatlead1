@@ -1,9 +1,30 @@
 import React, {useState} from 'react';
 import style from './fastButtons.module.sass';
 import ContextMenu from './contextMenu/contextMenu';
+import { updateTrigger } from "../../../../actions/actionCreator";
+import {connect} from 'react-redux';
 
 const FastButtons = (props) => {
     const [isFocusInNewButton, focusInNewButton] = useState(false);
+
+    const handleClick = () => {
+        focusInNewButton(true);
+        //const messagesCopy = changedTrigger.messages;
+
+
+        const updationData = {
+            type: "url"
+        };
+
+        const updatedTrigger = {
+            //...changedTrigger,
+            //index: index,
+            messages: {},
+            botId: props.match.params.botId
+        };
+        props.updateTrigger(updatedTrigger, updationData, props.changedSocial);
+        props.updateTrigger()
+    }
 
     // const {
     //     type,
@@ -30,7 +51,6 @@ const FastButtons = (props) => {
                                 className={style.openNewFastButton}
                                 type={'text'}
                                 autoFocus={true}
-                                onBlur={() => focusInNewButton(false)}
                                 placeholder={'Название'}
                             />
                             <div className={style.contextMenuContainer}>
@@ -54,4 +74,8 @@ const FastButtons = (props) => {
     )
 };
 
-export default FastButtons;
+const mapDispatchToProps = dispatch => ({
+    updateTrigger: (triggerData, updationData, changedSocial) => dispatch(updateTrigger(triggerData, updationData, changedSocial)),
+});
+
+export default connect(null, mapDispatchToProps)(FastButtons);
