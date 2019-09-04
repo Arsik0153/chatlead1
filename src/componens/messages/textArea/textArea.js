@@ -14,6 +14,29 @@ const TextArea = (props) => {
         }
     });
 
+    const [isTextAreaHovering, setIsTextAreaHovering] = useState(false);
+
+    const addName = () => {
+        let myField = document.querySelector("#insertVariable");
+        let myValue = " {firstName}";
+        let input = myField.value;
+        input += myValue;
+        myField.value = input;
+    }
+
+    const addLastName = () => {
+        let myField = document.querySelector("#insertVariable");
+        let myValue = " {lastName}";
+        let input = myField.value;
+        input += myValue;
+        myField.value = input;
+    }
+
+    const handleMouseHover = () => {
+        setIsTextAreaHovering(!isTextAreaHovering);
+        console.log(isTextAreaHovering);
+    }
+
 
     return (
         <div className={style.textArea} key={Object.values(value)[0]}>
@@ -35,7 +58,35 @@ const TextArea = (props) => {
                 {/*tagName='article' // Use a custom HTML tag (uses a div by default)*/}
             {/*/>*/}
             {/*<p onInput={(e) => console.log(e.target)} tabIndex={1} contentEditable={true}>{valueTextArea}</p>*/}
-            <textarea id="insertVariable" onBlur={(e) => handler(e, index, type)} defaultValue={Object.values(value)[0]} />
+            <textarea 
+                id="insertVariable" 
+                onBlur={(e) => handler(e, index, type)} 
+                defaultValue={Object.values(value)[0]}
+            />
+            <div className={style.actionNav}>
+                <div></div>
+                <div className={style.actionButtons}>
+                    <div 
+                        className={style.actionNavSmile}
+                    >
+                    </div>
+                    <div 
+                        className={style.actionNavVars}
+                        onMouseEnter={handleMouseHover}
+                        onMouseLeave={handleMouseHover}
+                    >
+                        { isTextAreaHovering && 
+                        <div className={style.actionNavVarsMenu}>
+                            <h3>Макросы</h3>
+                            <ul>
+                                <li onClick={addName}>Имя</li>
+                                <li onClick={addLastName}>Фамилия</li>
+                            </ul>
+                        </div> }
+                    </div>
+
+                </div>
+            </div>
             <ButtonsContainer
                 {...props}
             />
