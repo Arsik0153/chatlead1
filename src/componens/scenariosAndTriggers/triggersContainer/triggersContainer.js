@@ -24,6 +24,7 @@ const TriggersContainer = (props) => {
     const [triggerTextInputLength, setTriggerTextInputLength] = useState(false);
     const [changedTriggerId, changeTriggerId] = useState(triggers && triggers[0].id);
     const changedTrigger = triggers && triggers.filter(elem => elem.id === changedTriggerId)[0];
+    const activeStep = changedScenario.triggers.find(el => el.id === changedTriggerId);
 
 
     useEffect(() => {
@@ -144,7 +145,7 @@ const TriggersContainer = (props) => {
                                                style={{width: `${triggerTextInputLength || 1}em`}}
                                                onKeyDown={(e) => setTriggerTextInputLength(e.target.value.length || 1)}
                                            /> :
-                                           <p>{triggerText}</p>
+                                           <p>{activeStep.caption}</p>
                                    }
                                </div>
                                {

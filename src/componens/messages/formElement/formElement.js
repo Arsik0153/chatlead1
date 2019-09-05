@@ -45,8 +45,6 @@ const FormElement = (props) => {
             messages: messagesCopy,
             botId: props.match.params.botId
         };
-        console.log("updateTypeTrigger");
-        console.log(triggerData);
 
         props.updateTrigger(triggerData, null, props.changedSocial);
 
