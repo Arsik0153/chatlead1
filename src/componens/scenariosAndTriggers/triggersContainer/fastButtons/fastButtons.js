@@ -23,7 +23,10 @@ const FastButtons = (props) => {
             botId: props.match.params.botId
         };
         props.updateTrigger(updatedTrigger, updationData, props.changedSocial);
-        props.updateTrigger()
+    }
+
+    const handleBlur = () => {
+        props.updateTrigger(null, null, null);
     }
 
     // const {
@@ -52,6 +55,7 @@ const FastButtons = (props) => {
                                 type={'text'}
                                 autoFocus={true}
                                 placeholder={'Название'}
+                                onBlur={() => handleBlur}
                             />
                             <div className={style.contextMenuContainer}>
                                 <ContextMenu
@@ -63,7 +67,7 @@ const FastButtons = (props) => {
 
                         <div
                             className={style.newFastButton}
-                            onClick={() => focusInNewButton(true)}
+                            onClick={focusInNewButton(true)}
                         >
                             + Быстрый ответ
                         </div>
