@@ -7,24 +7,6 @@ import {connect} from 'react-redux';
 const FastButtons = (props) => {
     const [isFocusInNewButton, focusInNewButton] = useState(false);
 
-    const handleClick = () => {
-        focusInNewButton(true);
-        //const messagesCopy = changedTrigger.messages;
-
-
-        const updationData = {
-            type: "url"
-        };
-
-        const updatedTrigger = {
-            //...changedTrigger,
-            //index: index,
-            messages: {},
-            botId: props.match.params.botId
-        };
-        props.updateTrigger(updatedTrigger, updationData, props.changedSocial);
-    }
-
     const handleBlur = () => {
         props.updateTrigger(null, null, null);
     }
@@ -55,7 +37,7 @@ const FastButtons = (props) => {
                                 type={'text'}
                                 autoFocus={true}
                                 placeholder={'Название'}
-                                onBlur={() => handleBlur}
+                                onBlur={() => focusInNewButton(false)}
                             />
                             <div className={style.contextMenuContainer}>
                                 <ContextMenu
@@ -67,7 +49,7 @@ const FastButtons = (props) => {
 
                         <div
                             className={style.newFastButton}
-                            onClick={focusInNewButton(true)}
+                            onClick={() => focusInNewButton(true)}
                         >
                             + Быстрый ответ
                         </div>

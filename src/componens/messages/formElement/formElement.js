@@ -29,6 +29,30 @@ const FormElement = (props) => {
 
     };
 
+    const updateTypeTrigger = (e, inputIndex) => {
+
+        let type = e.target.value;
+
+        const messagesCopy = changedTrigger.messages;
+
+        messagesCopy[props.changedSocial][index].form.splice(inputIndex, 1,  e.target.value);
+
+
+        const triggerData = {
+            ...changedTrigger,
+            index,
+            type,
+            messages: messagesCopy,
+            botId: props.match.params.botId
+        };
+        console.log("updateTypeTrigger");
+        console.log(triggerData);
+
+        props.updateTrigger(triggerData, null, props.changedSocial);
+
+
+    };
+
     const newInput = () => {
         const messagesCopy = changedTrigger.messages;
 
@@ -58,11 +82,19 @@ const FormElement = (props) => {
             </div>
             {
                 Object.values(value)[0].map((elem, inputIndex) => (
-                    <textarea
-                        defaultValue={elem}
-                        onBlur={(e) => updateTrigger(e, inputIndex)}
-                        placeholder={"Введите вопрос"}
-                    />
+                    <div className={style.textareaFlex}>
+                        <textarea
+                            defaultValue={elem}
+                            onBlur={(e) => updateTrigger(e, inputIndex)}
+                            placeholder={"Введите вопрос"}
+                        />
+                        <select value={elem} onChange={(e) => {updateTypeTrigger(e, inputIndex)}}>
+                            <option value="text">Текст</option>
+                            <option value="phone">Телефон</option>
+                            <option value="email">Email</option>
+                            <option value="digits">Цифры</option>
+                        </select>
+                    </div>
                 ))
             }
             <div className={style.addInputButton} onClick={newInput}>+ Поле ввода</div>
