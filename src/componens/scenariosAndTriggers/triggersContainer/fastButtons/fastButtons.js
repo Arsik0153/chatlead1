@@ -7,10 +7,6 @@ import {connect} from 'react-redux';
 const FastButtons = (props) => {
     const [isFocusInNewButton, focusInNewButton] = useState(false);
 
-    const handleBlur = () => {
-        props.updateTrigger(null, null, null);
-    }
-
     // const {
     //     type,
     //     index,
