@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import onClickOutside from "react-onclickoutside";
 import Actions from '../actions/actions';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTimes} from "@fortawesome/free-solid-svg-icons";
+import {faTimes, faEnvelope, faPhoneAlt, faLink} from "@fortawesome/free-solid-svg-icons";
 import Select from 'react-select'
 import Controls from './controls/controls';
 
@@ -165,6 +165,7 @@ const ContextMenu = (props) => {
                             }}
                             className={style.changerElement}
                         >
+                            <FontAwesomeIcon icon={faEnvelope} size="lg"/>
                             Отправить сообщение
                         </div>
                         <div
@@ -177,7 +178,21 @@ const ContextMenu = (props) => {
                             }}
                             className={style.changerElement}
                         >
+                            <FontAwesomeIcon icon={faLink} size="lg" color="dodgerblue"/>
                             Открыть веб-сайт
+                        </div>
+                        <div
+                            onClick={() => {
+                                buttonEditHandler(
+                                    buttonsTypes.call_buttons,
+                                    defaultValuesForNewButtons[buttonsTypes.call_buttons],
+                                    indexButton
+                                )
+                            }}
+                            className={style.changerElement}
+                        >
+                            <FontAwesomeIcon icon={faPhoneAlt} size="lg" color="limegreen"/>
+                            Добавить вызов
                         </div>
 
                         {/*{*/}
@@ -289,6 +304,49 @@ const ContextMenu = (props) => {
                             type={'text'}
                             placeholder={'URL'}
                             defaultValue={buttonData.url}
+                            onInput={editButton}
+                        />
+
+                        <Actions
+                            {...props}
+                        />
+                        <Controls
+                            {...props}
+                        />
+                    </div>
+                </>
+            )
+
+        }else if(typeButton === buttonsTypes.call_buttons) {
+            return (
+                <>
+                    <div className={style.header}>
+                        Редактировать кнопку
+                    </div>
+                    <div className={style.buttonChanger}>
+                        <h2>Заголовок кнопки</h2>
+                        <input
+                            type={'text'}
+                            defaultValue={buttonData.caption}
+                            placeholder={'title'}
+                            onInput={(e) => editButton(e, true)}
+                        />
+                        <div className={style.inputContainer}>
+                            <div className={style.closedButton}>Открыть номер телефона</div>
+                            <div
+                                className={style.closeButton}
+                                onClick={() => buttonEditHandler(typeButton, Object.assign(buttonData, {
+                                    caption: ''
+                                }), indexButton, true)}
+                            >
+                                <FontAwesomeIcon icon={faTimes}/>
+                            </div>
+                        </div>
+                        <h2>Номер телефона</h2>
+                        <input
+                            type={'tel'}
+                            placeholder={'Телефон'}
+                            defaultValue={buttonData.call}
                             onInput={editButton}
                         />
 
