@@ -94,18 +94,6 @@ export const addNewMessagesButtons = {
             icon: <img src={file} alt={'file'} />,
             type: 'file'
         }, {
-            label: '+Карта',
-            icon: <img src={card} alt={'card'} />,
-            type: 'card'
-        }, {
-            label: '+Галерея',
-            icon: <img src={gallery} alt={'gallery'} />,
-            type: 'gallery'
-        }, {
-            label: '+Список',
-            icon: <img src={list} alt={'list'} />,
-            type: 'list'
-        }, {
             label: '+Пауза',
             type: 'timer',
             icon: <img src={pause} alt={'pause'} />,
@@ -216,10 +204,6 @@ export const addNewMessagesButtons = {
             icon: <img src={sendTime} alt={'sendTime'} />,
             type: 'timer',
             optionalType: 'send_time'
-        }, {
-            label: '+Печать',
-            icon: <img src={print} alt={'typing'} />,
-            type: 'type_processing'
         }
     ]
 };
