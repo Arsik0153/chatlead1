@@ -131,7 +131,7 @@ const BroadCastContainer = (props) => {
                 <div className={style.createButton} onClick={appendBroadcastHandler}>Создать рассылку</div>
                 <div className={style.hardLine} />
                 <div className={style.infoBlock}>
-                    <FontAwesomeIcon icon={faInfoCircle}/>
+                    <FontAwesomeIcon icon={faInfoCircle} size="lg"/>
                     <div className={style.infoText}>
                         <p>Ответы на популярные вопросы и уроки по настройке бота находятся в Руководстве.</p>
                         <span>Перейти в руководство</span>
@@ -140,7 +140,13 @@ const BroadCastContainer = (props) => {
             </div>
             <div className={style.scenariosContainer}>
                 <div className={style.inputContainer}>
-                    <h2>Рассылка</h2>
+                    <div className={style.flexLeft}>
+                        <h2>Рассылка</h2>
+                        <div className={style.icon}>
+                            <span className={style.tooltipText}>Рассылка</span>
+                            <FontAwesomeIcon icon={faInfoCircle} size="lg"/>
+                        </div>
+                    </div>
                     <ul className={style.navbar}>
                         <li
                             onClick={() => changeTypeBroadcast('sended')}
