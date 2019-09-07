@@ -11,15 +11,23 @@ import {signUp, auth} from "../../../actions/actionCreator";
 
 const SignUpForm = (props) => {
     const {registration} = props;
+    console.log(props);
     const [isError, setError] = useState(false);
+    const data = registration && {
+        ...registration.values,
+        optional_parameters: [
+            "ref",
+            "utm_source"
+        ]
+    }
 
     const submit = (values) => {
 
         if(registration.syncErrors) {
             setError(true);
         }else {
-            props.signUpAction(registration.values, props.history);
-            props.authAction(registration.values, props.history);
+            props.signUpAction(data, props.history);
+            props.authAction(data, props.history);
         }
 
     };
