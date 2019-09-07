@@ -64,7 +64,6 @@ const TextArea = (props) => {
                 defaultValue={Object.values(value)[0]}
             />
             <div className={style.actionNav}>
-                <div></div>
                 <div className={style.actionButtons}>
                     <div 
                         className={style.actionNavSmile}
@@ -86,6 +85,7 @@ const TextArea = (props) => {
                     </div>
 
                 </div>
+                <div></div>
             </div>
             <ButtonsContainer
                 {...props}
