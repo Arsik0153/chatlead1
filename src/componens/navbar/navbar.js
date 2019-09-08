@@ -83,7 +83,7 @@ const Navbar = (props) => {
                         className={style.link}
                         activeClassName={style.activeLink}
                     >
-                        <svg className={style.swg_style} xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512.003 512.003">
+                        <svg className={`${style.swg_style} ${style.swg_style__big}`} xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512.003 512.003">
                         <g data-name="1" id="_1"><path d="M291.48,449.94A15,15,0,0,1,278,441.5L207.5,296.57,62.57,226.08a15,15,0,0,1,1-27.41L435.48,49.08A15,15,0,0,1,455,68.6L305.4,440.54A15,15,0,0,1,292,449.93Zm-185.38-236,119.18,58a15,15,0,0,1,6.93,6.93l58,119.18L414,90Z"/><path d="M218.72,300.35a15,15,0,0,1-10.6-25.61L430.47,52.39a15,15,0,1,1,21.21,2К1.22L229.33,296A15,15,0,0,1,218.72,300.35Z"/></g></svg>
                         рассылка
                     </NavLink>
@@ -94,7 +94,7 @@ const Navbar = (props) => {
                         className={style.link}
                         activeClassName={style.activeLink}
                     >
-                        <svg className={style.swg_style} xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 32 32">
+                        <svg className={`${style.swg_style} ${style.swg_style__big}`} xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 32 32">
                         <g data-name="Layer 25" id="Layer_25"><path class="cls-1" d="M24,22a1,1,0,0,1-.64-.23L18.84,18H17A8,8,0,0,1,17,2h6a8,8,0,0,1,2,15.74V21a1,1,0,0,1-.58.91A1,1,0,0,1,24,22ZM17,4a6,6,0,0,0,0,12h2.2a1,1,0,0,1,.64.23L23,18.86V16.92a1,1,0,0,1,.86-1A6,6,0,0,0,23,4Z"/><rect class="cls-1" height="2" width="2" x="19" y="9"/><rect class="cls-1" height="2" width="2" x="14" y="9"/><rect class="cls-1" height="2" width="2" x="24" y="9"/><path class="cls-1" d="M8,30a1,1,0,0,1-.42-.09A1,1,0,0,1,7,29V25.74a8,8,0,0,1-1.28-15,1,1,0,1,1,.82,1.82,6,6,0,0,0,1.6,11.4,1,1,0,0,1,.86,1v1.94l3.16-2.63A1,1,0,0,1,12.8,24H15a5.94,5.94,0,0,0,4.29-1.82,1,1,0,0,1,1.44,1.4A8,8,0,0,1,15,26H13.16L8.64,29.77A1,1,0,0,1,8,30Z"/></g></svg>
                         диалог
                     </NavLink>
@@ -105,7 +105,7 @@ const Navbar = (props) => {
                         className={style.link}
                         activeClassName={style.activeLink}
                     >
-                        <svg className={style.swg_style} xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512">
+                        <svg className={`${style.swg_style} ${style.swg_style__big}`} xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512">
                         <g>
                             <g>
                                 <path d="M359.656,333.912c-39.314-21.896-91.322-33.954-146.44-33.954c-55.12,0-107.126,12.059-146.44,33.954    C23.715,357.893,0,391.167,0,427.604v21.392c0,11.422,9.26,20.681,20.682,20.681c11.422,0,20.682-9.259,20.682-20.682v-21.392    c0-20.46,16.597-41.437,45.536-57.553c33.263-18.525,78.121-28.727,126.314-28.727c48.193,0,93.052,10.202,126.315,28.727    c28.939,16.116,45.536,37.094,45.536,57.554v21.392c0,11.423,9.259,20.682,20.682,20.682c11.423,0,20.682-9.26,20.683-20.682    v-21.392C426.431,391.167,402.716,357.893,359.656,333.912z"/>
