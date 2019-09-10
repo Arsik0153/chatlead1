@@ -32,20 +32,60 @@ const SetupWideColumn = (props) => {
 
     const [WillSend, setWillSend] = useState(0);
     const [MailAndWasap, setMW] = useState(0);
-    const [emailList, setEmailList] = useState([
-        "example@example.com",
-        "arsik0153@gmail.com",
-        "hello@hello.com"
-    ]);
+
+    const [emailList, setEmailList] = useState([]);
+    const [telList, setTelList] = useState([]);
     
     const handleSubmit = (e) => {
-        const email = document.querySelector("#notificationEmail")
         e.preventDefault();
+        const email = document.querySelector("#notificationEmail");
+        const tel = document.querySelector("#notificationTel");
+
+        if(email.value !== ""){
             setEmailList([
                 ...emailList,
                 email.value
             ]);
-        email.value = ""
+            props.editManager({
+                idBot: botId,
+                application_will_send: WillSend,
+                application_email: emailList,
+                application_whatsapp_id: telList,
+                optional_params: ["application_email", "application_whatsapp_id", "application_will_send"]
+            });
+        }
+        if(tel.value !== ""){
+            setTelList([
+                ...telList,
+                tel.value
+            ]);
+            props.editManager({
+                idBot: botId,
+                application_will_send: WillSend,
+                application_email: emailList,
+                application_whatsapp_id: telList,
+                optional_params: ["application_email", "application_whatsapp_id", "application_will_send"]
+            });
+        }
+        email.value = "";
+        tel.value = "";
+    }
+
+    const deleteNotificationElement = (type, index) => {
+        if (type === "email"){
+            let newEmailList = emailList;
+            newEmailList.splice(index, 1);
+            setEmailList([
+                ...newEmailList
+            ]);
+        }
+        if (type === "tel"){
+            let newTelList = telList;
+            newTelList.splice(index, 1);
+            setTelList([
+                ...newTelList
+            ]);
+        }
     }
 
     console.log(props.botSetupData);
@@ -163,7 +203,7 @@ const SetupWideColumn = (props) => {
                 </header>
                 <section>
                     <div className={style.notifyme}>
-                        <form action="" onSubmit={handleSubmit}>
+                        <form action="" onSubmit={(e) => handleSubmit(e)}>
                             <h3>Оповещение</h3>
                             <div className={style.switcher}>
                                 <label className={style.switch}>
@@ -171,7 +211,7 @@ const SetupWideColumn = (props) => {
                                     <span className={style.slider+" "+style.round}></span>
                                 </label>
                                 <p>Получать уведомления о заявках</p>
-                                <button className={style.default_btn+" "+style.default_btn__primary} onClick={(e) => {/*
+                                {/*<button className={style.default_btn+" "+style.default_btn__primary} onClick={(e) => {/*
                             e.preventDefault();
                             console.log(document.querySelector('.'+style.notifyme+' input[type=checkbox]').checked)
                             props.editManager({
@@ -181,31 +221,43 @@ const SetupWideColumn = (props) => {
                                 application_whatsapp_id: document.querySelector('.'+style.notifyme+' input[name=phone]').value,
                                 optional_params: ["application_email", "application_whatsapp_id", "application_will_send"]
                             });
-                            */}
-                            }>Сохранить</button>
+                            }>Сохранить</button>*/}
                             </div>
                             {}
                             <div className={style.switcher+" "}>
                                 <div className={style.switcherContainer}>
                                     <div className={style.list}>
-                                        { emailList && emailList.map((email) =>
+                                        { emailList && emailList.map((email, index) =>
                                             <div>
                                                 {email}
-                                                <span>×</span>
+                                                <span onClick={() => deleteNotificationElement("email", index)}>×</span>
                                             </div>
                                          )}
                                         <input id="notificationEmail" type="text" name="mail" placeholder="example@mail.com"/>
                                     </div>
                                     
                                 </div>
+
+                                <div className={style.switcherContainer}>
+                                    <div className={style.list}>
+                                        { telList && telList.map((tel, index) =>
+                                            <div>
+                                                {tel}
+                                                <span onClick={() => deleteNotificationElement("tel", index)}>×</span>
+                                            </div>
+                                         )}
+                                        <input id="notificationTel" type="text" name="name" placeholder="example@mail.com"/>
+                                    </div>
+                                    
+                                </div>
                                 
                                 {/*<input type="text" name="phone" placeholder="+7 ___ ___ __ __"/>*/}
-                                <button className={style.default_btn+" "+style.default_btn__primary}>Добавить</button>
                             </div>
                             <div className={style.switcher+" "+style.underinput}>
                                 <span>Добавьте емейл, на который отправлять уведомления и нажмите Enter </span>
                                 <span>Или Напишите WhatsApp номер</span>
                             </div>
+                            <button className={style.default_btn+" "+style.default_btn__primary}>Добавить</button>
                         </form>
                     </div>
                 </section>
