@@ -45,5 +45,6 @@ export const destinationScenario = {
     broadcast: 'broadcast',
     autoride: 'autoride',
     welcome_message: 'welcome_message',
+    subscription_message: 'subscription_message',
     default_response: 'default_response'
 };

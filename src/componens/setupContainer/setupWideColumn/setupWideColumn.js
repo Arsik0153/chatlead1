@@ -19,7 +19,8 @@ import faceBookMassanger from "../../../images/facebook-messenger-logo-big.png";
 
 const SetupWideColumn = (props) => {
     const botId = props.botSetupData.id;
-    const {default_response, welcome_message} = props.botSetupData;
+    const {default_response, welcome_message, subscription_message} = props.botSetupData;
+    console.log(props.botSetupData)
 
 
     const reactionBots = (typeReaction, statusChecked) => {
@@ -124,7 +125,7 @@ const SetupWideColumn = (props) => {
                                         checked={welcome_message && welcome_message !== 'null'}
                                         onChange={(e) => reactionBots(
                                             destinationScenario.welcome_message,
-                                            e.target.checked
+                                            true
                                         )}
                                     />
                                     <label htmlFor={'welcome_message'} />
@@ -146,7 +147,11 @@ const SetupWideColumn = (props) => {
                                         type={'checkbox'}
                                         className={style.statusIcon}
                                         id={'follow'}
-                                        disabled={true}
+                                        checked={subscription_message && subscription_message !== 'null'}
+                                        onChange={(e) => reactionBots(
+                                            destinationScenario.subscription_message,
+                                            true
+                                        )}
                                     />
                                     <label htmlFor={'follow'} />
                                 </div>
