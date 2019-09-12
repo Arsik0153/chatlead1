@@ -262,7 +262,7 @@ const SetupWideColumn = (props) => {
                                 <span>Добавьте емейл, на который отправлять уведомления и нажмите Enter </span>
                                 <span>Или Напишите WhatsApp номер</span>
                             </div>
-                            <button className={style.default_btn+" "+style.default_btn__primary}>Добавить</button>
+                            <button className={style.default_btn+" "+style.default_btn__primary}>Сохранить</button>
                         </form>
                     </div>
                 </section>
@@ -270,12 +270,12 @@ const SetupWideColumn = (props) => {
                     <div className={style.integration}>
                         <h1>Интеграция</h1>
                         <ul className={style.crm+" crm"}>
-                            <li className="amocrm" onClick={() => {document.getElementById('menu_bitrix').classList.remove(style.show);document.getElementById('menu_amo').classList.add(style.show);} }>
+                            <li className="amocrm" id="amocrm-container" onClick={() => {document.getElementById('bitrix-container').classList.remove(style.activeContainer);document.getElementById('amocrm-container').classList.add(style.activeContainer);document.getElementById('menu_bitrix').classList.remove(style.show);document.getElementById('menu_amo').classList.add(style.show);} }>
                                 <a href="javascript:void(0)" data-target="menu_amo">
                                     <img src={amocrm_logo} alt=""/>
                                 </a>
                             </li>
-                            <li className="bitrix" onClick={() => {document.getElementById('menu_amo').classList.remove(style.show);document.getElementById('menu_bitrix').classList.add(style.show);}}>
+                            <li className="bitrix" id="bitrix-container" onClick={() => {document.getElementById('bitrix-container').classList.add(style.activeContainer);document.getElementById('amocrm-container').classList.remove(style.activeContainer);document.getElementById('menu_amo').classList.remove(style.show);document.getElementById('menu_bitrix').classList.add(style.show);}}>
                                 <a href="javascript:void(0)" data-target="menu_bitrix">
                                     <img src={bitrix_logo} alt=""/>
                                 </a>
