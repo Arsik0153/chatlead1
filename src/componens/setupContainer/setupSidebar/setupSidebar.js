@@ -44,7 +44,22 @@ const SetupSidebar = (props) => {
                     </label>
                     <div className="for-fb">
                         {props.botSetupData.facebook_name!=='' ? (
-                        <p className={style.ui_vmenu__item_p}>{props.botSetupData.facebook_name}</p>
+                            <>
+                            <p className={style.ui_vmenu__item_p}>{props.botSetupData.facebook_name}</p>
+                            <p className={style.ui_vmenu__item_p}> Для переавторизации: <br/>ШАГ 1: Авторизуйтесь через ваш Facebook аккаунт. Вы должны иметь права на управление страницами Facebook. <a href="">Подробнее.</a></p>
+                            <button onClick={(e) => {
+                                e.preventDefault();
+                                const formData = new FormData();
+                                formData.append('user_token', localStorage.getItem('token'));
+                                formData.append('manager_id', botId);
+                                getFacebookAuthUrl(formData).then(result => {
+                                    if (result.data.url) {
+                                        window.open(result.data.url);
+                                    }
+                                });
+                                }} className={style.ui_vmenu_sep_button}><span>АВТОРИЗОВАТЬСЯ</span>
+                            </button>
+                            </>
                         ) : (
                         <div>
                         <p className={style.ui_vmenu__item_p}>ШАГ 1: Авторизуйтесь через ваш Facebook аккаунт. Вы должны иметь права на управление страницами Facebook. <a href="">Подробнее.</a></p>
@@ -66,7 +81,24 @@ const SetupSidebar = (props) => {
                     </div>
                     <div className="for-telegram" style={{display: "none;"}}>
                         {props.botSetupData.telegram_name!=='' ? (
+                            <>
                             <p className={style.ui_vmenu__item_p}>{props.botSetupData.telegram_name}</p>
+                            <p className={style.ui_vmenu__item_p}>ШАГ 1: Введите токен доступа скрипт ниже. <a href="">узнаете больше</a> о том, как получить токен. </p>
+                            <label className={style.ui_vmenu__item}>
+                                <input type="text" name="token" placeholder="Token" className={style.telegram_input}/>
+                            </label>
+                            <button onClick={(e) => {
+                                e.preventDefault();
+                                props.editManager({
+                                    idBot: botId,
+                                    telegram_token: document.querySelector('input[name=token]').value,
+                                    optional_params: ["telegram_token"]
+                                });
+                                    }
+                                } className={style.ui_vmenu_sep_button}>
+                                        <span>ПЕРЕАВТОРИЗОВАТЬСЯ</span>
+                            </button>
+                            </>
                         ) : (
                         <div>
                         <p className={style.ui_vmenu__item_p}>ШАГ 1: Введите токен доступа скрипт ниже. <a href="">узнаете больше</a> о том, как получить токен. </p>
@@ -91,7 +123,21 @@ const SetupSidebar = (props) => {
                     </div>
                     <div className="for-vk" style={{display: "none;"}}>
                         {props.botSetupData.vk_name!=='' ? (
-                            <p className={style.ui_vmenu__item_p}>{props.botSetupData.vk_name}</p>
+                            <>
+                                <p className={style.ui_vmenu__item_p}>{props.botSetupData.vk_name}</p>
+                                <button onClick={(e) => {
+                                e.preventDefault();
+                                const formData = new FormData();
+                                formData.append('user_token', localStorage.getItem('token'));
+                                formData.append('manager_id', botId);
+                                getVkAuthUrl(formData).then(result => {
+                                    if (result.data.ok) {
+                                        window.open(result.data.url);
+                                    }
+                                });
+                                }} className={style.ui_vmenu_sep_button}><span>ПЕРЕАВТОРИЗОВАТЬСЯ</span>
+                                </button>
+                            </>
                         ) : (
                             <div>
                         <p className={style.ui_vmenu__item_p}>ШАГ 1: Подключите свой аккаунт Вконтакте. Вам нужно иметь права администратора.</p>

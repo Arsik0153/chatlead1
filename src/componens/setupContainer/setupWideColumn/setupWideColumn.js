@@ -20,9 +20,8 @@ import faceBookMassanger from "../../../images/facebook-messenger-logo-big.png";
 const SetupWideColumn = (props) => {
     const botId = props.botSetupData.id;
     const {default_response, welcome_message, subscription_message} = props.botSetupData;
-    console.log(props.botSetupData)
-
-
+    let oldEmail = props.botSetupData.application_email && props.botSetupData.application_email.split(",");
+    let oldTel = props.botSetupData.application_whatsapp_id && props.botSetupData.application_whatsapp_id.split(",");
     const reactionBots = (typeReaction, statusChecked) => {
         props.updateBotReactions({
             typeReaction,
@@ -47,11 +46,12 @@ const SetupWideColumn = (props) => {
                 ...emailList,
                 email.value
             ]);
+            
             props.editManager({
                 idBot: botId,
                 application_will_send: WillSend,
-                application_email: emailList,
-                application_whatsapp_id: telList,
+                application_email: emailList.toString(),
+                application_whatsapp_id: telList.toString(),
                 optional_params: ["application_email", "application_whatsapp_id", "application_will_send"]
             });
         }
@@ -63,8 +63,8 @@ const SetupWideColumn = (props) => {
             props.editManager({
                 idBot: botId,
                 application_will_send: WillSend,
-                application_email: emailList,
-                application_whatsapp_id: telList,
+                application_email: emailList.toString(),
+                application_whatsapp_id: telList.toString(),
                 optional_params: ["application_email", "application_whatsapp_id", "application_will_send"]
             });
         }
@@ -79,6 +79,13 @@ const SetupWideColumn = (props) => {
             setEmailList([
                 ...newEmailList
             ]);
+            props.editManager({
+                idBot: botId,
+                application_will_send: WillSend,
+                application_email: emailList.toString(),
+                application_whatsapp_id: telList.toString(),
+                optional_params: ["application_email", "application_whatsapp_id", "application_will_send"]
+            });
         }
         if (type === "tel"){
             let newTelList = telList;
@@ -86,10 +93,15 @@ const SetupWideColumn = (props) => {
             setTelList([
                 ...newTelList
             ]);
+            props.editManager({
+                idBot: botId,
+                application_will_send: WillSend,
+                application_email: emailList.toString(),
+                application_whatsapp_id: telList.toString(),
+                optional_params: ["application_email", "application_whatsapp_id", "application_will_send"]
+            });
         }
     }
-
-    console.log(props.botSetupData);
     
     useEffect(() => {
         setWillSend(props.botSetupData.application_will_send);
@@ -99,6 +111,9 @@ const SetupWideColumn = (props) => {
                 wa: props.botSetupData.application_whatsapp_id.split(',') })
         )
 
+        setEmailList(oldEmail)
+        setTelList(oldTel)
+        console.log("LOADED")
     }, [props.botSetupData]);
 
 
